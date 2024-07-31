@@ -3,10 +3,12 @@ id: 8ab4525a-716c-48ab-9531-2850b1a4f88c
 management:
   docChecksum: 9a90e56f39162805896ae234e3c0001b
   docVersion: "1.0"
-  speakeasyVersion: 1.348.2
-  generationVersion: 2.380.2
-  releaseVersion: 0.0.1
-  configChecksum: 9df8eb0dd79683582935d7c49818f102
+  speakeasyVersion: 1.349.0
+  generationVersion: 2.382.0
+  releaseVersion: 0.0.2
+  configChecksum: 019a3cce0e7d8a6bbc99164cefbcfe87
+  repoURL: https://github.com/panoratech/panora-ruby.git
+  installationURL: https://github.com/panoratech/panora-ruby
 features:
   ruby:
     core: 3.2.18

@@ -21,7 +21,7 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 
 ```bash
 gem install specific_install
-gem specific_install  
+gem specific_install https://github.com/panoratech/panora-ruby 
 ```
 <!-- End SDK Installation [installation] -->
 
