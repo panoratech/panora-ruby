@@ -1,4 +1,5 @@
 workflowVersion: 1.0.0
+speakeasyVersion: latest
 sources:
     Panora-OAS:
         inputs:
@@ -8,7 +9,7 @@ sources:
 targets:
     panora:
         target: ruby
-        source: openapi-main
+        source: Panora-OAS
         codeSamples:
             output: codeSamples.yaml
             registry:
