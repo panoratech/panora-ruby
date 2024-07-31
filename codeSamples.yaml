@@ -1,0 +1,1265 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for ruby target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/ticketing/tickets/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingTicket
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_tickets.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ticketing_ticket_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/engagements"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmEngagements
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_engagements.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/comments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingComments
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_comments.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/timeoffs/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisTimeoff
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_timeoffs.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_timeoff_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/timeoffbalances/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisTimeoffbalance
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_timeoffbalances.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_timeoffbalance_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/tickets"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createTicketingTicket
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_tickets.create(x_connection_token=\"<value>\", unified_ticketing_ticket_input=::OpenApiSDK::Shared::UnifiedTicketingTicketInput.new(\n    name: \"<value>\",\n    description: \"Multi-tiered human-resource model\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_ticketing_ticket_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/campaigns/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationCampaign
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_campaigns.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_campaign_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/emails/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationEmail
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_emails.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_email_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/stages/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmStage
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_stages.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_stage_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/contacts"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingContact
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_contacts.create(x_connection_token=\"<value>\", unified_accounting_contact_input=::OpenApiSDK::Shared::UnifiedAccountingContactInput.new(), remote_data=false)\n\nif ! res.unified_accounting_contact_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/trackingcategories"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingTrackingCategorys
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_trackingcategories.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/scorecards"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsScorecard
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_scorecards.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/linked-users/single"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveLinkedUser
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.linked_users.retrieve(id=\"<value>\")\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/accounting/accounts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingAccount
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_accounts.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_account_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/companyinfos"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingCompanyInfos
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_companyinfos.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/events"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingAutomationEvents
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_events.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/deals"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmDeals
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_deals.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/tickets"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingTicket
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_tickets.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/stages"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmStages
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_stages.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/applications/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsApplication
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_applications.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_application_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/candidates"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAtsCandidate
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_candidates.create(x_connection_token=\"<value>\", unified_ats_candidate_input=::OpenApiSDK::Shared::UnifiedAtsCandidateInput.new(\n    field_mappings: ::OpenApiSDK::Shared::UnifiedAtsCandidateInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_ats_candidate_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/health"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: health
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.health()\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/accounting/purchaseorders"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingPurchaseOrder
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_purchaseorders.create(x_connection_token=\"<value>\", unified_accounting_purchaseorder_input=::OpenApiSDK::Shared::UnifiedAccountingPurchaseorderInput.new(), remote_data=false)\n\nif ! res.unified_accounting_purchaseorder_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/candidates"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsCandidate
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_candidates.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/jobs/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsJob
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_jobs.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_job_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/phonenumbers"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingPhonenumber
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_phonenumbers.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hello
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hello()\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/accounting/expenses"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingExpense
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_expenses.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/journalentries/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingJournalEntry
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_journalentries.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_journalentry_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/interviews"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAtsInterview
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_interviews.create(x_connection_token=\"<value>\", unified_ats_interview_input=::OpenApiSDK::Shared::UnifiedAtsInterviewInput.new(\n    field_mappings: ::OpenApiSDK::Shared::UnifiedAtsInterviewInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_ats_interview_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/offers"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsOffer
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_offers.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/attachments"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAtsAttachment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_attachments.create(x_connection_token=\"<value>\", unified_ats_attachment_input=::OpenApiSDK::Shared::UnifiedAtsAttachmentInput.new(\n    field_mappings: ::OpenApiSDK::Shared::UnifiedAtsAttachmentInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_ats_attachment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/automations/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationAutomation
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_automations.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_automation_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/interviews"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsInterview
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_interviews.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/teams/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingTeam
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_teams.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ticketing_team_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/linked-users"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listLinkedUsers
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.linked_users.list()\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/hris/employments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisEmployment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employments.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_employment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/balancesheets/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingBalanceSheet
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_balancesheets.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_balancesheet_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/drives"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listFilestorageDrives
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_drives.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/accounts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingAccount
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_accounts.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ticketing_account_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/invoices"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingInvoice
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_invoices.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/vendorcredits/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingVendorCredit
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_vendorcredits.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_vendorcredit_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/applications"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsApplication
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_applications.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/webhook/{id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: updateStatus
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.webhook.update_status(id=\"<value>\")\n\nif ! res.webhook_response.nil?\n  # handle response\nend"
+  - target: $["paths"]["/linked-users/fromRemoteId"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: remoteId
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.linked_users.remote_id(remote_id=\"<value>\")\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/lists"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createMarketingautomationList
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_lists.create(x_connection_token=\"<value>\", unified_marketingautomation_list_input=::OpenApiSDK::Shared::UnifiedMarketingautomationListInput.new(), remote_data=false)\n\nif ! res.unified_marketingautomation_list_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/expenses/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingExpense
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_expenses.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_expense_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/companies/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmCompany
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_companies.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_company_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/payments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingPayment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_payments.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_payment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/companies"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisCompanys
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_companies.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/emails"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingautomationEmails
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_emails.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/departments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsDepartments
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_departments.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/activities"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAtsActivity
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_activities.create(x_connection_token=\"<value>\", unified_ats_activity_input=::OpenApiSDK::Shared::UnifiedAtsActivityInput.new(\n    field_mappings: ::OpenApiSDK::Shared::UnifiedAtsActivityInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_ats_activity_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/notes"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmNote
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_notes.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employees"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisEmployee
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employees.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/files/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveFilestorageFile
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_files.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_filestorage_file_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/engagements/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmEngagement
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_engagements.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_engagement_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/events/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationEvent
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_events.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_event_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/users/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingAutomationUser
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_users.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_user_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/folders"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listFilestorageFolder
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_folders.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/rejectreasons/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsRejectReason
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_rejectreasons.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_rejectreason_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/users"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsUsers
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_users.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/accounts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingAccounts
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_accounts.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/trackingcategories/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingTrackingCategory
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_trackingcategories.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_trackingcategory_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/attachments"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingAttachment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_attachments.create(x_connection_token=\"<value>\", unified_accounting_attachment_input=::OpenApiSDK::Shared::UnifiedAccountingAttachmentInput.new(), remote_data=false)\n\nif ! res.unified_accounting_attachment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/payments"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingPayment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_payments.create(x_connection_token=\"<value>\", unified_accounting_payment_input=::OpenApiSDK::Shared::UnifiedAccountingPaymentInput.new(), remote_data=false)\n\nif ! res.unified_accounting_payment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/webhook/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: delete
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.webhook.delete(id=\"<value>\")\n\nif ! res.webhook_response.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employerbenefits/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisEmployerBenefit
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employerbenefits.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_employerbenefit_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/notes"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createCrmNote
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_notes.create(x_connection_token=\"<value>\", unified_crm_note_input=::OpenApiSDK::Shared::UnifiedCrmNoteInput.new(\n    content: \"<value>\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmNoteInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_crm_note_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employees/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisEmployee
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employees.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_employee_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/users"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingAutomationUsers
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_users.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/activities"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsActivity
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_activities.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/addresses/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingAddress
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_addresses.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_address_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/users/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveFilestorageUser
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_users.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_user_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/passthrough"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: request
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.passthrough.request(integration_id=\"<value>\", linked_user_id=\"<value>\", vertical=\"<value>\", pass_through_request_dto=::OpenApiSDK::Shared::PassThroughRequestDto.new(\n    method: ::OpenApiSDK::Shared::Method::GET,\n    path: \"/dev\",\n  ))\n\nif ! res.pass_through_response.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/users/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingUser
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_users.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ticketing_user_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/teams"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingTeams
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_teams.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/offices/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsOffice
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_offices.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_office_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/invoices"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingInvoice
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_invoices.create(x_connection_token=\"<value>\", unified_accounting_invoice_input=::OpenApiSDK::Shared::UnifiedAccountingInvoiceInput.new(), remote_data=false)\n\nif ! res.unified_accounting_invoice_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/files"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listFilestorageFile
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_files.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/users"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingUsers
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_users.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/payments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingPayment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_payments.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/engagements"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createCrmEngagement
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_engagements.create(x_connection_token=\"<value>\", unified_crm_engagement_input=::OpenApiSDK::Shared::UnifiedCrmEngagementInput.new(\n    type: \"<value>\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmEngagementInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_crm_engagement_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/locations"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisLocation
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_locations.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/offices"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsOffice
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_offices.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/tags"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsTags
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_tags.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/phonenumbers/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingPhonenumber
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_phonenumbers.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_phonenumber_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/folders"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createFilestorageFolder
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_folders.create(x_connection_token=\"<value>\", remote_data=false, unified_filestorage_folder_input=::OpenApiSDK::Shared::UnifiedFilestorageFolderInput.new(\n    name: \"<value>\",\n    size: \"<value>\",\n    folder_url: \"<value>\",\n    description: \"Multi-tiered human-resource model\",\n    drive_id: \"<value>\",\n    parent_folder_id: \"<value>\",\n    shared_link: \"<value>\",\n    permission: \"<value>\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageFolderInputFieldMappings.new(),\n  ))\n\nif ! res.unified_filestorage_folder_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/groups"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listFilestorageGroup
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_groups.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/deals/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmDeal
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_deals.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_deal_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/bankinfos"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisBankinfo
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_bankinfos.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/paygroups/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisPaygroup
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_paygroups.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_paygroup_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/users/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsUser
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_users.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_user_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/contacts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmContact
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_contacts.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_contact_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/companyinfos/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingCompanyInfo
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_companyinfos.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_companyinfo_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/eeocs/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsEeocs
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_eeocs.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_eeocs_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/sync/resync"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: resync
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.sync.resync()\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/hris/benefits/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisBenefit
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_benefits.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_benefit_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/dependents"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisDependents
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_dependents.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/contacts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingContact
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_contacts.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/invoices/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingInvoice
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_invoices.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_invoice_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/creditnotes/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingCreditNote
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_creditnotes.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_creditnote_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/journalentries"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingJournalEntry
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_journalentries.create(x_connection_token=\"<value>\", unified_accounting_journalentry_input=::OpenApiSDK::Shared::UnifiedAccountingJournalentryInput.new(), remote_data=false)\n\nif ! res.unified_accounting_journalentry_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/attachments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingAttachments
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_attachments.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/users/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmUser
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_users.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_user_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisEmployment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employments.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/actions/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationAction
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_actions.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_action_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/messages"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingautomationMessages
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_messages.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/notes/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmNote
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_notes.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_note_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/field-mappings"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: create
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::CustomFieldCreateDto.new(\n  object_type_owner: \"<value>\",\n  name: \"<value>\",\n  description: \"Multi-tiered human-resource model\",\n  data_type: \"enum\",\n  source_custom_field_id: \"<value>\",\n  source_provider: \"<value>\",\n  linked_user_id: \"<value>\",\n)\n    \nres = s.field_mappings.create(req)\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/ats/rejectreasons"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsRejectReasons
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_rejectreasons.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/actions"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createMarketingautomationAction
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_actions.create(x_connection_token=\"<value>\", unified_marketingautomation_action_input=::OpenApiSDK::Shared::UnifiedMarketingautomationActionInput.new(), remote_data=false)\n\nif ! res.unified_marketingautomation_action_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/collections/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCollection
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_collections.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ticketing_collection_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/tags/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingTag
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_tags.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ticketing_tag_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/groups/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisGroup
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_groups.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_group_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/attachments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsAttachment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_attachments.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_attachment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/jobinterviewstages"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsJobInterviewStage
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_jobinterviewstages.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/sync/status/{vertical}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: status
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.sync.status(vertical=\"<value>\")\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/contacts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingContacts
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_contacts.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employees"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createHrisEmployee
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employees.create(x_connection_token=\"<value>\", unified_hris_employee_input=::OpenApiSDK::Shared::UnifiedHrisEmployeeInput.new(), remote_data=false)\n\nif ! res.unified_hris_employee_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/companies"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmCompany
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_companies.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/payrollruns"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisPayrollRuns
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_payrollruns.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/timeoffbalances"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisTimeoffbalance
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_timeoffbalances.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/actions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingautomationAction
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_actions.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/accounts"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingAccount
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_accounts.create(x_connection_token=\"<value>\", unified_accounting_account_input=::OpenApiSDK::Shared::UnifiedAccountingAccountInput.new(), remote_data=false)\n\nif ! res.unified_accounting_account_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/cashflowstatements"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingCashflowStatement
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_cashflowstatements.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/tasks"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmTask
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_tasks.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/comments"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createTicketingComment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_comments.create(x_connection_token=\"<value>\", unified_ticketing_comment_input=::OpenApiSDK::Shared::UnifiedTicketingCommentInput.new(\n    body: \"<value>\",\n  ), remote_data=false)\n\nif ! res.unified_ticketing_comment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/lists/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationList
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_lists.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_list_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/taxrates/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingTaxRate
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_taxrates.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_taxrate_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/incomestatements/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingIncomeStatement
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_incomestatements.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_incomestatement_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/drives/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveFilestorageDrive
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_drives.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_filestorage_drive_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/offers/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsOffer
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_offers.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_offer_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/attachments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingAttachment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_attachments.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_attachment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/webhook/verifyEvent"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: verifyEvent
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::SignatureVerificationDto.new(\n  payload: ::OpenApiSDK::Shared::Payload.new(),\n  signature: \"<value>\",\n  secret: \"<value>\",\n)\n    \nres = s.webhook.verify_event(req)\n\nif ! res.event_payload.nil?\n  # handle response\nend"
+  - target: $["paths"]["/linked-users"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createLinkedUser
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::CreateLinkedUserDto.new(\n  linked_user_origin_id: \"<value>\",\n  alias_: \"<value>\",\n)\n    \nres = s.linked_users.create(req)\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/hris/groups"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisGroup
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_groups.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/attachments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsAttachment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_attachments.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/attachments"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createTicketingAttachment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_attachments.create(x_connection_token=\"<value>\", unified_ticketing_attachment_input=::OpenApiSDK::Shared::UnifiedTicketingAttachmentInput.new(\n    file_name: \"your_file_here\",\n    file_url: \"<value>\",\n    uploader: \"<value>\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedTicketingAttachmentInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_ticketing_attachment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/contacts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmContacts
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_contacts.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/applications"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAtsApplication
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_applications.create(x_connection_token=\"<value>\", unified_ats_application_input=::OpenApiSDK::Shared::UnifiedAtsApplicationInput.new(\n    field_mappings: ::OpenApiSDK::Shared::UnifiedAtsApplicationInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_ats_application_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/balancesheets"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingBalanceSheets
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_balancesheets.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employerbenefits"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisEmployerBenefit
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employerbenefits.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/transactions/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingTransaction
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_transactions.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_transaction_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/users"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listCrmUsers
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_users.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/contacts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingContact
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_contacts.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_contact_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/incomestatements"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingIncomeStatement
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_incomestatements.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/contacts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingAutomationContact
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_contacts.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_contact_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/tags"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingTags
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_tags.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/users"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listFilestorageUsers
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_users.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/transactions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingTransaction
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_transactions.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/deals"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createCrmDeal
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_deals.create(x_connection_token=\"<value>\", unified_crm_deal_input=::OpenApiSDK::Shared::UnifiedCrmDealInput.new(\n    name: \"<value>\",\n    description: \"Multi-tiered human-resource model\",\n    amount: 8592.13,\n    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmDealInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_crm_deal_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/dependents/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisDependent
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_dependents.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_dependent_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/automations"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingautomationAutomation
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_automations.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/automations"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createMarketingautomationAutomation
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_automations.create(x_connection_token=\"<value>\", unified_marketingautomation_automation_input=::OpenApiSDK::Shared::UnifiedMarketingautomationAutomationInput.new(), remote_data=false)\n\nif ! res.unified_marketingautomation_automation_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/templates"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingautomationTemplates
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_templates.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/templates"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createMarketingautomationTemplate
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_templates.create(x_connection_token=\"<value>\", unified_marketingautomation_template_input=::OpenApiSDK::Shared::UnifiedMarketingautomationTemplateInput.new(), remote_data=false)\n\nif ! res.unified_marketingautomation_template_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/items/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingItem
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_items.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_item_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/accounts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingAccount
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_accounts.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/eeocs"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsEeocs
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_eeocs.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/webhook"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createWebhook
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::WebhookDto.new(\n  url: \"http://limp-pastry.org\",\n  description: \"Inverse discrete benchmark\",\n  scope: [\n    \"<value>\",\n  ],\n)\n    \nres = s.webhook.create(req)\n\nif ! res.webhook_response.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/addresses"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingAddress
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_addresses.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/cashflowstatements/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingCashflowStatement
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_cashflowstatements.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_cashflowstatement_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/field-mappings/define"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: define
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::DefineTargetFieldDto.new(\n  object_type_owner: \"<value>\",\n  name: \"<value>\",\n  description: \"Optimized object-oriented emulation\",\n  data_type: \"float\",\n)\n    \nres = s.field_mappings.define(req)\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/hris/paygroups"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisPaygroup
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_paygroups.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/activities/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsActivity
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_activities.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_activity_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/tags/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsTag
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_tags.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_tag_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/purchaseorders/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAccountingPurchaseOrder
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_purchaseorders.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_accounting_purchaseorder_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/taxrates"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingTaxRate
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_taxrates.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/linked-users/batch"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: importBatch
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::CreateBatchLinkedUserDto.new(\n  linked_user_origin_ids: [\n    \"<value>\",\n  ],\n  alias_: \"<value>\",\n)\n    \nres = s.linked_users.import_batch(req)\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/accounting/purchaseorders"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingPurchaseOrder
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_purchaseorders.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/webhook"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listWebhooks
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.webhook.list()\n\nif ! res.webhook_responses.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employeepayrollruns"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisEmployeePayrollRun
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employeepayrollruns.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/locations/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisLocation
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_locations.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_location_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/jobinterviewstages/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsJobInterviewStage
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_jobinterviewstages.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_jobinterviewstage_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/folders/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveFilestorageFolder
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_folders.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_filestorage_folder_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/tasks"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createCrmTask
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_tasks.create(x_connection_token=\"<value>\", unified_crm_task_input=::OpenApiSDK::Shared::UnifiedCrmTaskInput.new(\n    subject: \"<value>\",\n    content: \"<value>\",\n    status: \"<value>\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmTaskInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_crm_task_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/contacts"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createCrmContact
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_contacts.create(x_connection_token=\"<value>\", unified_crm_contact_input=::OpenApiSDK::Shared::UnifiedCrmContactInput.new(\n    first_name: \"Jed\",\n    last_name: \"Kuhn\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmContactInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_crm_contact_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/field-mappings/map"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: map
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::MapFieldToProviderDto.new(\n  attribute_id: \"<value>\",\n  source_custom_field_id: \"<value>\",\n  source_provider: \"<value>\",\n  linked_user_id: \"<value>\",\n)\n    \nres = s.field_mappings.map(req)\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/hris/benefits"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisBenefit
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_benefits.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/candidates/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsCandidate
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_candidates.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_candidate_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/scorecards/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsScorecard
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_scorecards.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_scorecard_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/templates/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationTemplate
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_templates.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_template_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/creditnotes"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingCreditNote
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_creditnotes.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/vendorcredits"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingVendorCredit
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_vendorcredits.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/comments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingComment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_comments.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/expenses"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createAccountingExpense
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_expenses.create(x_connection_token=\"<value>\", unified_accounting_expense_input=::OpenApiSDK::Shared::UnifiedAccountingExpenseInput.new(), remote_data=false)\n\nif ! res.unified_accounting_expense_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/tasks/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveCrmTask
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_tasks.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_crm_task_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/contacts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingAutomationContacts
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_contacts.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/groups/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveFilestorageGroup
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_groups.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_filestorage_group_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/bankinfos/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisBankinfo
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_bankinfos.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_bankinfo_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/timeoffs"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listHrisTimeoffs
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_timeoffs.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/filestorage/files"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createFilestorageFile
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.filestorage_files.create(x_connection_token=\"<value>\", remote_data=false, unified_filestorage_file_input=::OpenApiSDK::Shared::UnifiedFilestorageFileInput.new(\n    name: \"<value>\",\n    file_url: \"<value>\",\n    mime_type: \"<value>\",\n    size: \"<value>\",\n    folder_id: \"<value>\",\n    permission: \"<value>\",\n    shared_link: \"<value>\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageFileInputFieldMappings.new(),\n  ))\n\nif ! res.unified_filestorage_file_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/attachments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveTicketingAttachment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_attachments.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ticketing_attachment_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/crm/companies"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createCrmCompany
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.crm_companies.create(x_connection_token=\"<value>\", unified_crm_company_input=::OpenApiSDK::Shared::UnifiedCrmCompanyInput.new(\n    name: \"<value>\",\n    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmCompanyInputFieldMappings.new(),\n  ), remote_data=false)\n\nif ! res.unified_crm_company_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ticketing/collections"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listTicketingCollections
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ticketing_collections.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/timeoffs"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createHrisTimeoff
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_timeoffs.create(x_connection_token=\"<value>\", unified_hris_timeoff_input=::OpenApiSDK::Shared::UnifiedHrisTimeoffInput.new(), remote_data=false)\n\nif ! res.unified_hris_timeoff_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/campaigns"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createMarketingautomationCampaign
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_campaigns.create(x_connection_token=\"<value>\", unified_marketingautomation_campaign_input=::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignInput.new(), remote_data=false)\n\nif ! res.unified_campaign_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/contacts"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: createMarketingAutomationContact
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_contacts.create(x_connection_token=\"<value>\", unified_marketingautomation_contact_input=::OpenApiSDK::Shared::UnifiedMarketingautomationContactInput.new(), remote_data=false)\n\nif ! res.unified_marketingautomation_contact_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/campaigns"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingautomationCampaign
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_campaigns.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/lists"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listMarketingautomationLists
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_lists.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/interviews/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsInterview
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_interviews.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_interview_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/jobs"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAtsJob
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_jobs.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/items"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingItem
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_items.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/journalentries"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingJournalEntry
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_journalentries.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/ats/departments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveAtsDepartment
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.ats_departments.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_ats_department_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/attachments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingAttachments
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_attachments.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/marketingautomation/messages/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveMarketingautomationMessage
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.marketingautomation_messages.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_marketingautomation_message_output.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounting/contacts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: listAccountingContacts
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.accounting_contacts.list(x_connection_token=\"<value>\", remote_data=false, limit=7685.78, cursor=\"<value>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/hris/employeepayrollruns/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: retrieveHrisEmployeePayrollRun
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    bearer: \"<YOUR_BEARER_TOKEN_HERE>\",\n  )\n)\n\n    \nres = s.hris_employeepayrollruns.retrieve(x_connection_token=\"<value>\", id=\"<value>\", remote_data=false)\n\nif ! res.unified_hris_employeepayrollrun_output.nil?\n  # handle response\nend"
