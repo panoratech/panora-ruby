@@ -1,0 +1,10 @@
+# ListCrmUsersResponseBody
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `prev_cursor`                                                                                       | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `next_cursor`                                                                                       | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `data`                                                                                              | T::Array<[::OpenApiSDK::Shared::UnifiedCrmUserOutput](../../models/shared/unifiedcrmuseroutput.md)> | :heavy_check_mark:                                                                                  | N/A                                                                                                 |

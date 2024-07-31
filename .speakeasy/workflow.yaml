@@ -1,0 +1,15 @@
+workflowVersion: 1.0.0
+sources:
+    Panora-OAS:
+        inputs:
+            - location: https://raw.githubusercontent.com/panoratech/Panora/main/packages/api/swagger/swagger-spec.yaml
+        registry:
+            location: registry.speakeasyapi.dev/panora/panora/panora-oas
+targets:
+    panora:
+        target: ruby
+        source: openapi-main
+        codeSamples:
+            output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/panora/panora/code-samples-ruby

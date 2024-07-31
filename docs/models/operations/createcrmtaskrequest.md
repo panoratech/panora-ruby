@@ -1,0 +1,10 @@
+# CreateCrmTaskRequest
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                    | *::String*                                                                              | :heavy_check_mark:                                                                      | The connection token                                                                    |
+| `unified_crm_task_input`                                                                | [::OpenApiSDK::Shared::UnifiedCrmTaskInput](../../models/shared/unifiedcrmtaskinput.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
+| `remote_data`                                                                           | *T.nilable(T::Boolean)*                                                                 | :heavy_minus_sign:                                                                      | Set to true to include data from the original Crm software.                             |

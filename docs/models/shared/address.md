@@ -1,0 +1,15 @@
+# Address
+
+
+## Fields
+
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `street_1`                                                       | *::String*                                                       | :heavy_check_mark:                                               | The street                                                       |
+| `street_2`                                                       | *::String*                                                       | :heavy_check_mark:                                               | More information about the street                                |
+| `city`                                                           | *::String*                                                       | :heavy_check_mark:                                               | The city                                                         |
+| `state`                                                          | *::String*                                                       | :heavy_check_mark:                                               | The state                                                        |
+| `postal_code`                                                    | *::String*                                                       | :heavy_check_mark:                                               | The postal code                                                  |
+| `country`                                                        | *::String*                                                       | :heavy_check_mark:                                               | The country                                                      |
+| `address_type`                                                   | *::String*                                                       | :heavy_check_mark:                                               | The address type. Authorized values are either PERSONAL or WORK. |
+| `owner_type`                                                     | *::String*                                                       | :heavy_check_mark:                                               | The owner type of the address                                    |

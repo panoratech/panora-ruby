@@ -1,0 +1,16 @@
+# WebhookResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `id_webhook_endpoint`                                                | *::String*                                                           | :heavy_check_mark:                                                   | The unique UUID of the webhook.                                      |
+| `endpoint_description`                                               | *::String*                                                           | :heavy_check_mark:                                                   | The description of the webhook.                                      |
+| `url`                                                                | *::String*                                                           | :heavy_check_mark:                                                   | The endpoint url of the webhook.                                     |
+| `secret`                                                             | *::String*                                                           | :heavy_check_mark:                                                   | The secret of the webhook.                                           |
+| `active`                                                             | *T::Boolean*                                                         | :heavy_check_mark:                                                   | The status of the webhook.                                           |
+| `created_at`                                                         | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_check_mark:                                                   | The created date  of the webhook.                                    |
+| `scope`                                                              | T::Array<*::String*>                                                 | :heavy_check_mark:                                                   | The events that the webhook listen to.                               |
+| `id_project`                                                         | *::String*                                                           | :heavy_check_mark:                                                   | The project id tied to the webhook.                                  |
+| `last_update`                                                        | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_check_mark:                                                   | The last update date of the webhook.                                 |

@@ -1,0 +1,10 @@
+# CreateCrmEngagementRequest
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The connection token                                                                                |
+| `unified_crm_engagement_input`                                                                      | [::OpenApiSDK::Shared::UnifiedCrmEngagementInput](../../models/shared/unifiedcrmengagementinput.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `remote_data`                                                                                       | *T.nilable(T::Boolean)*                                                                             | :heavy_minus_sign:                                                                                  | Set to true to include data from the original Crm software.                                         |

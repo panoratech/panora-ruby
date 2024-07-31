@@ -1,0 +1,10 @@
+# CreateAtsAttachmentRequest
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The connection token                                                                                |
+| `unified_ats_attachment_input`                                                                      | [::OpenApiSDK::Shared::UnifiedAtsAttachmentInput](../../models/shared/unifiedatsattachmentinput.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `remote_data`                                                                                       | *T.nilable(T::Boolean)*                                                                             | :heavy_minus_sign:                                                                                  | Set to true to include data from the original Ats software.                                         |

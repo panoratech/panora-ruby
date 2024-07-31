@@ -1,0 +1,10 @@
+# CreateHrisEmployeeRequest
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | The connection token                                                                              |
+| `unified_hris_employee_input`                                                                     | [::OpenApiSDK::Shared::UnifiedHrisEmployeeInput](../../models/shared/unifiedhrisemployeeinput.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `remote_data`                                                                                     | *T.nilable(T::Boolean)*                                                                           | :heavy_minus_sign:                                                                                | Set to true to include data from the original Hris software.                                      |

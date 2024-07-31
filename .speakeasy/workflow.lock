@@ -1,0 +1,27 @@
+speakeasyVersion: 1.348.2
+sources:
+    Panora-OAS:
+        sourceNamespace: panora-oas
+        sourceRevisionDigest: sha256:2eae9a4d178e175f863f2da5fcb76aa768c64dc1621ea5ff171651b3991970f5
+        sourceBlobDigest: sha256:7eec7cf35e2ebe3b3077d3dc8688680989e54d02ee8786cbb11036e1d8d9dd81
+        tags:
+            - latest
+targets:
+    panora:
+        source: Panora-OAS
+        sourceNamespace: panora-oas
+        sourceRevisionDigest: sha256:2eae9a4d178e175f863f2da5fcb76aa768c64dc1621ea5ff171651b3991970f5
+        sourceBlobDigest: sha256:7eec7cf35e2ebe3b3077d3dc8688680989e54d02ee8786cbb11036e1d8d9dd81
+        outLocation: /Users/rachidflih/Panora/panora-ruby
+workflow:
+    workflowVersion: 1.0.0
+    sources:
+        Panora-OAS:
+            inputs:
+                - location: https://raw.githubusercontent.com/panoratech/Panora/main/packages/api/swagger/swagger-spec.yaml
+            registry:
+                location: registry.speakeasyapi.dev/panora/panora/panora-oas
+    targets:
+        panora:
+            target: ruby
+            source: Panora-OAS
