@@ -21,7 +21,6 @@ module OpenApiSDK
     extend T::Sig
 
     field :client, T.nilable(Faraday::Connection)
-    field :security, T.nilable(::OpenApiSDK::Shared::Security)
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
     field :language, String
@@ -31,18 +30,17 @@ module OpenApiSDK
     field :user_agent, String
 
 
-    sig { params(client: Faraday::Connection, security: T.nilable(::OpenApiSDK::Shared::Security), server_url: T.nilable(String), server_idx: T.nilable(Integer)).void }
-    def initialize(client, security, server_url, server_idx)
+    sig { params(client: Faraday::Connection, server_url: T.nilable(String), server_idx: T.nilable(Integer)).void }
+    def initialize(client, server_url, server_idx)
       @client = client
       @server_url = server_url
       @server_idx = server_idx.nil? ? 0 : server_idx
       raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
-      @security = security
       @language = 'ruby'
       @openapi_doc_version = '1.0'
-      @sdk_version = '0.0.2'
-      @gen_version = '2.382.0'
-      @user_agent = 'speakeasy-sdk/ruby 0.0.2 2.382.0 1.0 panora'
+      @sdk_version = '0.1.0'
+      @gen_version = '2.384.4'
+      @user_agent = 'speakeasy-sdk/ruby 0.1.0 2.384.4 1.0 panora'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

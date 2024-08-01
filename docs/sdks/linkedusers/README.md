@@ -3,15 +3,12 @@
 
 ### Available Operations
 
-* [create](#create) - Add Linked User
-* [list](#list) - Retrieve Linked Users
-* [import_batch](#import_batch) - Add Batch Linked Users
-* [retrieve](#retrieve) - Retrieve a Linked User
-* [remote_id](#remote_id) - Retrieve a Linked User From A Remote Id
+* [create](#create) - Create Linked Users
+* [list](#list) - List Linked Users
 
 ## create
 
-Add Linked User
+Create Linked Users
 
 ### Example Usage
 
@@ -20,11 +17,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
 
 req = ::OpenApiSDK::Shared::CreateLinkedUserDto.new(
@@ -54,7 +46,7 @@ end
 
 ## list
 
-Retrieve Linked Users
+List Linked Users
 
 ### Example Usage
 
@@ -63,11 +55,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.linked_users.list()
@@ -82,125 +69,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListLinkedUsersResponse)](../../models/operations/listlinkedusersresponse.md)**
-
-
-## import_batch
-
-Add Batch Linked Users
-
-### Example Usage
-
-```ruby
-require 'panora'
-
-
-s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
-
-
-req = ::OpenApiSDK::Shared::CreateBatchLinkedUserDto.new(
-  linked_user_origin_ids: [
-    "<value>",
-  ],
-  alias_: "<value>",
-)
-    
-res = s.linked_users.import_batch(req)
-
-if res.status_code == 200
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::OpenApiSDK::Shared::CreateBatchLinkedUserDto](../../models/shared/createbatchlinkeduserdto.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
-
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::ImportBatchResponse)](../../models/operations/importbatchresponse.md)**
-
-
-## retrieve
-
-Retrieve a Linked User
-
-### Example Usage
-
-```ruby
-require 'panora'
-
-
-s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
-
-    
-res = s.linked_users.retrieve(id="<value>")
-
-if res.status_code == 200
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *::String*         | :heavy_check_mark: | N/A                |
-
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::RetrieveLinkedUserResponse)](../../models/operations/retrievelinkeduserresponse.md)**
-
-
-## remote_id
-
-Retrieve a Linked User From A Remote Id
-
-### Example Usage
-
-```ruby
-require 'panora'
-
-
-s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
-
-    
-res = s.linked_users.remote_id(remote_id="<value>")
-
-if res.status_code == 200
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `remote_id`        | *::String*         | :heavy_check_mark: | N/A                |
-
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::RemoteIdResponse)](../../models/operations/remoteidresponse.md)**
 

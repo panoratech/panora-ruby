@@ -1,25 +1,26 @@
 lockVersion: 2.0.0
 id: 8ab4525a-716c-48ab-9531-2850b1a4f88c
 management:
-  docChecksum: 9a90e56f39162805896ae234e3c0001b
+  docChecksum: 196f7d6b9c0dc41ae1dd4f17faa5663d
   docVersion: "1.0"
-  speakeasyVersion: 1.349.0
-  generationVersion: 2.382.0
-  releaseVersion: 0.0.2
-  configChecksum: 019a3cce0e7d8a6bbc99164cefbcfe87
+  speakeasyVersion: 1.351.2
+  generationVersion: 2.384.4
+  releaseVersion: 0.1.0
+  configChecksum: 2545cede88ffde3e61726903e5dcecc4
   repoURL: https://github.com/panoratech/panora-ruby.git
   installationURL: https://github.com/panoratech/panora-ruby
 features:
   ruby:
     core: 3.2.18
     flattening: 2.81.1
-    globalSecurity: 2.81.6
     globalServerURLs: 2.82.3
     groups: 2.81.2
     nameOverrides: 2.81.2
 generatedFiles:
   - lib/open_api_sdk/sdkconfiguration.rb
-  - lib/open_api_sdk/webhook.rb
+  - lib/open_api_sdk/webhooks.rb
+  - lib/open_api_sdk/webhooks_id_.rb
+  - lib/open_api_sdk/webhooks_verifyevent.rb
   - lib/open_api_sdk/ticketing_tickets.rb
   - lib/open_api_sdk/ticketing_users.rb
   - lib/open_api_sdk/ticketing_accounts.rb
@@ -38,7 +39,12 @@ generatedFiles:
   - lib/open_api_sdk/ticketing_tags.rb
   - lib/open_api_sdk/ticketing_teams.rb
   - lib/open_api_sdk/linkedusers.rb
+  - lib/open_api_sdk/linked_users_batch.rb
+  - lib/open_api_sdk/linked_users_single.rb
+  - lib/open_api_sdk/linked_users_fromremoteid.rb
+  - lib/open_api_sdk/field_mappings_define.rb
   - lib/open_api_sdk/fieldmappings.rb
+  - lib/open_api_sdk/field_mappings_map.rb
   - lib/open_api_sdk/passthrough.rb
   - lib/open_api_sdk/hris_bankinfos.rb
   - lib/open_api_sdk/hris_benefits.rb
@@ -157,7 +163,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/hello_response.rb
   - lib/open_api_sdk/models/operations/health_response.rb
   - lib/open_api_sdk/models/operations/listwebhooks_response.rb
-  - lib/open_api_sdk/models/operations/createwebhook_response.rb
+  - lib/open_api_sdk/models/operations/createwebhookpublic_response.rb
   - lib/open_api_sdk/models/operations/delete_request.rb
   - lib/open_api_sdk/models/operations/delete_response.rb
   - lib/open_api_sdk/models/operations/updatestatus_request.rb
@@ -271,8 +277,8 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/retrievelinkeduser_response.rb
   - lib/open_api_sdk/models/operations/remoteid_request.rb
   - lib/open_api_sdk/models/operations/remoteid_response.rb
-  - lib/open_api_sdk/models/operations/define_response.rb
-  - lib/open_api_sdk/models/operations/create_response.rb
+  - lib/open_api_sdk/models/operations/definitions_response.rb
+  - lib/open_api_sdk/models/operations/definecustomfield_response.rb
   - lib/open_api_sdk/models/operations/map_response.rb
   - lib/open_api_sdk/models/operations/request_request.rb
   - lib/open_api_sdk/models/operations/request_response.rb
@@ -937,14 +943,13 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/unifiedticketingattachmentoutput.rb
   - lib/open_api_sdk/models/shared/unifiedticketingattachmentinput_field_mappings.rb
   - lib/open_api_sdk/models/shared/unifiedticketingattachmentinput.rb
-  - lib/open_api_sdk/models/shared/security.rb
   - lib/panora.rb
   - lib/open_api_sdk/models/operations.rb
   - lib/open_api_sdk/models/shared.rb
   - docs/models/operations/helloresponse.md
   - docs/models/operations/healthresponse.md
   - docs/models/operations/listwebhooksresponse.md
-  - docs/models/operations/createwebhookresponse.md
+  - docs/models/operations/createwebhookpublicresponse.md
   - docs/models/operations/deleterequest.md
   - docs/models/operations/deleteresponse.md
   - docs/models/operations/updatestatusrequest.md
@@ -1058,8 +1063,8 @@ generatedFiles:
   - docs/models/operations/retrievelinkeduserresponse.md
   - docs/models/operations/remoteidrequest.md
   - docs/models/operations/remoteidresponse.md
-  - docs/models/operations/defineresponse.md
-  - docs/models/operations/createresponse.md
+  - docs/models/operations/definitionsresponse.md
+  - docs/models/operations/definecustomfieldresponse.md
   - docs/models/operations/mapresponse.md
   - docs/models/operations/requestrequest.md
   - docs/models/operations/requestresponse.md
@@ -1724,9 +1729,10 @@ generatedFiles:
   - docs/models/shared/unifiedticketingattachmentoutput.md
   - docs/models/shared/unifiedticketingattachmentinputfieldmappings.md
   - docs/models/shared/unifiedticketingattachmentinput.md
-  - docs/models/shared/security.md
   - docs/sdks/panora/README.md
-  - docs/sdks/webhook/README.md
+  - docs/sdks/webhooks/README.md
+  - docs/sdks/webhooksid/README.md
+  - docs/sdks/webhooksverifyevent/README.md
   - docs/sdks/ticketingtickets/README.md
   - docs/sdks/ticketingusers/README.md
   - docs/sdks/ticketingaccounts/README.md
@@ -1745,7 +1751,12 @@ generatedFiles:
   - docs/sdks/ticketingtags/README.md
   - docs/sdks/ticketingteams/README.md
   - docs/sdks/linkedusers/README.md
+  - docs/sdks/linkedusersbatch/README.md
+  - docs/sdks/linkeduserssingle/README.md
+  - docs/sdks/linkedusersfromremoteid/README.md
+  - docs/sdks/fieldmappingsdefine/README.md
   - docs/sdks/fieldmappings/README.md
+  - docs/sdks/fieldmappingsmap/README.md
   - docs/sdks/passthrough/README.md
   - docs/sdks/hrisbankinfos/README.md
   - docs/sdks/hrisbenefits/README.md

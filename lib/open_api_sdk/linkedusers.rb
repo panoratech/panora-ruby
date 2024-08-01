@@ -21,10 +21,10 @@ module OpenApiSDK
 
     sig { params(request: ::OpenApiSDK::Shared::CreateLinkedUserDto).returns(::OpenApiSDK::Operations::CreateLinkedUserResponse) }
     def create(request)
-      # create - Add Linked User
+      # create - Create Linked Users
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/linked-users"
+      url = "#{base_url}/linked_users"
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
@@ -34,7 +34,6 @@ module OpenApiSDK
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
         elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
@@ -56,119 +55,21 @@ module OpenApiSDK
 
     sig { returns(::OpenApiSDK::Operations::ListLinkedUsersResponse) }
     def list
-      # list - Retrieve Linked Users
+      # list - List Linked Users
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/linked-users"
+      url = "#{base_url}/linked_users"
       headers = {}
       headers['Accept'] = '*/*'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
       res = ::OpenApiSDK::Operations::ListLinkedUsersResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      
-      res
-    end
-
-
-    sig { params(request: ::OpenApiSDK::Shared::CreateBatchLinkedUserDto).returns(::OpenApiSDK::Operations::ImportBatchResponse) }
-    def import_batch(request)
-      # import_batch - Add Batch Linked Users
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = "#{base_url}/linked-users/batch"
-      headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
-      headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
-      headers['Accept'] = '*/*'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.post(url) do |req|
-        req.headers = headers
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
-        else
-          req.body = data
-        end
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = ::OpenApiSDK::Operations::ImportBatchResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      
-      res
-    end
-
-
-    sig { params(id: ::String).returns(::OpenApiSDK::Operations::RetrieveLinkedUserResponse) }
-    def retrieve(id)
-      # retrieve - Retrieve a Linked User
-      request = ::OpenApiSDK::Operations::RetrieveLinkedUserRequest.new(
-        
-        id: id
-      )
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = "#{base_url}/linked-users/single"
-      headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::RetrieveLinkedUserRequest, request)
-      headers['Accept'] = '*/*'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.get(url) do |req|
-        req.headers = headers
-        req.params = query_params
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = ::OpenApiSDK::Operations::RetrieveLinkedUserResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      
-      res
-    end
-
-
-    sig { params(remote_id: ::String).returns(::OpenApiSDK::Operations::RemoteIdResponse) }
-    def remote_id(remote_id)
-      # remote_id - Retrieve a Linked User From A Remote Id
-      request = ::OpenApiSDK::Operations::RemoteIdRequest.new(
-        
-        remote_id: remote_id
-      )
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = "#{base_url}/linked-users/fromRemoteId"
-      headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::RemoteIdRequest, request)
-      headers['Accept'] = '*/*'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.get(url) do |req|
-        req.headers = headers
-        req.params = query_params
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = ::OpenApiSDK::Operations::RemoteIdResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       

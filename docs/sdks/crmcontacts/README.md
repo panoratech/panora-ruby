@@ -18,11 +18,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.crm_contacts.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -59,11 +54,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.crm_contacts.create(x_connection_token="<value>", unified_crm_contact_input=::OpenApiSDK::Shared::UnifiedCrmContactInput.new(
@@ -103,11 +93,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.crm_contacts.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

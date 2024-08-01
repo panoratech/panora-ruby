@@ -43,7 +43,6 @@ module OpenApiSDK
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
         req.params = query_params
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
         elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
@@ -58,7 +57,7 @@ module OpenApiSDK
       res = ::OpenApiSDK::Operations::RequestResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      if r.status == 200
+      if [200, 201].include?(r.status)
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::PassThroughResponse)
           res.pass_through_response = out
