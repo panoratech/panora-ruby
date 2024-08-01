@@ -297,6 +297,5 @@ module OpenApiSDK
     autoload :UnifiedTicketingAttachmentOutput, 'open_api_sdk/models/shared/unifiedticketingattachmentoutput.rb'
     autoload :UnifiedTicketingAttachmentInputFieldMappings, 'open_api_sdk/models/shared/unifiedticketingattachmentinput_field_mappings.rb'
     autoload :UnifiedTicketingAttachmentInput, 'open_api_sdk/models/shared/unifiedticketingattachmentinput.rb'
-    autoload :Security, 'open_api_sdk/models/shared/security.rb'
   end
 end

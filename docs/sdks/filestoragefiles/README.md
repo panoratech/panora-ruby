@@ -18,11 +18,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.filestorage_files.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -59,11 +54,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.filestorage_files.create(x_connection_token="<value>", remote_data=false, unified_filestorage_file_input=::OpenApiSDK::Shared::UnifiedFilestorageFileInput.new(
@@ -108,11 +98,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.filestorage_files.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

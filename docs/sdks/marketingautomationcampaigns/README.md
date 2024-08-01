@@ -18,11 +18,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.marketingautomation_campaigns.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -59,11 +54,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.marketingautomation_campaigns.create(x_connection_token="<value>", unified_marketingautomation_campaign_input=::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignInput.new(), remote_data=false)
@@ -99,11 +89,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.marketingautomation_campaigns.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

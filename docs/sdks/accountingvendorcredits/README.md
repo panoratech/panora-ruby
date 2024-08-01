@@ -17,11 +17,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.accounting_vendorcredits.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -58,11 +53,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.accounting_vendorcredits.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

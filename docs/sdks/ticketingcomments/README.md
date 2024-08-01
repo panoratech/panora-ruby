@@ -18,11 +18,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.ticketing_comments.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -59,11 +54,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.ticketing_comments.create(x_connection_token="<value>", unified_ticketing_comment_input=::OpenApiSDK::Shared::UnifiedTicketingCommentInput.new(
@@ -101,11 +91,6 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    bearer: "<YOUR_BEARER_TOKEN_HERE>",
-  )
-)
 
     
 res = s.ticketing_comments.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

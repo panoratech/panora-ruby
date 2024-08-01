@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class DefinitionsResponse < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
