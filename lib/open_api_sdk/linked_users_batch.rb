@@ -9,7 +9,7 @@ require 'sorbet-runtime'
 
 module OpenApiSDK
   extend T::Sig
-  class FieldMappings
+  class LinkedUsersBatch
     extend T::Sig
 
 
@@ -19,12 +19,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: ::OpenApiSDK::Shared::CustomFieldCreateDto).returns(::OpenApiSDK::Operations::DefineCustomFieldResponse) }
-    def define_custom_field(request)
-      # define_custom_field - Create Custom Field
+    sig { params(request: ::OpenApiSDK::Shared::CreateBatchLinkedUserDto).returns(::OpenApiSDK::Operations::ImportBatchResponse) }
+    def import_batch(request)
+      # import_batch - Add Batch Linked Users
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/field_mappings"
+      url = "#{base_url}/linked_users/batch"
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
@@ -46,7 +46,7 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::DefineCustomFieldResponse.new(
+      res = ::OpenApiSDK::Operations::ImportBatchResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       

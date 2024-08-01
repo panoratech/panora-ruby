@@ -12,10 +12,10 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :bearer, T.nilable(::String), { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' } }
+      field :bearer, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' } }
 
 
-      sig { params(bearer: T.nilable(::String)).void }
+      sig { params(bearer: ::String).void }
       def initialize(bearer: nil)
         @bearer = bearer
       end

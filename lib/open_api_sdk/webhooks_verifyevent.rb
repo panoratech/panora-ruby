@@ -9,7 +9,7 @@ require 'sorbet-runtime'
 
 module OpenApiSDK
   extend T::Sig
-  class FieldMappings
+  class WebhooksVerifyevent
     extend T::Sig
 
 
@@ -19,17 +19,17 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: ::OpenApiSDK::Shared::CustomFieldCreateDto).returns(::OpenApiSDK::Operations::DefineCustomFieldResponse) }
-    def define_custom_field(request)
-      # define_custom_field - Create Custom Field
+    sig { params(request: ::OpenApiSDK::Shared::SignatureVerificationDto).returns(::OpenApiSDK::Operations::VerifyEventResponse) }
+    def verify_event(request)
+      # verify_event - Verify payload signature of the webhook
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/field_mappings"
+      url = "#{base_url}/webhooks/verifyEvent"
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
-      headers['Accept'] = '*/*'
+      headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
@@ -46,10 +46,15 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::DefineCustomFieldResponse.new(
+      res = ::OpenApiSDK::Operations::VerifyEventResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      
+      if r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::EventPayload)
+          res.event_payload = out
+        end
+      end
       res
     end
   end

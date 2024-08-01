@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateWebhookResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class DefineCustomFieldResponse < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
@@ -18,15 +18,12 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
-      field :webhook_response, T.nilable(::OpenApiSDK::Shared::WebhookResponse)
 
-
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, webhook_response: T.nilable(::OpenApiSDK::Shared::WebhookResponse)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, webhook_response: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @webhook_response = webhook_response
       end
     end
   end

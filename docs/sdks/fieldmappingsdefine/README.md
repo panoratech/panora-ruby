@@ -1,13 +1,13 @@
-# FieldMappings
+# FieldMappingsDefine
 
 
 ### Available Operations
 
-* [define_custom_field](#define_custom_field) - Create Custom Field
+* [definitions](#definitions) - Define target Field
 
-## define_custom_field
+## definitions
 
-Create Custom Field
+Define target Field
 
 ### Example Usage
 
@@ -23,17 +23,14 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Shared::CustomFieldCreateDto.new(
+req = ::OpenApiSDK::Shared::DefineTargetFieldDto.new(
   object_type_owner: "<value>",
   name: "<value>",
-  description: "Balanced multimedia policy",
-  data_type: "point",
-  source_custom_field_id: "<value>",
-  source_provider: "<value>",
-  linked_user_id: "<value>",
+  description: "Universal heuristic matrices",
+  data_type: "decimal",
 )
     
-res = s.field_mappings.define_custom_field(req)
+res = s.field_mappings_define.definitions(req)
 
 if res.status_code == 200
   # handle response
@@ -45,10 +42,10 @@ end
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::OpenApiSDK::Shared::CustomFieldCreateDto](../../models/shared/customfieldcreatedto.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| `request`                                                                                 | [::OpenApiSDK::Shared::DefineTargetFieldDto](../../models/shared/definetargetfielddto.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::DefineCustomFieldResponse)](../../models/operations/definecustomfieldresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::DefinitionsResponse)](../../models/operations/definitionsresponse.md)**
 

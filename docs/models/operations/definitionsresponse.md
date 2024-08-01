@@ -1,4 +1,4 @@
-# DefineResponse
+# DefinitionsResponse
 
 
 ## Fields
