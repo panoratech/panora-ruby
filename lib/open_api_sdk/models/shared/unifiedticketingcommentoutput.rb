@@ -13,16 +13,12 @@ module OpenApiSDK
 
       # The body of the comment
       field :body, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('body') } }
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedTicketingCommentOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedTicketingCommentOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedTicketingCommentOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The attachements UUIDs tied to the comment
       field :attachments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
       # The UUID of the contact which the comment belongs to (if no user_id specified)
       field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The creator type of the comment. Authorized values are either USER or CONTACT
       field :creator_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('creator_type') } }
       # The html body of the comment
@@ -31,6 +27,10 @@ module OpenApiSDK
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The public status of the comment
       field :is_private, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_private') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the comment in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the comment in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The UUID of the ticket the comment is tied to
@@ -39,18 +39,18 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(body: ::String, created_at: ::OpenApiSDK::Shared::UnifiedTicketingCommentOutputCreatedAt, modified_at: ::OpenApiSDK::Shared::UnifiedTicketingCommentOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedTicketingCommentOutputRemoteData, attachments: T.nilable(T::Array[::String]), contact_id: T.nilable(::String), creator_type: T.nilable(::String), html_body: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), remote_id: T.nilable(::String), ticket_id: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(body: nil, created_at: nil, modified_at: nil, remote_data: nil, attachments: nil, contact_id: nil, creator_type: nil, html_body: nil, id: nil, is_private: nil, remote_id: nil, ticket_id: nil, user_id: nil)
+      sig { params(body: ::String, attachments: T.nilable(T::Array[::String]), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), creator_type: T.nilable(::String), html_body: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), ticket_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(body: nil, attachments: nil, contact_id: nil, created_at: nil, creator_type: nil, html_body: nil, id: nil, is_private: nil, modified_at: nil, remote_data: nil, remote_id: nil, ticket_id: nil, user_id: nil)
         @body = body
-        @created_at = created_at
-        @modified_at = modified_at
-        @remote_data = remote_data
         @attachments = attachments
         @contact_id = contact_id
+        @created_at = created_at
         @creator_type = creator_type
         @html_body = html_body
         @id = id
         @is_private = is_private
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @ticket_id = ticket_id
         @user_id = user_id

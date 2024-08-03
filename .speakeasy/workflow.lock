@@ -1,9 +1,9 @@
-speakeasyVersion: 1.351.2
+speakeasyVersion: 1.352.1
 sources:
     Panora-OAS:
         sourceNamespace: panora-oas
-        sourceRevisionDigest: sha256:39bce9fd3b328a2c500d8121b3f5a7b3209fd09c1ac2be7bb742f7e335399c0c
-        sourceBlobDigest: sha256:bb4b92ee6e304eb23b6770786b5de9a099cdb43cdfae29fdbc7fa29f198fb6ab
+        sourceRevisionDigest: sha256:8a409a5a0707efef708edfaebeca8a5f8bbfe10985588f3758d5ace968287178
+        sourceBlobDigest: sha256:439f3d6a7154fbee79d5755f8abcb0ac443ebfa6e35c0bef191e5f770b6309a1
         tags:
             - latest
             - main
@@ -11,10 +11,10 @@ targets:
     panora:
         source: Panora-OAS
         sourceNamespace: panora-oas
-        sourceRevisionDigest: sha256:39bce9fd3b328a2c500d8121b3f5a7b3209fd09c1ac2be7bb742f7e335399c0c
-        sourceBlobDigest: sha256:bb4b92ee6e304eb23b6770786b5de9a099cdb43cdfae29fdbc7fa29f198fb6ab
+        sourceRevisionDigest: sha256:8a409a5a0707efef708edfaebeca8a5f8bbfe10985588f3758d5ace968287178
+        sourceBlobDigest: sha256:439f3d6a7154fbee79d5755f8abcb0ac443ebfa6e35c0bef191e5f770b6309a1
         codeSamplesNamespace: code-samples-ruby
-        codeSamplesRevisionDigest: sha256:91ac908b08599307f091e47208188e694f8096f49b93f6385b1f1e6797b5aede
+        codeSamplesRevisionDigest: sha256:615b8cc953c16d614c36c9adebc80abf983cee246946c59a0408131ad38e3495
         outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0

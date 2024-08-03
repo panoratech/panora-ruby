@@ -16,6 +16,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.passthrough.request(integration_id="<value>", linked_user_id="<value>", vertical="<value>", pass_through_request_dto=::OpenApiSDK::Shared::PassThroughRequestDto.new(

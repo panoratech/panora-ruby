@@ -31,12 +31,13 @@ module OpenApiSDK
       url = "#{base_url}/linked_users/fromRemoteId"
       headers = {}
       query_params = Utils.get_query_params(::OpenApiSDK::Operations::RemoteIdRequest, request)
-      headers['Accept'] = '*/*'
+      headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
         req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
@@ -44,7 +45,12 @@ module OpenApiSDK
       res = ::OpenApiSDK::Operations::RemoteIdResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::LinkedUserResponse)
+          res.linked_user_response = out
+        end
+      end
       res
     end
   end

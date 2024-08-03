@@ -11,44 +11,44 @@ module OpenApiSDK
     class UnifiedCrmContactOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedCrmContactOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmContactOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The first name of the contact
       field :first_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name') } }
       # The last name of the contact
       field :last_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('last_name') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedCrmContactOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedCrmContactOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The addresses of the contact
       field :addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Address]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('addresses') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The email addresses of the contact
       field :email_addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Email]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_addresses') } }
+      # The custom field mappings of the contact between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the contact
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The phone numbers of the contact
       field :phone_numbers, T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_numbers') } }
+      # The remote data of the contact in the context of the Crm 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the contact in the context of the Crm 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The UUID of the user who owns the contact
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedCrmContactOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedCrmContactOutputFieldMappings, first_name: ::String, last_name: ::String, modified_at: ::OpenApiSDK::Shared::UnifiedCrmContactOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedCrmContactOutputRemoteData, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), id: T.nilable(::String), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_id: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, first_name: nil, last_name: nil, modified_at: nil, remote_data: nil, addresses: nil, email_addresses: nil, id: nil, phone_numbers: nil, remote_id: nil, user_id: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
+      sig { params(first_name: ::String, last_name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), created_at: T.nilable(::DateTime), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(first_name: nil, last_name: nil, addresses: nil, created_at: nil, email_addresses: nil, field_mappings: nil, id: nil, modified_at: nil, phone_numbers: nil, remote_data: nil, remote_id: nil, user_id: nil)
         @first_name = first_name
         @last_name = last_name
-        @modified_at = modified_at
-        @remote_data = remote_data
         @addresses = addresses
+        @created_at = created_at
         @email_addresses = email_addresses
+        @field_mappings = field_mappings
         @id = id
+        @modified_at = modified_at
         @phone_numbers = phone_numbers
+        @remote_data = remote_data
         @remote_id = remote_id
         @user_id = user_id
       end

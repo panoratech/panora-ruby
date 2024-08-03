@@ -16,6 +16,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
 
 req = ::OpenApiSDK::Shared::CreateBatchLinkedUserDto.new(
@@ -27,7 +32,7 @@ req = ::OpenApiSDK::Shared::CreateBatchLinkedUserDto.new(
     
 res = s.linked_users_batch.import_batch(req)
 
-if res.status_code == 200
+if ! res.linked_user_responses.nil?
   # handle response
 end
 

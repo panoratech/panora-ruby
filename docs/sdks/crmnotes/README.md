@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_notes.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,11 +59,15 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_notes.create(x_connection_token="<value>", unified_crm_note_input=::OpenApiSDK::Shared::UnifiedCrmNoteInput.new(
     content: "<value>",
-    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmNoteInputFieldMappings.new(),
   ), remote_data=false)
 
 if ! res.unified_crm_note_output.nil?
@@ -92,6 +101,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_notes.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

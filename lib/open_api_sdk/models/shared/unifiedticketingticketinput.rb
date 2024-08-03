@@ -13,26 +13,26 @@ module OpenApiSDK
 
       # The description of the ticket
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedTicketingTicketInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The name of the ticket
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The UUID of the account which the ticket belongs to
       field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_id') } }
       # The users UUIDs the ticket is assigned to
       field :assigned_to, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assigned_to') } }
-      # The attachements UUIDs tied to the ticket
+      # The attachments UUIDs tied to the ticket
       field :attachments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
       # The collection UUIDs the ticket belongs to
       field :collections, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('collections') } }
       # The comment of the ticket
-      field :comment, T.nilable(::OpenApiSDK::Shared::UnifiedTicketingCommentInput), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comment') } }
+      field :comment, T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputComment), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comment') } }
       # The date the ticket has been completed
       field :completed_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('completed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the contact which the ticket belongs to
       field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
       # The date the ticket is due
       field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the ticket between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the parent ticket
       field :parent_ticket, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('parent_ticket') } }
       # The priority of the ticket. Authorized values are HIGH, MEDIUM or LOW.
@@ -45,10 +45,9 @@ module OpenApiSDK
       field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      sig { params(description: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputFieldMappings, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), collections: T.nilable(::String), comment: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingCommentInput), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), due_date: T.nilable(::DateTime), parent_ticket: T.nilable(::String), priority: T.nilable(::String), status: T.nilable(::String), tags: T.nilable(T::Array[::String]), type: T.nilable(::String)).void }
-      def initialize(description: nil, field_mappings: nil, name: nil, account_id: nil, assigned_to: nil, attachments: nil, collections: nil, comment: nil, completed_at: nil, contact_id: nil, due_date: nil, parent_ticket: nil, priority: nil, status: nil, tags: nil, type: nil)
+      sig { params(description: ::String, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), collections: T.nilable(::String), comment: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputComment), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), parent_ticket: T.nilable(::String), priority: T.nilable(::String), status: T.nilable(::String), tags: T.nilable(T::Array[::String]), type: T.nilable(::String)).void }
+      def initialize(description: nil, name: nil, account_id: nil, assigned_to: nil, attachments: nil, collections: nil, comment: nil, completed_at: nil, contact_id: nil, due_date: nil, field_mappings: nil, parent_ticket: nil, priority: nil, status: nil, tags: nil, type: nil)
         @description = description
-        @field_mappings = field_mappings
         @name = name
         @account_id = account_id
         @assigned_to = assigned_to
@@ -58,6 +57,7 @@ module OpenApiSDK
         @completed_at = completed_at
         @contact_id = contact_id
         @due_date = due_date
+        @field_mappings = field_mappings
         @parent_ticket = parent_ticket
         @priority = priority
         @status = status

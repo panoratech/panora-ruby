@@ -13,6 +13,7 @@ module OpenApiSDK
     autoload :DeleteResponse, 'open_api_sdk/models/operations/delete_response.rb'
     autoload :UpdateStatusRequest, 'open_api_sdk/models/operations/updatestatus_request.rb'
     autoload :UpdateStatusResponse, 'open_api_sdk/models/operations/updatestatus_response.rb'
+    autoload :VerifyEventResponseBody, 'open_api_sdk/models/operations/verifyevent_responsebody.rb'
     autoload :VerifyEventResponse, 'open_api_sdk/models/operations/verifyevent_response.rb'
     autoload :ListTicketingTicketRequest, 'open_api_sdk/models/operations/listticketingticket_request.rb'
     autoload :ListTicketingTicketResponseBody, 'open_api_sdk/models/operations/listticketingticket_responsebody.rb'

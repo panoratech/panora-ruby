@@ -11,10 +11,17 @@ module OpenApiSDK
     class Url < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The url.
+      field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
+      # The url type. It takes [WEBSITE | BLOG | LINKEDIN | GITHUB | OTHER]
+      field :url_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url_type') } }
 
 
-      
-      def initialize; end
+      sig { params(url: ::String, url_type: ::String).void }
+      def initialize(url: nil, url_type: nil)
+        @url = url
+        @url_type = url_type
+      end
     end
   end
 end

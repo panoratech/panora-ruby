@@ -11,39 +11,39 @@ module OpenApiSDK
     class UnifiedTicketingContactOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedTicketingContactOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
       # The email address of the contact
       field :email_address, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedTicketingContactOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedTicketingContactOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The name of the contact
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedTicketingContactOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The details of the contact
       field :details, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('details') } }
+      # The custom field mappings of the contact between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the contact
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The phone number of the contact
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_number') } }
+      # The remote data of the contact in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the contact in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedTicketingContactOutputCreatedAt, email_address: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedTicketingContactOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedTicketingContactOutputModifiedAt, name: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedTicketingContactOutputRemoteData, details: T.nilable(::String), id: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, email_address: nil, field_mappings: nil, modified_at: nil, name: nil, remote_data: nil, details: nil, id: nil, phone_number: nil, remote_id: nil)
-        @created_at = created_at
+      sig { params(email_address: ::String, name: ::String, created_at: T.nilable(::DateTime), details: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), phone_number: T.nilable(::String), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(email_address: nil, name: nil, created_at: nil, details: nil, field_mappings: nil, id: nil, modified_at: nil, phone_number: nil, remote_data: nil, remote_id: nil)
         @email_address = email_address
-        @field_mappings = field_mappings
-        @modified_at = modified_at
         @name = name
-        @remote_data = remote_data
+        @created_at = created_at
         @details = details
+        @field_mappings = field_mappings
         @id = id
+        @modified_at = modified_at
         @phone_number = phone_number
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end

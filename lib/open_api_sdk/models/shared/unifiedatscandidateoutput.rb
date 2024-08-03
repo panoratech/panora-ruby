@@ -11,24 +11,20 @@ module OpenApiSDK
     class UnifiedAtsCandidateOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The applications UUIDs of the candidate
       field :applications, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applications') } }
       # The attachments UUIDs of the candidate
       field :attachments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
       # The company of the candidate
       field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The email addresses of the candidate
       field :email_addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Email]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_addresses') } }
       # Whether the candidate is reachable by email
       field :email_reachable, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_reachable') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The first name of the candidate
       field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name') } }
       # The UUID of the candidate
@@ -41,10 +37,14 @@ module OpenApiSDK
       field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('last_name') } }
       # The locations of the candidate
       field :locations, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('locations') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The phone numbers of the candidate
       field :phone_numbers, T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_numbers') } }
       # The remote creation date of the candidate
       field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the candidate in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the candidate in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The remote modification date of the candidate
@@ -57,25 +57,25 @@ module OpenApiSDK
       field :urls, T.nilable(T::Array[::OpenApiSDK::Shared::Url]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('urls') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedAtsCandidateOutputRemoteData, applications: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), company: T.nilable(::String), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), email_reachable: T.nilable(T::Boolean), first_name: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), last_interaction_at: T.nilable(::DateTime), last_name: T.nilable(::String), locations: T.nilable(::String), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_created_at: T.nilable(::DateTime), remote_id: T.nilable(::String), remote_modified_at: T.nilable(::DateTime), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), urls: T.nilable(T::Array[::OpenApiSDK::Shared::Url])).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, applications: nil, attachments: nil, company: nil, email_addresses: nil, email_reachable: nil, first_name: nil, id: nil, is_private: nil, last_interaction_at: nil, last_name: nil, locations: nil, phone_numbers: nil, remote_created_at: nil, remote_id: nil, remote_modified_at: nil, tags: nil, title: nil, urls: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
+      sig { params(applications: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), company: T.nilable(::String), created_at: T.nilable(::DateTime), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), email_reachable: T.nilable(T::Boolean), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), first_name: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), last_interaction_at: T.nilable(::DateTime), last_name: T.nilable(::String), locations: T.nilable(::String), modified_at: T.nilable(::DateTime), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_modified_at: T.nilable(::DateTime), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), urls: T.nilable(T::Array[::OpenApiSDK::Shared::Url])).void }
+      def initialize(applications: nil, attachments: nil, company: nil, created_at: nil, email_addresses: nil, email_reachable: nil, field_mappings: nil, first_name: nil, id: nil, is_private: nil, last_interaction_at: nil, last_name: nil, locations: nil, modified_at: nil, phone_numbers: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_modified_at: nil, tags: nil, title: nil, urls: nil)
         @applications = applications
         @attachments = attachments
         @company = company
+        @created_at = created_at
         @email_addresses = email_addresses
         @email_reachable = email_reachable
+        @field_mappings = field_mappings
         @first_name = first_name
         @id = id
         @is_private = is_private
         @last_interaction_at = last_interaction_at
         @last_name = last_name
         @locations = locations
+        @modified_at = modified_at
         @phone_numbers = phone_numbers
         @remote_created_at = remote_created_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @remote_modified_at = remote_modified_at
         @tags = tags

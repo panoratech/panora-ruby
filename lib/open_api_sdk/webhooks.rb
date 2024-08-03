@@ -31,6 +31,7 @@ module OpenApiSDK
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
@@ -63,6 +64,7 @@ module OpenApiSDK
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
         elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
@@ -82,6 +84,127 @@ module OpenApiSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::WebhookResponse)
           res.webhook_response = out
         end
+      end
+      res
+    end
+
+
+    sig { params(id: ::String).returns(::OpenApiSDK::Operations::DeleteResponse) }
+    def delete(id)
+      # delete - Delete Webhook
+      request = ::OpenApiSDK::Operations::DeleteRequest.new(
+        
+        id: id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::OpenApiSDK::Operations::DeleteRequest,
+        base_url,
+        '/webhooks/{id}',
+        request
+      )
+      headers = {}
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.delete(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::OpenApiSDK::Operations::DeleteResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+      elsif r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::WebhookResponse)
+          res.webhook_response = out
+        end
+      end
+      res
+    end
+
+
+    sig { params(id: ::String).returns(::OpenApiSDK::Operations::UpdateStatusResponse) }
+    def update_status(id)
+      # update_status - Update webhook status
+      request = ::OpenApiSDK::Operations::UpdateStatusRequest.new(
+        
+        id: id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::OpenApiSDK::Operations::UpdateStatusRequest,
+        base_url,
+        '/webhooks/{id}',
+        request
+      )
+      headers = {}
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.put(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::OpenApiSDK::Operations::UpdateStatusResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+      elsif r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::WebhookResponse)
+          res.webhook_response = out
+        end
+      end
+      res
+    end
+
+
+    sig { params(request: ::OpenApiSDK::Shared::SignatureVerificationDto).returns(::OpenApiSDK::Operations::VerifyEventResponse) }
+    def verify_event(request)
+      # verify_event - Verify payload signature of the webhook
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/webhooks/verifyEvent"
+      headers = {}
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::OpenApiSDK::Operations::VerifyEventResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::VerifyEventResponseBody)
+          res.object = out
+        end
+      elsif r.status == 201
       end
       res
     end

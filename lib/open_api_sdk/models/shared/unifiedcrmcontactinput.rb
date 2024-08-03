@@ -11,8 +11,6 @@ module OpenApiSDK
     class UnifiedCrmContactInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmContactInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The first name of the contact
       field :first_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name') } }
       # The last name of the contact
@@ -21,19 +19,21 @@ module OpenApiSDK
       field :addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Address]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('addresses') } }
       # The email addresses of the contact
       field :email_addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Email]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_addresses') } }
+      # The custom field mappings of the contact between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The phone numbers of the contact
       field :phone_numbers, T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_numbers') } }
       # The UUID of the user who owns the contact
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedCrmContactInputFieldMappings, first_name: ::String, last_name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), user_id: T.nilable(::String)).void }
-      def initialize(field_mappings: nil, first_name: nil, last_name: nil, addresses: nil, email_addresses: nil, phone_numbers: nil, user_id: nil)
-        @field_mappings = field_mappings
+      sig { params(first_name: ::String, last_name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), user_id: T.nilable(::String)).void }
+      def initialize(first_name: nil, last_name: nil, addresses: nil, email_addresses: nil, field_mappings: nil, phone_numbers: nil, user_id: nil)
         @first_name = first_name
         @last_name = last_name
         @addresses = addresses
         @email_addresses = email_addresses
+        @field_mappings = field_mappings
         @phone_numbers = phone_numbers
         @user_id = user_id
       end

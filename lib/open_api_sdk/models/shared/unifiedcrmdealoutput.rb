@@ -13,22 +13,22 @@ module OpenApiSDK
 
       # The amount of the deal
       field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedCrmDealOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
       # The description of the deal
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmDealOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedCrmDealOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The name of the deal
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedCrmDealOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The UUID of the company tied to the deal
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the company between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the deal
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the deal in the context of the Crm 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the deal in the context of the Crm 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The UUID of the stage of the deal
@@ -37,17 +37,17 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(amount: ::Float, created_at: ::OpenApiSDK::Shared::UnifiedCrmDealOutputCreatedAt, description: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedCrmDealOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedCrmDealOutputModifiedAt, name: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedCrmDealOutputRemoteData, company_id: T.nilable(::String), id: T.nilable(::String), remote_id: T.nilable(::String), stage_id: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(amount: nil, created_at: nil, description: nil, field_mappings: nil, modified_at: nil, name: nil, remote_data: nil, company_id: nil, id: nil, remote_id: nil, stage_id: nil, user_id: nil)
+      sig { params(amount: ::Float, description: ::String, name: ::String, company_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), stage_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(amount: nil, description: nil, name: nil, company_id: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil, stage_id: nil, user_id: nil)
         @amount = amount
-        @created_at = created_at
         @description = description
-        @field_mappings = field_mappings
-        @modified_at = modified_at
         @name = name
-        @remote_data = remote_data
         @company_id = company_id
+        @created_at = created_at
+        @field_mappings = field_mappings
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @stage_id = stage_id
         @user_id = user_id

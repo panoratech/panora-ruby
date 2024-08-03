@@ -13,33 +13,33 @@ module OpenApiSDK
 
       # The content of the task
       field :content, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmTaskInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The status of the task. Authorized values are PENDING, COMPLETED.
       field :status, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
       # The subject of the task
       field :subject, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subject') } }
-      # The UUID fo the company tied to the task
+      # The UUID of the company tied to the task
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
       # The UUID of the deal tied to the task
       field :deal_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deal_id') } }
       # The due date of the task
       field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the task between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The finished date of the task
       field :finished_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('finished_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the user tied to the task
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(content: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedCrmTaskInputFieldMappings, status: ::String, subject: ::String, company_id: T.nilable(::String), deal_id: T.nilable(::String), due_date: T.nilable(::DateTime), finished_date: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
-      def initialize(content: nil, field_mappings: nil, status: nil, subject: nil, company_id: nil, deal_id: nil, due_date: nil, finished_date: nil, user_id: nil)
+      sig { params(content: ::String, status: ::String, subject: ::String, company_id: T.nilable(::String), deal_id: T.nilable(::String), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), finished_date: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
+      def initialize(content: nil, status: nil, subject: nil, company_id: nil, deal_id: nil, due_date: nil, field_mappings: nil, finished_date: nil, user_id: nil)
         @content = content
-        @field_mappings = field_mappings
         @status = status
         @subject = subject
         @company_id = company_id
         @deal_id = deal_id
         @due_date = due_date
+        @field_mappings = field_mappings
         @finished_date = finished_date
         @user_id = user_id
       end

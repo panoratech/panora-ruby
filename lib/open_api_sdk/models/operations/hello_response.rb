@@ -17,16 +17,16 @@ module OpenApiSDK
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
+      # Returns a greeting message
+      field :res, T.nilable(::String)
 
-      field :string, T.nilable(::String)
 
-
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, string: T.nilable(::String)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, string: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, res: T.nilable(::String)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, res: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @string = string
+        @res = res
       end
     end
   end

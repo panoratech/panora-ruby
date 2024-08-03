@@ -11,14 +11,14 @@ module OpenApiSDK
     class UnifiedCrmCompanyInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmCompanyInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The name of the company
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The addresses of the company
       field :addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Address]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('addresses') } }
       # The email addresses of the company
       field :email_addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Email]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_addresses') } }
+      # The custom field mappings of the company between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The industry of the company. Authorized values can be found in the Industry enum.
       field :industry, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('industry') } }
       # The number of employees of the company
@@ -29,12 +29,12 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedCrmCompanyInputFieldMappings, name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), industry: T.nilable(::String), number_of_employees: T.nilable(::Float), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), user_id: T.nilable(::String)).void }
-      def initialize(field_mappings: nil, name: nil, addresses: nil, email_addresses: nil, industry: nil, number_of_employees: nil, phone_numbers: nil, user_id: nil)
-        @field_mappings = field_mappings
+      sig { params(name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), industry: T.nilable(::String), number_of_employees: T.nilable(::Float), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), user_id: T.nilable(::String)).void }
+      def initialize(name: nil, addresses: nil, email_addresses: nil, field_mappings: nil, industry: nil, number_of_employees: nil, phone_numbers: nil, user_id: nil)
         @name = name
         @addresses = addresses
         @email_addresses = email_addresses
+        @field_mappings = field_mappings
         @industry = industry
         @number_of_employees = number_of_employees
         @phone_numbers = phone_numbers

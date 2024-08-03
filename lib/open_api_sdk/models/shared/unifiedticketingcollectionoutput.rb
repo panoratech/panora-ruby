@@ -11,33 +11,33 @@ module OpenApiSDK
     class UnifiedTicketingCollectionOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedTicketingCollectionOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedTicketingCollectionOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The name of the collection
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedTicketingCollectionOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The type of the collection. Authorized values are either PROJECT or LIST 
       field :collection_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('collection_type') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The description of the collection
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # The UUID of the collection
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the collection in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the collection in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedTicketingCollectionOutputCreatedAt, modified_at: ::OpenApiSDK::Shared::UnifiedTicketingCollectionOutputModifiedAt, name: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedTicketingCollectionOutputRemoteData, collection_type: T.nilable(::String), description: T.nilable(::String), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, modified_at: nil, name: nil, remote_data: nil, collection_type: nil, description: nil, id: nil, remote_id: nil)
-        @created_at = created_at
-        @modified_at = modified_at
+      sig { params(name: ::String, collection_type: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(name: nil, collection_type: nil, created_at: nil, description: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
         @name = name
-        @remote_data = remote_data
         @collection_type = collection_type
+        @created_at = created_at
         @description = description
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end

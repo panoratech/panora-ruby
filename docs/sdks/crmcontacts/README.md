@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_contacts.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,12 +59,16 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_contacts.create(x_connection_token="<value>", unified_crm_contact_input=::OpenApiSDK::Shared::UnifiedCrmContactInput.new(
     first_name: "Jed",
     last_name: "Kuhn",
-    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmContactInputFieldMappings.new(),
   ), remote_data=false)
 
 if ! res.unified_crm_contact_output.nil?
@@ -93,6 +102,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_contacts.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

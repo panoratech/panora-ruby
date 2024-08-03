@@ -29,11 +29,12 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
-      headers['Accept'] = '*/*'
+      headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
         elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
@@ -48,7 +49,12 @@ module OpenApiSDK
       res = ::OpenApiSDK::Operations::DefinitionsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      
+      if r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::CustomFieldResponse)
+          res.custom_field_response = out
+        end
+      end
       res
     end
   end

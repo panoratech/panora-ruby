@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Shared
   
-
+    # The created date of the object
     class UnifiedCrmTaskOutputCreatedAt < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 

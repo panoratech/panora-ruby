@@ -12,14 +12,14 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :data, ::OpenApiSDK::Shared::PassThroughResponseData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
+      field :data, ::OpenApiSDK::Shared::Data, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
 
       field :status, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
 
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
 
-      sig { params(data: ::OpenApiSDK::Shared::PassThroughResponseData, status: ::Float, url: ::String).void }
+      sig { params(data: ::OpenApiSDK::Shared::Data, status: ::Float, url: ::String).void }
       def initialize(data: nil, status: nil, url: nil)
         @data = data
         @status = status

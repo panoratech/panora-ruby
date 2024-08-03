@@ -1,0 +1,17 @@
+# Comment
+
+The comment of the ticket
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `body`                                                                         | *::String*                                                                     | :heavy_check_mark:                                                             | The body of the comment                                                        |
+| `html_body`                                                                    | *T.nilable(::String)*                                                          | :heavy_minus_sign:                                                             | The html body of the comment                                                   |
+| `is_private`                                                                   | *T.nilable(T::Boolean)*                                                        | :heavy_minus_sign:                                                             | The public status of the comment                                               |
+| `creator_type`                                                                 | *T.nilable(::String)*                                                          | :heavy_minus_sign:                                                             | The creator type of the comment. Authorized values are either USER or CONTACT  |
+| `ticket_id`                                                                    | *T.nilable(::String)*                                                          | :heavy_minus_sign:                                                             | The UUID of the ticket the comment is tied to                                  |
+| `contact_id`                                                                   | *T.nilable(::String)*                                                          | :heavy_minus_sign:                                                             | The UUID of the contact which the comment belongs to (if no user_id specified) |
+| `user_id`                                                                      | *T.nilable(::String)*                                                          | :heavy_minus_sign:                                                             | The UUID of the user which the comment belongs to (if no contact_id specified) |
+| `attachments`                                                                  | T::Array<*::String*>                                                           | :heavy_minus_sign:                                                             | The attachements UUIDs tied to the comment                                     |

@@ -16,6 +16,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
 
 req = ::OpenApiSDK::Shared::MapFieldToProviderDto.new(
@@ -27,7 +32,7 @@ req = ::OpenApiSDK::Shared::MapFieldToProviderDto.new(
     
 res = s.field_mappings_map.map(req)
 
-if res.status_code == 200
+if ! res.custom_field_response.nil?
   # handle response
 end
 

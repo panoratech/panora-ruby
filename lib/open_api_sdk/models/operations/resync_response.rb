@@ -18,12 +18,15 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
+      field :resync_status_dto, T.nilable(::OpenApiSDK::Shared::ResyncStatusDto)
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil)
+
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, resync_status_dto: T.nilable(::OpenApiSDK::Shared::ResyncStatusDto)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, resync_status_dto: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
+        @resync_status_dto = resync_status_dto
       end
     end
   end

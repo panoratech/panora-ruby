@@ -11,41 +11,41 @@ module OpenApiSDK
     class UnifiedAtsScorecardOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The UUID of the application
       field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the scorecard
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The UUID of the interview
       field :interview_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('interview_id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The overall recommendation
       field :overall_recommendation, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('overall_recommendation') } }
       # The remote creation date of the scorecard
-      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :remote_created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at') } }
+      # The remote data of the scorecard in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the scorecard in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The submission date of the scorecard
-      field :submitted_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('submitted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :submitted_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('submitted_at') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedAtsScorecardOutputRemoteData, application_id: T.nilable(::String), id: T.nilable(::String), interview_id: T.nilable(::String), overall_recommendation: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_id: T.nilable(::String), submitted_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, application_id: nil, id: nil, interview_id: nil, overall_recommendation: nil, remote_created_at: nil, remote_id: nil, submitted_at: nil)
+      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), interview_id: T.nilable(::String), modified_at: T.nilable(::DateTime), overall_recommendation: T.nilable(::String), remote_created_at: T.nilable(::String), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), submitted_at: T.nilable(::String)).void }
+      def initialize(application_id: nil, created_at: nil, field_mappings: nil, id: nil, interview_id: nil, modified_at: nil, overall_recommendation: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, submitted_at: nil)
+        @application_id = application_id
         @created_at = created_at
         @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
-        @application_id = application_id
         @id = id
         @interview_id = interview_id
+        @modified_at = modified_at
         @overall_recommendation = overall_recommendation
         @remote_created_at = remote_created_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @submitted_at = submitted_at
       end

@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_tasks.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,13 +59,17 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_tasks.create(x_connection_token="<value>", unified_crm_task_input=::OpenApiSDK::Shared::UnifiedCrmTaskInput.new(
     subject: "<value>",
     content: "<value>",
     status: "<value>",
-    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmTaskInputFieldMappings.new(),
   ), remote_data=false)
 
 if ! res.unified_crm_task_output.nil?
@@ -94,6 +103,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_tasks.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

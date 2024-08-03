@@ -11,38 +11,38 @@ module OpenApiSDK
     class UnifiedTicketingUserOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedTicketingUserOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
       # The email address of the user
       field :email_address, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedTicketingUserOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedTicketingUserOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
+      # The custom field mappings of the user between the remote 3rd party & Panora
+      field :field_mappings, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The name of the user
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedTicketingUserOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The account or organization the user is part of
       field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the user
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the user in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the user in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The teams whose the user is part of
       field :teams, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('teams') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedTicketingUserOutputCreatedAt, email_address: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedTicketingUserOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedTicketingUserOutputModifiedAt, name: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedTicketingUserOutputRemoteData, account_id: T.nilable(::String), id: T.nilable(::String), remote_id: T.nilable(::String), teams: T.nilable(T::Array[::String])).void }
-      def initialize(created_at: nil, email_address: nil, field_mappings: nil, modified_at: nil, name: nil, remote_data: nil, account_id: nil, id: nil, remote_id: nil, teams: nil)
-        @created_at = created_at
+      sig { params(email_address: ::String, field_mappings: T::Hash[Symbol, ::Object], name: ::String, account_id: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), teams: T.nilable(T::Array[::String])).void }
+      def initialize(email_address: nil, field_mappings: nil, name: nil, account_id: nil, created_at: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil, teams: nil)
         @email_address = email_address
         @field_mappings = field_mappings
-        @modified_at = modified_at
         @name = name
-        @remote_data = remote_data
         @account_id = account_id
+        @created_at = created_at
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @teams = teams
       end

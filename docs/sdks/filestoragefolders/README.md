@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.filestorage_folders.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,6 +59,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.filestorage_folders.create(x_connection_token="<value>", remote_data=false, unified_filestorage_folder_input=::OpenApiSDK::Shared::UnifiedFilestorageFolderInput.new(
@@ -65,7 +75,6 @@ res = s.filestorage_folders.create(x_connection_token="<value>", remote_data=fal
     parent_folder_id: "<value>",
     shared_link: "<value>",
     permission: "<value>",
-    field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageFolderInputFieldMappings.new(),
   ))
 
 if ! res.unified_filestorage_folder_output.nil?
@@ -99,6 +108,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.filestorage_folders.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

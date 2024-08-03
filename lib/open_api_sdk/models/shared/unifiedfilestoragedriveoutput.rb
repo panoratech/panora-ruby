@@ -11,36 +11,36 @@ module OpenApiSDK
     class UnifiedFilestorageDriveOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
       # The url of the drive
       field :drive_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('drive_url') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The name of the drive
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # When the third party s drive was created.
       field :remote_created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the drive
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the drive in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the drive in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputCreatedAt, drive_url: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputModifiedAt, name: ::String, remote_created_at: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedFilestorageDriveOutputRemoteData, id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, drive_url: nil, field_mappings: nil, modified_at: nil, name: nil, remote_created_at: nil, remote_data: nil, id: nil, remote_id: nil)
-        @created_at = created_at
+      sig { params(drive_url: ::String, name: ::String, remote_created_at: ::String, created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(drive_url: nil, name: nil, remote_created_at: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
         @drive_url = drive_url
-        @field_mappings = field_mappings
-        @modified_at = modified_at
         @name = name
         @remote_created_at = remote_created_at
-        @remote_data = remote_data
+        @created_at = created_at
+        @field_mappings = field_mappings
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end

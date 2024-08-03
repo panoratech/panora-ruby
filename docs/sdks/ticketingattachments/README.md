@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.ticketing_attachments.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,13 +59,20 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.ticketing_attachments.create(x_connection_token="<value>", unified_ticketing_attachment_input=::OpenApiSDK::Shared::UnifiedTicketingAttachmentInput.new(
     file_name: "your_file_here",
     file_url: "<value>",
     uploader: "<value>",
-    field_mappings: ::OpenApiSDK::Shared::UnifiedTicketingAttachmentInputFieldMappings.new(),
+    field_mappings: {
+      "online": "<value>",
+    },
   ), remote_data=false)
 
 if ! res.unified_ticketing_attachment_output.nil?
@@ -94,6 +106,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.ticketing_attachments.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

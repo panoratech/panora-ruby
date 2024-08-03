@@ -11,24 +11,24 @@ module OpenApiSDK
     class UnifiedAtsEeocsOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The UUID of the candidate
       field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The disability status of the candidate
       field :disability_status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('disability_status') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The gender of the candidate
       field :gender, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gender') } }
       # The UUID of the EEOC
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The race of the candidate
       field :race, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('race') } }
+      # The remote data of the EEOC in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the EEOC in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The submission date of the EEOC
@@ -37,17 +37,17 @@ module OpenApiSDK
       field :veteran_status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('veteran_status') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedAtsEeocsOutputRemoteData, candidate_id: T.nilable(::String), disability_status: T.nilable(::String), gender: T.nilable(::String), id: T.nilable(::String), race: T.nilable(::String), remote_id: T.nilable(::String), submitted_at: T.nilable(::DateTime), veteran_status: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, candidate_id: nil, disability_status: nil, gender: nil, id: nil, race: nil, remote_id: nil, submitted_at: nil, veteran_status: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
+      sig { params(candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), disability_status: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), gender: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), race: T.nilable(::String), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), submitted_at: T.nilable(::DateTime), veteran_status: T.nilable(::String)).void }
+      def initialize(candidate_id: nil, created_at: nil, disability_status: nil, field_mappings: nil, gender: nil, id: nil, modified_at: nil, race: nil, remote_data: nil, remote_id: nil, submitted_at: nil, veteran_status: nil)
         @candidate_id = candidate_id
+        @created_at = created_at
         @disability_status = disability_status
+        @field_mappings = field_mappings
         @gender = gender
         @id = id
+        @modified_at = modified_at
         @race = race
+        @remote_data = remote_data
         @remote_id = remote_id
         @submitted_at = submitted_at
         @veteran_status = veteran_status

@@ -11,30 +11,30 @@ module OpenApiSDK
     class UnifiedAtsDepartmentOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the department
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The name of the department
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The remote data of the department in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the department in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedAtsDepartmentOutputRemoteData, id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, id: nil, name: nil, remote_id: nil)
+      sig { params(created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(created_at: nil, field_mappings: nil, id: nil, modified_at: nil, name: nil, remote_data: nil, remote_id: nil)
         @created_at = created_at
         @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
         @id = id
+        @modified_at = modified_at
         @name = name
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end

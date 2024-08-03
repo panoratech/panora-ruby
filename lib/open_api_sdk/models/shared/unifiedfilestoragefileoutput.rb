@@ -11,48 +11,48 @@ module OpenApiSDK
     class UnifiedFilestorageFileOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The url of the file
       field :file_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_url') } }
       # The UUID of the folder tied to the file
       field :folder_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folder_id') } }
       # The mime type of the file
       field :mime_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mime_type') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The name of the file
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The UUID of the permission tied to the file
       field :permission, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('permission') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The UUID of the shared link tied to the file
       field :shared_link, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('shared_link') } }
       # The size of the file
       field :size, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('size') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the file
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the file in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the file in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputFieldMappings, file_url: ::String, folder_id: ::String, mime_type: ::String, modified_at: ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputModifiedAt, name: ::String, permission: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedFilestorageFileOutputRemoteData, shared_link: ::String, size: ::String, id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, file_url: nil, folder_id: nil, mime_type: nil, modified_at: nil, name: nil, permission: nil, remote_data: nil, shared_link: nil, size: nil, id: nil, remote_id: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
+      sig { params(file_url: ::String, folder_id: ::String, mime_type: ::String, name: ::String, permission: ::String, shared_link: ::String, size: ::String, created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(file_url: nil, folder_id: nil, mime_type: nil, name: nil, permission: nil, shared_link: nil, size: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
         @file_url = file_url
         @folder_id = folder_id
         @mime_type = mime_type
-        @modified_at = modified_at
         @name = name
         @permission = permission
-        @remote_data = remote_data
         @shared_link = shared_link
         @size = size
+        @created_at = created_at
+        @field_mappings = field_mappings
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end
