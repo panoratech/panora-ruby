@@ -11,8 +11,6 @@ module OpenApiSDK
     class UnifiedFilestorageFileInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedFilestorageFileInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The url of the file
       field :file_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_url') } }
       # The UUID of the folder tied to the file
@@ -27,11 +25,12 @@ module OpenApiSDK
       field :shared_link, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('shared_link') } }
       # The size of the file
       field :size, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('size') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageFileInputFieldMappings, file_url: ::String, folder_id: ::String, mime_type: ::String, name: ::String, permission: ::String, shared_link: ::String, size: ::String).void }
-      def initialize(field_mappings: nil, file_url: nil, folder_id: nil, mime_type: nil, name: nil, permission: nil, shared_link: nil, size: nil)
-        @field_mappings = field_mappings
+      sig { params(file_url: ::String, folder_id: ::String, mime_type: ::String, name: ::String, permission: ::String, shared_link: ::String, size: ::String, field_mappings: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(file_url: nil, folder_id: nil, mime_type: nil, name: nil, permission: nil, shared_link: nil, size: nil, field_mappings: nil)
         @file_url = file_url
         @folder_id = folder_id
         @mime_type = mime_type
@@ -39,6 +38,7 @@ module OpenApiSDK
         @permission = permission
         @shared_link = shared_link
         @size = size
+        @field_mappings = field_mappings
       end
     end
   end

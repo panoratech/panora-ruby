@@ -16,6 +16,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.hris_payrollruns.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")

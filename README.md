@@ -35,11 +35,16 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.hello()
 
-if ! res.string.nil?
+if ! res.res.nil?
   # handle response
 end
 
@@ -58,15 +63,9 @@ end
 
 * [list](docs/sdks/webhooks/README.md#list) - List webhooks
 * [create](docs/sdks/webhooks/README.md#create) - Add webhook metadata
-
-### [WebhooksId](docs/sdks/webhooksid/README.md)
-
-* [delete](docs/sdks/webhooksid/README.md#delete) - Delete Webhook
-* [update_status](docs/sdks/webhooksid/README.md#update_status) - Update webhook status
-
-### [WebhooksVerifyevent](docs/sdks/webhooksverifyevent/README.md)
-
-* [verify_event](docs/sdks/webhooksverifyevent/README.md#verify_event) - Verify payload signature of the webhook
+* [delete](docs/sdks/webhooks/README.md#delete) - Delete Webhook
+* [update_status](docs/sdks/webhooks/README.md#update_status) - Update webhook status
+* [verify_event](docs/sdks/webhooks/README.md#verify_event) - Verify payload signature of the webhook
 
 ### [TicketingTickets](docs/sdks/ticketingtickets/README.md)
 
@@ -96,7 +95,7 @@ end
 
 ### [CrmCompanies](docs/sdks/crmcompanies/README.md)
 
-* [list](docs/sdks/crmcompanies/README.md#list) - List  Companies
+* [list](docs/sdks/crmcompanies/README.md#list) - List Companies
 * [create](docs/sdks/crmcompanies/README.md#create) - Create Companies
 * [retrieve](docs/sdks/crmcompanies/README.md#retrieve) - Retrieve Companies
 

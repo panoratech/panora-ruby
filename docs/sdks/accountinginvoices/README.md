@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.accounting_invoices.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,6 +59,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.accounting_invoices.create(x_connection_token="<value>", unified_accounting_invoice_input=::OpenApiSDK::Shared::UnifiedAccountingInvoiceInput.new(), remote_data=false)
@@ -89,6 +99,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.accounting_invoices.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

@@ -17,6 +17,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
 
 req = ::OpenApiSDK::Shared::CreateLinkedUserDto.new(
@@ -26,7 +31,7 @@ req = ::OpenApiSDK::Shared::CreateLinkedUserDto.new(
     
 res = s.linked_users.create(req)
 
-if res.status_code == 200
+if ! res.linked_user_response.nil?
   # handle response
 end
 
@@ -55,11 +60,16 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.linked_users.list()
 
-if res.status_code == 200
+if ! res.linked_user_responses.nil?
   # handle response
 end
 

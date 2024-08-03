@@ -15,25 +15,25 @@ module OpenApiSDK
       field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
       # The description of the deal
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmDealInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The name of the deal
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The UUID of the company tied to the deal
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The custom field mappings of the company between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the stage of the deal
       field :stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stage_id') } }
       # The UUID of the user who is on the deal
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(amount: ::Float, description: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedCrmDealInputFieldMappings, name: ::String, company_id: T.nilable(::String), stage_id: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(amount: nil, description: nil, field_mappings: nil, name: nil, company_id: nil, stage_id: nil, user_id: nil)
+      sig { params(amount: ::Float, description: ::String, name: ::String, company_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), stage_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(amount: nil, description: nil, name: nil, company_id: nil, field_mappings: nil, stage_id: nil, user_id: nil)
         @amount = amount
         @description = description
-        @field_mappings = field_mappings
         @name = name
         @company_id = company_id
+        @field_mappings = field_mappings
         @stage_id = stage_id
         @user_id = user_id
       end

@@ -11,36 +11,36 @@ module OpenApiSDK
     class UnifiedFilestorageGroupOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The name of the group
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # Indicates whether or not this object has been deleted in the third party platform.
       field :remote_was_deleted, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
       # Uuids of users of the group
       field :users, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('users') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the group
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the group in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the group in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputModifiedAt, name: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedFilestorageGroupOutputRemoteData, remote_was_deleted: T::Boolean, users: T::Array[::String], id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, name: nil, remote_data: nil, remote_was_deleted: nil, users: nil, id: nil, remote_id: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
-        @modified_at = modified_at
+      sig { params(name: ::String, remote_was_deleted: T::Boolean, users: T::Array[::String], created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(name: nil, remote_was_deleted: nil, users: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
         @name = name
-        @remote_data = remote_data
         @remote_was_deleted = remote_was_deleted
         @users = users
+        @created_at = created_at
+        @field_mappings = field_mappings
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end

@@ -11,26 +11,24 @@ module OpenApiSDK
     class UnifiedAtsJobOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedAtsJobOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsJobOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedAtsJobOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsJobOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The code of the job
       field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code') } }
       # Whether the job is confidential
       field :confidential, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('confidential') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The departments UUIDs associated with the job
       field :departments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('departments') } }
       # The description of the job
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the job
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The managers UUIDs associated with the job
       field :managers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('managers') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The name of the job
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The offices UUIDs associated with the job
@@ -39,6 +37,8 @@ module OpenApiSDK
       field :recruiters, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('recruiters') } }
       # The remote creation date of the job
       field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the job in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the job in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The remote modification date of the job
@@ -49,22 +49,22 @@ module OpenApiSDK
       field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedAtsJobOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedAtsJobOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedAtsJobOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedAtsJobOutputRemoteData, code: T.nilable(::String), confidential: T.nilable(T::Boolean), departments: T.nilable(T::Array[::String]), description: T.nilable(::String), id: T.nilable(::String), managers: T.nilable(T::Array[::String]), name: T.nilable(::String), offices: T.nilable(T::Array[::String]), recruiters: T.nilable(T::Array[::String]), remote_created_at: T.nilable(::DateTime), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), status: T.nilable(::String), type: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, code: nil, confidential: nil, departments: nil, description: nil, id: nil, managers: nil, name: nil, offices: nil, recruiters: nil, remote_created_at: nil, remote_id: nil, remote_updated_at: nil, status: nil, type: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
+      sig { params(code: T.nilable(::String), confidential: T.nilable(T::Boolean), created_at: T.nilable(::DateTime), departments: T.nilable(T::Array[::String]), description: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), managers: T.nilable(T::Array[::String]), modified_at: T.nilable(::DateTime), name: T.nilable(::String), offices: T.nilable(T::Array[::String]), recruiters: T.nilable(T::Array[::String]), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), status: T.nilable(::String), type: T.nilable(::String)).void }
+      def initialize(code: nil, confidential: nil, created_at: nil, departments: nil, description: nil, field_mappings: nil, id: nil, managers: nil, modified_at: nil, name: nil, offices: nil, recruiters: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, status: nil, type: nil)
         @code = code
         @confidential = confidential
+        @created_at = created_at
         @departments = departments
         @description = description
+        @field_mappings = field_mappings
         @id = id
         @managers = managers
+        @modified_at = modified_at
         @name = name
         @offices = offices
         @recruiters = recruiters
         @remote_created_at = remote_created_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @remote_updated_at = remote_updated_at
         @status = status

@@ -13,48 +13,48 @@ module OpenApiSDK
 
       # The content of the task
       field :content, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content') } }
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedCrmTaskOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmTaskOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedCrmTaskOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedCrmTaskOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The status of the task. Authorized values are PENDING, COMPLETED.
       field :status, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
       # The subject of the task
       field :subject, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subject') } }
-      # The UUID fo the company tied to the task
+      # The UUID of the company tied to the task
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::OpenApiSDK::Shared::UnifiedCrmTaskOutputCreatedAt), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
       # The UUID of the deal tied to the task
       field :deal_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deal_id') } }
       # The due date of the task
       field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the task between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The finished date of the task
       field :finished_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('finished_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the task
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::OpenApiSDK::Shared::UnifiedCrmTaskOutputModifiedAt), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
+      # The remote data of the task in the context of the Crm 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the task in the context of the Crm 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The UUID of the user tied to the task
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(content: ::String, created_at: ::OpenApiSDK::Shared::UnifiedCrmTaskOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedCrmTaskOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedCrmTaskOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedCrmTaskOutputRemoteData, status: ::String, subject: ::String, company_id: T.nilable(::String), deal_id: T.nilable(::String), due_date: T.nilable(::DateTime), finished_date: T.nilable(::DateTime), id: T.nilable(::String), remote_id: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(content: nil, created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, status: nil, subject: nil, company_id: nil, deal_id: nil, due_date: nil, finished_date: nil, id: nil, remote_id: nil, user_id: nil)
+      sig { params(content: ::String, status: ::String, subject: ::String, company_id: T.nilable(::String), created_at: T.nilable(::OpenApiSDK::Shared::UnifiedCrmTaskOutputCreatedAt), deal_id: T.nilable(::String), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), finished_date: T.nilable(::DateTime), id: T.nilable(::String), modified_at: T.nilable(::OpenApiSDK::Shared::UnifiedCrmTaskOutputModifiedAt), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(content: nil, status: nil, subject: nil, company_id: nil, created_at: nil, deal_id: nil, due_date: nil, field_mappings: nil, finished_date: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil, user_id: nil)
         @content = content
-        @created_at = created_at
-        @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
         @status = status
         @subject = subject
         @company_id = company_id
+        @created_at = created_at
         @deal_id = deal_id
         @due_date = due_date
+        @field_mappings = field_mappings
         @finished_date = finished_date
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @user_id = user_id
       end

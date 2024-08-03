@@ -11,12 +11,12 @@ module OpenApiSDK
     class UnifiedAtsAttachmentInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsAttachmentInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The type of the file
       field :attachment_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachment_type') } }
       # The UUID of the candidate
       field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_id') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The name of the file
       field :file_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_name') } }
       # The URL of the file
@@ -27,11 +27,11 @@ module OpenApiSDK
       field :remote_modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedAtsAttachmentInputFieldMappings, attachment_type: T.nilable(::String), candidate_id: T.nilable(::String), file_name: T.nilable(::String), file_url: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_modified_at: T.nilable(::DateTime)).void }
-      def initialize(field_mappings: nil, attachment_type: nil, candidate_id: nil, file_name: nil, file_url: nil, remote_created_at: nil, remote_modified_at: nil)
-        @field_mappings = field_mappings
+      sig { params(attachment_type: T.nilable(::String), candidate_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), file_name: T.nilable(::String), file_url: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_modified_at: T.nilable(::DateTime)).void }
+      def initialize(attachment_type: nil, candidate_id: nil, field_mappings: nil, file_name: nil, file_url: nil, remote_created_at: nil, remote_modified_at: nil)
         @attachment_type = attachment_type
         @candidate_id = candidate_id
+        @field_mappings = field_mappings
         @file_name = file_name
         @file_url = file_url
         @remote_created_at = remote_created_at

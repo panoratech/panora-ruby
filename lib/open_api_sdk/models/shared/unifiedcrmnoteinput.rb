@@ -13,25 +13,25 @@ module OpenApiSDK
 
       # The content of the note
       field :content, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmNoteInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the company tied to the note
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
       # The UUID fo the contact tied to the note
       field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
       # The UUID of the deal tied to the note
       field :deal_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deal_id') } }
+      # The custom field mappings of the note between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the user tied the note
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(content: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedCrmNoteInputFieldMappings, company_id: T.nilable(::String), contact_id: T.nilable(::String), deal_id: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(content: nil, field_mappings: nil, company_id: nil, contact_id: nil, deal_id: nil, user_id: nil)
+      sig { params(content: ::String, company_id: T.nilable(::String), contact_id: T.nilable(::String), deal_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), user_id: T.nilable(::String)).void }
+      def initialize(content: nil, company_id: nil, contact_id: nil, deal_id: nil, field_mappings: nil, user_id: nil)
         @content = content
-        @field_mappings = field_mappings
         @company_id = company_id
         @contact_id = contact_id
         @deal_id = deal_id
+        @field_mappings = field_mappings
         @user_id = user_id
       end
     end

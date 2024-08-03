@@ -11,8 +11,6 @@ module OpenApiSDK
     class UnifiedAtsApplicationInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsApplicationInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The application date
       field :applied_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applied_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the candidate
@@ -21,6 +19,8 @@ module OpenApiSDK
       field :credited_to, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('credited_to') } }
       # The UUID of the current stage of the application
       field :current_stage, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('current_stage') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the job
       field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('job_id') } }
       # The offers UUIDs for the application
@@ -33,13 +33,13 @@ module OpenApiSDK
       field :source, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source') } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedAtsApplicationInputFieldMappings, applied_at: T.nilable(::DateTime), candidate_id: T.nilable(::String), credited_to: T.nilable(::String), current_stage: T.nilable(::String), job_id: T.nilable(::String), offers: T.nilable(T::Array[::String]), reject_reason: T.nilable(::String), rejected_at: T.nilable(::DateTime), source: T.nilable(::String)).void }
-      def initialize(field_mappings: nil, applied_at: nil, candidate_id: nil, credited_to: nil, current_stage: nil, job_id: nil, offers: nil, reject_reason: nil, rejected_at: nil, source: nil)
-        @field_mappings = field_mappings
+      sig { params(applied_at: T.nilable(::DateTime), candidate_id: T.nilable(::String), credited_to: T.nilable(::String), current_stage: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), job_id: T.nilable(::String), offers: T.nilable(T::Array[::String]), reject_reason: T.nilable(::String), rejected_at: T.nilable(::DateTime), source: T.nilable(::String)).void }
+      def initialize(applied_at: nil, candidate_id: nil, credited_to: nil, current_stage: nil, field_mappings: nil, job_id: nil, offers: nil, reject_reason: nil, rejected_at: nil, source: nil)
         @applied_at = applied_at
         @candidate_id = candidate_id
         @credited_to = credited_to
         @current_stage = current_stage
+        @field_mappings = field_mappings
         @job_id = job_id
         @offers = offers
         @reject_reason = reject_reason

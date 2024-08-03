@@ -16,12 +16,12 @@ module OpenApiSDK
 
       field :path, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('path') } }
 
-      field :data, T.nilable(::OpenApiSDK::Shared::Data), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
+      field :data, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
 
-      field :headers, T.nilable(::OpenApiSDK::Shared::Headers), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers') } }
+      field :headers, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers') } }
 
 
-      sig { params(method: ::OpenApiSDK::Shared::Method, path: ::String, data: T.nilable(::OpenApiSDK::Shared::Data), headers: T.nilable(::OpenApiSDK::Shared::Headers)).void }
+      sig { params(method: ::OpenApiSDK::Shared::Method, path: ::String, data: T.nilable(::Object), headers: T.nilable(T::Hash[Symbol, ::Object])).void }
       def initialize(method: nil, path: nil, data: nil, headers: nil)
         @method = method
         @path = path

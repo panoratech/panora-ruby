@@ -11,18 +11,14 @@ module OpenApiSDK
     class UnifiedAtsInterviewOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The UUID of the application
       field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The end date and time of the interview
       field :end_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the interview
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The UUIDs of the interviewers
@@ -31,10 +27,14 @@ module OpenApiSDK
       field :job_interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('job_interview_stage_id') } }
       # The location of the interview
       field :location, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('location') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the organizer
       field :organized_by, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('organized_by') } }
       # The remote creation date of the interview
       field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the interview in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the interview in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The remote modification date of the interview
@@ -45,20 +45,20 @@ module OpenApiSDK
       field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedAtsInterviewOutputRemoteData, application_id: T.nilable(::String), end_at: T.nilable(::DateTime), id: T.nilable(::String), interviewers: T.nilable(T::Array[::String]), job_interview_stage_id: T.nilable(::String), location: T.nilable(::String), organized_by: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), start_at: T.nilable(::DateTime), status: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, application_id: nil, end_at: nil, id: nil, interviewers: nil, job_interview_stage_id: nil, location: nil, organized_by: nil, remote_created_at: nil, remote_id: nil, remote_updated_at: nil, start_at: nil, status: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
+      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), end_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), interviewers: T.nilable(T::Array[::String]), job_interview_stage_id: T.nilable(::String), location: T.nilable(::String), modified_at: T.nilable(::DateTime), organized_by: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), start_at: T.nilable(::DateTime), status: T.nilable(::String)).void }
+      def initialize(application_id: nil, created_at: nil, end_at: nil, field_mappings: nil, id: nil, interviewers: nil, job_interview_stage_id: nil, location: nil, modified_at: nil, organized_by: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, start_at: nil, status: nil)
         @application_id = application_id
+        @created_at = created_at
         @end_at = end_at
+        @field_mappings = field_mappings
         @id = id
         @interviewers = interviewers
         @job_interview_stage_id = job_interview_stage_id
         @location = location
+        @modified_at = modified_at
         @organized_by = organized_by
         @remote_created_at = remote_created_at
+        @remote_data = remote_data
         @remote_id = remote_id
         @remote_updated_at = remote_updated_at
         @start_at = start_at

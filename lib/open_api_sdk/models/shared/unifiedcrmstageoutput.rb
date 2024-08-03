@@ -11,30 +11,30 @@ module OpenApiSDK
     class UnifiedCrmStageOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedCrmStageOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmStageOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedCrmStageOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedCrmStageOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The name of the stage
       field :stage_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stage_name') } }
+      # The created date of the object
+      field :created_at, T.nilable(::OpenApiSDK::Shared::UnifiedCrmStageOutputCreatedAt), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
+      # The custom field mappings of the stage between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the stage
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::OpenApiSDK::Shared::UnifiedCrmStageOutputModifiedAt), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
+      # The remote data of the stage in the context of the Crm 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the stage in the context of the Crm 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedCrmStageOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedCrmStageOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedCrmStageOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedCrmStageOutputRemoteData, stage_name: ::String, id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, stage_name: nil, id: nil, remote_id: nil)
+      sig { params(stage_name: ::String, created_at: T.nilable(::OpenApiSDK::Shared::UnifiedCrmStageOutputCreatedAt), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::OpenApiSDK::Shared::UnifiedCrmStageOutputModifiedAt), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(stage_name: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
+        @stage_name = stage_name
         @created_at = created_at
         @field_mappings = field_mappings
+        @id = id
         @modified_at = modified_at
         @remote_data = remote_data
-        @stage_name = stage_name
-        @id = id
         @remote_id = remote_id
       end
     end

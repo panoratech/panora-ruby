@@ -13,21 +13,24 @@ module OpenApiSDK
   class Panora
     extend T::Sig
 
-    attr_accessor :webhooks, :webhooks_id, :webhooks_verifyevent, :ticketing_tickets, :ticketing_users, :ticketing_accounts, :ticketing_contacts, :sync, :crm_companies, :crm_contacts, :crm_deals, :crm_engagements, :crm_notes, :crm_stages, :crm_tasks, :crm_users, :ticketing_collections, :ticketing_comments, :ticketing_tags, :ticketing_teams, :linked_users, :linked_users_batch, :linked_users_single, :linked_users_fromremoteid, :field_mappings_define, :field_mappings, :field_mappings_map, :passthrough, :hris_bankinfos, :hris_benefits, :hris_companies, :hris_dependents, :hris_employeepayrollruns, :hris_employees, :hris_employerbenefits, :hris_employments, :hris_groups, :hris_locations, :hris_paygroups, :hris_payrollruns, :hris_timeoffs, :hris_timeoffbalances, :marketingautomation_actions, :marketingautomation_automations, :marketingautomation_campaigns, :marketingautomation_contacts, :marketingautomation_emails, :marketingautomation_events, :marketingautomation_lists, :marketingautomation_messages, :marketingautomation_templates, :marketingautomation_users, :ats_activities, :ats_applications, :ats_attachments, :ats_candidates, :ats_departments, :ats_interviews, :ats_jobinterviewstages, :ats_jobs, :ats_offers, :ats_offices, :ats_rejectreasons, :ats_scorecards, :ats_tags, :ats_users, :ats_eeocs, :accounting_accounts, :accounting_addresses, :accounting_attachments, :accounting_balancesheets, :accounting_cashflowstatements, :accounting_companyinfos, :accounting_contacts, :accounting_creditnotes, :accounting_expenses, :accounting_incomestatements, :accounting_invoices, :accounting_items, :accounting_journalentries, :accounting_payments, :accounting_phonenumbers, :accounting_purchaseorders, :accounting_taxrates, :accounting_trackingcategories, :accounting_transactions, :accounting_vendorcredits, :filestorage_drives, :filestorage_files, :filestorage_folders, :filestorage_groups, :filestorage_users, :ticketing_attachments
+    attr_accessor :webhooks, :ticketing_tickets, :ticketing_users, :ticketing_accounts, :ticketing_contacts, :sync, :crm_companies, :crm_contacts, :crm_deals, :crm_engagements, :crm_notes, :crm_stages, :crm_tasks, :crm_users, :ticketing_collections, :ticketing_comments, :ticketing_tags, :ticketing_teams, :linked_users, :linked_users_batch, :linked_users_single, :linked_users_fromremoteid, :field_mappings_define, :field_mappings, :field_mappings_map, :passthrough, :hris_bankinfos, :hris_benefits, :hris_companies, :hris_dependents, :hris_employeepayrollruns, :hris_employees, :hris_employerbenefits, :hris_employments, :hris_groups, :hris_locations, :hris_paygroups, :hris_payrollruns, :hris_timeoffs, :hris_timeoffbalances, :marketingautomation_actions, :marketingautomation_automations, :marketingautomation_campaigns, :marketingautomation_contacts, :marketingautomation_emails, :marketingautomation_events, :marketingautomation_lists, :marketingautomation_messages, :marketingautomation_templates, :marketingautomation_users, :ats_activities, :ats_applications, :ats_attachments, :ats_candidates, :ats_departments, :ats_interviews, :ats_jobinterviewstages, :ats_jobs, :ats_offers, :ats_offices, :ats_rejectreasons, :ats_scorecards, :ats_tags, :ats_users, :ats_eeocs, :accounting_accounts, :accounting_addresses, :accounting_attachments, :accounting_balancesheets, :accounting_cashflowstatements, :accounting_companyinfos, :accounting_contacts, :accounting_creditnotes, :accounting_expenses, :accounting_incomestatements, :accounting_invoices, :accounting_items, :accounting_journalentries, :accounting_payments, :accounting_phonenumbers, :accounting_purchaseorders, :accounting_taxrates, :accounting_trackingcategories, :accounting_transactions, :accounting_vendorcredits, :filestorage_drives, :filestorage_files, :filestorage_folders, :filestorage_groups, :filestorage_users, :ticketing_attachments
 
     sig do
       params(client: Faraday::Request,
+             security: T.nilable(Shared::Security),
              server_idx: Integer,
              server_url: String,
              url_params: T::Hash[Symbol, String]).void
     end
     def initialize(client: nil,
+                   security: nil,
                    server_idx: nil,
                    server_url: nil,
                    url_params: nil)
 
       ## Instantiates the SDK configuring it with the provided parameters.
       # @param [Faraday::Request] client The faraday HTTP client to use for all operations
+      # @param [Shared::Security] security The security details required for authentication
       # @param [::Integer] server_idx The index of the server to use for all operations
       # @param [::String] server_url The server URL to use for all operations
       # @param [::Hash<::Symbol, ::String>] url_params Parameters to optionally template the server URL with
@@ -48,7 +51,7 @@ module OpenApiSDK
       end
       server_idx = 0 if server_idx.nil?
 
-      @sdk_configuration = SDKConfiguration.new(client, server_url, server_idx)
+      @sdk_configuration = SDKConfiguration.new(client, security, server_url, server_idx)
       init_sdks
     end
 
@@ -65,11 +68,14 @@ module OpenApiSDK
       init_sdks
     end
 
+    sig { params(security: ::OpenApiSDK::Shared::Security).void }
+    def config_security(security)
+      @sdk_configuration.security = security
+    end
+
     sig { void }
     def init_sdks
       @webhooks = Webhooks.new(@sdk_configuration)
-      @webhooks_id = WebhooksId.new(@sdk_configuration)
-      @webhooks_verifyevent = WebhooksVerifyevent.new(@sdk_configuration)
       @ticketing_tickets = TicketingTickets.new(@sdk_configuration)
       @ticketing_users = TicketingUsers.new(@sdk_configuration)
       @ticketing_accounts = TicketingAccounts.new(@sdk_configuration)
@@ -170,11 +176,12 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/"
       headers = {}
-      headers['Accept'] = 'application/json'
+      headers['Accept'] = 'text/plain'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
@@ -183,10 +190,8 @@ module OpenApiSDK
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::String)
-          res.string = out
-        end
+        res.res = r.env.response_body if Utils.match_content_type(content_type, 'text/plain')
+      
       end
       res
     end
@@ -204,6 +209,7 @@ module OpenApiSDK
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')

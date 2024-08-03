@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_deals.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,13 +59,17 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_deals.create(x_connection_token="<value>", unified_crm_deal_input=::OpenApiSDK::Shared::UnifiedCrmDealInput.new(
     name: "<value>",
     description: "Multi-tiered human-resource model",
     amount: 8592.13,
-    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmDealInputFieldMappings.new(),
   ), remote_data=false)
 
 if ! res.unified_crm_deal_output.nil?
@@ -94,6 +103,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_deals.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

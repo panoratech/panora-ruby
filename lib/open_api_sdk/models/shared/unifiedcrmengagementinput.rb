@@ -11,8 +11,6 @@ module OpenApiSDK
     class UnifiedCrmEngagementInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedCrmEngagementInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The type of the engagement. Authorized values are EMAIL, CALL or MEETING
       field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
       # The UUID of the company tied to the engagement
@@ -25,6 +23,8 @@ module OpenApiSDK
       field :direction, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('direction') } }
       # The end time of the engagement
       field :end_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the engagement between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The start time of the engagement
       field :start_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The subject of the engagement
@@ -33,15 +33,15 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedCrmEngagementInputFieldMappings, type: ::String, company_id: T.nilable(::String), contacts: T.nilable(T::Array[::String]), content: T.nilable(::String), direction: T.nilable(::String), end_time: T.nilable(::DateTime), start_at: T.nilable(::DateTime), subject: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(field_mappings: nil, type: nil, company_id: nil, contacts: nil, content: nil, direction: nil, end_time: nil, start_at: nil, subject: nil, user_id: nil)
-        @field_mappings = field_mappings
+      sig { params(type: ::String, company_id: T.nilable(::String), contacts: T.nilable(T::Array[::String]), content: T.nilable(::String), direction: T.nilable(::String), end_time: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), start_at: T.nilable(::DateTime), subject: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(type: nil, company_id: nil, contacts: nil, content: nil, direction: nil, end_time: nil, field_mappings: nil, start_at: nil, subject: nil, user_id: nil)
         @type = type
         @company_id = company_id
         @contacts = contacts
         @content = content
         @direction = direction
         @end_time = end_time
+        @field_mappings = field_mappings
         @start_at = start_at
         @subject = subject
         @user_id = user_id

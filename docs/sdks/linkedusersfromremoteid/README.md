@@ -16,11 +16,16 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.linked_users_fromremoteid.remote_id(remote_id="<value>")
 
-if res.status_code == 200
+if ! res.linked_user_response.nil?
   # handle response
 end
 

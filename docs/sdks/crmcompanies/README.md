@@ -3,13 +3,13 @@
 
 ### Available Operations
 
-* [list](#list) - List  Companies
+* [list](#list) - List Companies
 * [create](#create) - Create Companies
 * [retrieve](#retrieve) - Retrieve Companies
 
 ## list
 
-List  Companies
+List Companies
 
 ### Example Usage
 
@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_companies.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,11 +59,15 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_companies.create(x_connection_token="<value>", unified_crm_company_input=::OpenApiSDK::Shared::UnifiedCrmCompanyInput.new(
     name: "<value>",
-    field_mappings: ::OpenApiSDK::Shared::UnifiedCrmCompanyInputFieldMappings.new(),
   ), remote_data=false)
 
 if ! res.unified_crm_company_output.nil?
@@ -92,6 +101,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.crm_companies.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

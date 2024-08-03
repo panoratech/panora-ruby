@@ -8,8 +8,6 @@ module OpenApiSDK
   autoload :Shared, 'open_api_sdk/models/shared'
   autoload :Operations, 'open_api_sdk/models/operations'
   autoload :Webhooks, 'open_api_sdk/webhooks'
-  autoload :WebhooksId, 'open_api_sdk/webhooks_id_'
-  autoload :WebhooksVerifyevent, 'open_api_sdk/webhooks_verifyevent'
   autoload :TicketingTickets, 'open_api_sdk/ticketing_tickets'
   autoload :TicketingUsers, 'open_api_sdk/ticketing_users'
   autoload :TicketingAccounts, 'open_api_sdk/ticketing_accounts'

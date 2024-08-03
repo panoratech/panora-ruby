@@ -11,8 +11,6 @@ module OpenApiSDK
     class UnifiedAtsCandidateInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsCandidateInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The applications UUIDs of the candidate
       field :applications, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applications') } }
       # The attachments UUIDs of the candidate
@@ -23,6 +21,8 @@ module OpenApiSDK
       field :email_addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Email]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_addresses') } }
       # Whether the candidate is reachable by email
       field :email_reachable, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_reachable') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The first name of the candidate
       field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name') } }
       # Whether the candidate is private
@@ -47,14 +47,14 @@ module OpenApiSDK
       field :urls, T.nilable(T::Array[::OpenApiSDK::Shared::Url]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('urls') } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedAtsCandidateInputFieldMappings, applications: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), company: T.nilable(::String), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), email_reachable: T.nilable(T::Boolean), first_name: T.nilable(::String), is_private: T.nilable(T::Boolean), last_interaction_at: T.nilable(::DateTime), last_name: T.nilable(::String), locations: T.nilable(::String), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_created_at: T.nilable(::DateTime), remote_modified_at: T.nilable(::DateTime), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), urls: T.nilable(T::Array[::OpenApiSDK::Shared::Url])).void }
-      def initialize(field_mappings: nil, applications: nil, attachments: nil, company: nil, email_addresses: nil, email_reachable: nil, first_name: nil, is_private: nil, last_interaction_at: nil, last_name: nil, locations: nil, phone_numbers: nil, remote_created_at: nil, remote_modified_at: nil, tags: nil, title: nil, urls: nil)
-        @field_mappings = field_mappings
+      sig { params(applications: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), company: T.nilable(::String), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), email_reachable: T.nilable(T::Boolean), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), first_name: T.nilable(::String), is_private: T.nilable(T::Boolean), last_interaction_at: T.nilable(::DateTime), last_name: T.nilable(::String), locations: T.nilable(::String), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_created_at: T.nilable(::DateTime), remote_modified_at: T.nilable(::DateTime), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), urls: T.nilable(T::Array[::OpenApiSDK::Shared::Url])).void }
+      def initialize(applications: nil, attachments: nil, company: nil, email_addresses: nil, email_reachable: nil, field_mappings: nil, first_name: nil, is_private: nil, last_interaction_at: nil, last_name: nil, locations: nil, phone_numbers: nil, remote_created_at: nil, remote_modified_at: nil, tags: nil, title: nil, urls: nil)
         @applications = applications
         @attachments = attachments
         @company = company
         @email_addresses = email_addresses
         @email_reachable = email_reachable
+        @field_mappings = field_mappings
         @first_name = first_name
         @is_private = is_private
         @last_interaction_at = last_interaction_at

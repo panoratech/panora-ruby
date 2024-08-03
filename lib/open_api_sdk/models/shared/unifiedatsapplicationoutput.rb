@@ -11,54 +11,60 @@ module OpenApiSDK
     class UnifiedAtsApplicationOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The application date
       field :applied_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applied_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the candidate
       field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_id') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The UUID of the person credited for the application
       field :credited_to, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('credited_to') } }
       # The UUID of the current stage of the application
       field :current_stage, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('current_stage') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the application
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The UUID of the job
       field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('job_id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The offers UUIDs for the application
       field :offers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('offers') } }
       # The rejection reason for the application
       field :reject_reason, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('reject_reason') } }
       # The rejection date
       field :rejected_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejected_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote created date of the object
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the application in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the application in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The remote modified date of the object
+      field :remote_modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The source of the application
       field :source, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputCreatedAt, field_mappings: ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputFieldMappings, modified_at: ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputModifiedAt, remote_data: ::OpenApiSDK::Shared::UnifiedAtsApplicationOutputRemoteData, applied_at: T.nilable(::DateTime), candidate_id: T.nilable(::String), credited_to: T.nilable(::String), current_stage: T.nilable(::String), id: T.nilable(::String), job_id: T.nilable(::String), offers: T.nilable(T::Array[::String]), reject_reason: T.nilable(::String), rejected_at: T.nilable(::DateTime), remote_id: T.nilable(::String), source: T.nilable(::String)).void }
-      def initialize(created_at: nil, field_mappings: nil, modified_at: nil, remote_data: nil, applied_at: nil, candidate_id: nil, credited_to: nil, current_stage: nil, id: nil, job_id: nil, offers: nil, reject_reason: nil, rejected_at: nil, remote_id: nil, source: nil)
-        @created_at = created_at
-        @field_mappings = field_mappings
-        @modified_at = modified_at
-        @remote_data = remote_data
+      sig { params(applied_at: T.nilable(::DateTime), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), credited_to: T.nilable(::String), current_stage: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), job_id: T.nilable(::String), modified_at: T.nilable(::DateTime), offers: T.nilable(T::Array[::String]), reject_reason: T.nilable(::String), rejected_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_modified_at: T.nilable(::DateTime), source: T.nilable(::String)).void }
+      def initialize(applied_at: nil, candidate_id: nil, created_at: nil, credited_to: nil, current_stage: nil, field_mappings: nil, id: nil, job_id: nil, modified_at: nil, offers: nil, reject_reason: nil, rejected_at: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_modified_at: nil, source: nil)
         @applied_at = applied_at
         @candidate_id = candidate_id
+        @created_at = created_at
         @credited_to = credited_to
         @current_stage = current_stage
+        @field_mappings = field_mappings
         @id = id
         @job_id = job_id
+        @modified_at = modified_at
         @offers = offers
         @reject_reason = reject_reason
         @rejected_at = rejected_at
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
         @remote_id = remote_id
+        @remote_modified_at = remote_modified_at
         @source = source
       end
     end

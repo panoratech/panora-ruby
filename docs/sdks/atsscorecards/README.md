@@ -17,6 +17,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.ats_scorecards.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -53,6 +58,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.ats_scorecards.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

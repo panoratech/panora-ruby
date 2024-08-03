@@ -18,6 +18,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.ats_candidates.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
@@ -54,11 +59,14 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
-res = s.ats_candidates.create(x_connection_token="<value>", unified_ats_candidate_input=::OpenApiSDK::Shared::UnifiedAtsCandidateInput.new(
-    field_mappings: ::OpenApiSDK::Shared::UnifiedAtsCandidateInputFieldMappings.new(),
-  ), remote_data=false)
+res = s.ats_candidates.create(x_connection_token="<value>", unified_ats_candidate_input=::OpenApiSDK::Shared::UnifiedAtsCandidateInput.new(), remote_data=false)
 
 if ! res.unified_ats_candidate_output.nil?
   # handle response
@@ -91,6 +99,11 @@ require 'panora'
 
 
 s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
 
     
 res = s.ats_candidates.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)

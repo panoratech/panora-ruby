@@ -15,8 +15,6 @@ module OpenApiSDK
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # The UUID of the drive tied to the folder
       field :drive_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('drive_id') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedFilestorageFolderInputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The url of the folder
       field :folder_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folder_url') } }
       # The name of the folder
@@ -29,19 +27,21 @@ module OpenApiSDK
       field :shared_link, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('shared_link') } }
       # The size of the folder
       field :size, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('size') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
 
 
-      sig { params(description: ::String, drive_id: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedFilestorageFolderInputFieldMappings, folder_url: ::String, name: ::String, parent_folder_id: ::String, permission: ::String, shared_link: ::String, size: ::String).void }
-      def initialize(description: nil, drive_id: nil, field_mappings: nil, folder_url: nil, name: nil, parent_folder_id: nil, permission: nil, shared_link: nil, size: nil)
+      sig { params(description: ::String, drive_id: ::String, folder_url: ::String, name: ::String, parent_folder_id: ::String, permission: ::String, shared_link: ::String, size: ::String, field_mappings: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(description: nil, drive_id: nil, folder_url: nil, name: nil, parent_folder_id: nil, permission: nil, shared_link: nil, size: nil, field_mappings: nil)
         @description = description
         @drive_id = drive_id
-        @field_mappings = field_mappings
         @folder_url = folder_url
         @name = name
         @parent_folder_id = parent_folder_id
         @permission = permission
         @shared_link = shared_link
         @size = size
+        @field_mappings = field_mappings
       end
     end
   end

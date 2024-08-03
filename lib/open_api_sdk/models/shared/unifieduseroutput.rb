@@ -11,36 +11,36 @@ module OpenApiSDK
     class UnifiedUserOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :created_at, ::OpenApiSDK::Shared::UnifiedUserOutputCreatedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
       # The email of the user
       field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedUserOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # Whether the user is the one who linked this account.
       field :is_me, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_me') } }
-
-      field :modified_at, ::OpenApiSDK::Shared::UnifiedUserOutputModifiedAt, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The name of the user
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedUserOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The created date of the object
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the user
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The modified date of the object
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the user in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the user in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(created_at: ::OpenApiSDK::Shared::UnifiedUserOutputCreatedAt, email: ::String, field_mappings: ::OpenApiSDK::Shared::UnifiedUserOutputFieldMappings, is_me: T::Boolean, modified_at: ::OpenApiSDK::Shared::UnifiedUserOutputModifiedAt, name: ::String, remote_data: ::OpenApiSDK::Shared::UnifiedUserOutputRemoteData, id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(created_at: nil, email: nil, field_mappings: nil, is_me: nil, modified_at: nil, name: nil, remote_data: nil, id: nil, remote_id: nil)
-        @created_at = created_at
+      sig { params(email: ::String, is_me: T::Boolean, name: ::String, created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(email: nil, is_me: nil, name: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
         @email = email
-        @field_mappings = field_mappings
         @is_me = is_me
-        @modified_at = modified_at
         @name = name
-        @remote_data = remote_data
+        @created_at = created_at
+        @field_mappings = field_mappings
         @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end

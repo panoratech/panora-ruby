@@ -18,12 +18,15 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
+      field :custom_field_response, T.nilable(::OpenApiSDK::Shared::CustomFieldResponse)
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil)
+
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, custom_field_response: T.nilable(::OpenApiSDK::Shared::CustomFieldResponse)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, custom_field_response: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
+        @custom_field_response = custom_field_response
       end
     end
   end

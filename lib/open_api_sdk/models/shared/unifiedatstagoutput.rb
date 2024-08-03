@@ -11,12 +11,10 @@ module OpenApiSDK
     class UnifiedAtsTagOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :field_mappings, ::OpenApiSDK::Shared::UnifiedAtsTagOutputFieldMappings, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-
-      field :remote_data, ::OpenApiSDK::Shared::UnifiedAtsTagOutputRemoteData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The creation date of the tag
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the tag
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The UUID of the candidate
@@ -25,19 +23,21 @@ module OpenApiSDK
       field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The name of the tag
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The remote data of the tag in the context of the 3rd Party
+      field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the tag in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(field_mappings: ::OpenApiSDK::Shared::UnifiedAtsTagOutputFieldMappings, remote_data: ::OpenApiSDK::Shared::UnifiedAtsTagOutputRemoteData, created_at: T.nilable(::DateTime), id: T.nilable(::String), id_ats_candidate: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(field_mappings: nil, remote_data: nil, created_at: nil, id: nil, id_ats_candidate: nil, modified_at: nil, name: nil, remote_id: nil)
-        @field_mappings = field_mappings
-        @remote_data = remote_data
+      sig { params(created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), id_ats_candidate: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(created_at: nil, field_mappings: nil, id: nil, id_ats_candidate: nil, modified_at: nil, name: nil, remote_data: nil, remote_id: nil)
         @created_at = created_at
+        @field_mappings = field_mappings
         @id = id
         @id_ats_candidate = id_ats_candidate
         @modified_at = modified_at
         @name = name
+        @remote_data = remote_data
         @remote_id = remote_id
       end
     end
