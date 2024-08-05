@@ -1,0 +1,10 @@
+# ListHrisGroupsResponseBody
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `prev_cursor`                                                                                           | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `next_cursor`                                                                                           | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `data`                                                                                                  | T::Array<[::OpenApiSDK::Shared::UnifiedHrisGroupOutput](../../models/shared/unifiedhrisgroupoutput.md)> | :heavy_check_mark:                                                                                      | N/A                                                                                                     |

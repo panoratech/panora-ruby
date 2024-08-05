@@ -14,7 +14,7 @@ module OpenApiSDK
       # The name of the collection
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The type of the collection. Authorized values are either PROJECT or LIST 
-      field :collection_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('collection_type') } }
+      field :collection_type, T.nilable(::OpenApiSDK::Shared::CollectionType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('collection_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::CollectionType, true) } }
       # The created date of the object
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The description of the collection
@@ -29,7 +29,7 @@ module OpenApiSDK
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(name: ::String, collection_type: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      sig { params(name: ::String, collection_type: T.nilable(::OpenApiSDK::Shared::CollectionType), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
       def initialize(name: nil, collection_type: nil, created_at: nil, description: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
         @name = name
         @collection_type = collection_type

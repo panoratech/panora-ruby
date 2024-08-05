@@ -1,24 +1,26 @@
 lockVersion: 2.0.0
 id: 8ab4525a-716c-48ab-9531-2850b1a4f88c
 management:
-  docChecksum: 60112bba1ada46f22ab482e42dd98db2
+  docChecksum: 73ce3778a891c9bdb1d0d00c8a42490f
   docVersion: "1.0"
-  speakeasyVersion: 1.352.1
-  generationVersion: 2.385.1
-  releaseVersion: 0.2.0
-  configChecksum: d9f52ced2cf969891089d76c9be2ae2f
+  speakeasyVersion: 1.352.2
+  generationVersion: 2.385.2
+  releaseVersion: 0.2.1
+  configChecksum: e24be5c38d2318b242935ebd0205344b
   repoURL: https://github.com/panoratech/panora-ruby.git
   installationURL: https://github.com/panoratech/panora-ruby
 features:
   ruby:
     core: 3.2.18
     flattening: 2.81.1
-    globalSecurity: 2.81.6
+    globalSecurity: 2.81.7
     globalServerURLs: 2.82.3
     groups: 2.81.2
     nameOverrides: 2.81.2
 generatedFiles:
   - lib/open_api_sdk/sdkconfiguration.rb
+  - lib/open_api_sdk/auth_login.rb
+  - lib/open_api_sdk/connections.rb
   - lib/open_api_sdk/webhooks.rb
   - lib/open_api_sdk/ticketing_tickets.rb
   - lib/open_api_sdk/ticketing_users.rb
@@ -39,11 +41,13 @@ generatedFiles:
   - lib/open_api_sdk/ticketing_teams.rb
   - lib/open_api_sdk/linkedusers.rb
   - lib/open_api_sdk/linked_users_batch.rb
-  - lib/open_api_sdk/linked_users_single.rb
+  - lib/open_api_sdk/linked_users_id_.rb
   - lib/open_api_sdk/linked_users_fromremoteid.rb
+  - lib/open_api_sdk/projects.rb
   - lib/open_api_sdk/field_mappings_define.rb
   - lib/open_api_sdk/fieldmappings.rb
   - lib/open_api_sdk/field_mappings_map.rb
+  - lib/open_api_sdk/events.rb
   - lib/open_api_sdk/passthrough.rb
   - lib/open_api_sdk/hris_bankinfos.rb
   - lib/open_api_sdk/hris_benefits.rb
@@ -161,6 +165,8 @@ generatedFiles:
   - panora.gemspec
   - lib/open_api_sdk/models/operations/hello_response.rb
   - lib/open_api_sdk/models/operations/health_response.rb
+  - lib/open_api_sdk/models/operations/signin_response.rb
+  - lib/open_api_sdk/models/operations/getconnections_response.rb
   - lib/open_api_sdk/models/operations/listwebhooks_response.rb
   - lib/open_api_sdk/models/operations/createwebhookpublic_response.rb
   - lib/open_api_sdk/models/operations/delete_request.rb
@@ -192,6 +198,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/retrieveticketingcontact_request.rb
   - lib/open_api_sdk/models/operations/retrieveticketingcontact_responsebody.rb
   - lib/open_api_sdk/models/operations/retrieveticketingcontact_response.rb
+  - lib/open_api_sdk/models/operations/vertical.rb
   - lib/open_api_sdk/models/operations/status_request.rb
   - lib/open_api_sdk/models/operations/status_response.rb
   - lib/open_api_sdk/models/operations/resync_response.rb
@@ -277,9 +284,13 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/retrievelinkeduser_response.rb
   - lib/open_api_sdk/models/operations/remoteid_request.rb
   - lib/open_api_sdk/models/operations/remoteid_response.rb
+  - lib/open_api_sdk/models/operations/getprojects_response.rb
+  - lib/open_api_sdk/models/operations/createproject_response.rb
   - lib/open_api_sdk/models/operations/definitions_response.rb
   - lib/open_api_sdk/models/operations/definecustomfield_response.rb
   - lib/open_api_sdk/models/operations/map_response.rb
+  - lib/open_api_sdk/models/operations/getpanoracoreevents_request.rb
+  - lib/open_api_sdk/models/operations/getpanoracoreevents_response.rb
   - lib/open_api_sdk/models/operations/request_request.rb
   - lib/open_api_sdk/models/operations/request_response.rb
   - lib/open_api_sdk/models/operations/listhrisbankinfo_request.rb
@@ -287,14 +298,16 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/listhrisbankinfo_response.rb
   - lib/open_api_sdk/models/operations/retrievehrisbankinfo_request.rb
   - lib/open_api_sdk/models/operations/retrievehrisbankinfo_response.rb
-  - lib/open_api_sdk/models/operations/listhrisbenefit_request.rb
-  - lib/open_api_sdk/models/operations/listhrisbenefit_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhrisbenefit_response.rb
+  - lib/open_api_sdk/models/operations/listhrisbenefits_request.rb
+  - lib/open_api_sdk/models/operations/listhrisbenefits_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhrisbenefits_response.rb
   - lib/open_api_sdk/models/operations/retrievehrisbenefit_request.rb
   - lib/open_api_sdk/models/operations/retrievehrisbenefit_response.rb
-  - lib/open_api_sdk/models/operations/listhriscompanys_request.rb
-  - lib/open_api_sdk/models/operations/listhriscompanys_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhriscompanys_response.rb
+  - lib/open_api_sdk/models/operations/listhriscompanies_request.rb
+  - lib/open_api_sdk/models/operations/listhriscompanies_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhriscompanies_response.rb
+  - lib/open_api_sdk/models/operations/retrievehriscompany_request.rb
+  - lib/open_api_sdk/models/operations/retrievehriscompany_response.rb
   - lib/open_api_sdk/models/operations/listhrisdependents_request.rb
   - lib/open_api_sdk/models/operations/listhrisdependents_responsebody.rb
   - lib/open_api_sdk/models/operations/listhrisdependents_response.rb
@@ -305,41 +318,43 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/listhrisemployeepayrollrun_response.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployeepayrollrun_request.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployeepayrollrun_response.rb
-  - lib/open_api_sdk/models/operations/listhrisemployee_request.rb
-  - lib/open_api_sdk/models/operations/listhrisemployee_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhrisemployee_response.rb
+  - lib/open_api_sdk/models/operations/listhrisemployees_request.rb
+  - lib/open_api_sdk/models/operations/listhrisemployees_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhrisemployees_response.rb
   - lib/open_api_sdk/models/operations/createhrisemployee_request.rb
   - lib/open_api_sdk/models/operations/createhrisemployee_response.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployee_request.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployee_response.rb
-  - lib/open_api_sdk/models/operations/listhrisemployerbenefit_request.rb
-  - lib/open_api_sdk/models/operations/listhrisemployerbenefit_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhrisemployerbenefit_response.rb
+  - lib/open_api_sdk/models/operations/listhrisemployerbenefits_request.rb
+  - lib/open_api_sdk/models/operations/listhrisemployerbenefits_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhrisemployerbenefits_response.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployerbenefit_request.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployerbenefit_response.rb
-  - lib/open_api_sdk/models/operations/listhrisemployment_request.rb
-  - lib/open_api_sdk/models/operations/listhrisemployment_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhrisemployment_response.rb
+  - lib/open_api_sdk/models/operations/listhrisemployments_request.rb
+  - lib/open_api_sdk/models/operations/listhrisemployments_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhrisemployments_response.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployment_request.rb
   - lib/open_api_sdk/models/operations/retrievehrisemployment_response.rb
-  - lib/open_api_sdk/models/operations/listhrisgroup_request.rb
-  - lib/open_api_sdk/models/operations/listhrisgroup_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhrisgroup_response.rb
+  - lib/open_api_sdk/models/operations/listhrisgroups_request.rb
+  - lib/open_api_sdk/models/operations/listhrisgroups_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhrisgroups_response.rb
   - lib/open_api_sdk/models/operations/retrievehrisgroup_request.rb
   - lib/open_api_sdk/models/operations/retrievehrisgroup_response.rb
-  - lib/open_api_sdk/models/operations/listhrislocation_request.rb
-  - lib/open_api_sdk/models/operations/listhrislocation_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhrislocation_response.rb
+  - lib/open_api_sdk/models/operations/listhrislocations_request.rb
+  - lib/open_api_sdk/models/operations/listhrislocations_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhrislocations_response.rb
   - lib/open_api_sdk/models/operations/retrievehrislocation_request.rb
   - lib/open_api_sdk/models/operations/retrievehrislocation_response.rb
-  - lib/open_api_sdk/models/operations/listhrispaygroup_request.rb
-  - lib/open_api_sdk/models/operations/listhrispaygroup_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhrispaygroup_response.rb
+  - lib/open_api_sdk/models/operations/listhrispaygroups_request.rb
+  - lib/open_api_sdk/models/operations/listhrispaygroups_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhrispaygroups_response.rb
   - lib/open_api_sdk/models/operations/retrievehrispaygroup_request.rb
   - lib/open_api_sdk/models/operations/retrievehrispaygroup_response.rb
   - lib/open_api_sdk/models/operations/listhrispayrollruns_request.rb
   - lib/open_api_sdk/models/operations/listhrispayrollruns_responsebody.rb
   - lib/open_api_sdk/models/operations/listhrispayrollruns_response.rb
+  - lib/open_api_sdk/models/operations/retrievehrispayrollrun_request.rb
+  - lib/open_api_sdk/models/operations/retrievehrispayrollrun_response.rb
   - lib/open_api_sdk/models/operations/listhristimeoffs_request.rb
   - lib/open_api_sdk/models/operations/listhristimeoffs_responsebody.rb
   - lib/open_api_sdk/models/operations/listhristimeoffs_response.rb
@@ -347,9 +362,9 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createhristimeoff_response.rb
   - lib/open_api_sdk/models/operations/retrievehristimeoff_request.rb
   - lib/open_api_sdk/models/operations/retrievehristimeoff_response.rb
-  - lib/open_api_sdk/models/operations/listhristimeoffbalance_request.rb
-  - lib/open_api_sdk/models/operations/listhristimeoffbalance_responsebody.rb
-  - lib/open_api_sdk/models/operations/listhristimeoffbalance_response.rb
+  - lib/open_api_sdk/models/operations/listhristimeoffbalances_request.rb
+  - lib/open_api_sdk/models/operations/listhristimeoffbalances_responsebody.rb
+  - lib/open_api_sdk/models/operations/listhristimeoffbalances_response.rb
   - lib/open_api_sdk/models/operations/retrievehristimeoffbalance_request.rb
   - lib/open_api_sdk/models/operations/retrievehristimeoffbalance_response.rb
   - lib/open_api_sdk/models/operations/listmarketingautomationaction_request.rb
@@ -359,16 +374,16 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createmarketingautomationaction_response.rb
   - lib/open_api_sdk/models/operations/retrievemarketingautomationaction_request.rb
   - lib/open_api_sdk/models/operations/retrievemarketingautomationaction_response.rb
-  - lib/open_api_sdk/models/operations/listmarketingautomationautomation_request.rb
-  - lib/open_api_sdk/models/operations/listmarketingautomationautomation_responsebody.rb
-  - lib/open_api_sdk/models/operations/listmarketingautomationautomation_response.rb
+  - lib/open_api_sdk/models/operations/listmarketingautomationautomations_request.rb
+  - lib/open_api_sdk/models/operations/listmarketingautomationautomations_responsebody.rb
+  - lib/open_api_sdk/models/operations/listmarketingautomationautomations_response.rb
   - lib/open_api_sdk/models/operations/createmarketingautomationautomation_request.rb
   - lib/open_api_sdk/models/operations/createmarketingautomationautomation_response.rb
   - lib/open_api_sdk/models/operations/retrievemarketingautomationautomation_request.rb
   - lib/open_api_sdk/models/operations/retrievemarketingautomationautomation_response.rb
-  - lib/open_api_sdk/models/operations/listmarketingautomationcampaign_request.rb
-  - lib/open_api_sdk/models/operations/listmarketingautomationcampaign_responsebody.rb
-  - lib/open_api_sdk/models/operations/listmarketingautomationcampaign_response.rb
+  - lib/open_api_sdk/models/operations/listmarketingautomationcampaigns_request.rb
+  - lib/open_api_sdk/models/operations/listmarketingautomationcampaigns_responsebody.rb
+  - lib/open_api_sdk/models/operations/listmarketingautomationcampaigns_response.rb
   - lib/open_api_sdk/models/operations/createmarketingautomationcampaign_request.rb
   - lib/open_api_sdk/models/operations/createmarketingautomationcampaign_response.rb
   - lib/open_api_sdk/models/operations/retrievemarketingautomationcampaign_request.rb
@@ -651,55 +666,92 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createticketingattachment_response.rb
   - lib/open_api_sdk/models/operations/retrieveticketingattachment_request.rb
   - lib/open_api_sdk/models/operations/retrieveticketingattachment_response.rb
+  - lib/open_api_sdk/models/shared/logindto.rb
+  - lib/open_api_sdk/models/shared/token_type.rb
+  - lib/open_api_sdk/models/shared/connection.rb
   - lib/open_api_sdk/models/shared/webhookresponse.rb
   - lib/open_api_sdk/models/shared/webhookdto.rb
   - lib/open_api_sdk/models/shared/signatureverificationdto.rb
+  - lib/open_api_sdk/models/shared/status.rb
+  - lib/open_api_sdk/models/shared/type.rb
+  - lib/open_api_sdk/models/shared/priority.rb
+  - lib/open_api_sdk/models/shared/unifiedticketingticketoutput_creator_type.rb
   - lib/open_api_sdk/models/shared/comment.rb
   - lib/open_api_sdk/models/shared/unifiedticketingticketoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedticketingticketinput_status.rb
+  - lib/open_api_sdk/models/shared/unifiedticketingticketinput_type.rb
+  - lib/open_api_sdk/models/shared/unifiedticketingticketinput_priority.rb
+  - lib/open_api_sdk/models/shared/unifiedticketingticketinput_creator_type.rb
   - lib/open_api_sdk/models/shared/unifiedticketingticketinput_comment.rb
   - lib/open_api_sdk/models/shared/unifiedticketingticketinput.rb
   - lib/open_api_sdk/models/shared/unifiedticketinguseroutput.rb
   - lib/open_api_sdk/models/shared/unifiedticketingaccountoutput.rb
   - lib/open_api_sdk/models/shared/unifiedticketingcontactoutput.rb
+  - lib/open_api_sdk/models/shared/vertical.rb
+  - lib/open_api_sdk/models/shared/resyncstatusdto_status.rb
   - lib/open_api_sdk/models/shared/resyncstatusdto.rb
+  - lib/open_api_sdk/models/shared/industry.rb
   - lib/open_api_sdk/models/shared/created_at.rb
   - lib/open_api_sdk/models/shared/modified_at.rb
   - lib/open_api_sdk/models/shared/unifiedcrmcompanyoutput.rb
+  - lib/open_api_sdk/models/shared/phone_type.rb
   - lib/open_api_sdk/models/shared/phone.rb
+  - lib/open_api_sdk/models/shared/address_type.rb
   - lib/open_api_sdk/models/shared/address.rb
+  - lib/open_api_sdk/models/shared/email_address_type.rb
+  - lib/open_api_sdk/models/shared/owner_type.rb
   - lib/open_api_sdk/models/shared/email.rb
+  - lib/open_api_sdk/models/shared/unifiedcrmcompanyinput_industry.rb
   - lib/open_api_sdk/models/shared/unifiedcrmcompanyinput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmcontactoutput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmcontactinput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmdealoutput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmdealinput.rb
+  - lib/open_api_sdk/models/shared/direction.rb
+  - lib/open_api_sdk/models/shared/unifiedcrmengagementoutput_type.rb
   - lib/open_api_sdk/models/shared/unifiedcrmengagementoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedcrmengagementinput_direction.rb
+  - lib/open_api_sdk/models/shared/unifiedcrmengagementinput_type.rb
   - lib/open_api_sdk/models/shared/unifiedcrmengagementinput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmnoteoutput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmnoteinput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmstageoutput_created_at.rb
   - lib/open_api_sdk/models/shared/unifiedcrmstageoutput_modified_at.rb
   - lib/open_api_sdk/models/shared/unifiedcrmstageoutput.rb
-  - lib/open_api_sdk/models/shared/unifiedcrmtaskoutput_created_at.rb
-  - lib/open_api_sdk/models/shared/unifiedcrmtaskoutput_modified_at.rb
+  - lib/open_api_sdk/models/shared/unifiedcrmtaskoutput_status.rb
   - lib/open_api_sdk/models/shared/unifiedcrmtaskoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedcrmtaskinput_status.rb
   - lib/open_api_sdk/models/shared/unifiedcrmtaskinput.rb
   - lib/open_api_sdk/models/shared/unifiedcrmuseroutput.rb
+  - lib/open_api_sdk/models/shared/collection_type.rb
   - lib/open_api_sdk/models/shared/unifiedticketingcollectionoutput.rb
+  - lib/open_api_sdk/models/shared/creator_type.rb
   - lib/open_api_sdk/models/shared/unifiedticketingcommentoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedticketingcommentinput_creator_type.rb
   - lib/open_api_sdk/models/shared/unifiedticketingcommentinput.rb
   - lib/open_api_sdk/models/shared/unifiedticketingtagoutput.rb
   - lib/open_api_sdk/models/shared/unifiedticketingteamoutput.rb
   - lib/open_api_sdk/models/shared/linkeduserresponse.rb
   - lib/open_api_sdk/models/shared/createlinkeduserdto.rb
   - lib/open_api_sdk/models/shared/createbatchlinkeduserdto.rb
+  - lib/open_api_sdk/models/shared/projectresponse.rb
+  - lib/open_api_sdk/models/shared/createprojectdto.rb
+  - lib/open_api_sdk/models/shared/customfieldresponse_data_type.rb
   - lib/open_api_sdk/models/shared/customfieldresponse.rb
+  - lib/open_api_sdk/models/shared/object_type_owner.rb
+  - lib/open_api_sdk/models/shared/data_type.rb
   - lib/open_api_sdk/models/shared/definetargetfielddto.rb
+  - lib/open_api_sdk/models/shared/customfieldcreatedto_object_type_owner.rb
+  - lib/open_api_sdk/models/shared/customfieldcreatedto_data_type.rb
   - lib/open_api_sdk/models/shared/customfieldcreatedto.rb
   - lib/open_api_sdk/models/shared/mapfieldtoproviderdto.rb
+  - lib/open_api_sdk/models/shared/eventresponse_type.rb
+  - lib/open_api_sdk/models/shared/eventresponse_status.rb
+  - lib/open_api_sdk/models/shared/method.rb
+  - lib/open_api_sdk/models/shared/eventresponse.rb
   - lib/open_api_sdk/models/shared/data.rb
   - lib/open_api_sdk/models/shared/passthroughresponse.rb
-  - lib/open_api_sdk/models/shared/method.rb
+  - lib/open_api_sdk/models/shared/passthroughrequestdto_method.rb
   - lib/open_api_sdk/models/shared/passthroughrequestdto.rb
   - lib/open_api_sdk/models/shared/unifiedhrisbankinfooutput.rb
   - lib/open_api_sdk/models/shared/unifiedhrisbenefitoutput.rb
@@ -721,7 +773,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationactioninput.rb
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationautomationoutput.rb
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationautomationinput.rb
-  - lib/open_api_sdk/models/shared/unifiedcampaignoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedmarketingautomationcampaignoutput.rb
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationcampaigninput.rb
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationcontactoutput.rb
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationcontactinput.rb
@@ -733,28 +785,45 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationtemplateoutput.rb
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationtemplateinput.rb
   - lib/open_api_sdk/models/shared/unifiedmarketingautomationuseroutput.rb
+  - lib/open_api_sdk/models/shared/activity_type.rb
+  - lib/open_api_sdk/models/shared/visibility.rb
   - lib/open_api_sdk/models/shared/unifiedatsactivityoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedatsactivityinput_activity_type.rb
+  - lib/open_api_sdk/models/shared/unifiedatsactivityinput_visibility.rb
   - lib/open_api_sdk/models/shared/unifiedatsactivityinput.rb
   - lib/open_api_sdk/models/shared/unifiedatsapplicationoutput.rb
   - lib/open_api_sdk/models/shared/unifiedatsapplicationinput.rb
+  - lib/open_api_sdk/models/shared/attachment_type.rb
   - lib/open_api_sdk/models/shared/unifiedatsattachmentoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedatsattachmentinput_attachment_type.rb
   - lib/open_api_sdk/models/shared/unifiedatsattachmentinput.rb
   - lib/open_api_sdk/models/shared/unifiedatscandidateoutput.rb
   - lib/open_api_sdk/models/shared/url.rb
   - lib/open_api_sdk/models/shared/unifiedatscandidateinput.rb
   - lib/open_api_sdk/models/shared/unifiedatsdepartmentoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedatsinterviewoutput_status.rb
   - lib/open_api_sdk/models/shared/unifiedatsinterviewoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedatsinterviewinput_status.rb
   - lib/open_api_sdk/models/shared/unifiedatsinterviewinput.rb
   - lib/open_api_sdk/models/shared/unifiedatsjobinterviewstageoutput.rb
+  - lib/open_api_sdk/models/shared/unifiedatsjoboutput_status.rb
+  - lib/open_api_sdk/models/shared/unifiedatsjoboutput_type.rb
   - lib/open_api_sdk/models/shared/unifiedatsjoboutput.rb
+  - lib/open_api_sdk/models/shared/unifiedatsofferoutput_status.rb
   - lib/open_api_sdk/models/shared/unifiedatsofferoutput_created_at.rb
   - lib/open_api_sdk/models/shared/unifiedatsofferoutput_modified_at.rb
   - lib/open_api_sdk/models/shared/unifiedatsofferoutput.rb
   - lib/open_api_sdk/models/shared/unifiedatsofficeoutput.rb
   - lib/open_api_sdk/models/shared/unifiedatsrejectreasonoutput.rb
+  - lib/open_api_sdk/models/shared/overall_recommendation.rb
   - lib/open_api_sdk/models/shared/unifiedatsscorecardoutput.rb
   - lib/open_api_sdk/models/shared/unifiedatstagoutput.rb
+  - lib/open_api_sdk/models/shared/access_role.rb
   - lib/open_api_sdk/models/shared/unifiedatsuseroutput.rb
+  - lib/open_api_sdk/models/shared/race.rb
+  - lib/open_api_sdk/models/shared/gender.rb
+  - lib/open_api_sdk/models/shared/veteran_status.rb
+  - lib/open_api_sdk/models/shared/disability_status.rb
   - lib/open_api_sdk/models/shared/unifiedatseeocsoutput.rb
   - lib/open_api_sdk/models/shared/unifiedaccountingaccountoutput.rb
   - lib/open_api_sdk/models/shared/unifiedaccountingaccountinput.rb
@@ -790,7 +859,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/unifiedfilestoragefolderoutput.rb
   - lib/open_api_sdk/models/shared/unifiedfilestoragefolderinput.rb
   - lib/open_api_sdk/models/shared/unifiedfilestoragegroupoutput.rb
-  - lib/open_api_sdk/models/shared/unifieduseroutput.rb
+  - lib/open_api_sdk/models/shared/unifiedfilestorageuseroutput.rb
   - lib/open_api_sdk/models/shared/unifiedticketingattachmentoutput.rb
   - lib/open_api_sdk/models/shared/unifiedticketingattachmentinput.rb
   - lib/open_api_sdk/models/shared/security.rb
@@ -799,6 +868,8 @@ generatedFiles:
   - lib/open_api_sdk/models/shared.rb
   - docs/models/operations/helloresponse.md
   - docs/models/operations/healthresponse.md
+  - docs/models/operations/signinresponse.md
+  - docs/models/operations/getconnectionsresponse.md
   - docs/models/operations/listwebhooksresponse.md
   - docs/models/operations/createwebhookpublicresponse.md
   - docs/models/operations/deleterequest.md
@@ -830,6 +901,7 @@ generatedFiles:
   - docs/models/operations/retrieveticketingcontactrequest.md
   - docs/models/operations/retrieveticketingcontactresponsebody.md
   - docs/models/operations/retrieveticketingcontactresponse.md
+  - docs/models/operations/vertical.md
   - docs/models/operations/statusrequest.md
   - docs/models/operations/statusresponse.md
   - docs/models/operations/resyncresponse.md
@@ -915,9 +987,13 @@ generatedFiles:
   - docs/models/operations/retrievelinkeduserresponse.md
   - docs/models/operations/remoteidrequest.md
   - docs/models/operations/remoteidresponse.md
+  - docs/models/operations/getprojectsresponse.md
+  - docs/models/operations/createprojectresponse.md
   - docs/models/operations/definitionsresponse.md
   - docs/models/operations/definecustomfieldresponse.md
   - docs/models/operations/mapresponse.md
+  - docs/models/operations/getpanoracoreeventsrequest.md
+  - docs/models/operations/getpanoracoreeventsresponse.md
   - docs/models/operations/requestrequest.md
   - docs/models/operations/requestresponse.md
   - docs/models/operations/listhrisbankinforequest.md
@@ -925,14 +1001,16 @@ generatedFiles:
   - docs/models/operations/listhrisbankinforesponse.md
   - docs/models/operations/retrievehrisbankinforequest.md
   - docs/models/operations/retrievehrisbankinforesponse.md
-  - docs/models/operations/listhrisbenefitrequest.md
-  - docs/models/operations/listhrisbenefitresponsebody.md
-  - docs/models/operations/listhrisbenefitresponse.md
+  - docs/models/operations/listhrisbenefitsrequest.md
+  - docs/models/operations/listhrisbenefitsresponsebody.md
+  - docs/models/operations/listhrisbenefitsresponse.md
   - docs/models/operations/retrievehrisbenefitrequest.md
   - docs/models/operations/retrievehrisbenefitresponse.md
-  - docs/models/operations/listhriscompanysrequest.md
-  - docs/models/operations/listhriscompanysresponsebody.md
-  - docs/models/operations/listhriscompanysresponse.md
+  - docs/models/operations/listhriscompaniesrequest.md
+  - docs/models/operations/listhriscompaniesresponsebody.md
+  - docs/models/operations/listhriscompaniesresponse.md
+  - docs/models/operations/retrievehriscompanyrequest.md
+  - docs/models/operations/retrievehriscompanyresponse.md
   - docs/models/operations/listhrisdependentsrequest.md
   - docs/models/operations/listhrisdependentsresponsebody.md
   - docs/models/operations/listhrisdependentsresponse.md
@@ -943,41 +1021,43 @@ generatedFiles:
   - docs/models/operations/listhrisemployeepayrollrunresponse.md
   - docs/models/operations/retrievehrisemployeepayrollrunrequest.md
   - docs/models/operations/retrievehrisemployeepayrollrunresponse.md
-  - docs/models/operations/listhrisemployeerequest.md
-  - docs/models/operations/listhrisemployeeresponsebody.md
-  - docs/models/operations/listhrisemployeeresponse.md
+  - docs/models/operations/listhrisemployeesrequest.md
+  - docs/models/operations/listhrisemployeesresponsebody.md
+  - docs/models/operations/listhrisemployeesresponse.md
   - docs/models/operations/createhrisemployeerequest.md
   - docs/models/operations/createhrisemployeeresponse.md
   - docs/models/operations/retrievehrisemployeerequest.md
   - docs/models/operations/retrievehrisemployeeresponse.md
-  - docs/models/operations/listhrisemployerbenefitrequest.md
-  - docs/models/operations/listhrisemployerbenefitresponsebody.md
-  - docs/models/operations/listhrisemployerbenefitresponse.md
+  - docs/models/operations/listhrisemployerbenefitsrequest.md
+  - docs/models/operations/listhrisemployerbenefitsresponsebody.md
+  - docs/models/operations/listhrisemployerbenefitsresponse.md
   - docs/models/operations/retrievehrisemployerbenefitrequest.md
   - docs/models/operations/retrievehrisemployerbenefitresponse.md
-  - docs/models/operations/listhrisemploymentrequest.md
-  - docs/models/operations/listhrisemploymentresponsebody.md
-  - docs/models/operations/listhrisemploymentresponse.md
+  - docs/models/operations/listhrisemploymentsrequest.md
+  - docs/models/operations/listhrisemploymentsresponsebody.md
+  - docs/models/operations/listhrisemploymentsresponse.md
   - docs/models/operations/retrievehrisemploymentrequest.md
   - docs/models/operations/retrievehrisemploymentresponse.md
-  - docs/models/operations/listhrisgrouprequest.md
-  - docs/models/operations/listhrisgroupresponsebody.md
-  - docs/models/operations/listhrisgroupresponse.md
+  - docs/models/operations/listhrisgroupsrequest.md
+  - docs/models/operations/listhrisgroupsresponsebody.md
+  - docs/models/operations/listhrisgroupsresponse.md
   - docs/models/operations/retrievehrisgrouprequest.md
   - docs/models/operations/retrievehrisgroupresponse.md
-  - docs/models/operations/listhrislocationrequest.md
-  - docs/models/operations/listhrislocationresponsebody.md
-  - docs/models/operations/listhrislocationresponse.md
+  - docs/models/operations/listhrislocationsrequest.md
+  - docs/models/operations/listhrislocationsresponsebody.md
+  - docs/models/operations/listhrislocationsresponse.md
   - docs/models/operations/retrievehrislocationrequest.md
   - docs/models/operations/retrievehrislocationresponse.md
-  - docs/models/operations/listhrispaygrouprequest.md
-  - docs/models/operations/listhrispaygroupresponsebody.md
-  - docs/models/operations/listhrispaygroupresponse.md
+  - docs/models/operations/listhrispaygroupsrequest.md
+  - docs/models/operations/listhrispaygroupsresponsebody.md
+  - docs/models/operations/listhrispaygroupsresponse.md
   - docs/models/operations/retrievehrispaygrouprequest.md
   - docs/models/operations/retrievehrispaygroupresponse.md
   - docs/models/operations/listhrispayrollrunsrequest.md
   - docs/models/operations/listhrispayrollrunsresponsebody.md
   - docs/models/operations/listhrispayrollrunsresponse.md
+  - docs/models/operations/retrievehrispayrollrunrequest.md
+  - docs/models/operations/retrievehrispayrollrunresponse.md
   - docs/models/operations/listhristimeoffsrequest.md
   - docs/models/operations/listhristimeoffsresponsebody.md
   - docs/models/operations/listhristimeoffsresponse.md
@@ -985,9 +1065,9 @@ generatedFiles:
   - docs/models/operations/createhristimeoffresponse.md
   - docs/models/operations/retrievehristimeoffrequest.md
   - docs/models/operations/retrievehristimeoffresponse.md
-  - docs/models/operations/listhristimeoffbalancerequest.md
-  - docs/models/operations/listhristimeoffbalanceresponsebody.md
-  - docs/models/operations/listhristimeoffbalanceresponse.md
+  - docs/models/operations/listhristimeoffbalancesrequest.md
+  - docs/models/operations/listhristimeoffbalancesresponsebody.md
+  - docs/models/operations/listhristimeoffbalancesresponse.md
   - docs/models/operations/retrievehristimeoffbalancerequest.md
   - docs/models/operations/retrievehristimeoffbalanceresponse.md
   - docs/models/operations/listmarketingautomationactionrequest.md
@@ -997,16 +1077,16 @@ generatedFiles:
   - docs/models/operations/createmarketingautomationactionresponse.md
   - docs/models/operations/retrievemarketingautomationactionrequest.md
   - docs/models/operations/retrievemarketingautomationactionresponse.md
-  - docs/models/operations/listmarketingautomationautomationrequest.md
-  - docs/models/operations/listmarketingautomationautomationresponsebody.md
-  - docs/models/operations/listmarketingautomationautomationresponse.md
+  - docs/models/operations/listmarketingautomationautomationsrequest.md
+  - docs/models/operations/listmarketingautomationautomationsresponsebody.md
+  - docs/models/operations/listmarketingautomationautomationsresponse.md
   - docs/models/operations/createmarketingautomationautomationrequest.md
   - docs/models/operations/createmarketingautomationautomationresponse.md
   - docs/models/operations/retrievemarketingautomationautomationrequest.md
   - docs/models/operations/retrievemarketingautomationautomationresponse.md
-  - docs/models/operations/listmarketingautomationcampaignrequest.md
-  - docs/models/operations/listmarketingautomationcampaignresponsebody.md
-  - docs/models/operations/listmarketingautomationcampaignresponse.md
+  - docs/models/operations/listmarketingautomationcampaignsrequest.md
+  - docs/models/operations/listmarketingautomationcampaignsresponsebody.md
+  - docs/models/operations/listmarketingautomationcampaignsresponse.md
   - docs/models/operations/createmarketingautomationcampaignrequest.md
   - docs/models/operations/createmarketingautomationcampaignresponse.md
   - docs/models/operations/retrievemarketingautomationcampaignrequest.md
@@ -1289,55 +1369,92 @@ generatedFiles:
   - docs/models/operations/createticketingattachmentresponse.md
   - docs/models/operations/retrieveticketingattachmentrequest.md
   - docs/models/operations/retrieveticketingattachmentresponse.md
+  - docs/models/shared/logindto.md
+  - docs/models/shared/tokentype.md
+  - docs/models/shared/connection.md
   - docs/models/shared/webhookresponse.md
   - docs/models/shared/webhookdto.md
   - docs/models/shared/signatureverificationdto.md
+  - docs/models/shared/status.md
+  - docs/models/shared/type.md
+  - docs/models/shared/priority.md
+  - docs/models/shared/unifiedticketingticketoutputcreatortype.md
   - docs/models/shared/comment.md
   - docs/models/shared/unifiedticketingticketoutput.md
+  - docs/models/shared/unifiedticketingticketinputstatus.md
+  - docs/models/shared/unifiedticketingticketinputtype.md
+  - docs/models/shared/unifiedticketingticketinputpriority.md
+  - docs/models/shared/unifiedticketingticketinputcreatortype.md
   - docs/models/shared/unifiedticketingticketinputcomment.md
   - docs/models/shared/unifiedticketingticketinput.md
   - docs/models/shared/unifiedticketinguseroutput.md
   - docs/models/shared/unifiedticketingaccountoutput.md
   - docs/models/shared/unifiedticketingcontactoutput.md
+  - docs/models/shared/vertical.md
+  - docs/models/shared/resyncstatusdtostatus.md
   - docs/models/shared/resyncstatusdto.md
+  - docs/models/shared/industry.md
   - docs/models/shared/createdat.md
   - docs/models/shared/modifiedat.md
   - docs/models/shared/unifiedcrmcompanyoutput.md
+  - docs/models/shared/phonetype.md
   - docs/models/shared/phone.md
+  - docs/models/shared/addresstype.md
   - docs/models/shared/address.md
+  - docs/models/shared/emailaddresstype.md
+  - docs/models/shared/ownertype.md
   - docs/models/shared/email.md
+  - docs/models/shared/unifiedcrmcompanyinputindustry.md
   - docs/models/shared/unifiedcrmcompanyinput.md
   - docs/models/shared/unifiedcrmcontactoutput.md
   - docs/models/shared/unifiedcrmcontactinput.md
   - docs/models/shared/unifiedcrmdealoutput.md
   - docs/models/shared/unifiedcrmdealinput.md
+  - docs/models/shared/direction.md
+  - docs/models/shared/unifiedcrmengagementoutputtype.md
   - docs/models/shared/unifiedcrmengagementoutput.md
+  - docs/models/shared/unifiedcrmengagementinputdirection.md
+  - docs/models/shared/unifiedcrmengagementinputtype.md
   - docs/models/shared/unifiedcrmengagementinput.md
   - docs/models/shared/unifiedcrmnoteoutput.md
   - docs/models/shared/unifiedcrmnoteinput.md
   - docs/models/shared/unifiedcrmstageoutputcreatedat.md
   - docs/models/shared/unifiedcrmstageoutputmodifiedat.md
   - docs/models/shared/unifiedcrmstageoutput.md
-  - docs/models/shared/unifiedcrmtaskoutputcreatedat.md
-  - docs/models/shared/unifiedcrmtaskoutputmodifiedat.md
+  - docs/models/shared/unifiedcrmtaskoutputstatus.md
   - docs/models/shared/unifiedcrmtaskoutput.md
+  - docs/models/shared/unifiedcrmtaskinputstatus.md
   - docs/models/shared/unifiedcrmtaskinput.md
   - docs/models/shared/unifiedcrmuseroutput.md
+  - docs/models/shared/collectiontype.md
   - docs/models/shared/unifiedticketingcollectionoutput.md
+  - docs/models/shared/creatortype.md
   - docs/models/shared/unifiedticketingcommentoutput.md
+  - docs/models/shared/unifiedticketingcommentinputcreatortype.md
   - docs/models/shared/unifiedticketingcommentinput.md
   - docs/models/shared/unifiedticketingtagoutput.md
   - docs/models/shared/unifiedticketingteamoutput.md
   - docs/models/shared/linkeduserresponse.md
   - docs/models/shared/createlinkeduserdto.md
   - docs/models/shared/createbatchlinkeduserdto.md
+  - docs/models/shared/projectresponse.md
+  - docs/models/shared/createprojectdto.md
+  - docs/models/shared/customfieldresponsedatatype.md
   - docs/models/shared/customfieldresponse.md
+  - docs/models/shared/objecttypeowner.md
+  - docs/models/shared/datatype.md
   - docs/models/shared/definetargetfielddto.md
+  - docs/models/shared/customfieldcreatedtoobjecttypeowner.md
+  - docs/models/shared/customfieldcreatedtodatatype.md
   - docs/models/shared/customfieldcreatedto.md
   - docs/models/shared/mapfieldtoproviderdto.md
+  - docs/models/shared/eventresponsetype.md
+  - docs/models/shared/eventresponsestatus.md
+  - docs/models/shared/method.md
+  - docs/models/shared/eventresponse.md
   - docs/models/shared/data.md
   - docs/models/shared/passthroughresponse.md
-  - docs/models/shared/method.md
+  - docs/models/shared/passthroughrequestdtomethod.md
   - docs/models/shared/passthroughrequestdto.md
   - docs/models/shared/unifiedhrisbankinfooutput.md
   - docs/models/shared/unifiedhrisbenefitoutput.md
@@ -1359,7 +1476,7 @@ generatedFiles:
   - docs/models/shared/unifiedmarketingautomationactioninput.md
   - docs/models/shared/unifiedmarketingautomationautomationoutput.md
   - docs/models/shared/unifiedmarketingautomationautomationinput.md
-  - docs/models/shared/unifiedcampaignoutput.md
+  - docs/models/shared/unifiedmarketingautomationcampaignoutput.md
   - docs/models/shared/unifiedmarketingautomationcampaigninput.md
   - docs/models/shared/unifiedmarketingautomationcontactoutput.md
   - docs/models/shared/unifiedmarketingautomationcontactinput.md
@@ -1371,28 +1488,45 @@ generatedFiles:
   - docs/models/shared/unifiedmarketingautomationtemplateoutput.md
   - docs/models/shared/unifiedmarketingautomationtemplateinput.md
   - docs/models/shared/unifiedmarketingautomationuseroutput.md
+  - docs/models/shared/activitytype.md
+  - docs/models/shared/visibility.md
   - docs/models/shared/unifiedatsactivityoutput.md
+  - docs/models/shared/unifiedatsactivityinputactivitytype.md
+  - docs/models/shared/unifiedatsactivityinputvisibility.md
   - docs/models/shared/unifiedatsactivityinput.md
   - docs/models/shared/unifiedatsapplicationoutput.md
   - docs/models/shared/unifiedatsapplicationinput.md
+  - docs/models/shared/attachmenttype.md
   - docs/models/shared/unifiedatsattachmentoutput.md
+  - docs/models/shared/unifiedatsattachmentinputattachmenttype.md
   - docs/models/shared/unifiedatsattachmentinput.md
   - docs/models/shared/unifiedatscandidateoutput.md
   - docs/models/shared/url.md
   - docs/models/shared/unifiedatscandidateinput.md
   - docs/models/shared/unifiedatsdepartmentoutput.md
+  - docs/models/shared/unifiedatsinterviewoutputstatus.md
   - docs/models/shared/unifiedatsinterviewoutput.md
+  - docs/models/shared/unifiedatsinterviewinputstatus.md
   - docs/models/shared/unifiedatsinterviewinput.md
   - docs/models/shared/unifiedatsjobinterviewstageoutput.md
+  - docs/models/shared/unifiedatsjoboutputstatus.md
+  - docs/models/shared/unifiedatsjoboutputtype.md
   - docs/models/shared/unifiedatsjoboutput.md
+  - docs/models/shared/unifiedatsofferoutputstatus.md
   - docs/models/shared/unifiedatsofferoutputcreatedat.md
   - docs/models/shared/unifiedatsofferoutputmodifiedat.md
   - docs/models/shared/unifiedatsofferoutput.md
   - docs/models/shared/unifiedatsofficeoutput.md
   - docs/models/shared/unifiedatsrejectreasonoutput.md
+  - docs/models/shared/overallrecommendation.md
   - docs/models/shared/unifiedatsscorecardoutput.md
   - docs/models/shared/unifiedatstagoutput.md
+  - docs/models/shared/accessrole.md
   - docs/models/shared/unifiedatsuseroutput.md
+  - docs/models/shared/race.md
+  - docs/models/shared/gender.md
+  - docs/models/shared/veteranstatus.md
+  - docs/models/shared/disabilitystatus.md
   - docs/models/shared/unifiedatseeocsoutput.md
   - docs/models/shared/unifiedaccountingaccountoutput.md
   - docs/models/shared/unifiedaccountingaccountinput.md
@@ -1428,11 +1562,13 @@ generatedFiles:
   - docs/models/shared/unifiedfilestoragefolderoutput.md
   - docs/models/shared/unifiedfilestoragefolderinput.md
   - docs/models/shared/unifiedfilestoragegroupoutput.md
-  - docs/models/shared/unifieduseroutput.md
+  - docs/models/shared/unifiedfilestorageuseroutput.md
   - docs/models/shared/unifiedticketingattachmentoutput.md
   - docs/models/shared/unifiedticketingattachmentinput.md
   - docs/models/shared/security.md
   - docs/sdks/panora/README.md
+  - docs/sdks/authlogin/README.md
+  - docs/sdks/connections/README.md
   - docs/sdks/webhooks/README.md
   - docs/sdks/ticketingtickets/README.md
   - docs/sdks/ticketingusers/README.md
@@ -1453,11 +1589,13 @@ generatedFiles:
   - docs/sdks/ticketingteams/README.md
   - docs/sdks/linkedusers/README.md
   - docs/sdks/linkedusersbatch/README.md
-  - docs/sdks/linkeduserssingle/README.md
+  - docs/sdks/linkedusersid/README.md
   - docs/sdks/linkedusersfromremoteid/README.md
+  - docs/sdks/projects/README.md
   - docs/sdks/fieldmappingsdefine/README.md
   - docs/sdks/fieldmappings/README.md
   - docs/sdks/fieldmappingsmap/README.md
+  - docs/sdks/events/README.md
   - docs/sdks/passthrough/README.md
   - docs/sdks/hrisbankinfos/README.md
   - docs/sdks/hrisbenefits/README.md

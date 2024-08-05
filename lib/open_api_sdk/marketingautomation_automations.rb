@@ -19,10 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListMarketingautomationAutomationResponse) }
+    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListMarketingautomationAutomationsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Automations
-      request = ::OpenApiSDK::Operations::ListMarketingautomationAutomationRequest.new(
+      # list - List Automations
+      request = ::OpenApiSDK::Operations::ListMarketingautomationAutomationsRequest.new(
         
         x_connection_token: x_connection_token,
         remote_data: remote_data,
@@ -33,7 +33,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/marketingautomation/automations"
       headers = Utils.get_headers(request)
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListMarketingautomationAutomationRequest, request)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListMarketingautomationAutomationsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -45,12 +45,12 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::ListMarketingautomationAutomationResponse.new(
+      res = ::OpenApiSDK::Operations::ListMarketingautomationAutomationsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListMarketingautomationAutomationResponseBody)
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListMarketingautomationAutomationsResponseBody)
           res.object = out
         end
       end
@@ -109,8 +109,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveMarketingautomationAutomationResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Automations
-      # Retrieve Automations from any connected Marketingautomation software
+      # retrieve - Retrieve Automation
+      # Retrieve an Automation from any connected Marketingautomation software
       request = ::OpenApiSDK::Operations::RetrieveMarketingautomationAutomationRequest.new(
         
         x_connection_token: x_connection_token,

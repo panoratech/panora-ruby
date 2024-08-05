@@ -15,7 +15,7 @@ module OpenApiSDK
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The connection token
       field :x_connection_token, ::String, { 'header': { 'field_name': 'x-connection-token', 'style': 'simple', 'explode': false } }
-      # Set to true to include data from the original File Storage software.
+      # Set to true to include data from the original file storage service.
       field :remote_data, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'remote_data', 'style': 'form', 'explode': true } }
 
 

@@ -44,12 +44,12 @@ module OpenApiSDK
       # The remote modification date of the job
       field :remote_updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The status of the job
-      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      field :status, T.nilable(::OpenApiSDK::Shared::UnifiedAtsJobOutputStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsJobOutputStatus, true) } }
       # The type of the job
-      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(::OpenApiSDK::Shared::UnifiedAtsJobOutputType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsJobOutputType, true) } }
 
 
-      sig { params(code: T.nilable(::String), confidential: T.nilable(T::Boolean), created_at: T.nilable(::DateTime), departments: T.nilable(T::Array[::String]), description: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), managers: T.nilable(T::Array[::String]), modified_at: T.nilable(::DateTime), name: T.nilable(::String), offices: T.nilable(T::Array[::String]), recruiters: T.nilable(T::Array[::String]), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), status: T.nilable(::String), type: T.nilable(::String)).void }
+      sig { params(code: T.nilable(::String), confidential: T.nilable(T::Boolean), created_at: T.nilable(::DateTime), departments: T.nilable(T::Array[::String]), description: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), managers: T.nilable(T::Array[::String]), modified_at: T.nilable(::DateTime), name: T.nilable(::String), offices: T.nilable(T::Array[::String]), recruiters: T.nilable(T::Array[::String]), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), status: T.nilable(::OpenApiSDK::Shared::UnifiedAtsJobOutputStatus), type: T.nilable(::OpenApiSDK::Shared::UnifiedAtsJobOutputType)).void }
       def initialize(code: nil, confidential: nil, created_at: nil, departments: nil, description: nil, field_mappings: nil, id: nil, managers: nil, modified_at: nil, name: nil, offices: nil, recruiters: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, status: nil, type: nil)
         @code = code
         @confidential = confidential

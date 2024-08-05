@@ -12,7 +12,7 @@ module OpenApiSDK
       extend T::Sig
 
       # The type of activity
-      field :activity_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('activity_type') } }
+      field :activity_type, T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputActivityType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('activity_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsActivityInputActivityType, true) } }
       # The body of the activity
       field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('body') } }
       # The UUID of the candidate
@@ -24,10 +24,10 @@ module OpenApiSDK
       # The subject of the activity
       field :subject, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subject') } }
       # The visibility of the activity
-      field :visibility, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('visibility') } }
+      field :visibility, T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputVisibility), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('visibility'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsActivityInputVisibility, true) } }
 
 
-      sig { params(activity_type: T.nilable(::String), body: T.nilable(::String), candidate_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), remote_created_at: T.nilable(::DateTime), subject: T.nilable(::String), visibility: T.nilable(::String)).void }
+      sig { params(activity_type: T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputActivityType), body: T.nilable(::String), candidate_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), remote_created_at: T.nilable(::DateTime), subject: T.nilable(::String), visibility: T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputVisibility)).void }
       def initialize(activity_type: nil, body: nil, candidate_id: nil, field_mappings: nil, remote_created_at: nil, subject: nil, visibility: nil)
         @activity_type = activity_type
         @body = body

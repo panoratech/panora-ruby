@@ -19,10 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisEmployeeResponse) }
+    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisEmployeesResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Employees
-      request = ::OpenApiSDK::Operations::ListHrisEmployeeRequest.new(
+      # list - List Employees
+      request = ::OpenApiSDK::Operations::ListHrisEmployeesRequest.new(
         
         x_connection_token: x_connection_token,
         remote_data: remote_data,
@@ -33,7 +33,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employees"
       headers = Utils.get_headers(request)
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListHrisEmployeeRequest, request)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListHrisEmployeesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -45,12 +45,12 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::ListHrisEmployeeResponse.new(
+      res = ::OpenApiSDK::Operations::ListHrisEmployeesResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListHrisEmployeeResponseBody)
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListHrisEmployeesResponseBody)
           res.object = out
         end
       end
@@ -109,8 +109,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveHrisEmployeeResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieven Employees
-      # Retrieven Employees from any connected Hris software
+      # retrieve - Retrieve Employee
+      # Retrieve an Employee from any connected Hris software
       request = ::OpenApiSDK::Operations::RetrieveHrisEmployeeRequest.new(
         
         x_connection_token: x_connection_token,

@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListMarketingautomationListsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Lists
+      # list - List Lists
       request = ::OpenApiSDK::Operations::ListMarketingautomationListsRequest.new(
         
         x_connection_token: x_connection_token,
@@ -109,8 +109,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveMarketingautomationListResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Lists
-      # Retrieve Lists from any connected Marketingautomation software
+      # retrieve - Retrieve List
+      # Retrieve a List from any connected Marketingautomation software
       request = ::OpenApiSDK::Operations::RetrieveMarketingautomationListRequest.new(
         
         x_connection_token: x_connection_token,

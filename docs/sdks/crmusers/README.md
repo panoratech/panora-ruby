@@ -65,7 +65,7 @@ s.config_security(
 )
 
     
-res = s.crm_users.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.crm_users.retrieve(x_connection_token="<value>", id="b008e199-eda9-4629-bd41-a01b6195864a", remote_data=true)
 
 if ! res.unified_crm_user_output.nil?
   # handle response
@@ -75,11 +75,11 @@ end
 
 ### Parameters
 
-| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |
-| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the user you want to retrieve.                        |
-| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Crm software. |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |                                                             |
+| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the user you want to retrieve.                        | b008e199-eda9-4629-bd41-a01b6195864a                        |
+| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Crm software. | true                                                        |
 
 
 ### Response

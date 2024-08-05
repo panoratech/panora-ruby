@@ -14,16 +14,16 @@ module OpenApiSDK
       # Attribute Created Date
       field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
       # Attribute Data Type
-      field :data_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_type') } }
+      field :data_type, ::OpenApiSDK::Shared::CustomFieldResponseDataType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::CustomFieldResponseDataType, false) } }
       # Attribute Description
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # Attribute Id
       field :id_attribute, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_attribute') } }
-      # Attribute Id Consumer
+      # Attribute Consumer Id
       field :id_consumer, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_consumer') } }
-      # Attribute Id Entity
+      # Attribute Entity Id
       field :id_entity, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_entity') } }
-      # Attribute Id Project
+      # Attribute Project Id
       field :id_project, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_project') } }
       # Attribute Modified Date
       field :modified_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
@@ -41,7 +41,7 @@ module OpenApiSDK
       field :status, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
 
 
-      sig { params(created_at: ::DateTime, data_type: ::String, description: ::String, id_attribute: ::String, id_consumer: ::String, id_entity: ::String, id_project: ::String, modified_at: ::DateTime, remote_id: ::String, ressource_owner_type: ::String, scope: ::String, slug: ::String, source: ::String, status: ::String).void }
+      sig { params(created_at: ::DateTime, data_type: ::OpenApiSDK::Shared::CustomFieldResponseDataType, description: ::String, id_attribute: ::String, id_consumer: ::String, id_entity: ::String, id_project: ::String, modified_at: ::DateTime, remote_id: ::String, ressource_owner_type: ::String, scope: ::String, slug: ::String, source: ::String, status: ::String).void }
       def initialize(created_at: nil, data_type: nil, description: nil, id_attribute: nil, id_consumer: nil, id_entity: nil, id_project: nil, modified_at: nil, remote_id: nil, ressource_owner_type: nil, scope: nil, slug: nil, source: nil, status: nil)
         @created_at = created_at
         @data_type = data_type

@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisEmployeePayrollRunResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  EmployeePayrollRuns
+      # list - List Employee Payroll Runs
       request = ::OpenApiSDK::Operations::ListHrisEmployeePayrollRunRequest.new(
         
         x_connection_token: x_connection_token,
@@ -60,8 +60,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveHrisEmployeePayrollRunResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Employee Payroll Runs
-      # Retrieve Employee Payroll Runs from any connected Hris software
+      # retrieve - Retrieve Employee Payroll Run
+      # Retrieve Employee Payroll Run from any connected Hris software
       request = ::OpenApiSDK::Operations::RetrieveHrisEmployeePayrollRunRequest.new(
         
         x_connection_token: x_connection_token,

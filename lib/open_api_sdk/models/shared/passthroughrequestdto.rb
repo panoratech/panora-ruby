@@ -12,21 +12,21 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :method, ::OpenApiSDK::Shared::Method, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('method'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Method, false) } }
+      field :data, ::Object, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
+
+      field :headers, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers') } }
+
+      field :method, ::OpenApiSDK::Shared::PassThroughRequestDtoMethod, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('method'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::PassThroughRequestDtoMethod, false) } }
 
       field :path, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('path') } }
 
-      field :data, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
 
-      field :headers, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers') } }
-
-
-      sig { params(method: ::OpenApiSDK::Shared::Method, path: ::String, data: T.nilable(::Object), headers: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(method: nil, path: nil, data: nil, headers: nil)
-        @method = method
-        @path = path
+      sig { params(data: ::Object, headers: T::Hash[Symbol, ::Object], method: ::OpenApiSDK::Shared::PassThroughRequestDtoMethod, path: ::String).void }
+      def initialize(data: nil, headers: nil, method: nil, path: nil)
         @data = data
         @headers = headers
+        @method = method
+        @path = path
       end
     end
   end

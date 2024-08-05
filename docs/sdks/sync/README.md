@@ -24,7 +24,7 @@ s.config_security(
 )
 
     
-res = s.sync.status(vertical="<value>")
+res = s.sync.status(vertical=::OpenApiSDK::Operations::Vertical::TICKETING)
 
 if res.status_code == 200
   # handle response
@@ -34,9 +34,9 @@ end
 
 ### Parameters
 
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `vertical`         | *::String*         | :heavy_check_mark: | N/A                |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               | Example                                                                   |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `vertical`                                                                | [::OpenApiSDK::Operations::Vertical](../../models/operations/vertical.md) | :heavy_check_mark:                                                        | N/A                                                                       | ticketing                                                                 |
 
 
 ### Response

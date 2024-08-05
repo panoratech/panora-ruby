@@ -24,10 +24,10 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Shared::MapFieldToProviderDto.new(
-  attribute_id: "<value>",
-  source_custom_field_id: "<value>",
-  source_provider: "<value>",
-  linked_user_id: "<value>",
+  attribute_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  source_custom_field_id: "id_1",
+  source_provider: "hubspot",
+  linked_user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
 )
     
 res = s.field_mappings_map.map(req)

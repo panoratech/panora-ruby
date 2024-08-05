@@ -11,8 +11,6 @@ module OpenApiSDK
     class UnifiedTicketingAttachmentInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # The custom field mappings of the attachment between the remote 3rd party & Panora
-      field :field_mappings, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The file name of the attachment
       field :file_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_name') } }
       # The file url of the attachment
@@ -21,17 +19,19 @@ module OpenApiSDK
       field :uploader, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('uploader') } }
       # The UUID of the comment the attachment is tied to
       field :comment_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comment_id') } }
+      # The custom field mappings of the attachment between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the ticket the attachment is tied to
       field :ticket_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ticket_id') } }
 
 
-      sig { params(field_mappings: T::Hash[Symbol, ::Object], file_name: ::String, file_url: ::String, uploader: ::String, comment_id: T.nilable(::String), ticket_id: T.nilable(::String)).void }
-      def initialize(field_mappings: nil, file_name: nil, file_url: nil, uploader: nil, comment_id: nil, ticket_id: nil)
-        @field_mappings = field_mappings
+      sig { params(file_name: ::String, file_url: ::String, uploader: ::String, comment_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), ticket_id: T.nilable(::String)).void }
+      def initialize(file_name: nil, file_url: nil, uploader: nil, comment_id: nil, field_mappings: nil, ticket_id: nil)
         @file_name = file_name
         @file_url = file_url
         @uploader = uploader
         @comment_id = comment_id
+        @field_mappings = field_mappings
         @ticket_id = ticket_id
       end
     end

@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListTicketingCollectionsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Collections
+      # list - List Collections
       request = ::OpenApiSDK::Operations::ListTicketingCollectionsRequest.new(
         
         x_connection_token: x_connection_token,

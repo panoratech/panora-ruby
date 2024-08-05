@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListFilestorageDrivesResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Drives
+      # list - List Drives
       request = ::OpenApiSDK::Operations::ListFilestorageDrivesRequest.new(
         
         x_connection_token: x_connection_token,
@@ -60,8 +60,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveFilestorageDriveResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Drives
-      # Retrieve Drives from any connected Filestorage software
+      # retrieve - Retrieve Drive
+      # Retrieve a Drive from any connected file storage service
       request = ::OpenApiSDK::Operations::RetrieveFilestorageDriveRequest.new(
         
         x_connection_token: x_connection_token,

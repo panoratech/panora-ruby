@@ -27,7 +27,7 @@ req = ::OpenApiSDK::Shared::CreateBatchLinkedUserDto.new(
   linked_user_origin_ids: [
     "<value>",
   ],
-  alias_: "<value>",
+  alias_: "acme",
 )
     
 res = s.linked_users_batch.import_batch(req)

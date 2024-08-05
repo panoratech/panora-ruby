@@ -11,19 +11,19 @@ module OpenApiSDK
     class WebhookDto < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The description of the webhook.
+      field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # The events that the webhook listen to.
       field :scope, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('scope') } }
       # The endpoint url of the webhook.
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
-      # The description of the webhook.
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
 
-      sig { params(scope: T::Array[::String], url: ::String, description: T.nilable(::String)).void }
-      def initialize(scope: nil, url: nil, description: nil)
+      sig { params(description: ::String, scope: T::Array[::String], url: ::String).void }
+      def initialize(description: nil, scope: nil, url: nil)
+        @description = description
         @scope = scope
         @url = url
-        @description = description
       end
     end
   end

@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisDependentsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Dependents
+      # list - List Dependents
       request = ::OpenApiSDK::Operations::ListHrisDependentsRequest.new(
         
         x_connection_token: x_connection_token,
@@ -60,8 +60,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveHrisDependentResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Dependents
-      # Retrieve Dependents from any connected Hris software
+      # retrieve - Retrieve Dependent
+      # Retrieve a Dependent from any connected Hris software
       request = ::OpenApiSDK::Operations::RetrieveHrisDependentRequest.new(
         
         x_connection_token: x_connection_token,

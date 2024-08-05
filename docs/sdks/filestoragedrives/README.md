@@ -3,12 +3,12 @@
 
 ### Available Operations
 
-* [list](#list) - List  Drives
-* [retrieve](#retrieve) - Retrieve Drives
+* [list](#list) - List Drives
+* [retrieve](#retrieve) - Retrieve Drive
 
 ## list
 
-List  Drives
+List Drives
 
 ### Example Usage
 
@@ -49,7 +49,7 @@ end
 
 ## retrieve
 
-Retrieve Drives from any connected Filestorage software
+Retrieve a Drive from any connected file storage service
 
 ### Example Usage
 
@@ -65,7 +65,7 @@ s.config_security(
 )
 
     
-res = s.filestorage_drives.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.filestorage_drives.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_filestorage_drive_output.nil?
   # handle response
@@ -75,11 +75,11 @@ end
 
 ### Parameters
 
-| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `x_connection_token`                                                 | *::String*                                                           | :heavy_check_mark:                                                   | The connection token                                                 |
-| `id`                                                                 | *::String*                                                           | :heavy_check_mark:                                                   | id of the drive you want to retrieve.                                |
-| `remote_data`                                                        | *T::Boolean*                                                         | :heavy_minus_sign:                                                   | Set to true to include data from the original File Storage software. |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `x_connection_token`                                                | *::String*                                                          | :heavy_check_mark:                                                  | The connection token                                                |                                                                     |
+| `id`                                                                | *::String*                                                          | :heavy_check_mark:                                                  | id of the drive you want to retrieve.                               | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                                |
+| `remote_data`                                                       | *T::Boolean*                                                        | :heavy_minus_sign:                                                  | Set to true to include data from the original file storage service. | false                                                               |
 
 
 ### Response

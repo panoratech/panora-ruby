@@ -12,7 +12,7 @@ module OpenApiSDK
       extend T::Sig
 
       # The type of activity
-      field :activity_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('activity_type') } }
+      field :activity_type, T.nilable(::OpenApiSDK::Shared::ActivityType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('activity_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::ActivityType, true) } }
       # The body of the activity
       field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('body') } }
       # The UUID of the candidate
@@ -34,10 +34,10 @@ module OpenApiSDK
       # The subject of the activity
       field :subject, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subject') } }
       # The visibility of the activity
-      field :visibility, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('visibility') } }
+      field :visibility, T.nilable(::OpenApiSDK::Shared::Visibility), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('visibility'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Visibility, true) } }
 
 
-      sig { params(activity_type: T.nilable(::String), body: T.nilable(::String), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), subject: T.nilable(::String), visibility: T.nilable(::String)).void }
+      sig { params(activity_type: T.nilable(::OpenApiSDK::Shared::ActivityType), body: T.nilable(::String), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), subject: T.nilable(::String), visibility: T.nilable(::OpenApiSDK::Shared::Visibility)).void }
       def initialize(activity_type: nil, body: nil, candidate_id: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, subject: nil, visibility: nil)
         @activity_type = activity_type
         @body = body

@@ -18,15 +18,15 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
-      field :unified_user_output, T.nilable(::OpenApiSDK::Shared::UnifiedUserOutput)
+      field :unified_filestorage_user_output, T.nilable(::OpenApiSDK::Shared::UnifiedFilestorageUserOutput)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, unified_user_output: T.nilable(::OpenApiSDK::Shared::UnifiedUserOutput)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, unified_user_output: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, unified_filestorage_user_output: T.nilable(::OpenApiSDK::Shared::UnifiedFilestorageUserOutput)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, unified_filestorage_user_output: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @unified_user_output = unified_user_output
+        @unified_filestorage_user_output = unified_filestorage_user_output
       end
     end
   end

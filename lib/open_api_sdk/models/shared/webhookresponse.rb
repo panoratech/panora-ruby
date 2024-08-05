@@ -13,7 +13,7 @@ module OpenApiSDK
 
       # The status of the webhook.
       field :active, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('active') } }
-      # The created date  of the webhook.
+      # The created date of the webhook.
       field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
       # The description of the webhook.
       field :endpoint_description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('endpoint_description') } }

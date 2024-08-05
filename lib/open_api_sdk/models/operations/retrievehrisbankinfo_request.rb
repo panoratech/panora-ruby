@@ -8,10 +8,10 @@ module OpenApiSDK
   module Operations
   
 
-    class RetrieveHrisBankinfoRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class RetrieveHrisBankInfoRequest < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # id of the bankinfo you want to retrieve.
+      # id of the bank info you want to retrieve.
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The connection token
       field :x_connection_token, ::String, { 'header': { 'field_name': 'x-connection-token', 'style': 'simple', 'explode': false } }

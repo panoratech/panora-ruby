@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class ListHrisBankinfoResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class ListHrisBankInfoResponseBody < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
 

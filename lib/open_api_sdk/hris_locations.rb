@@ -19,10 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisLocationResponse) }
+    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisLocationsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Locations
-      request = ::OpenApiSDK::Operations::ListHrisLocationRequest.new(
+      # list - List Locations
+      request = ::OpenApiSDK::Operations::ListHrisLocationsRequest.new(
         
         x_connection_token: x_connection_token,
         remote_data: remote_data,
@@ -33,7 +33,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/locations"
       headers = Utils.get_headers(request)
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListHrisLocationRequest, request)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListHrisLocationsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -45,12 +45,12 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::ListHrisLocationResponse.new(
+      res = ::OpenApiSDK::Operations::ListHrisLocationsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListHrisLocationResponseBody)
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListHrisLocationsResponseBody)
           res.object = out
         end
       end
@@ -60,8 +60,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveHrisLocationResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Locations
-      # Retrieve Locations from any connected Hris software
+      # retrieve - Retrieve Location
+      # Retrieve a Location from any connected Hris software
       request = ::OpenApiSDK::Operations::RetrieveHrisLocationRequest.new(
         
         x_connection_token: x_connection_token,

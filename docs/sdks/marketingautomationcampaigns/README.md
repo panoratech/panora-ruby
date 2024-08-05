@@ -3,13 +3,13 @@
 
 ### Available Operations
 
-* [list](#list) - List  Campaigns
+* [list](#list) - List Campaigns
 * [create](#create) - Create Campaign
-* [retrieve](#retrieve) - Retrieve Campaigns
+* [retrieve](#retrieve) - Retrieve Campaign
 
 ## list
 
-List  Campaigns
+List Campaigns
 
 ### Example Usage
 
@@ -45,7 +45,7 @@ end
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::ListMarketingautomationCampaignResponse)](../../models/operations/listmarketingautomationcampaignresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::ListMarketingautomationCampaignsResponse)](../../models/operations/listmarketingautomationcampaignsresponse.md)**
 
 
 ## create
@@ -68,7 +68,7 @@ s.config_security(
     
 res = s.marketingautomation_campaigns.create(x_connection_token="<value>", unified_marketingautomation_campaign_input=::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignInput.new(), remote_data=false)
 
-if ! res.unified_campaign_output.nil?
+if ! res.unified_marketingautomation_campaign_output.nil?
   # handle response
 end
 
@@ -76,11 +76,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                                                            | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The connection token                                                                                                            |
-| `unified_marketingautomation_campaign_input`                                                                                    | [::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignInput](../../models/shared/unifiedmarketingautomationcampaigninput.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
-| `remote_data`                                                                                                                   | *T::Boolean*                                                                                                                    | :heavy_minus_sign:                                                                                                              | Set to true to include data from the original Marketingautomation software.                                                     |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     | Example                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                                                            | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The connection token                                                                                                            |                                                                                                                                 |
+| `unified_marketingautomation_campaign_input`                                                                                    | [::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignInput](../../models/shared/unifiedmarketingautomationcampaigninput.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |                                                                                                                                 |
+| `remote_data`                                                                                                                   | *T::Boolean*                                                                                                                    | :heavy_minus_sign:                                                                                                              | Set to true to include data from the original Marketingautomation software.                                                     | false                                                                                                                           |
 
 
 ### Response
@@ -90,7 +90,7 @@ end
 
 ## retrieve
 
-Retrieve Campaigns from any connected Marketingautomation software
+Retrieve a Campaign from any connected Marketingautomation software
 
 ### Example Usage
 
@@ -106,9 +106,9 @@ s.config_security(
 )
 
     
-res = s.marketingautomation_campaigns.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.marketingautomation_campaigns.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
-if ! res.unified_campaign_output.nil?
+if ! res.unified_marketingautomation_campaign_output.nil?
   # handle response
 end
 
@@ -116,11 +116,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `x_connection_token`                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | The connection token                                                        |
-| `id`                                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | id of the campaign you want to retrieve.                                    |
-| `remote_data`                                                               | *T::Boolean*                                                                | :heavy_minus_sign:                                                          | Set to true to include data from the original Marketingautomation software. |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `x_connection_token`                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | The connection token                                                        |                                                                             |
+| `id`                                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | id of the campaign you want to retrieve.                                    | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                                        |
+| `remote_data`                                                               | *T::Boolean*                                                                | :heavy_minus_sign:                                                          | Set to true to include data from the original Marketingautomation software. | false                                                                       |
 
 
 ### Response

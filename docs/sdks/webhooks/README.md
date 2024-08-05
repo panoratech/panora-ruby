@@ -4,7 +4,7 @@
 ### Available Operations
 
 * [list](#list) - List webhooks
-* [create](#create) - Add webhook metadata
+* [create](#create) - Create webhook
 * [delete](#delete) - Delete Webhook
 * [update_status](#update_status) - Update webhook status
 * [verify_event](#verify_event) - Verify payload signature of the webhook
@@ -43,7 +43,7 @@ end
 
 ## create
 
-Add webhook metadata
+Create webhook
 
 ### Example Usage
 
@@ -60,7 +60,8 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Shared::WebhookDto.new(
-  url: "http://limp-pastry.org",
+  url: "https://acme.com/webhook_receiver",
+  description: "Webhook to receive connection events",
   scope: [
     "<value>",
   ],
@@ -104,7 +105,7 @@ s.config_security(
 )
 
     
-res = s.webhooks.delete(id="<value>")
+res = s.webhooks.delete(id="801f9ede-c698-4e66-a7fc-48d19eebaa4f")
 
 if ! res.webhook_response.nil?
   # handle response
@@ -114,9 +115,9 @@ end
 
 ### Parameters
 
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *::String*         | :heavy_check_mark: | N/A                |
+| Parameter                            | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *::String*                           | :heavy_check_mark:                   | id of the webhook to delete.         | 801f9ede-c698-4e66-a7fc-48d19eebaa4f |
 
 
 ### Response
@@ -142,7 +143,7 @@ s.config_security(
 )
 
     
-res = s.webhooks.update_status(id="<value>")
+res = s.webhooks.update_status(id="801f9ede-c698-4e66-a7fc-48d19eebaa4f")
 
 if ! res.webhook_response.nil?
   # handle response
@@ -152,9 +153,9 @@ end
 
 ### Parameters
 
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *::String*         | :heavy_check_mark: | N/A                |
+| Parameter                            | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *::String*                           | :heavy_check_mark:                   | id of the webhook to update.         | 801f9ede-c698-4e66-a7fc-48d19eebaa4f |
 
 
 ### Response

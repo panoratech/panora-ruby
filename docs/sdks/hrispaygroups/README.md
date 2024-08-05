@@ -3,12 +3,12 @@
 
 ### Available Operations
 
-* [list](#list) - List  PayGroups
-* [retrieve](#retrieve) - Retrieve Pay Groups
+* [list](#list) - List Pay Groups
+* [retrieve](#retrieve) - Retrieve Pay Group
 
 ## list
 
-List  PayGroups
+List Pay Groups
 
 ### Example Usage
 
@@ -44,12 +44,12 @@ end
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::ListHrisPaygroupResponse)](../../models/operations/listhrispaygroupresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::ListHrisPaygroupsResponse)](../../models/operations/listhrispaygroupsresponse.md)**
 
 
 ## retrieve
 
-Retrieve Pay Groups from any connected Hris software
+Retrieve a Pay Group from any connected Hris software
 
 ### Example Usage
 
@@ -65,7 +65,7 @@ s.config_security(
 )
 
     
-res = s.hris_paygroups.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.hris_paygroups.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_hris_paygroup_output.nil?
   # handle response
@@ -75,11 +75,11 @@ end
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `x_connection_token`                                         | *::String*                                                   | :heavy_check_mark:                                           | The connection token                                         |
-| `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the paygroup you want to retrieve.                     |
-| `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `x_connection_token`                                         | *::String*                                                   | :heavy_check_mark:                                           | The connection token                                         |                                                              |
+| `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the paygroup you want to retrieve.                     | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                         |
+| `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. | false                                                        |
 
 
 ### Response

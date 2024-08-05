@@ -3,11 +3,12 @@
 
 ### Available Operations
 
-* [list](#list) - List  Companys
+* [list](#list) - List Companies
+* [retrieve](#retrieve) - Retrieve Company
 
 ## list
 
-List  Companys
+List Companies
 
 ### Example Usage
 
@@ -43,5 +44,45 @@ end
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::ListHrisCompanysResponse)](../../models/operations/listhriscompanysresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::ListHrisCompaniesResponse)](../../models/operations/listhriscompaniesresponse.md)**
+
+
+## retrieve
+
+Retrieve a Company from any connected Hris software
+
+### Example Usage
+
+```ruby
+require 'panora'
+
+
+s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
+
+    
+res = s.hris_companies.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
+
+if ! res.unified_hris_company_output.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `x_connection_token`                                         | *::String*                                                   | :heavy_check_mark:                                           | The connection token                                         |                                                              |
+| `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the company you want to retrieve.                      | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                         |
+| `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. | false                                                        |
+
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::RetrieveHrisCompanyResponse)](../../models/operations/retrievehriscompanyresponse.md)**
 

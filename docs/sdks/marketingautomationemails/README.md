@@ -3,12 +3,12 @@
 
 ### Available Operations
 
-* [list](#list) - List  Emails
-* [retrieve](#retrieve) - Retrieve Emails
+* [list](#list) - List Emails
+* [retrieve](#retrieve) - Retrieve Email
 
 ## list
 
-List  Emails
+List Emails
 
 ### Example Usage
 
@@ -49,7 +49,7 @@ end
 
 ## retrieve
 
-Retrieve Emails from any connected Marketingautomation software
+Retrieve an Email from any connected Marketingautomation software
 
 ### Example Usage
 
@@ -65,7 +65,7 @@ s.config_security(
 )
 
     
-res = s.marketingautomation_emails.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.marketingautomation_emails.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_marketingautomation_email_output.nil?
   # handle response
@@ -75,11 +75,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `x_connection_token`                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | The connection token                                                        |
-| `id`                                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | id of the email you want to retrieve.                                       |
-| `remote_data`                                                               | *T::Boolean*                                                                | :heavy_minus_sign:                                                          | Set to true to include data from the original Marketingautomation software. |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `x_connection_token`                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | The connection token                                                        |                                                                             |
+| `id`                                                                        | *::String*                                                                  | :heavy_check_mark:                                                          | id of the email you want to retrieve.                                       | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                                        |
+| `remote_data`                                                               | *T::Boolean*                                                                | :heavy_minus_sign:                                                          | Set to true to include data from the original Marketingautomation software. | false                                                                       |
 
 
 ### Response

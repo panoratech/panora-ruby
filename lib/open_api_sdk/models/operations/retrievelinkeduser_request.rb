@@ -12,7 +12,7 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :id, ::String, { 'query_param': { 'field_name': 'id', 'style': 'form', 'explode': true } }
+      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
 
       sig { params(id: ::String).void }

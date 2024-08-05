@@ -25,8 +25,8 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Shared::CreateLinkedUserDto.new(
-  linked_user_origin_id: "<value>",
-  alias_: "<value>",
+  linked_user_origin_id: "id_1",
+  alias_: "acme",
 )
     
 res = s.linked_users.create(req)

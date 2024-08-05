@@ -11,7 +11,7 @@ module OpenApiSDK
     class DeleteRequest < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
+      # id of the webhook to delete.
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
 

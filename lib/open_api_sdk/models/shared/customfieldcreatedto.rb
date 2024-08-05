@@ -11,23 +11,23 @@ module OpenApiSDK
     class CustomFieldCreateDto < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :data_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_type') } }
-
+      # The data type of the custom field
+      field :data_type, ::OpenApiSDK::Shared::CustomFieldCreateDtoDataType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::CustomFieldCreateDtoDataType, false) } }
+      # The description of the custom field
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-
+      # The linked user ID
       field :linked_user_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linked_user_id') } }
-
+      # The name of the custom field
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
-      field :object_type_owner, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('object_type_owner') } }
-
+      field :object_type_owner, ::OpenApiSDK::Shared::CustomFieldCreateDtoObjectTypeOwner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('object_type_owner'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::CustomFieldCreateDtoObjectTypeOwner, false) } }
+      # The source custom field ID
       field :source_custom_field_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source_custom_field_id') } }
-
+      # The name of the source software/provider
       field :source_provider, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source_provider') } }
 
 
-      sig { params(data_type: ::String, description: ::String, linked_user_id: ::String, name: ::String, object_type_owner: ::String, source_custom_field_id: ::String, source_provider: ::String).void }
+      sig { params(data_type: ::OpenApiSDK::Shared::CustomFieldCreateDtoDataType, description: ::String, linked_user_id: ::String, name: ::String, object_type_owner: ::OpenApiSDK::Shared::CustomFieldCreateDtoObjectTypeOwner, source_custom_field_id: ::String, source_provider: ::String).void }
       def initialize(data_type: nil, description: nil, linked_user_id: nil, name: nil, object_type_owner: nil, source_custom_field_id: nil, source_provider: nil)
         @data_type = data_type
         @description = description

@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListCrmDealsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Deals
+      # list - List Deals
       request = ::OpenApiSDK::Operations::ListCrmDealsRequest.new(
         
         x_connection_token: x_connection_token,

@@ -66,7 +66,23 @@ s.config_security(
 )
 
     
-res = s.ats_interviews.create(x_connection_token="<value>", unified_ats_interview_input=::OpenApiSDK::Shared::UnifiedAtsInterviewInput.new(), remote_data=false)
+res = s.ats_interviews.create(x_connection_token="<value>", unified_ats_interview_input=::OpenApiSDK::Shared::UnifiedAtsInterviewInput.new(
+    status: ::OpenApiSDK::Shared::UnifiedAtsInterviewInputStatus::SCHEDULED,
+    application_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    job_interview_stage_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    organized_by: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    interviewers: [
+      "<value>",
+    ],
+    location: "San Francisco",
+    start_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    end_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    remote_updated_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    field_mappings: {
+      "online": "<value>",
+    },
+  ), remote_data=false)
 
 if ! res.unified_ats_interview_output.nil?
   # handle response
@@ -76,11 +92,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | The connection token                                                                              |
-| `unified_ats_interview_input`                                                                     | [::OpenApiSDK::Shared::UnifiedAtsInterviewInput](../../models/shared/unifiedatsinterviewinput.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `remote_data`                                                                                     | *T::Boolean*                                                                                      | :heavy_minus_sign:                                                                                | Set to true to include data from the original Ats software.                                       |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       | Example                                                                                           |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | The connection token                                                                              |                                                                                                   |
+| `unified_ats_interview_input`                                                                     | [::OpenApiSDK::Shared::UnifiedAtsInterviewInput](../../models/shared/unifiedatsinterviewinput.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |                                                                                                   |
+| `remote_data`                                                                                     | *T::Boolean*                                                                                      | :heavy_minus_sign:                                                                                | Set to true to include data from the original Ats software.                                       | false                                                                                             |
 
 
 ### Response
@@ -106,7 +122,7 @@ s.config_security(
 )
 
     
-res = s.ats_interviews.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ats_interviews.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_ats_interview_output.nil?
   # handle response
@@ -116,11 +132,11 @@ end
 
 ### Parameters
 
-| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |
-| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the interview you want to retrieve.                   |
-| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |                                                             |
+| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the interview you want to retrieve.                   | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
+| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. | false                                                       |
 
 
 ### Response

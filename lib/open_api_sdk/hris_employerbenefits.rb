@@ -19,10 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisEmployerBenefitResponse) }
+    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListHrisEmployerBenefitsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  EmployerBenefits
-      request = ::OpenApiSDK::Operations::ListHrisEmployerBenefitRequest.new(
+      # list - List Employer Benefits
+      request = ::OpenApiSDK::Operations::ListHrisEmployerBenefitsRequest.new(
         
         x_connection_token: x_connection_token,
         remote_data: remote_data,
@@ -33,7 +33,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employerbenefits"
       headers = Utils.get_headers(request)
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListHrisEmployerBenefitRequest, request)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListHrisEmployerBenefitsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -45,12 +45,12 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::ListHrisEmployerBenefitResponse.new(
+      res = ::OpenApiSDK::Operations::ListHrisEmployerBenefitsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListHrisEmployerBenefitResponseBody)
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListHrisEmployerBenefitsResponseBody)
           res.object = out
         end
       end
@@ -60,8 +60,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveHrisEmployerBenefitResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Employer Benefits
-      # Retrieve Employer Benefits from any connected Hris software
+      # retrieve - Retrieve Employer Benefit
+      # Retrieve an Employer Benefit from any connected Hris software
       request = ::OpenApiSDK::Operations::RetrieveHrisEmployerBenefitRequest.new(
         
         x_connection_token: x_connection_token,

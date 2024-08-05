@@ -12,10 +12,10 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :vertical, ::String, { 'path_param': { 'field_name': 'vertical', 'style': 'simple', 'explode': false } }
+      field :vertical, ::OpenApiSDK::Operations::Vertical, { 'path_param': { 'field_name': 'vertical', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(vertical: ::String).void }
+      sig { params(vertical: ::OpenApiSDK::Operations::Vertical).void }
       def initialize(vertical: nil)
         @vertical = vertical
       end

@@ -3,13 +3,13 @@
 
 ### Available Operations
 
-* [list](#list) - List  Notes
+* [list](#list) - List Notes
 * [create](#create) - Create Notes
 * [retrieve](#retrieve) - Retrieve Notes
 
 ## list
 
-List  Notes
+List Notes
 
 ### Example Usage
 
@@ -67,7 +67,14 @@ s.config_security(
 
     
 res = s.crm_notes.create(x_connection_token="<value>", unified_crm_note_input=::OpenApiSDK::Shared::UnifiedCrmNoteInput.new(
-    content: "<value>",
+    content: "My notes taken during the meeting",
+    user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    company_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    contact_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    deal_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    field_mappings: {
+      "online": "<value>",
+    },
   ), remote_data=false)
 
 if ! res.unified_crm_note_output.nil?
@@ -78,11 +85,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                    | *::String*                                                                              | :heavy_check_mark:                                                                      | The connection token                                                                    |
-| `unified_crm_note_input`                                                                | [::OpenApiSDK::Shared::UnifiedCrmNoteInput](../../models/shared/unifiedcrmnoteinput.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
-| `remote_data`                                                                           | *T::Boolean*                                                                            | :heavy_minus_sign:                                                                      | Set to true to include data from the original Crm software.                             |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             | Example                                                                                 |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                    | *::String*                                                                              | :heavy_check_mark:                                                                      | The connection token                                                                    |                                                                                         |
+| `unified_crm_note_input`                                                                | [::OpenApiSDK::Shared::UnifiedCrmNoteInput](../../models/shared/unifiedcrmnoteinput.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |                                                                                         |
+| `remote_data`                                                                           | *T::Boolean*                                                                            | :heavy_minus_sign:                                                                      | Set to true to include data from the original Crm software.                             | false                                                                                   |
 
 
 ### Response
@@ -108,7 +115,7 @@ s.config_security(
 )
 
     
-res = s.crm_notes.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.crm_notes.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_crm_note_output.nil?
   # handle response
@@ -118,11 +125,11 @@ end
 
 ### Parameters
 
-| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |
-| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the note you want to retrieve.                        |
-| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Crm software. |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |                                                             |
+| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the note you want to retrieve.                        | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
+| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Crm software. | false                                                       |
 
 
 ### Response

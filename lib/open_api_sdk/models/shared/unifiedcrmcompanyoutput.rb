@@ -24,7 +24,7 @@ module OpenApiSDK
       # The UUID of the company
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The industry of the company. Authorized values can be found in the Industry enum.
-      field :industry, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('industry') } }
+      field :industry, T.nilable(::OpenApiSDK::Shared::Industry), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('industry'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Industry, true) } }
       # The modified date of the object
       field :modified_at, T.nilable(::OpenApiSDK::Shared::ModifiedAt), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The number of employees of the company
@@ -39,7 +39,7 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), created_at: T.nilable(::OpenApiSDK::Shared::CreatedAt), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), industry: T.nilable(::String), modified_at: T.nilable(::OpenApiSDK::Shared::ModifiedAt), number_of_employees: T.nilable(::Float), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      sig { params(name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), created_at: T.nilable(::OpenApiSDK::Shared::CreatedAt), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), industry: T.nilable(::OpenApiSDK::Shared::Industry), modified_at: T.nilable(::OpenApiSDK::Shared::ModifiedAt), number_of_employees: T.nilable(::Float), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), user_id: T.nilable(::String)).void }
       def initialize(name: nil, addresses: nil, created_at: nil, email_addresses: nil, field_mappings: nil, id: nil, industry: nil, modified_at: nil, number_of_employees: nil, phone_numbers: nil, remote_data: nil, remote_id: nil, user_id: nil)
         @name = name
         @addresses = addresses

@@ -24,8 +24,12 @@ s.config_security(
 
     
 res = s.passthrough.request(integration_id="<value>", linked_user_id="<value>", vertical="<value>", pass_through_request_dto=::OpenApiSDK::Shared::PassThroughRequestDto.new(
-    method: ::OpenApiSDK::Shared::Method::GET,
+    method: ::OpenApiSDK::Shared::PassThroughRequestDtoMethod::GET,
     path: "/dev",
+    data: "<value>",
+    headers: {
+      "Johns": "<value>",
+    },
   ))
 
 if ! res.pass_through_response.nil?
