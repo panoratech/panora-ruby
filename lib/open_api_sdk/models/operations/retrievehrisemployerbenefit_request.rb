@@ -11,7 +11,7 @@ module OpenApiSDK
     class RetrieveHrisEmployerBenefitRequest < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # id of the employerbenefit you want to retrieve.
+      # id of the employer benefit you want to retrieve.
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The connection token
       field :x_connection_token, ::String, { 'header': { 'field_name': 'x-connection-token', 'style': 'simple', 'explode': false } }

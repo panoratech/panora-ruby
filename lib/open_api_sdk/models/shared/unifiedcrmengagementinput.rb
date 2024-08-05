@@ -12,7 +12,7 @@ module OpenApiSDK
       extend T::Sig
 
       # The type of the engagement. Authorized values are EMAIL, CALL or MEETING
-      field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
+      field :type, ::OpenApiSDK::Shared::UnifiedCrmEngagementInputType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedCrmEngagementInputType, false) } }
       # The UUID of the company tied to the engagement
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
       # The UUIDs of contacts tied to the engagement object
@@ -20,7 +20,7 @@ module OpenApiSDK
       # The content of the engagement
       field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content') } }
       # The direction of the engagement. Authorized values are INBOUND or OUTBOUND
-      field :direction, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('direction') } }
+      field :direction, T.nilable(::OpenApiSDK::Shared::UnifiedCrmEngagementInputDirection), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('direction'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedCrmEngagementInputDirection, true) } }
       # The end time of the engagement
       field :end_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The custom field mappings of the engagement between the remote 3rd party & Panora
@@ -33,7 +33,7 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(type: ::String, company_id: T.nilable(::String), contacts: T.nilable(T::Array[::String]), content: T.nilable(::String), direction: T.nilable(::String), end_time: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), start_at: T.nilable(::DateTime), subject: T.nilable(::String), user_id: T.nilable(::String)).void }
+      sig { params(type: ::OpenApiSDK::Shared::UnifiedCrmEngagementInputType, company_id: T.nilable(::String), contacts: T.nilable(T::Array[::String]), content: T.nilable(::String), direction: T.nilable(::OpenApiSDK::Shared::UnifiedCrmEngagementInputDirection), end_time: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), start_at: T.nilable(::DateTime), subject: T.nilable(::String), user_id: T.nilable(::String)).void }
       def initialize(type: nil, company_id: nil, contacts: nil, content: nil, direction: nil, end_time: nil, field_mappings: nil, start_at: nil, subject: nil, user_id: nil)
         @type = type
         @company_id = company_id

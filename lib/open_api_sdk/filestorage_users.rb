@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListFilestorageUsersResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Users
+      # list - List Users
       request = ::OpenApiSDK::Operations::ListFilestorageUsersRequest.new(
         
         x_connection_token: x_connection_token,
@@ -94,8 +94,8 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnifiedUserOutput)
-          res.unified_user_output = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnifiedFilestorageUserOutput)
+          res.unified_filestorage_user_output = out
         end
       end
       res

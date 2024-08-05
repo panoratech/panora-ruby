@@ -66,7 +66,22 @@ s.config_security(
 )
 
     
-res = s.ats_applications.create(x_connection_token="<value>", unified_ats_application_input=::OpenApiSDK::Shared::UnifiedAtsApplicationInput.new(), remote_data=false)
+res = s.ats_applications.create(x_connection_token="<value>", unified_ats_application_input=::OpenApiSDK::Shared::UnifiedAtsApplicationInput.new(
+    applied_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    rejected_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    offers: [
+      "<value>",
+    ],
+    source: "Source Name",
+    credited_to: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    current_stage: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    reject_reason: "Candidate not experienced enough",
+    candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    job_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    field_mappings: {
+      "online": "<value>",
+    },
+  ), remote_data=false)
 
 if ! res.unified_ats_application_output.nil?
   # handle response
@@ -76,11 +91,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The connection token                                                                                  |
-| `unified_ats_application_input`                                                                       | [::OpenApiSDK::Shared::UnifiedAtsApplicationInput](../../models/shared/unifiedatsapplicationinput.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `remote_data`                                                                                         | *T::Boolean*                                                                                          | :heavy_minus_sign:                                                                                    | Set to true to include data from the original Ats software.                                           |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           | Example                                                                                               |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The connection token                                                                                  |                                                                                                       |
+| `unified_ats_application_input`                                                                       | [::OpenApiSDK::Shared::UnifiedAtsApplicationInput](../../models/shared/unifiedatsapplicationinput.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |                                                                                                       |
+| `remote_data`                                                                                         | *T::Boolean*                                                                                          | :heavy_minus_sign:                                                                                    | Set to true to include data from the original Ats software.                                           | false                                                                                                 |
 
 
 ### Response
@@ -106,7 +121,7 @@ s.config_security(
 )
 
     
-res = s.ats_applications.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ats_applications.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_ats_application_output.nil?
   # handle response
@@ -116,11 +131,11 @@ end
 
 ### Parameters
 
-| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |
-| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the application you want to retrieve.                 |
-| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |                                                             |
+| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the application you want to retrieve.                 | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
+| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. | false                                                       |
 
 
 ### Response

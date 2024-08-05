@@ -11,13 +11,13 @@ module OpenApiSDK
     class MapFieldToProviderDto < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # Attribute Id
+      # The attribute ID
       field :attribute_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attributeId') } }
-      # Attribute Id
+      # The linked user ID
       field :linked_user_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linked_user_id') } }
-      # Attribute Id
+      # The source custom field ID
       field :source_custom_field_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source_custom_field_id') } }
-      # Attribute Id
+      # The source provider
       field :source_provider, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source_provider') } }
 
 

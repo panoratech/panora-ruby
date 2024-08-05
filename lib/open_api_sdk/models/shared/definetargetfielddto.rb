@@ -11,17 +11,17 @@ module OpenApiSDK
     class DefineTargetFieldDto < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :data_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_type') } }
-
+      # The data type of the target field
+      field :data_type, ::OpenApiSDK::Shared::DataType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::DataType, false) } }
+      # The description of the target field
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-
+      # The name of the target field
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
-      field :object_type_owner, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('object_type_owner') } }
+      field :object_type_owner, ::OpenApiSDK::Shared::ObjectTypeOwner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('object_type_owner'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::ObjectTypeOwner, false) } }
 
 
-      sig { params(data_type: ::String, description: ::String, name: ::String, object_type_owner: ::String).void }
+      sig { params(data_type: ::OpenApiSDK::Shared::DataType, description: ::String, name: ::String, object_type_owner: ::OpenApiSDK::Shared::ObjectTypeOwner).void }
       def initialize(data_type: nil, description: nil, name: nil, object_type_owner: nil)
         @data_type = data_type
         @description = description

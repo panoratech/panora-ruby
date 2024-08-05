@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListTicketingTagsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Tags
+      # list - List Tags
       request = ::OpenApiSDK::Operations::ListTicketingTagsRequest.new(
         
         x_connection_token: x_connection_token,
@@ -60,8 +60,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveTicketingTagResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Tags
-      # Retrieve Tags from any connected Ticketing software
+      # retrieve - Retrieve Tag
+      # Retrieve a Tag from any connected Ticketing software
       request = ::OpenApiSDK::Operations::RetrieveTicketingTagRequest.new(
         
         x_connection_token: x_connection_token,

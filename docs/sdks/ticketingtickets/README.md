@@ -67,8 +67,41 @@ s.config_security(
 
     
 res = s.ticketing_tickets.create(x_connection_token="<value>", unified_ticketing_ticket_input=::OpenApiSDK::Shared::UnifiedTicketingTicketInput.new(
-    name: "<value>",
-    description: "Multi-tiered human-resource model",
+    name: "Customer Service Inquiry",
+    status: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputStatus::OPEN,
+    description: "Help customer",
+    due_date: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    type: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputType::BUG,
+    parent_ticket: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    collections: "[\"801f9ede-c698-4e66-a7fc-48d19eebaa4f\"]",
+    tags: [
+      "<value>",
+    ],
+    completed_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    priority: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputPriority::HIGH,
+    assigned_to: [
+      "<value>",
+    ],
+    comment: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputComment.new(
+      body: "Assigned to Eric !",
+      html_body: "<p>Assigned to Eric !</p>",
+      is_private: false,
+      creator_type: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputCreatorType::USER,
+      ticket_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+      contact_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+      user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+      attachments: [
+        "<value>",
+      ],
+    ),
+    account_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    contact_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    attachments: [
+      "<value>",
+    ],
+    field_mappings: {
+      "online": "<value>",
+    },
   ), remote_data=false)
 
 if ! res.unified_ticketing_ticket_output.nil?
@@ -79,11 +112,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The connection token                                                                                    |
-| `unified_ticketing_ticket_input`                                                                        | [::OpenApiSDK::Shared::UnifiedTicketingTicketInput](../../models/shared/unifiedticketingticketinput.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `remote_data`                                                                                           | *T::Boolean*                                                                                            | :heavy_minus_sign:                                                                                      | Set to true to include data from the original Ticketing software.                                       |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             | Example                                                                                                 |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The connection token                                                                                    |                                                                                                         |
+| `unified_ticketing_ticket_input`                                                                        | [::OpenApiSDK::Shared::UnifiedTicketingTicketInput](../../models/shared/unifiedticketingticketinput.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |                                                                                                         |
+| `remote_data`                                                                                           | *T::Boolean*                                                                                            | :heavy_minus_sign:                                                                                      | Set to true to include data from the original Ticketing software.                                       | false                                                                                                   |
 
 
 ### Response
@@ -109,7 +142,7 @@ s.config_security(
 )
 
     
-res = s.ticketing_tickets.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ticketing_tickets.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_ticketing_ticket_output.nil?
   # handle response
@@ -119,11 +152,11 @@ end
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `x_connection_token`                                              | *::String*                                                        | :heavy_check_mark:                                                | The connection token                                              |
-| `id`                                                              | *::String*                                                        | :heavy_check_mark:                                                | id of the `ticket` you want to retrive.                           |
-| `remote_data`                                                     | *T::Boolean*                                                      | :heavy_minus_sign:                                                | Set to true to include data from the original Ticketing software. |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `x_connection_token`                                              | *::String*                                                        | :heavy_check_mark:                                                | The connection token                                              |                                                                   |
+| `id`                                                              | *::String*                                                        | :heavy_check_mark:                                                | id of the `ticket` you want to retrive.                           | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                              |
+| `remote_data`                                                     | *T::Boolean*                                                      | :heavy_minus_sign:                                                | Set to true to include data from the original Ticketing software. | false                                                             |
 
 
 ### Response

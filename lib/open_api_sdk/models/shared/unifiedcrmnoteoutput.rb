@@ -15,7 +15,7 @@ module OpenApiSDK
       field :content, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content') } }
       # The UUID of the company tied to the note
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
-      # The UUID fo the contact tied to the note
+      # The UUID of the contact tied to the note
       field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
       # The created date of the object
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
@@ -29,9 +29,9 @@ module OpenApiSDK
       field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The remote data of the note in the context of the Crm 3rd Party
       field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
-      # The id of the note in the context of the Crm 3rd Party
+      # The ID of the note in the context of the Crm 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
-      # The UUID of the user tied the note
+      # The UUID of the user tied to the note
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 

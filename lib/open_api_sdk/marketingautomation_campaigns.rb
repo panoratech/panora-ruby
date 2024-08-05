@@ -19,10 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListMarketingautomationCampaignResponse) }
+    sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListMarketingautomationCampaignsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List  Campaigns
-      request = ::OpenApiSDK::Operations::ListMarketingautomationCampaignRequest.new(
+      # list - List Campaigns
+      request = ::OpenApiSDK::Operations::ListMarketingautomationCampaignsRequest.new(
         
         x_connection_token: x_connection_token,
         remote_data: remote_data,
@@ -33,7 +33,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/marketingautomation/campaigns"
       headers = Utils.get_headers(request)
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListMarketingautomationCampaignRequest, request)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListMarketingautomationCampaignsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -45,12 +45,12 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::ListMarketingautomationCampaignResponse.new(
+      res = ::OpenApiSDK::Operations::ListMarketingautomationCampaignsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListMarketingautomationCampaignResponseBody)
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::ListMarketingautomationCampaignsResponseBody)
           res.object = out
         end
       end
@@ -99,8 +99,8 @@ module OpenApiSDK
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnifiedCampaignOutput)
-          res.unified_campaign_output = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignOutput)
+          res.unified_marketingautomation_campaign_output = out
         end
       end
       res
@@ -109,8 +109,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveMarketingautomationCampaignResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve Campaigns
-      # Retrieve Campaigns from any connected Marketingautomation software
+      # retrieve - Retrieve Campaign
+      # Retrieve a Campaign from any connected Marketingautomation software
       request = ::OpenApiSDK::Operations::RetrieveMarketingautomationCampaignRequest.new(
         
         x_connection_token: x_connection_token,
@@ -143,8 +143,8 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnifiedCampaignOutput)
-          res.unified_campaign_output = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignOutput)
+          res.unified_marketingautomation_campaign_output = out
         end
       end
       res

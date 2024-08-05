@@ -66,7 +66,17 @@ s.config_security(
 )
 
     
-res = s.ats_attachments.create(x_connection_token="<value>", unified_ats_attachment_input=::OpenApiSDK::Shared::UnifiedAtsAttachmentInput.new(), remote_data=false)
+res = s.ats_attachments.create(x_connection_token="<value>", unified_ats_attachment_input=::OpenApiSDK::Shared::UnifiedAtsAttachmentInput.new(
+    file_url: "https://example.com/file.pdf",
+    file_name: "file.pdf",
+    attachment_type: ::OpenApiSDK::Shared::UnifiedAtsAttachmentInputAttachmentType::RESUME,
+    remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    remote_modified_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+    candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    field_mappings: {
+      "online": "<value>",
+    },
+  ), remote_data=false)
 
 if ! res.unified_ats_attachment_output.nil?
   # handle response
@@ -76,11 +86,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The connection token                                                                                |
-| `unified_ats_attachment_input`                                                                      | [::OpenApiSDK::Shared::UnifiedAtsAttachmentInput](../../models/shared/unifiedatsattachmentinput.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `remote_data`                                                                                       | *T::Boolean*                                                                                        | :heavy_minus_sign:                                                                                  | Set to true to include data from the original Ats software.                                         |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         | Example                                                                                             |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The connection token                                                                                |                                                                                                     |
+| `unified_ats_attachment_input`                                                                      | [::OpenApiSDK::Shared::UnifiedAtsAttachmentInput](../../models/shared/unifiedatsattachmentinput.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |                                                                                                     |
+| `remote_data`                                                                                       | *T::Boolean*                                                                                        | :heavy_minus_sign:                                                                                  | Set to true to include data from the original Ats software.                                         | false                                                                                               |
 
 
 ### Response
@@ -106,7 +116,7 @@ s.config_security(
 )
 
     
-res = s.ats_attachments.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ats_attachments.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_ats_attachment_output.nil?
   # handle response
@@ -116,11 +126,11 @@ end
 
 ### Parameters
 
-| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |
-| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the attachment you want to retrieve.                  |
-| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |                                                             |
+| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the attachment you want to retrieve.                  | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
+| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. | false                                                       |
 
 
 ### Response

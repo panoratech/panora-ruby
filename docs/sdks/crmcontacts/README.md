@@ -67,8 +67,36 @@ s.config_security(
 
     
 res = s.crm_contacts.create(x_connection_token="<value>", unified_crm_contact_input=::OpenApiSDK::Shared::UnifiedCrmContactInput.new(
-    first_name: "Jed",
-    last_name: "Kuhn",
+    first_name: "John",
+    last_name: "Doe",
+    email_addresses: [
+      ::OpenApiSDK::Shared::Email.new(
+        email_address: "Jena.Nienow28@yahoo.com",
+        email_address_type: ::OpenApiSDK::Shared::EmailAddressType::PERSONAL,
+      ),
+    ],
+    phone_numbers: [
+      ::OpenApiSDK::Shared::Phone.new(
+        phone_number: "<value>",
+        phone_type: ::OpenApiSDK::Shared::PhoneType::WORK,
+      ),
+    ],
+    addresses: [
+      ::OpenApiSDK::Shared::Address.new(
+        street_1: "<value>",
+        street_2: "<value>",
+        city: "Fort Peytonbury",
+        state: "West Virginia",
+        postal_code: "04130-7788",
+        country: "Marshall Islands",
+        address_type: ::OpenApiSDK::Shared::AddressType::WORK,
+        owner_type: "<value>",
+      ),
+    ],
+    user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    field_mappings: {
+      "Polestar": "<value>",
+    },
   ), remote_data=false)
 
 if ! res.unified_crm_contact_output.nil?
@@ -79,11 +107,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | The connection token                                                                          |
-| `unified_crm_contact_input`                                                                   | [::OpenApiSDK::Shared::UnifiedCrmContactInput](../../models/shared/unifiedcrmcontactinput.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `remote_data`                                                                                 | *T::Boolean*                                                                                  | :heavy_minus_sign:                                                                            | Set to true to include data from the original CRM software.                                   |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | The connection token                                                                          |                                                                                               |
+| `unified_crm_contact_input`                                                                   | [::OpenApiSDK::Shared::UnifiedCrmContactInput](../../models/shared/unifiedcrmcontactinput.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `remote_data`                                                                                 | *T::Boolean*                                                                                  | :heavy_minus_sign:                                                                            | Set to true to include data from the original CRM software.                                   | false                                                                                         |
 
 
 ### Response
@@ -109,7 +137,7 @@ s.config_security(
 )
 
     
-res = s.crm_contacts.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.crm_contacts.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_crm_contact_output.nil?
   # handle response
@@ -119,11 +147,11 @@ end
 
 ### Parameters
 
-| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |
-| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the `contact` you want to retrive.                    |
-| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original CRM software. |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `x_connection_token`                                        | *::String*                                                  | :heavy_check_mark:                                          | The connection token                                        |                                                             |
+| `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the `contact` you want to retrive.                    | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
+| `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original CRM software. | false                                                       |
 
 
 ### Response

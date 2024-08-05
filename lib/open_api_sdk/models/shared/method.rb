@@ -7,14 +7,13 @@
 module OpenApiSDK
   module Shared
   
-
+    # Method - HTTP method used for the event
     class Method < T::Enum
       enums do
         GET = new('GET')
         POST = new('POST')
-        PATCH = new('PATCH')
-        DELETE = new('DELETE')
         PUT = new('PUT')
+        DELETE = new('DELETE')
       end
     end
 

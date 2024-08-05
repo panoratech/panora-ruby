@@ -59,10 +59,18 @@ end
 * [hello](docs/sdks/panora/README.md#hello)
 * [health](docs/sdks/panora/README.md#health)
 
+### [AuthLogin](docs/sdks/authlogin/README.md)
+
+* [sign_in](docs/sdks/authlogin/README.md#sign_in) - Log In
+
+### [Connections](docs/sdks/connections/README.md)
+
+* [get_connections](docs/sdks/connections/README.md#get_connections) - List Connections
+
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [list](docs/sdks/webhooks/README.md#list) - List webhooks
-* [create](docs/sdks/webhooks/README.md#create) - Add webhook metadata
+* [create](docs/sdks/webhooks/README.md#create) - Create webhook
 * [delete](docs/sdks/webhooks/README.md#delete) - Delete Webhook
 * [update_status](docs/sdks/webhooks/README.md#update_status) - Update webhook status
 * [verify_event](docs/sdks/webhooks/README.md#verify_event) - Verify payload signature of the webhook
@@ -75,8 +83,8 @@ end
 
 ### [TicketingUsers](docs/sdks/ticketingusers/README.md)
 
-* [list](docs/sdks/ticketingusers/README.md#list) - List  Users
-* [retrieve](docs/sdks/ticketingusers/README.md#retrieve) - Retrieve Users
+* [list](docs/sdks/ticketingusers/README.md#list) - List Users
+* [retrieve](docs/sdks/ticketingusers/README.md#retrieve) - Retrieve User
 
 ### [TicketingAccounts](docs/sdks/ticketingaccounts/README.md)
 
@@ -85,8 +93,8 @@ end
 
 ### [TicketingContacts](docs/sdks/ticketingcontacts/README.md)
 
-* [list](docs/sdks/ticketingcontacts/README.md#list) - List all Contacts
-* [retrieve](docs/sdks/ticketingcontacts/README.md#retrieve) - Retrieve Contacts
+* [list](docs/sdks/ticketingcontacts/README.md#list) - List Contacts
+* [retrieve](docs/sdks/ticketingcontacts/README.md#retrieve) - Retrieve Contact
 
 ### [Sync](docs/sdks/sync/README.md)
 
@@ -107,19 +115,19 @@ end
 
 ### [CrmDeals](docs/sdks/crmdeals/README.md)
 
-* [list](docs/sdks/crmdeals/README.md#list) - List  Deals
+* [list](docs/sdks/crmdeals/README.md#list) - List Deals
 * [create](docs/sdks/crmdeals/README.md#create) - Create Deals
 * [retrieve](docs/sdks/crmdeals/README.md#retrieve) - Retrieve Deals
 
 ### [CrmEngagements](docs/sdks/crmengagements/README.md)
 
-* [list](docs/sdks/crmengagements/README.md#list) - List  Engagements
+* [list](docs/sdks/crmengagements/README.md#list) - List Engagements
 * [create](docs/sdks/crmengagements/README.md#create) - Create Engagements
 * [retrieve](docs/sdks/crmengagements/README.md#retrieve) - Retrieve Engagements
 
 ### [CrmNotes](docs/sdks/crmnotes/README.md)
 
-* [list](docs/sdks/crmnotes/README.md#list) - List  Notes
+* [list](docs/sdks/crmnotes/README.md#list) - List Notes
 * [create](docs/sdks/crmnotes/README.md#create) - Create Notes
 * [retrieve](docs/sdks/crmnotes/README.md#retrieve) - Retrieve Notes
 
@@ -130,7 +138,7 @@ end
 
 ### [CrmTasks](docs/sdks/crmtasks/README.md)
 
-* [list](docs/sdks/crmtasks/README.md#list) - List  Tasks
+* [list](docs/sdks/crmtasks/README.md#list) - List Tasks
 * [create](docs/sdks/crmtasks/README.md#create) - Create Tasks
 * [retrieve](docs/sdks/crmtasks/README.md#retrieve) - Retrieve Tasks
 
@@ -141,19 +149,19 @@ end
 
 ### [TicketingCollections](docs/sdks/ticketingcollections/README.md)
 
-* [list](docs/sdks/ticketingcollections/README.md#list) - List  Collections
+* [list](docs/sdks/ticketingcollections/README.md#list) - List Collections
 * [retrieve](docs/sdks/ticketingcollections/README.md#retrieve) - Retrieve Collections
 
 ### [TicketingComments](docs/sdks/ticketingcomments/README.md)
 
-* [list](docs/sdks/ticketingcomments/README.md#list) - List  Comments
+* [list](docs/sdks/ticketingcomments/README.md#list) - List Comments
 * [create](docs/sdks/ticketingcomments/README.md#create) - Create Comments
-* [retrieve](docs/sdks/ticketingcomments/README.md#retrieve) - Retrieve Comments
+* [retrieve](docs/sdks/ticketingcomments/README.md#retrieve) - Retrieve Comment
 
 ### [TicketingTags](docs/sdks/ticketingtags/README.md)
 
-* [list](docs/sdks/ticketingtags/README.md#list) - List  Tags
-* [retrieve](docs/sdks/ticketingtags/README.md#retrieve) - Retrieve Tags
+* [list](docs/sdks/ticketingtags/README.md#list) - List Tags
+* [retrieve](docs/sdks/ticketingtags/README.md#retrieve) - Retrieve Tag
 
 ### [TicketingTeams](docs/sdks/ticketingteams/README.md)
 
@@ -169,13 +177,18 @@ end
 
 * [import_batch](docs/sdks/linkedusersbatch/README.md#import_batch) - Add Batch Linked Users
 
-### [LinkedUsersSingle](docs/sdks/linkeduserssingle/README.md)
+### [LinkedUsersId](docs/sdks/linkedusersid/README.md)
 
-* [retrieve](docs/sdks/linkeduserssingle/README.md#retrieve) - Retrieve Linked Users
+* [retrieve](docs/sdks/linkedusersid/README.md#retrieve) - Retrieve Linked Users
 
 ### [LinkedUsersFromremoteid](docs/sdks/linkedusersfromremoteid/README.md)
 
 * [remote_id](docs/sdks/linkedusersfromremoteid/README.md#remote_id) - Retrieve a Linked User From A Remote Id
+
+### [Projects](docs/sdks/projects/README.md)
+
+* [get_projects](docs/sdks/projects/README.md#get_projects) - Retrieve projects
+* [create](docs/sdks/projects/README.md#create) - Create a project
 
 ### [FieldMappingsDefine](docs/sdks/fieldmappingsdefine/README.md)
 
@@ -189,74 +202,80 @@ end
 
 * [map](docs/sdks/fieldmappingsmap/README.md#map) - Map Custom Field
 
+### [Events](docs/sdks/events/README.md)
+
+* [get_panora_core_events](docs/sdks/events/README.md#get_panora_core_events) - List Events
+
 ### [Passthrough](docs/sdks/passthrough/README.md)
 
 * [request](docs/sdks/passthrough/README.md#request) - Make a passthrough request
 
 ### [HrisBankinfos](docs/sdks/hrisbankinfos/README.md)
 
-* [list](docs/sdks/hrisbankinfos/README.md#list) - List  Bankinfos
-* [retrieve](docs/sdks/hrisbankinfos/README.md#retrieve) - Retrieve Bank Infos
+* [list](docs/sdks/hrisbankinfos/README.md#list) - List Bank Info
+* [retrieve](docs/sdks/hrisbankinfos/README.md#retrieve) - Retrieve Bank Info
 
 ### [HrisBenefits](docs/sdks/hrisbenefits/README.md)
 
-* [list](docs/sdks/hrisbenefits/README.md#list) - List  Benefits
-* [retrieve](docs/sdks/hrisbenefits/README.md#retrieve) - Retrieve Benefits
+* [list](docs/sdks/hrisbenefits/README.md#list) - List Benefits
+* [retrieve](docs/sdks/hrisbenefits/README.md#retrieve) - Retrieve Benefit
 
 ### [HrisCompanies](docs/sdks/hriscompanies/README.md)
 
-* [list](docs/sdks/hriscompanies/README.md#list) - List  Companys
+* [list](docs/sdks/hriscompanies/README.md#list) - List Companies
+* [retrieve](docs/sdks/hriscompanies/README.md#retrieve) - Retrieve Company
 
 ### [HrisDependents](docs/sdks/hrisdependents/README.md)
 
-* [list](docs/sdks/hrisdependents/README.md#list) - List  Dependents
-* [retrieve](docs/sdks/hrisdependents/README.md#retrieve) - Retrieve Dependents
+* [list](docs/sdks/hrisdependents/README.md#list) - List Dependents
+* [retrieve](docs/sdks/hrisdependents/README.md#retrieve) - Retrieve Dependent
 
 ### [HrisEmployeepayrollruns](docs/sdks/hrisemployeepayrollruns/README.md)
 
-* [list](docs/sdks/hrisemployeepayrollruns/README.md#list) - List  EmployeePayrollRuns
-* [retrieve](docs/sdks/hrisemployeepayrollruns/README.md#retrieve) - Retrieve Employee Payroll Runs
+* [list](docs/sdks/hrisemployeepayrollruns/README.md#list) - List Employee Payroll Runs
+* [retrieve](docs/sdks/hrisemployeepayrollruns/README.md#retrieve) - Retrieve Employee Payroll Run
 
 ### [HrisEmployees](docs/sdks/hrisemployees/README.md)
 
-* [list](docs/sdks/hrisemployees/README.md#list) - List  Employees
+* [list](docs/sdks/hrisemployees/README.md#list) - List Employees
 * [create](docs/sdks/hrisemployees/README.md#create) - Create Employees
-* [retrieve](docs/sdks/hrisemployees/README.md#retrieve) - Retrieven Employees
+* [retrieve](docs/sdks/hrisemployees/README.md#retrieve) - Retrieve Employee
 
 ### [HrisEmployerbenefits](docs/sdks/hrisemployerbenefits/README.md)
 
-* [list](docs/sdks/hrisemployerbenefits/README.md#list) - List  EmployerBenefits
-* [retrieve](docs/sdks/hrisemployerbenefits/README.md#retrieve) - Retrieve Employer Benefits
+* [list](docs/sdks/hrisemployerbenefits/README.md#list) - List Employer Benefits
+* [retrieve](docs/sdks/hrisemployerbenefits/README.md#retrieve) - Retrieve Employer Benefit
 
 ### [HrisEmployments](docs/sdks/hrisemployments/README.md)
 
-* [list](docs/sdks/hrisemployments/README.md#list) - List  Employments
-* [retrieve](docs/sdks/hrisemployments/README.md#retrieve) - Retrieve Employments
+* [list](docs/sdks/hrisemployments/README.md#list) - List Employments
+* [retrieve](docs/sdks/hrisemployments/README.md#retrieve) - Retrieve Employment
 
 ### [HrisGroups](docs/sdks/hrisgroups/README.md)
 
-* [list](docs/sdks/hrisgroups/README.md#list) - List  Groups
-* [retrieve](docs/sdks/hrisgroups/README.md#retrieve) - Retrieve Groups
+* [list](docs/sdks/hrisgroups/README.md#list) - List Groups
+* [retrieve](docs/sdks/hrisgroups/README.md#retrieve) - Retrieve Group
 
 ### [HrisLocations](docs/sdks/hrislocations/README.md)
 
-* [list](docs/sdks/hrislocations/README.md#list) - List  Locations
-* [retrieve](docs/sdks/hrislocations/README.md#retrieve) - Retrieve Locations
+* [list](docs/sdks/hrislocations/README.md#list) - List Locations
+* [retrieve](docs/sdks/hrislocations/README.md#retrieve) - Retrieve Location
 
 ### [HrisPaygroups](docs/sdks/hrispaygroups/README.md)
 
-* [list](docs/sdks/hrispaygroups/README.md#list) - List  PayGroups
-* [retrieve](docs/sdks/hrispaygroups/README.md#retrieve) - Retrieve Pay Groups
+* [list](docs/sdks/hrispaygroups/README.md#list) - List Pay Groups
+* [retrieve](docs/sdks/hrispaygroups/README.md#retrieve) - Retrieve Pay Group
 
 ### [HrisPayrollruns](docs/sdks/hrispayrollruns/README.md)
 
-* [list](docs/sdks/hrispayrollruns/README.md#list) - List  PayrollRuns
+* [list](docs/sdks/hrispayrollruns/README.md#list) - List Payroll Runs
+* [retrieve](docs/sdks/hrispayrollruns/README.md#retrieve) - Retrieve Payroll Run
 
 ### [HrisTimeoffs](docs/sdks/hristimeoffs/README.md)
 
-* [list](docs/sdks/hristimeoffs/README.md#list) - List  Timeoffs
+* [list](docs/sdks/hristimeoffs/README.md#list) - List Time Offs
 * [create](docs/sdks/hristimeoffs/README.md#create) - Create Timeoffs
-* [retrieve](docs/sdks/hristimeoffs/README.md#retrieve) - Retrieve Timeoffs
+* [retrieve](docs/sdks/hristimeoffs/README.md#retrieve) - Retrieve Time Off
 
 ### [HrisTimeoffbalances](docs/sdks/hristimeoffbalances/README.md)
 
@@ -265,21 +284,21 @@ end
 
 ### [MarketingautomationActions](docs/sdks/marketingautomationactions/README.md)
 
-* [list](docs/sdks/marketingautomationactions/README.md#list) - List  Actions
+* [list](docs/sdks/marketingautomationactions/README.md#list) - List Actions
 * [create](docs/sdks/marketingautomationactions/README.md#create) - Create Action
 * [retrieve](docs/sdks/marketingautomationactions/README.md#retrieve) - Retrieve Actions
 
 ### [MarketingautomationAutomations](docs/sdks/marketingautomationautomations/README.md)
 
-* [list](docs/sdks/marketingautomationautomations/README.md#list) - List  Automations
+* [list](docs/sdks/marketingautomationautomations/README.md#list) - List Automations
 * [create](docs/sdks/marketingautomationautomations/README.md#create) - Create Automation
-* [retrieve](docs/sdks/marketingautomationautomations/README.md#retrieve) - Retrieve Automations
+* [retrieve](docs/sdks/marketingautomationautomations/README.md#retrieve) - Retrieve Automation
 
 ### [MarketingautomationCampaigns](docs/sdks/marketingautomationcampaigns/README.md)
 
-* [list](docs/sdks/marketingautomationcampaigns/README.md#list) - List  Campaigns
+* [list](docs/sdks/marketingautomationcampaigns/README.md#list) - List Campaigns
 * [create](docs/sdks/marketingautomationcampaigns/README.md#create) - Create Campaign
-* [retrieve](docs/sdks/marketingautomationcampaigns/README.md#retrieve) - Retrieve Campaigns
+* [retrieve](docs/sdks/marketingautomationcampaigns/README.md#retrieve) - Retrieve Campaign
 
 ### [MarketingautomationContacts](docs/sdks/marketingautomationcontacts/README.md)
 
@@ -289,30 +308,30 @@ end
 
 ### [MarketingautomationEmails](docs/sdks/marketingautomationemails/README.md)
 
-* [list](docs/sdks/marketingautomationemails/README.md#list) - List  Emails
-* [retrieve](docs/sdks/marketingautomationemails/README.md#retrieve) - Retrieve Emails
+* [list](docs/sdks/marketingautomationemails/README.md#list) - List Emails
+* [retrieve](docs/sdks/marketingautomationemails/README.md#retrieve) - Retrieve Email
 
 ### [MarketingautomationEvents](docs/sdks/marketingautomationevents/README.md)
 
-* [list](docs/sdks/marketingautomationevents/README.md#list) - List  Events
-* [retrieve](docs/sdks/marketingautomationevents/README.md#retrieve) - Retrieve Events
+* [list](docs/sdks/marketingautomationevents/README.md#list) - List Events
+* [retrieve](docs/sdks/marketingautomationevents/README.md#retrieve) - Retrieve Event
 
 ### [MarketingautomationLists](docs/sdks/marketingautomationlists/README.md)
 
-* [list](docs/sdks/marketingautomationlists/README.md#list) - List  Lists
+* [list](docs/sdks/marketingautomationlists/README.md#list) - List Lists
 * [create](docs/sdks/marketingautomationlists/README.md#create) - Create Lists
-* [retrieve](docs/sdks/marketingautomationlists/README.md#retrieve) - Retrieve Lists
+* [retrieve](docs/sdks/marketingautomationlists/README.md#retrieve) - Retrieve List
 
 ### [MarketingautomationMessages](docs/sdks/marketingautomationmessages/README.md)
 
-* [list](docs/sdks/marketingautomationmessages/README.md#list) - List  Messages
+* [list](docs/sdks/marketingautomationmessages/README.md#list) - List Messages
 * [retrieve](docs/sdks/marketingautomationmessages/README.md#retrieve) - Retrieve Messages
 
 ### [MarketingautomationTemplates](docs/sdks/marketingautomationtemplates/README.md)
 
-* [list](docs/sdks/marketingautomationtemplates/README.md#list) - List  Templates
+* [list](docs/sdks/marketingautomationtemplates/README.md#list) - List Templates
 * [create](docs/sdks/marketingautomationtemplates/README.md#create) - Create Template
-* [retrieve](docs/sdks/marketingautomationtemplates/README.md#retrieve) - Retrieve Templates
+* [retrieve](docs/sdks/marketingautomationtemplates/README.md#retrieve) - Retrieve Template
 
 ### [MarketingautomationUsers](docs/sdks/marketingautomationusers/README.md)
 
@@ -509,8 +528,8 @@ end
 
 ### [FilestorageDrives](docs/sdks/filestoragedrives/README.md)
 
-* [list](docs/sdks/filestoragedrives/README.md#list) - List  Drives
-* [retrieve](docs/sdks/filestoragedrives/README.md#retrieve) - Retrieve Drives
+* [list](docs/sdks/filestoragedrives/README.md#list) - List Drives
+* [retrieve](docs/sdks/filestoragedrives/README.md#retrieve) - Retrieve Drive
 
 ### [FilestorageFiles](docs/sdks/filestoragefiles/README.md)
 
@@ -531,7 +550,7 @@ end
 
 ### [FilestorageUsers](docs/sdks/filestorageusers/README.md)
 
-* [list](docs/sdks/filestorageusers/README.md#list) - List  Users
+* [list](docs/sdks/filestorageusers/README.md#list) - List Users
 * [retrieve](docs/sdks/filestorageusers/README.md#retrieve) - Retrieve Users
 
 ### [TicketingAttachments](docs/sdks/ticketingattachments/README.md)

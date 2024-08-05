@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class ListHrisBankinfoRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class ListHrisBankInfoRequest < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The connection token

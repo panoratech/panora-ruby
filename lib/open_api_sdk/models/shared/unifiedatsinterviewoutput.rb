@@ -42,10 +42,10 @@ module OpenApiSDK
       # The start date and time of the interview
       field :start_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The status of the interview
-      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      field :status, T.nilable(::OpenApiSDK::Shared::UnifiedAtsInterviewOutputStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsInterviewOutputStatus, true) } }
 
 
-      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), end_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), interviewers: T.nilable(T::Array[::String]), job_interview_stage_id: T.nilable(::String), location: T.nilable(::String), modified_at: T.nilable(::DateTime), organized_by: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), start_at: T.nilable(::DateTime), status: T.nilable(::String)).void }
+      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), end_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), interviewers: T.nilable(T::Array[::String]), job_interview_stage_id: T.nilable(::String), location: T.nilable(::String), modified_at: T.nilable(::DateTime), organized_by: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), start_at: T.nilable(::DateTime), status: T.nilable(::OpenApiSDK::Shared::UnifiedAtsInterviewOutputStatus)).void }
       def initialize(application_id: nil, created_at: nil, end_at: nil, field_mappings: nil, id: nil, interviewers: nil, job_interview_stage_id: nil, location: nil, modified_at: nil, organized_by: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, start_at: nil, status: nil)
         @application_id = application_id
         @created_at = created_at

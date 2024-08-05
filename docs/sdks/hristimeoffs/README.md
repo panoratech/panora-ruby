@@ -3,13 +3,13 @@
 
 ### Available Operations
 
-* [list](#list) - List  Timeoffs
+* [list](#list) - List Time Offs
 * [create](#create) - Create Timeoffs
-* [retrieve](#retrieve) - Retrieve Timeoffs
+* [retrieve](#retrieve) - Retrieve Time Off
 
 ## list
 
-List  Timeoffs
+List Time Offs
 
 ### Example Usage
 
@@ -90,7 +90,7 @@ end
 
 ## retrieve
 
-Retrieve Timeoffs from any connected Hris software
+Retrieve a Time Off from any connected Hris software
 
 ### Example Usage
 
@@ -106,7 +106,7 @@ s.config_security(
 )
 
     
-res = s.hris_timeoffs.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.hris_timeoffs.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_hris_timeoff_output.nil?
   # handle response
@@ -116,11 +116,11 @@ end
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `x_connection_token`                                         | *::String*                                                   | :heavy_check_mark:                                           | The connection token                                         |
-| `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the timeoff you want to retrieve.                      |
-| `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `x_connection_token`                                         | *::String*                                                   | :heavy_check_mark:                                           | The connection token                                         |                                                              |
+| `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the time off you want to retrieve.                     | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                         |
+| `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. | false                                                        |
 
 
 ### Response

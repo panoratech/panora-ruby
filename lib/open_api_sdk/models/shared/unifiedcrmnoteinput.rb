@@ -15,13 +15,13 @@ module OpenApiSDK
       field :content, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content') } }
       # The UUID of the company tied to the note
       field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
-      # The UUID fo the contact tied to the note
+      # The UUID of the contact tied to the note
       field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
       # The UUID of the deal tied to the note
       field :deal_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deal_id') } }
       # The custom field mappings of the note between the remote 3rd party & Panora
       field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
-      # The UUID of the user tied the note
+      # The UUID of the user tied to the note
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 

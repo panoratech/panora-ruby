@@ -19,7 +19,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(vertical: ::String).returns(::OpenApiSDK::Operations::StatusResponse) }
+    sig { params(vertical: ::OpenApiSDK::Operations::Vertical).returns(::OpenApiSDK::Operations::StatusResponse) }
     def status(vertical)
       # status - Retrieve sync status of a certain vertical
       request = ::OpenApiSDK::Operations::StatusRequest.new(

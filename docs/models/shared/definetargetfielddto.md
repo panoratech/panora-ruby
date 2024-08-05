@@ -3,9 +3,9 @@
 
 ## Fields
 
-| Field               | Type                | Required            | Description         |
-| ------------------- | ------------------- | ------------------- | ------------------- |
-| `object_type_owner` | *::String*          | :heavy_check_mark:  | N/A                 |
-| `name`              | *::String*          | :heavy_check_mark:  | N/A                 |
-| `description`       | *::String*          | :heavy_check_mark:  | N/A                 |
-| `data_type`         | *::String*          | :heavy_check_mark:  | N/A                 |
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `object_type_owner`                                                             | [::OpenApiSDK::Shared::ObjectTypeOwner](../../models/shared/objecttypeowner.md) | :heavy_check_mark:                                                              | N/A                                                                             | company                                                                         |
+| `name`                                                                          | *::String*                                                                      | :heavy_check_mark:                                                              | The name of the target field                                                    | fav_dish                                                                        |
+| `description`                                                                   | *::String*                                                                      | :heavy_check_mark:                                                              | The description of the target field                                             | My favorite dish                                                                |
+| `data_type`                                                                     | [::OpenApiSDK::Shared::DataType](../../models/shared/datatype.md)               | :heavy_check_mark:                                                              | The data type of the target field                                               | string                                                                          |

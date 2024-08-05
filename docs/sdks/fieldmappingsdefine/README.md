@@ -24,10 +24,10 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Shared::DefineTargetFieldDto.new(
-  object_type_owner: "<value>",
-  name: "<value>",
-  description: "Universal heuristic matrices",
-  data_type: "decimal",
+  object_type_owner: ::OpenApiSDK::Shared::ObjectTypeOwner::COMPANY,
+  name: "fav_dish",
+  description: "My favorite dish",
+  data_type: ::OpenApiSDK::Shared::DataType::STRING,
 )
     
 res = s.field_mappings_define.definitions(req)

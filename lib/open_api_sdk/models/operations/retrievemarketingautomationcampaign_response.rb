@@ -18,15 +18,15 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
-      field :unified_campaign_output, T.nilable(::OpenApiSDK::Shared::UnifiedCampaignOutput)
+      field :unified_marketingautomation_campaign_output, T.nilable(::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignOutput)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, unified_campaign_output: T.nilable(::OpenApiSDK::Shared::UnifiedCampaignOutput)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, unified_campaign_output: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, unified_marketingautomation_campaign_output: T.nilable(::OpenApiSDK::Shared::UnifiedMarketingautomationCampaignOutput)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, unified_marketingautomation_campaign_output: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @unified_campaign_output = unified_campaign_output
+        @unified_marketingautomation_campaign_output = unified_marketingautomation_campaign_output
       end
     end
   end

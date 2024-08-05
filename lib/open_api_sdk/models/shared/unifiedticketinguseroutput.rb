@@ -13,14 +13,14 @@ module OpenApiSDK
 
       # The email address of the user
       field :email_address, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address') } }
-      # The custom field mappings of the user between the remote 3rd party & Panora
-      field :field_mappings, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The name of the user
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The account or organization the user is part of
       field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_id') } }
       # The created date of the object
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the user between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the user
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The modified date of the object
@@ -33,13 +33,13 @@ module OpenApiSDK
       field :teams, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('teams') } }
 
 
-      sig { params(email_address: ::String, field_mappings: T::Hash[Symbol, ::Object], name: ::String, account_id: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), teams: T.nilable(T::Array[::String])).void }
-      def initialize(email_address: nil, field_mappings: nil, name: nil, account_id: nil, created_at: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil, teams: nil)
+      sig { params(email_address: ::String, name: ::String, account_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), teams: T.nilable(T::Array[::String])).void }
+      def initialize(email_address: nil, name: nil, account_id: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil, teams: nil)
         @email_address = email_address
-        @field_mappings = field_mappings
         @name = name
         @account_id = account_id
         @created_at = created_at
+        @field_mappings = field_mappings
         @id = id
         @modified_at = modified_at
         @remote_data = remote_data

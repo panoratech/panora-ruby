@@ -11,7 +11,7 @@ module OpenApiSDK
     class RetrieveHrisTimeoffRequest < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # id of the timeoff you want to retrieve.
+      # id of the time off you want to retrieve.
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The connection token
       field :x_connection_token, ::String, { 'header': { 'field_name': 'x-connection-token', 'style': 'simple', 'explode': false } }

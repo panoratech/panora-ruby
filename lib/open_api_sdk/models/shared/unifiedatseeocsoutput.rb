@@ -16,17 +16,17 @@ module OpenApiSDK
       # The created date of the object
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The disability status of the candidate
-      field :disability_status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('disability_status') } }
+      field :disability_status, T.nilable(::OpenApiSDK::Shared::DisabilityStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('disability_status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::DisabilityStatus, true) } }
       # The custom field mappings of the object between the remote 3rd party & Panora
       field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The gender of the candidate
-      field :gender, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gender') } }
+      field :gender, T.nilable(::OpenApiSDK::Shared::Gender), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gender'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Gender, true) } }
       # The UUID of the EEOC
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The modified date of the object
       field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The race of the candidate
-      field :race, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('race') } }
+      field :race, T.nilable(::OpenApiSDK::Shared::Race), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('race'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Race, true) } }
       # The remote data of the EEOC in the context of the 3rd Party
       field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the EEOC in the context of the 3rd Party
@@ -34,10 +34,10 @@ module OpenApiSDK
       # The submission date of the EEOC
       field :submitted_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('submitted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The veteran status of the candidate
-      field :veteran_status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('veteran_status') } }
+      field :veteran_status, T.nilable(::OpenApiSDK::Shared::VeteranStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('veteran_status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::VeteranStatus, true) } }
 
 
-      sig { params(candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), disability_status: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), gender: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), race: T.nilable(::String), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), submitted_at: T.nilable(::DateTime), veteran_status: T.nilable(::String)).void }
+      sig { params(candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), disability_status: T.nilable(::OpenApiSDK::Shared::DisabilityStatus), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), gender: T.nilable(::OpenApiSDK::Shared::Gender), id: T.nilable(::String), modified_at: T.nilable(::DateTime), race: T.nilable(::OpenApiSDK::Shared::Race), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), submitted_at: T.nilable(::DateTime), veteran_status: T.nilable(::OpenApiSDK::Shared::VeteranStatus)).void }
       def initialize(candidate_id: nil, created_at: nil, disability_status: nil, field_mappings: nil, gender: nil, id: nil, modified_at: nil, race: nil, remote_data: nil, remote_id: nil, submitted_at: nil, veteran_status: nil)
         @candidate_id = candidate_id
         @created_at = created_at

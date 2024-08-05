@@ -23,7 +23,7 @@ s.config_security(
 )
 
     
-res = s.linked_users_fromremoteid.remote_id(remote_id="<value>")
+res = s.linked_users_fromremoteid.remote_id(remote_id="id_1")
 
 if ! res.linked_user_response.nil?
   # handle response
@@ -33,9 +33,9 @@ end
 
 ### Parameters
 
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `remote_id`        | *::String*         | :heavy_check_mark: | N/A                |
+| Parameter          | Type               | Required           | Description        | Example            |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| `remote_id`        | *::String*         | :heavy_check_mark: | N/A                | id_1               |
 
 
 ### Response

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class RetrieveHrisBankinfoResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class RetrieveHrisBankInfoResponse < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -20,7 +20,7 @@ module OpenApiSDK
       # The created date of the object
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The creator type of the comment. Authorized values are either USER or CONTACT
-      field :creator_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('creator_type') } }
+      field :creator_type, T.nilable(::OpenApiSDK::Shared::CreatorType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('creator_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::CreatorType, true) } }
       # The html body of the comment
       field :html_body, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('html_body') } }
       # The UUID of the comment
@@ -39,7 +39,7 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(body: ::String, attachments: T.nilable(T::Array[::String]), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), creator_type: T.nilable(::String), html_body: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), ticket_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      sig { params(body: ::String, attachments: T.nilable(T::Array[::String]), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), creator_type: T.nilable(::OpenApiSDK::Shared::CreatorType), html_body: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), ticket_id: T.nilable(::String), user_id: T.nilable(::String)).void }
       def initialize(body: nil, attachments: nil, contact_id: nil, created_at: nil, creator_type: nil, html_body: nil, id: nil, is_private: nil, modified_at: nil, remote_data: nil, remote_id: nil, ticket_id: nil, user_id: nil)
         @body = body
         @attachments = attachments

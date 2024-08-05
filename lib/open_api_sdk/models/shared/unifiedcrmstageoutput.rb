@@ -23,7 +23,7 @@ module OpenApiSDK
       field :modified_at, T.nilable(::OpenApiSDK::Shared::UnifiedCrmStageOutputModifiedAt), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The remote data of the stage in the context of the Crm 3rd Party
       field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
-      # The id of the stage in the context of the Crm 3rd Party
+      # The ID of the stage in the context of the Crm 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 

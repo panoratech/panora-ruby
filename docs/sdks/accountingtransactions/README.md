@@ -65,7 +65,7 @@ s.config_security(
 )
 
     
-res = s.accounting_transactions.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.accounting_transactions.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_accounting_transaction_output.nil?
   # handle response
@@ -75,11 +75,11 @@ end
 
 ### Parameters
 
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `x_connection_token`                                               | *::String*                                                         | :heavy_check_mark:                                                 | The connection token                                               |
-| `id`                                                               | *::String*                                                         | :heavy_check_mark:                                                 | id of the transaction you want to retrieve.                        |
-| `remote_data`                                                      | *T::Boolean*                                                       | :heavy_minus_sign:                                                 | Set to true to include data from the original Accounting software. |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `x_connection_token`                                               | *::String*                                                         | :heavy_check_mark:                                                 | The connection token                                               |                                                                    |
+| `id`                                                               | *::String*                                                         | :heavy_check_mark:                                                 | id of the transaction you want to retrieve.                        | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                               |
+| `remote_data`                                                      | *T::Boolean*                                                       | :heavy_minus_sign:                                                 | Set to true to include data from the original Accounting software. | false                                                              |
 
 
 ### Response

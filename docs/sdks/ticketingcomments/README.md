@@ -3,13 +3,13 @@
 
 ### Available Operations
 
-* [list](#list) - List  Comments
+* [list](#list) - List Comments
 * [create](#create) - Create Comments
-* [retrieve](#retrieve) - Retrieve Comments
+* [retrieve](#retrieve) - Retrieve Comment
 
 ## list
 
-List  Comments
+List Comments
 
 ### Example Usage
 
@@ -67,7 +67,16 @@ s.config_security(
 
     
 res = s.ticketing_comments.create(x_connection_token="<value>", unified_ticketing_comment_input=::OpenApiSDK::Shared::UnifiedTicketingCommentInput.new(
-    body: "<value>",
+    body: "Assigned to Eric !",
+    html_body: "<p>Assigned to Eric !</p>",
+    is_private: false,
+    creator_type: ::OpenApiSDK::Shared::UnifiedTicketingCommentInputCreatorType::USER,
+    ticket_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    contact_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    attachments: [
+      "<value>",
+    ],
   ), remote_data=false)
 
 if ! res.unified_ticketing_comment_output.nil?
@@ -92,7 +101,7 @@ end
 
 ## retrieve
 
-Retrieve Comments from any connected Ticketing software
+Retrieve a Comment from any connected Ticketing software
 
 ### Example Usage
 

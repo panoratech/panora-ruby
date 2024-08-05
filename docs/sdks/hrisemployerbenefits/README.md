@@ -3,12 +3,12 @@
 
 ### Available Operations
 
-* [list](#list) - List  EmployerBenefits
-* [retrieve](#retrieve) - Retrieve Employer Benefits
+* [list](#list) - List Employer Benefits
+* [retrieve](#retrieve) - Retrieve Employer Benefit
 
 ## list
 
-List  EmployerBenefits
+List Employer Benefits
 
 ### Example Usage
 
@@ -44,12 +44,12 @@ end
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::ListHrisEmployerBenefitResponse)](../../models/operations/listhrisemployerbenefitresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::ListHrisEmployerBenefitsResponse)](../../models/operations/listhrisemployerbenefitsresponse.md)**
 
 
 ## retrieve
 
-Retrieve Employer Benefits from any connected Hris software
+Retrieve an Employer Benefit from any connected Hris software
 
 ### Example Usage
 
@@ -65,7 +65,7 @@ s.config_security(
 )
 
     
-res = s.hris_employerbenefits.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.hris_employerbenefits.retrieve(x_connection_token="<value>", id="801f9ede-c698-4e66-a7fc-48d19eebaa4f", remote_data=false)
 
 if ! res.unified_hris_employerbenefit_output.nil?
   # handle response
@@ -75,11 +75,11 @@ end
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `x_connection_token`                                         | *::String*                                                   | :heavy_check_mark:                                           | The connection token                                         |
-| `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the employerbenefit you want to retrieve.              |
-| `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `x_connection_token`                                         | *::String*                                                   | :heavy_check_mark:                                           | The connection token                                         |                                                              |
+| `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the employer benefit you want to retrieve.             | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                         |
+| `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. | false                                                        |
 
 
 ### Response

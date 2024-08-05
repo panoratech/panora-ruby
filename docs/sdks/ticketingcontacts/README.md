@@ -3,12 +3,12 @@
 
 ### Available Operations
 
-* [list](#list) - List all Contacts
-* [retrieve](#retrieve) - Retrieve Contacts
+* [list](#list) - List Contacts
+* [retrieve](#retrieve) - Retrieve Contact
 
 ## list
 
-List all Contacts
+List Contacts
 
 ### Example Usage
 
@@ -49,7 +49,7 @@ end
 
 ## retrieve
 
-Retrieve Contacts from any connected Ticketing software
+Retrieve a Contact from any connected Ticketing software
 
 ### Example Usage
 

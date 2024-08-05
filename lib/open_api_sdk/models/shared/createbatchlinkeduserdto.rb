@@ -11,9 +11,9 @@ module OpenApiSDK
     class CreateBatchLinkedUserDto < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
+      # Your company alias
       field :alias_, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('alias') } }
-
+      # The ids of the users in the context of your own software
       field :linked_user_origin_ids, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linked_user_origin_ids') } }
 
 
