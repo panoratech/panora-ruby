@@ -25,7 +25,7 @@ s.config_security(
 )
 
     
-res = s.ticketing_tickets.list(x_connection_token="<value>", remote_data=false, limit=7685.78, cursor="<value>")
+res = s.ticketing_tickets.list(x_connection_token="<value>", remote_data=true, limit=10.0, cursor="1b8b05bb-5273-4012-b520-8657b0b90874")
 
 if ! res.object.nil?
   # handle response
@@ -35,12 +35,12 @@ end
 
 ### Parameters
 
-| Parameter                                               | Type                                                    | Required                                                | Description                                             |
-| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `x_connection_token`                                    | *::String*                                              | :heavy_check_mark:                                      | The connection token                                    |
-| `remote_data`                                           | *T::Boolean*                                            | :heavy_minus_sign:                                      | Set to true to include data from the original software. |
-| `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       |
-| `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     |
+| Parameter                                               | Type                                                    | Required                                                | Description                                             | Example                                                 |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| `x_connection_token`                                    | *::String*                                              | :heavy_check_mark:                                      | The connection token                                    |                                                         |
+| `remote_data`                                           | *T::Boolean*                                            | :heavy_minus_sign:                                      | Set to true to include data from the original software. | true                                                    |
+| `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
+| `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
 
 ### Response
@@ -73,7 +73,9 @@ res = s.ticketing_tickets.create(x_connection_token="<value>", unified_ticketing
     due_date: DateTime.iso8601('2024-10-01T12:00:00Z'),
     type: ::OpenApiSDK::Shared::UnifiedTicketingTicketInputType::BUG,
     parent_ticket: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    collections: "[\"801f9ede-c698-4e66-a7fc-48d19eebaa4f\"]",
+    collections: [
+      "<value>",
+    ],
     tags: [
       "<value>",
     ],

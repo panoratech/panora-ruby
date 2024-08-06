@@ -12,9 +12,9 @@ module OpenApiSDK
       extend T::Sig
 
       # The applications UUIDs of the candidate
-      field :applications, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applications') } }
+      field :applications, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applications') } }
       # The attachments UUIDs of the candidate
-      field :attachments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
+      field :attachments, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
       # The company of the candidate
       field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company') } }
       # The created date of the object
@@ -50,14 +50,14 @@ module OpenApiSDK
       # The remote modification date of the candidate
       field :remote_modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The tags of the candidate
-      field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
+      field :tags, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The title of the candidate
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
       # The urls of the candidate, possible values for Url type are WEBSITE, BLOG, LINKEDIN, GITHUB, or OTHER
       field :urls, T.nilable(T::Array[::OpenApiSDK::Shared::Url]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('urls') } }
 
 
-      sig { params(applications: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), company: T.nilable(::String), created_at: T.nilable(::DateTime), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), email_reachable: T.nilable(T::Boolean), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), first_name: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), last_interaction_at: T.nilable(::DateTime), last_name: T.nilable(::String), locations: T.nilable(::String), modified_at: T.nilable(::DateTime), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_modified_at: T.nilable(::DateTime), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), urls: T.nilable(T::Array[::OpenApiSDK::Shared::Url])).void }
+      sig { params(applications: T.nilable(T::Array[::Object]), attachments: T.nilable(T::Array[::Object]), company: T.nilable(::String), created_at: T.nilable(::DateTime), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), email_reachable: T.nilable(T::Boolean), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), first_name: T.nilable(::String), id: T.nilable(::String), is_private: T.nilable(T::Boolean), last_interaction_at: T.nilable(::DateTime), last_name: T.nilable(::String), locations: T.nilable(::String), modified_at: T.nilable(::DateTime), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_modified_at: T.nilable(::DateTime), tags: T.nilable(T::Array[::Object]), title: T.nilable(::String), urls: T.nilable(T::Array[::OpenApiSDK::Shared::Url])).void }
       def initialize(applications: nil, attachments: nil, company: nil, created_at: nil, email_addresses: nil, email_reachable: nil, field_mappings: nil, first_name: nil, id: nil, is_private: nil, last_interaction_at: nil, last_name: nil, locations: nil, modified_at: nil, phone_numbers: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_modified_at: nil, tags: nil, title: nil, urls: nil)
         @applications = applications
         @attachments = attachments

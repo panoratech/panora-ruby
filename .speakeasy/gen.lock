@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 8ab4525a-716c-48ab-9531-2850b1a4f88c
 management:
-  docChecksum: 73ce3778a891c9bdb1d0d00c8a42490f
+  docChecksum: f31581b6c385b4f8f05068b0f2598833
   docVersion: "1.0"
   speakeasyVersion: 1.352.2
   generationVersion: 2.385.2
-  releaseVersion: 0.2.1
-  configChecksum: e24be5c38d2318b242935ebd0205344b
+  releaseVersion: 0.2.2
+  configChecksum: 1d80673fa74860f00be51326eea66751
   repoURL: https://github.com/panoratech/panora-ruby.git
   installationURL: https://github.com/panoratech/panora-ruby
 features:
@@ -40,13 +40,8 @@ generatedFiles:
   - lib/open_api_sdk/ticketing_tags.rb
   - lib/open_api_sdk/ticketing_teams.rb
   - lib/open_api_sdk/linkedusers.rb
-  - lib/open_api_sdk/linked_users_batch.rb
-  - lib/open_api_sdk/linked_users_id_.rb
-  - lib/open_api_sdk/linked_users_fromremoteid.rb
   - lib/open_api_sdk/projects.rb
-  - lib/open_api_sdk/field_mappings_define.rb
   - lib/open_api_sdk/fieldmappings.rb
-  - lib/open_api_sdk/field_mappings_map.rb
   - lib/open_api_sdk/events.rb
   - lib/open_api_sdk/passthrough.rb
   - lib/open_api_sdk/hris_bankinfos.rb
@@ -1588,13 +1583,8 @@ generatedFiles:
   - docs/sdks/ticketingtags/README.md
   - docs/sdks/ticketingteams/README.md
   - docs/sdks/linkedusers/README.md
-  - docs/sdks/linkedusersbatch/README.md
-  - docs/sdks/linkedusersid/README.md
-  - docs/sdks/linkedusersfromremoteid/README.md
   - docs/sdks/projects/README.md
-  - docs/sdks/fieldmappingsdefine/README.md
   - docs/sdks/fieldmappings/README.md
-  - docs/sdks/fieldmappingsmap/README.md
   - docs/sdks/events/README.md
   - docs/sdks/passthrough/README.md
   - docs/sdks/hrisbankinfos/README.md

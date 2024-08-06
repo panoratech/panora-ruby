@@ -16,7 +16,7 @@ module OpenApiSDK
       # Indicates whether or not this object has been deleted in the third party platform.
       field :remote_was_deleted, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
       # Uuids of users of the group
-      field :users, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('users') } }
+      field :users, T::Array[::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('users') } }
       # The created date of the object
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The custom field mappings of the object between the remote 3rd party & Panora
@@ -31,7 +31,7 @@ module OpenApiSDK
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(name: ::String, remote_was_deleted: T::Boolean, users: T::Array[::String], created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      sig { params(name: ::String, remote_was_deleted: T::Boolean, users: T::Array[::Object], created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
       def initialize(name: nil, remote_was_deleted: nil, users: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
         @name = name
         @remote_was_deleted = remote_was_deleted
