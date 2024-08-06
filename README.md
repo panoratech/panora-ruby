@@ -172,35 +172,20 @@ end
 
 * [create](docs/sdks/linkedusers/README.md#create) - Create Linked Users
 * [list](docs/sdks/linkedusers/README.md#list) - List Linked Users
-
-### [LinkedUsersBatch](docs/sdks/linkedusersbatch/README.md)
-
-* [import_batch](docs/sdks/linkedusersbatch/README.md#import_batch) - Add Batch Linked Users
-
-### [LinkedUsersId](docs/sdks/linkedusersid/README.md)
-
-* [retrieve](docs/sdks/linkedusersid/README.md#retrieve) - Retrieve Linked Users
-
-### [LinkedUsersFromremoteid](docs/sdks/linkedusersfromremoteid/README.md)
-
-* [remote_id](docs/sdks/linkedusersfromremoteid/README.md#remote_id) - Retrieve a Linked User From A Remote Id
+* [import_batch](docs/sdks/linkedusers/README.md#import_batch) - Add Batch Linked Users
+* [retrieve](docs/sdks/linkedusers/README.md#retrieve) - Retrieve Linked Users
+* [remote_id](docs/sdks/linkedusers/README.md#remote_id) - Retrieve a Linked User From A Remote Id
 
 ### [Projects](docs/sdks/projects/README.md)
 
 * [get_projects](docs/sdks/projects/README.md#get_projects) - Retrieve projects
 * [create](docs/sdks/projects/README.md#create) - Create a project
 
-### [FieldMappingsDefine](docs/sdks/fieldmappingsdefine/README.md)
-
-* [definitions](docs/sdks/fieldmappingsdefine/README.md#definitions) - Define target Field
-
 ### [FieldMappings](docs/sdks/fieldmappings/README.md)
 
+* [definitions](docs/sdks/fieldmappings/README.md#definitions) - Define target Field
 * [define_custom_field](docs/sdks/fieldmappings/README.md#define_custom_field) - Create Custom Field
-
-### [FieldMappingsMap](docs/sdks/fieldmappingsmap/README.md)
-
-* [map](docs/sdks/fieldmappingsmap/README.md#map) - Map Custom Field
+* [map](docs/sdks/fieldmappings/README.md#map) - Map Custom Field
 
 ### [Events](docs/sdks/events/README.md)
 

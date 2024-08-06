@@ -20,9 +20,9 @@ module OpenApiSDK
       # The users UUIDs the ticket is assigned to
       field :assigned_to, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assigned_to') } }
       # The attachements UUIDs tied to the ticket
-      field :attachments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
+      field :attachments, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
       # The collection UUIDs the ticket belongs to
-      field :collections, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('collections') } }
+      field :collections, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('collections') } }
       # The comment of the ticket
       field :comment, T.nilable(::OpenApiSDK::Shared::Comment), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comment') } }
       # The date the ticket has been completed
@@ -50,12 +50,12 @@ module OpenApiSDK
       # The status of the ticket. Authorized values are OPEN or CLOSED.
       field :status, T.nilable(::OpenApiSDK::Shared::Status), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Status, true) } }
       # The tags names of the ticket
-      field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
+      field :tags, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The type of the ticket. Authorized values are PROBLEM, QUESTION, or TASK
       field :type, T.nilable(::OpenApiSDK::Shared::Type), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Type, true) } }
 
 
-      sig { params(description: ::String, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::String]), collections: T.nilable(::String), comment: T.nilable(::OpenApiSDK::Shared::Comment), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), parent_ticket: T.nilable(::String), priority: T.nilable(::OpenApiSDK::Shared::Priority), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), status: T.nilable(::OpenApiSDK::Shared::Status), tags: T.nilable(T::Array[::String]), type: T.nilable(::OpenApiSDK::Shared::Type)).void }
+      sig { params(description: ::String, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::Object]), collections: T.nilable(T::Array[::Object]), comment: T.nilable(::OpenApiSDK::Shared::Comment), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), parent_ticket: T.nilable(::String), priority: T.nilable(::OpenApiSDK::Shared::Priority), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), status: T.nilable(::OpenApiSDK::Shared::Status), tags: T.nilable(T::Array[::Object]), type: T.nilable(::OpenApiSDK::Shared::Type)).void }
       def initialize(description: nil, name: nil, account_id: nil, assigned_to: nil, attachments: nil, collections: nil, comment: nil, completed_at: nil, contact_id: nil, created_at: nil, due_date: nil, field_mappings: nil, id: nil, modified_at: nil, parent_ticket: nil, priority: nil, remote_data: nil, remote_id: nil, status: nil, tags: nil, type: nil)
         @description = description
         @name = name
