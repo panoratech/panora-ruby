@@ -3,9 +3,108 @@
 
 ### Available Operations
 
+* [get_field_mapping_values](#get_field_mapping_values) - Retrieve field mappings values
+* [get_field_mappings_entities](#get_field_mappings_entities) - Retrieve field mapping entities
+* [get_field_mappings](#get_field_mappings) - Retrieve field mappings
 * [definitions](#definitions) - Define target Field
 * [define_custom_field](#define_custom_field) - Create Custom Field
 * [map](#map) - Map Custom Field
+
+## get_field_mapping_values
+
+Retrieve field mappings values
+
+### Example Usage
+
+```ruby
+require 'panora'
+
+
+s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
+
+    
+res = s.field_mappings.get_field_mapping_values()
+
+if res.status_code == 200
+  # handle response
+end
+
+```
+
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::GetFieldMappingValuesResponse)](../../models/operations/getfieldmappingvaluesresponse.md)**
+
+
+## get_field_mappings_entities
+
+Retrieve field mapping entities
+
+### Example Usage
+
+```ruby
+require 'panora'
+
+
+s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
+
+    
+res = s.field_mappings.get_field_mappings_entities()
+
+if res.status_code == 200
+  # handle response
+end
+
+```
+
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::GetFieldMappingsEntitiesResponse)](../../models/operations/getfieldmappingsentitiesresponse.md)**
+
+
+## get_field_mappings
+
+Retrieve field mappings
+
+### Example Usage
+
+```ruby
+require 'panora'
+
+
+s = ::OpenApiSDK::Panora.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    api_key: "<YOUR_API_KEY_HERE>",
+  )
+)
+
+    
+res = s.field_mappings.get_field_mappings()
+
+if res.status_code == 200
+  # handle response
+end
+
+```
+
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::GetFieldMappingsResponse)](../../models/operations/getfieldmappingsresponse.md)**
+
 
 ## definitions
 

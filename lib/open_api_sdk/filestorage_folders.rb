@@ -58,15 +58,15 @@ module OpenApiSDK
     end
 
 
-    sig { params(x_connection_token: ::String, remote_data: T::Boolean, unified_filestorage_folder_input: ::OpenApiSDK::Shared::UnifiedFilestorageFolderInput).returns(::OpenApiSDK::Operations::CreateFilestorageFolderResponse) }
-    def create(x_connection_token, remote_data, unified_filestorage_folder_input)
+    sig { params(x_connection_token: ::String, unified_filestorage_folder_input: ::OpenApiSDK::Shared::UnifiedFilestorageFolderInput, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::CreateFilestorageFolderResponse) }
+    def create(x_connection_token, unified_filestorage_folder_input, remote_data = nil)
       # create - Create Folders
       # Create Folders in any supported Filestorage software
       request = ::OpenApiSDK::Operations::CreateFilestorageFolderRequest.new(
         
         x_connection_token: x_connection_token,
-        remote_data: remote_data,
-        unified_filestorage_folder_input: unified_filestorage_folder_input
+        unified_filestorage_folder_input: unified_filestorage_folder_input,
+        remote_data: remote_data
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

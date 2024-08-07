@@ -12,18 +12,18 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :remote_data, T::Boolean, { 'query_param': { 'field_name': 'remote_data', 'style': 'form', 'explode': true } }
-
       field :unified_filestorage_file_input, ::OpenApiSDK::Shared::UnifiedFilestorageFileInput, { 'request': { 'media_type': 'application/json' } }
       # The connection token
       field :x_connection_token, ::String, { 'header': { 'field_name': 'x-connection-token', 'style': 'simple', 'explode': false } }
+      # Set to true to include data from the original Accounting software.
+      field :remote_data, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'remote_data', 'style': 'form', 'explode': true } }
 
 
-      sig { params(remote_data: T::Boolean, unified_filestorage_file_input: ::OpenApiSDK::Shared::UnifiedFilestorageFileInput, x_connection_token: ::String).void }
-      def initialize(remote_data: nil, unified_filestorage_file_input: nil, x_connection_token: nil)
-        @remote_data = remote_data
+      sig { params(unified_filestorage_file_input: ::OpenApiSDK::Shared::UnifiedFilestorageFileInput, x_connection_token: ::String, remote_data: T.nilable(T::Boolean)).void }
+      def initialize(unified_filestorage_file_input: nil, x_connection_token: nil, remote_data: nil)
         @unified_filestorage_file_input = unified_filestorage_file_input
         @x_connection_token = x_connection_token
+        @remote_data = remote_data
       end
     end
   end

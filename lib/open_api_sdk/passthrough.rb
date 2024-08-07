@@ -19,30 +19,26 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: ::String, linked_user_id: ::String, vertical: ::String, pass_through_request_dto: ::OpenApiSDK::Shared::PassThroughRequestDto).returns(::OpenApiSDK::Operations::RequestResponse) }
-    def request(integration_id, linked_user_id, vertical, pass_through_request_dto)
+    sig { params(x_connection_token: ::String, pass_through_request_dto: ::OpenApiSDK::Shared::PassThroughRequestDto).returns(::OpenApiSDK::Operations::RequestResponse) }
+    def request(x_connection_token, pass_through_request_dto)
       # request - Make a passthrough request
       request = ::OpenApiSDK::Operations::RequestRequest.new(
         
-        integration_id: integration_id,
-        linked_user_id: linked_user_id,
-        vertical: vertical,
+        x_connection_token: x_connection_token,
         pass_through_request_dto: pass_through_request_dto
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/passthrough"
-      headers = {}
+      headers = Utils.get_headers(request)
       req_content_type, data, form = Utils.serialize_request_body(request, :pass_through_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::RequestRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -58,10 +54,15 @@ module OpenApiSDK
       res = ::OpenApiSDK::Operations::RequestResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      if r.status == 201
+      if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::PassThroughResponse)
-          res.pass_through_response = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::RequestResponseBody)
+          res.two_hundred_application_json_object = out
+        end
+      elsif r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::RequestPassthroughResponseBody)
+          res.two_hundred_and_one_application_json_object = out
         end
       end
       res

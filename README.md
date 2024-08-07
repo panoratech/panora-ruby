@@ -183,6 +183,9 @@ end
 
 ### [FieldMappings](docs/sdks/fieldmappings/README.md)
 
+* [get_field_mapping_values](docs/sdks/fieldmappings/README.md#get_field_mapping_values) - Retrieve field mappings values
+* [get_field_mappings_entities](docs/sdks/fieldmappings/README.md#get_field_mappings_entities) - Retrieve field mapping entities
+* [get_field_mappings](docs/sdks/fieldmappings/README.md#get_field_mappings) - Retrieve field mappings
 * [definitions](docs/sdks/fieldmappings/README.md#definitions) - Define target Field
 * [define_custom_field](docs/sdks/fieldmappings/README.md#define_custom_field) - Create Custom Field
 * [map](docs/sdks/fieldmappings/README.md#map) - Map Custom Field
@@ -194,6 +197,10 @@ end
 ### [Passthrough](docs/sdks/passthrough/README.md)
 
 * [request](docs/sdks/passthrough/README.md#request) - Make a passthrough request
+
+### [PassthroughRetryid](docs/sdks/passthroughretryid/README.md)
+
+* [get_retried_request_response](docs/sdks/passthroughretryid/README.md#get_retried_request_response) - Retrieve response of a failed passthrough request due to rate limits
 
 ### [HrisBankinfos](docs/sdks/hrisbankinfos/README.md)
 
@@ -537,6 +544,28 @@ end
 
 * [list](docs/sdks/filestorageusers/README.md#list) - List Users
 * [retrieve](docs/sdks/filestorageusers/README.md#retrieve) - Retrieve Users
+
+### [EcommerceProducts](docs/sdks/ecommerceproducts/README.md)
+
+* [list](docs/sdks/ecommerceproducts/README.md#list) - List a batch of Products
+* [create](docs/sdks/ecommerceproducts/README.md#create) - Create Products
+* [retrieve](docs/sdks/ecommerceproducts/README.md#retrieve) - Retrieve a Product
+
+### [EcommerceOrders](docs/sdks/ecommerceorders/README.md)
+
+* [list](docs/sdks/ecommerceorders/README.md#list) - List a batch of Orders
+* [create](docs/sdks/ecommerceorders/README.md#create) - Create Orders
+* [retrieve](docs/sdks/ecommerceorders/README.md#retrieve) - Retrieve a Order
+
+### [EcommerceCustomers](docs/sdks/ecommercecustomers/README.md)
+
+* [list](docs/sdks/ecommercecustomers/README.md#list) - List a batch of Customers
+* [retrieve](docs/sdks/ecommercecustomers/README.md#retrieve) - Retrieve a Customer
+
+### [EcommerceFulfillments](docs/sdks/ecommercefulfillments/README.md)
+
+* [list](docs/sdks/ecommercefulfillments/README.md#list) - List a batch of Fulfillments
+* [retrieve](docs/sdks/ecommercefulfillments/README.md#retrieve) - Retrieve a Fulfillment
 
 ### [TicketingAttachments](docs/sdks/ticketingattachments/README.md)
 

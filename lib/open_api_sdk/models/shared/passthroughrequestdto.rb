@@ -12,21 +12,27 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :data, ::Object, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
-
-      field :headers, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers') } }
-
       field :method, ::OpenApiSDK::Shared::PassThroughRequestDtoMethod, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('method'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::PassThroughRequestDtoMethod, false) } }
 
       field :path, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('path') } }
 
+      field :data, T.nilable(::OpenApiSDK::Shared::Data), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
 
-      sig { params(data: ::Object, headers: T::Hash[Symbol, ::Object], method: ::OpenApiSDK::Shared::PassThroughRequestDtoMethod, path: ::String).void }
-      def initialize(data: nil, headers: nil, method: nil, path: nil)
-        @data = data
-        @headers = headers
+      field :headers, T.nilable(::OpenApiSDK::Shared::Headers), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers') } }
+
+      field :override_base_url, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('overrideBaseUrl') } }
+
+      field :request_format, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('request_format') } }
+
+
+      sig { params(method: ::OpenApiSDK::Shared::PassThroughRequestDtoMethod, path: ::String, data: T.nilable(::OpenApiSDK::Shared::Data), headers: T.nilable(::OpenApiSDK::Shared::Headers), override_base_url: T.nilable(T::Hash[Symbol, ::Object]), request_format: T.nilable(::Object)).void }
+      def initialize(method: nil, path: nil, data: nil, headers: nil, override_base_url: nil, request_format: nil)
         @method = method
         @path = path
+        @data = data
+        @headers = headers
+        @override_base_url = override_base_url
+        @request_format = request_format
       end
     end
   end

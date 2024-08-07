@@ -66,7 +66,7 @@ s.config_security(
 )
 
     
-res = s.filestorage_folders.create(x_connection_token="<value>", remote_data=false, unified_filestorage_folder_input=::OpenApiSDK::Shared::UnifiedFilestorageFolderInput.new(
+res = s.filestorage_folders.create(x_connection_token="<value>", unified_filestorage_folder_input=::OpenApiSDK::Shared::UnifiedFilestorageFolderInput.new(
     name: "school",
     size: "2048",
     folder_url: "https://example.com/school",
@@ -78,7 +78,7 @@ res = s.filestorage_folders.create(x_connection_token="<value>", remote_data=fal
     field_mappings: {
       "online": "<value>",
     },
-  ))
+  ), remote_data=false)
 
 if ! res.unified_filestorage_folder_output.nil?
   # handle response
@@ -88,11 +88,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `x_connection_token`                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The connection token                                                                                        |
-| `remote_data`                                                                                               | *T::Boolean*                                                                                                | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `unified_filestorage_folder_input`                                                                          | [::OpenApiSDK::Shared::UnifiedFilestorageFolderInput](../../models/shared/unifiedfilestoragefolderinput.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 | Example                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `x_connection_token`                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The connection token                                                                                        |                                                                                                             |
+| `unified_filestorage_folder_input`                                                                          | [::OpenApiSDK::Shared::UnifiedFilestorageFolderInput](../../models/shared/unifiedfilestoragefolderinput.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |                                                                                                             |
+| `remote_data`                                                                                               | *T::Boolean*                                                                                                | :heavy_minus_sign:                                                                                          | Set to true to include data from the original Accounting software.                                          | false                                                                                                       |
 
 
 ### Response

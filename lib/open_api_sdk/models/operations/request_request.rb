@@ -12,21 +12,15 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :integration_id, ::String, { 'query_param': { 'field_name': 'integrationId', 'style': 'form', 'explode': true } }
-
-      field :linked_user_id, ::String, { 'query_param': { 'field_name': 'linkedUserId', 'style': 'form', 'explode': true } }
-
       field :pass_through_request_dto, ::OpenApiSDK::Shared::PassThroughRequestDto, { 'request': { 'media_type': 'application/json' } }
 
-      field :vertical, ::String, { 'query_param': { 'field_name': 'vertical', 'style': 'form', 'explode': true } }
+      field :x_connection_token, ::String, { 'header': { 'field_name': 'x-connection-token', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(integration_id: ::String, linked_user_id: ::String, pass_through_request_dto: ::OpenApiSDK::Shared::PassThroughRequestDto, vertical: ::String).void }
-      def initialize(integration_id: nil, linked_user_id: nil, pass_through_request_dto: nil, vertical: nil)
-        @integration_id = integration_id
-        @linked_user_id = linked_user_id
+      sig { params(pass_through_request_dto: ::OpenApiSDK::Shared::PassThroughRequestDto, x_connection_token: ::String).void }
+      def initialize(pass_through_request_dto: nil, x_connection_token: nil)
         @pass_through_request_dto = pass_through_request_dto
-        @vertical = vertical
+        @x_connection_token = x_connection_token
       end
     end
   end

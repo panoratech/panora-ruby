@@ -14,16 +14,16 @@ module OpenApiSDK
 
       field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
 
-      field :id_user, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_user') } }
-
       field :password_hash, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('password_hash') } }
 
+      field :id_user, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_user') } }
 
-      sig { params(email: ::String, id_user: ::String, password_hash: ::String).void }
-      def initialize(email: nil, id_user: nil, password_hash: nil)
+
+      sig { params(email: ::String, password_hash: ::String, id_user: T.nilable(::String)).void }
+      def initialize(email: nil, password_hash: nil, id_user: nil)
         @email = email
-        @id_user = id_user
         @password_hash = password_hash
+        @id_user = id_user
       end
     end
   end

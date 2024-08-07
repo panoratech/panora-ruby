@@ -58,15 +58,15 @@ module OpenApiSDK
     end
 
 
-    sig { params(x_connection_token: ::String, remote_data: T::Boolean, unified_filestorage_file_input: ::OpenApiSDK::Shared::UnifiedFilestorageFileInput).returns(::OpenApiSDK::Operations::CreateFilestorageFileResponse) }
-    def create(x_connection_token, remote_data, unified_filestorage_file_input)
+    sig { params(x_connection_token: ::String, unified_filestorage_file_input: ::OpenApiSDK::Shared::UnifiedFilestorageFileInput, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::CreateFilestorageFileResponse) }
+    def create(x_connection_token, unified_filestorage_file_input, remote_data = nil)
       # create - Create Files
       # Create Files in any supported Filestorage software
       request = ::OpenApiSDK::Operations::CreateFilestorageFileRequest.new(
         
         x_connection_token: x_connection_token,
-        remote_data: remote_data,
-        unified_filestorage_file_input: unified_filestorage_file_input
+        unified_filestorage_file_input: unified_filestorage_file_input,
+        remote_data: remote_data
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
