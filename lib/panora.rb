@@ -32,6 +32,7 @@ module OpenApiSDK
   autoload :FieldMappings, 'open_api_sdk/fieldmappings'
   autoload :Events, 'open_api_sdk/events'
   autoload :Passthrough, 'open_api_sdk/passthrough'
+  autoload :PassthroughRetryid, 'open_api_sdk/passthrough_retryid_'
   autoload :HrisBankinfos, 'open_api_sdk/hris_bankinfos'
   autoload :HrisBenefits, 'open_api_sdk/hris_benefits'
   autoload :HrisCompanies, 'open_api_sdk/hris_companies'
@@ -96,6 +97,10 @@ module OpenApiSDK
   autoload :FilestorageFolders, 'open_api_sdk/filestorage_folders'
   autoload :FilestorageGroups, 'open_api_sdk/filestorage_groups'
   autoload :FilestorageUsers, 'open_api_sdk/filestorage_users'
+  autoload :EcommerceProducts, 'open_api_sdk/ecommerce_products'
+  autoload :EcommerceOrders, 'open_api_sdk/ecommerce_orders'
+  autoload :EcommerceCustomers, 'open_api_sdk/ecommerce_customers'
+  autoload :EcommerceFulfillments, 'open_api_sdk/ecommerce_fulfillments'
   autoload :TicketingAttachments, 'open_api_sdk/ticketing_attachments'
 end
 

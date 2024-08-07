@@ -24,7 +24,6 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Shared::LoginDto.new(
-  id_user: "<value>",
   email: "Oda.Treutel97@hotmail.com",
   password_hash: "<value>",
 )

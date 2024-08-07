@@ -23,16 +23,12 @@ s.config_security(
 )
 
     
-res = s.passthrough.request(integration_id="<value>", linked_user_id="<value>", vertical="<value>", pass_through_request_dto=::OpenApiSDK::Shared::PassThroughRequestDto.new(
+res = s.passthrough.request(x_connection_token="<value>", pass_through_request_dto=::OpenApiSDK::Shared::PassThroughRequestDto.new(
     method: ::OpenApiSDK::Shared::PassThroughRequestDtoMethod::GET,
     path: "/dev",
-    data: "<value>",
-    headers: {
-      "Johns": "<value>",
-    },
   ))
 
-if ! res.pass_through_response.nil?
+if ! res.two_hundred_application_json_object.nil?
   # handle response
 end
 
@@ -42,9 +38,7 @@ end
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `integration_id`                                                                            | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `linked_user_id`                                                                            | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `vertical`                                                                                  | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `x_connection_token`                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
 | `pass_through_request_dto`                                                                  | [::OpenApiSDK::Shared::PassThroughRequestDto](../../models/shared/passthroughrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
 
 

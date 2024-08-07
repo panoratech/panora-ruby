@@ -19,23 +19,23 @@ module OpenApiSDK
       field :id_user, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_user') } }
       # Name of the project
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # Frequency of pulling data in seconds
-      field :pull_frequency, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pull_frequency') } }
-      # Redirect URL for the project
-      field :redirect_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('redirect_url') } }
       # Synchronization mode of the project
       field :sync_mode, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sync_mode') } }
+      # Frequency of pulling data in seconds
+      field :pull_frequency, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pull_frequency') } }
+      # Redirect URL for the project
+      field :redirect_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('redirect_url') } }
 
 
-      sig { params(id_connector_set: ::String, id_project: ::String, id_user: ::String, name: ::String, pull_frequency: ::Float, redirect_url: ::String, sync_mode: ::String).void }
-      def initialize(id_connector_set: nil, id_project: nil, id_user: nil, name: nil, pull_frequency: nil, redirect_url: nil, sync_mode: nil)
+      sig { params(id_connector_set: ::String, id_project: ::String, id_user: ::String, name: ::String, sync_mode: ::String, pull_frequency: T.nilable(::Float), redirect_url: T.nilable(::String)).void }
+      def initialize(id_connector_set: nil, id_project: nil, id_user: nil, name: nil, sync_mode: nil, pull_frequency: nil, redirect_url: nil)
         @id_connector_set = id_connector_set
         @id_project = id_project
         @id_user = id_user
         @name = name
+        @sync_mode = sync_mode
         @pull_frequency = pull_frequency
         @redirect_url = redirect_url
-        @sync_mode = sync_mode
       end
     end
   end

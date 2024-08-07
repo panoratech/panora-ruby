@@ -118,7 +118,8 @@ module OpenApiSDK
       res = ::OpenApiSDK::Operations::DeleteResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      if r.status == 201
+      if r.status == 200
+      elsif r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::WebhookResponse)
           res.webhook_response = out
@@ -157,7 +158,8 @@ module OpenApiSDK
       res = ::OpenApiSDK::Operations::UpdateStatusResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      if r.status == 201
+      if r.status == 200
+      elsif r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::WebhookResponse)
           res.webhook_response = out
@@ -202,6 +204,7 @@ module OpenApiSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::VerifyEventResponseBody)
           res.object = out
         end
+      elsif r.status == 201
       end
       res
     end

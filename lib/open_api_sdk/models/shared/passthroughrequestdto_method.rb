@@ -12,9 +12,6 @@ module OpenApiSDK
       enums do
         GET = new('GET')
         POST = new('POST')
-        PATCH = new('PATCH')
-        DELETE = new('DELETE')
-        PUT = new('PUT')
       end
     end
 

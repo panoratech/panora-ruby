@@ -18,15 +18,18 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
-      field :pass_through_response, T.nilable(::OpenApiSDK::Shared::PassThroughResponse)
+      field :two_hundred_application_json_object, T.nilable(::OpenApiSDK::Operations::RequestResponseBody)
+
+      field :two_hundred_and_one_application_json_object, T.nilable(::OpenApiSDK::Operations::RequestPassthroughResponseBody)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, pass_through_response: T.nilable(::OpenApiSDK::Shared::PassThroughResponse)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, pass_through_response: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, two_hundred_application_json_object: T.nilable(::OpenApiSDK::Operations::RequestResponseBody), two_hundred_and_one_application_json_object: T.nilable(::OpenApiSDK::Operations::RequestPassthroughResponseBody)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, two_hundred_application_json_object: nil, two_hundred_and_one_application_json_object: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @pass_through_response = pass_through_response
+        @two_hundred_application_json_object = two_hundred_application_json_object
+        @two_hundred_and_one_application_json_object = two_hundred_and_one_application_json_object
       end
     end
   end
