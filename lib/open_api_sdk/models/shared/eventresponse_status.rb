@@ -14,6 +14,5 @@ module OpenApiSDK
         FAIL = new('fail')
       end
     end
-
   end
 end

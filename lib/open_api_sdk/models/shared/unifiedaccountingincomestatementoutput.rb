@@ -11,10 +11,50 @@ module OpenApiSDK
     class UnifiedAccountingIncomestatementOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The created date of the income statement record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency used in the income statement
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The end date of the period covered by the income statement
+      field :end_period, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_period'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingIncomestatementOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The gross profit for the period
+      field :gross_profit, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gross_profit') } }
+      # The UUID of the income statement record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the income statement record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the income statement
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The net income for the period
+      field :net_income, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('net_income') } }
+      # The net operating income for the period
+      field :net_operating_income, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('net_operating_income') } }
+      # The remote data of the income statement in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingIncomestatementOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the income statement in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The start date of the period covered by the income statement
+      field :start_period, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_period'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      
-      def initialize; end
+      sig { params(created_at: T.nilable(::DateTime), currency: T.nilable(::String), end_period: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingIncomestatementOutputFieldMappings), gross_profit: T.nilable(::Float), id: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), net_income: T.nilable(::Float), net_operating_income: T.nilable(::Float), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingIncomestatementOutputRemoteData), remote_id: T.nilable(::String), start_period: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, currency: nil, end_period: nil, field_mappings: nil, gross_profit: nil, id: nil, modified_at: nil, name: nil, net_income: nil, net_operating_income: nil, remote_data: nil, remote_id: nil, start_period: nil)
+        @created_at = created_at
+        @currency = currency
+        @end_period = end_period
+        @field_mappings = field_mappings
+        @gross_profit = gross_profit
+        @id = id
+        @modified_at = modified_at
+        @name = name
+        @net_income = net_income
+        @net_operating_income = net_operating_income
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @start_period = start_period
+      end
     end
   end
 end

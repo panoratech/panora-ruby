@@ -1,11 +1,12 @@
 # Connections
 
+## Overview
 
 ### Available Operations
 
-* [get_connections](#get_connections) - List Connections
+* [retrieve](#retrieve) - List Connections
 
-## get_connections
+## retrieve
 
 List Connections
 
@@ -23,7 +24,7 @@ s.config_security(
 )
 
     
-res = s.connections.get_connections()
+res = s.connections.retrieve()
 
 if ! res.connections.nil?
   # handle response
@@ -31,8 +32,8 @@ end
 
 ```
 
-
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::GetConnectionsResponse)](../../models/operations/getconnectionsresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::RetrieveConnectionsResponse)](../../models/operations/retrieveconnectionsresponse.md)**
+
 

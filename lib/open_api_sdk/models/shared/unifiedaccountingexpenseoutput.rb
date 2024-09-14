@@ -11,10 +11,68 @@ module OpenApiSDK
     class UnifiedAccountingExpenseOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated account
+      field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_id') } }
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The UUID of the associated contact
+      field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
+      # The created date of the expense record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the expense
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The exchange rate applied to the expense
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingExpenseOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the expense record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The line items associated with this expense
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # A memo or description for the expense
+      field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('memo') } }
+      # The last modified date of the expense record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The date when the expense was created in the remote system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the expense in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingExpenseOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the expense in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The sub-total amount of the expense (before tax)
+      field :sub_total, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sub_total') } }
+      # The total amount of the expense
+      field :total_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_amount') } }
+      # The total tax amount of the expense
+      field :total_tax_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_tax_amount') } }
+      # The UUIDs of the tracking categories associated with the expense
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The date of the expense transaction
+      field :transaction_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      
-      def initialize; end
+      sig { params(account_id: T.nilable(::String), company_info_id: T.nilable(::String), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingExpenseOutputFieldMappings), id: T.nilable(::String), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), memo: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingExpenseOutputRemoteData), remote_id: T.nilable(::String), sub_total: T.nilable(::Float), total_amount: T.nilable(::Float), total_tax_amount: T.nilable(::Float), tracking_categories: T.nilable(T::Array[::String]), transaction_date: T.nilable(::DateTime)).void }
+      def initialize(account_id: nil, company_info_id: nil, contact_id: nil, created_at: nil, currency: nil, exchange_rate: nil, field_mappings: nil, id: nil, line_items: nil, memo: nil, modified_at: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, sub_total: nil, total_amount: nil, total_tax_amount: nil, tracking_categories: nil, transaction_date: nil)
+        @account_id = account_id
+        @company_info_id = company_info_id
+        @contact_id = contact_id
+        @created_at = created_at
+        @currency = currency
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @id = id
+        @line_items = line_items
+        @memo = memo
+        @modified_at = modified_at
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @sub_total = sub_total
+        @total_amount = total_amount
+        @total_tax_amount = total_tax_amount
+        @tracking_categories = tracking_categories
+        @transaction_date = transaction_date
+      end
     end
   end
 end

@@ -14,6 +14,5 @@ module OpenApiSDK
         CONTACT = new('CONTACT')
       end
     end
-
   end
 end

@@ -11,10 +11,38 @@ module OpenApiSDK
     class UnifiedAccountingAttachmentOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated account
+      field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_id') } }
+      # The created date of the attachment record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAttachmentOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The name of the attached file
+      field :file_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_name') } }
+      # The URL where the file can be accessed
+      field :file_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_url') } }
+      # The UUID of the attachment record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the attachment record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the attachment in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAttachmentOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the attachment in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      
-      def initialize; end
+      sig { params(account_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAttachmentOutputFieldMappings), file_name: T.nilable(::String), file_url: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAttachmentOutputRemoteData), remote_id: T.nilable(::String)).void }
+      def initialize(account_id: nil, created_at: nil, field_mappings: nil, file_name: nil, file_url: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil)
+        @account_id = account_id
+        @created_at = created_at
+        @field_mappings = field_mappings
+        @file_name = file_name
+        @file_url = file_url
+        @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+      end
     end
   end
 end

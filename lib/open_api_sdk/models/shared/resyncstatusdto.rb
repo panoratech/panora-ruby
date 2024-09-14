@@ -14,14 +14,14 @@ module OpenApiSDK
 
       field :provider, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('provider') } }
 
-      field :status, ::OpenApiSDK::Shared::ResyncStatusDtoStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::ResyncStatusDtoStatus, false) } }
+      field :status, ::OpenApiSDK::Shared::Status, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Status, false) } }
 
       field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
       field :vertical, ::OpenApiSDK::Shared::Vertical, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('vertical'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Vertical, false) } }
 
 
-      sig { params(provider: ::String, status: ::OpenApiSDK::Shared::ResyncStatusDtoStatus, timestamp: ::DateTime, vertical: ::OpenApiSDK::Shared::Vertical).void }
+      sig { params(provider: ::String, status: ::OpenApiSDK::Shared::Status, timestamp: ::DateTime, vertical: ::OpenApiSDK::Shared::Vertical).void }
       def initialize(provider: nil, status: nil, timestamp: nil, vertical: nil)
         @provider = provider
         @status = status

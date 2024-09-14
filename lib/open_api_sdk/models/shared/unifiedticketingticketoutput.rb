@@ -42,20 +42,20 @@ module OpenApiSDK
       # The UUID of the parent ticket
       field :parent_ticket, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('parent_ticket') } }
       # The priority of the ticket. Authorized values are HIGH, MEDIUM or LOW.
-      field :priority, T.nilable(::OpenApiSDK::Shared::Priority), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('priority'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Priority, true) } }
+      field :priority, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('priority') } }
       # The remote data of the ticket in the context of the 3rd Party
       field :remote_data, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The id of the ticket in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The status of the ticket. Authorized values are OPEN or CLOSED.
-      field :status, T.nilable(::OpenApiSDK::Shared::Status), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Status, true) } }
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
       # The tags names of the ticket
       field :tags, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The type of the ticket. Authorized values are PROBLEM, QUESTION, or TASK
-      field :type, T.nilable(::OpenApiSDK::Shared::Type), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Type, true) } }
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      sig { params(description: ::String, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::Object]), collections: T.nilable(T::Array[::Object]), comment: T.nilable(::OpenApiSDK::Shared::Comment), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), parent_ticket: T.nilable(::String), priority: T.nilable(::OpenApiSDK::Shared::Priority), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), status: T.nilable(::OpenApiSDK::Shared::Status), tags: T.nilable(T::Array[::Object]), type: T.nilable(::OpenApiSDK::Shared::Type)).void }
+      sig { params(description: ::String, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::Object]), collections: T.nilable(T::Array[::Object]), comment: T.nilable(::OpenApiSDK::Shared::Comment), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::DateTime), parent_ticket: T.nilable(::String), priority: T.nilable(::String), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), status: T.nilable(::String), tags: T.nilable(T::Array[::Object]), type: T.nilable(::String)).void }
       def initialize(description: nil, name: nil, account_id: nil, assigned_to: nil, attachments: nil, collections: nil, comment: nil, completed_at: nil, contact_id: nil, created_at: nil, due_date: nil, field_mappings: nil, id: nil, modified_at: nil, parent_ticket: nil, priority: nil, remote_data: nil, remote_id: nil, status: nil, tags: nil, type: nil)
         @description = description
         @name = name

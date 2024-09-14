@@ -1,5 +1,6 @@
 # AtsApplications
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListAtsApplicationResponse)](../../models/operations/listatsapplicationresponse.md)**
+
+
 
 
 ## create
@@ -67,21 +69,23 @@ s.config_security(
 
     
 res = s.ats_applications.create(x_connection_token="<value>", unified_ats_application_input=::OpenApiSDK::Shared::UnifiedAtsApplicationInput.new(
-    applied_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    rejected_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    offers: [
-      "<value>",
-    ],
-    source: "Source Name",
-    credited_to: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    current_stage: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    reject_reason: "Candidate not experienced enough",
-    candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    job_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    field_mappings: {
-      "online": "<value>",
-    },
-  ), remote_data=false)
+  applied_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  rejected_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  offers: [
+    "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    "12345678-1234-1234-1234-123456789012",
+  ],
+  source: "Source Name",
+  credited_to: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  current_stage: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  reject_reason: "Candidate not experienced enough",
+  candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  job_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  field_mappings: {
+    "fav_dish": "broccoli",
+    "fav_color": "red",
+  },
+), remote_data=false)
 
 if ! res.unified_ats_application_output.nil?
   # handle response
@@ -97,10 +101,11 @@ end
 | `unified_ats_application_input`                                                                       | [::OpenApiSDK::Shared::UnifiedAtsApplicationInput](../../models/shared/unifiedatsapplicationinput.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |                                                                                                       |
 | `remote_data`                                                                                         | *T::Boolean*                                                                                          | :heavy_minus_sign:                                                                                    | Set to true to include data from the original Ats software.                                           | false                                                                                                 |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateAtsApplicationResponse)](../../models/operations/createatsapplicationresponse.md)**
+
+
 
 
 ## retrieve
@@ -137,8 +142,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the application you want to retrieve.                 | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. | false                                                       |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveAtsApplicationResponse)](../../models/operations/retrieveatsapplicationresponse.md)**
+
 

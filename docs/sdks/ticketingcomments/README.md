@@ -1,5 +1,6 @@
 # TicketingComments
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListTicketingCommentsResponse)](../../models/operations/listticketingcommentsresponse.md)**
+
+
 
 
 ## create
@@ -67,17 +69,17 @@ s.config_security(
 
     
 res = s.ticketing_comments.create(x_connection_token="<value>", unified_ticketing_comment_input=::OpenApiSDK::Shared::UnifiedTicketingCommentInput.new(
-    body: "Assigned to Eric !",
-    html_body: "<p>Assigned to Eric !</p>",
-    is_private: false,
-    creator_type: ::OpenApiSDK::Shared::UnifiedTicketingCommentInputCreatorType::USER,
-    ticket_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    contact_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    attachments: [
-      "<value>",
-    ],
-  ), remote_data=false)
+  body: "Assigned to Eric !",
+  html_body: "<p>Assigned to Eric !</p>",
+  is_private: false,
+  creator_type: "USER",
+  ticket_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  contact_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  attachments: [
+    "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  ],
+), remote_data=false)
 
 if ! res.unified_ticketing_comment_output.nil?
   # handle response
@@ -93,10 +95,11 @@ end
 | `unified_ticketing_comment_input`                                                                         | [::OpenApiSDK::Shared::UnifiedTicketingCommentInput](../../models/shared/unifiedticketingcommentinput.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
 | `remote_data`                                                                                             | *T::Boolean*                                                                                              | :heavy_minus_sign:                                                                                        | Set to true to include data from the original Ticketing software.                                         |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateTicketingCommentResponse)](../../models/operations/createticketingcommentresponse.md)**
+
+
 
 
 ## retrieve
@@ -117,7 +120,7 @@ s.config_security(
 )
 
     
-res = s.ticketing_comments.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ticketing_comments.retrieve(x_connection_token="<value>", id="<id>", remote_data=false)
 
 if ! res.object.nil?
   # handle response
@@ -133,8 +136,8 @@ end
 | `id`                                                              | *::String*                                                        | :heavy_check_mark:                                                | id of the `comment` you want to retrive.                          |
 | `remote_data`                                                     | *T::Boolean*                                                      | :heavy_minus_sign:                                                | Set to true to include data from the original Ticketing software. |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveTicketingCommentResponse)](../../models/operations/retrieveticketingcommentresponse.md)**
+
 

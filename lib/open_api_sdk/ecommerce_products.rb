@@ -21,7 +21,7 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, remote_data: T.nilable(T::Boolean), limit: T.nilable(::Float), cursor: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListEcommerceProductsResponse) }
     def list(x_connection_token, remote_data = nil, limit = nil, cursor = nil)
-      # list - List a batch of Products
+      # list - List Products
       request = ::OpenApiSDK::Operations::ListEcommerceProductsRequest.new(
         
         x_connection_token: x_connection_token,
@@ -109,8 +109,8 @@ module OpenApiSDK
 
     sig { params(x_connection_token: ::String, id: ::String, remote_data: T.nilable(T::Boolean)).returns(::OpenApiSDK::Operations::RetrieveEcommerceProductResponse) }
     def retrieve(x_connection_token, id, remote_data = nil)
-      # retrieve - Retrieve a Product
-      # Retrieve a product from any connected Ats software
+      # retrieve - Retrieve Products
+      # Retrieve products from any connected Ats software
       request = ::OpenApiSDK::Operations::RetrieveEcommerceProductRequest.new(
         
         x_connection_token: x_connection_token,

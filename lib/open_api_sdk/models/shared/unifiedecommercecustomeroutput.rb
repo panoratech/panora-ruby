@@ -12,7 +12,7 @@ module OpenApiSDK
       extend T::Sig
 
       # The addresses of the customer
-      field :addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Addresses]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('addresses') } }
+      field :addresses, T.nilable(T::Array[::OpenApiSDK::Shared::Address]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('addresses') } }
       # The created date of the object
       field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
       # The email of the customer
@@ -35,7 +35,7 @@ module OpenApiSDK
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      sig { params(addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Addresses]), created_at: T.nilable(::String), email: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceCustomerOutputFieldMappings), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), modified_at: T.nilable(::String), phone_number: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceCustomerOutputRemoteData), remote_id: T.nilable(::String)).void }
+      sig { params(addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), created_at: T.nilable(::String), email: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceCustomerOutputFieldMappings), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), modified_at: T.nilable(::String), phone_number: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceCustomerOutputRemoteData), remote_id: T.nilable(::String)).void }
       def initialize(addresses: nil, created_at: nil, email: nil, field_mappings: nil, first_name: nil, id: nil, last_name: nil, modified_at: nil, phone_number: nil, remote_data: nil, remote_id: nil)
         @addresses = addresses
         @created_at = created_at

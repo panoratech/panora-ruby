@@ -11,10 +11,41 @@ module OpenApiSDK
     class UnifiedAccountingTaxrateOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated company
+      field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The created date of the tax rate record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The description of the tax rate
+      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+      # The effective tax rate in basis points (e.g., 1900 for 19%)
+      field :effective_tax_rate, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('effective_tax_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTaxrateOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the tax rate record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the tax rate record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the tax rate in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTaxrateOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the tax rate in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The total tax rate in basis points (e.g., 2000 for 20%)
+      field :total_tax_ratge, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_tax_ratge') } }
 
 
-      
-      def initialize; end
+      sig { params(company_id: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), effective_tax_rate: T.nilable(::Float), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTaxrateOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTaxrateOutputRemoteData), remote_id: T.nilable(::String), total_tax_ratge: T.nilable(::Float)).void }
+      def initialize(company_id: nil, created_at: nil, description: nil, effective_tax_rate: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil, total_tax_ratge: nil)
+        @company_id = company_id
+        @created_at = created_at
+        @description = description
+        @effective_tax_rate = effective_tax_rate
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @total_tax_ratge = total_tax_ratge
+      end
     end
   end
 end

@@ -11,10 +11,59 @@ module OpenApiSDK
     class UnifiedAccountingAccountOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The account number
+      field :account_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_number') } }
+      # The classification of the account
+      field :classification, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('classification') } }
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The created date of the account record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the account
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The current balance of the account
+      field :current_balance, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('current_balance') } }
+      # A description of the account
+      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAccountOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the account record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the account record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the account
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The UUID of the parent account
+      field :parent_account, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('parent_account') } }
+      # The remote data of the account in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAccountOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the account in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The status of the account
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The type of the account
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      
-      def initialize; end
+      sig { params(account_number: T.nilable(::String), classification: T.nilable(::String), company_info_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), current_balance: T.nilable(::Float), description: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAccountOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), parent_account: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAccountOutputRemoteData), remote_id: T.nilable(::String), status: T.nilable(::String), type: T.nilable(::String)).void }
+      def initialize(account_number: nil, classification: nil, company_info_id: nil, created_at: nil, currency: nil, current_balance: nil, description: nil, field_mappings: nil, id: nil, modified_at: nil, name: nil, parent_account: nil, remote_data: nil, remote_id: nil, status: nil, type: nil)
+        @account_number = account_number
+        @classification = classification
+        @company_info_id = company_info_id
+        @created_at = created_at
+        @currency = currency
+        @current_balance = current_balance
+        @description = description
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @name = name
+        @parent_account = parent_account
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @status = status
+        @type = type
+      end
     end
   end
 end

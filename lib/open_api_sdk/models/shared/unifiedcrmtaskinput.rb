@@ -14,7 +14,7 @@ module OpenApiSDK
       # The content of the task
       field :content, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content') } }
       # The status of the task. Authorized values are PENDING, COMPLETED.
-      field :status, ::OpenApiSDK::Shared::UnifiedCrmTaskInputStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedCrmTaskInputStatus, false) } }
+      field :status, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
       # The subject of the task
       field :subject, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subject') } }
       # The UUID of the company tied to the task
@@ -31,7 +31,7 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(content: ::String, status: ::OpenApiSDK::Shared::UnifiedCrmTaskInputStatus, subject: ::String, company_id: T.nilable(::String), deal_id: T.nilable(::String), due_date: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), finished_date: T.nilable(::String), user_id: T.nilable(::String)).void }
+      sig { params(content: ::String, status: ::String, subject: ::String, company_id: T.nilable(::String), deal_id: T.nilable(::String), due_date: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), finished_date: T.nilable(::String), user_id: T.nilable(::String)).void }
       def initialize(content: nil, status: nil, subject: nil, company_id: nil, deal_id: nil, due_date: nil, field_mappings: nil, finished_date: nil, user_id: nil)
         @content = content
         @status = status

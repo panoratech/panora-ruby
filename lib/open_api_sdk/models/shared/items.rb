@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Shared
   
-    # The items in the order
+    # The items in the fulfilment
     class Items < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 

@@ -1,5 +1,6 @@
 # AtsActivities
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListAtsActivityResponse)](../../models/operations/listatsactivityresponse.md)**
+
+
 
 
 ## create
@@ -67,16 +69,17 @@ s.config_security(
 
     
 res = s.ats_activities.create(x_connection_token="<value>", unified_ats_activity_input=::OpenApiSDK::Shared::UnifiedAtsActivityInput.new(
-    activity_type: ::OpenApiSDK::Shared::UnifiedAtsActivityInputActivityType::NOTE,
-    subject: "Email subject",
-    body: "Dear Diana, I love you",
-    visibility: ::OpenApiSDK::Shared::UnifiedAtsActivityInputVisibility::PUBLIC,
-    candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    field_mappings: {
-      "online": "<value>",
-    },
-  ), remote_data=false)
+  activity_type: "NOTE",
+  subject: "Email subject",
+  body: "Dear Diana, I love you",
+  visibility: "PUBLIC",
+  candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  field_mappings: {
+    "fav_dish": "broccoli",
+    "fav_color": "red",
+  },
+), remote_data=false)
 
 if ! res.unified_ats_activity_output.nil?
   # handle response
@@ -92,10 +95,11 @@ end
 | `unified_ats_activity_input`                                                                    | [::OpenApiSDK::Shared::UnifiedAtsActivityInput](../../models/shared/unifiedatsactivityinput.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |                                                                                                 |
 | `remote_data`                                                                                   | *T::Boolean*                                                                                    | :heavy_minus_sign:                                                                              | Set to true to include data from the original Ats software.                                     | false                                                                                           |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateAtsActivityResponse)](../../models/operations/createatsactivityresponse.md)**
+
+
 
 
 ## retrieve
@@ -132,8 +136,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the activity you want to retrieve.                    | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. | false                                                       |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveAtsActivityResponse)](../../models/operations/retrieveatsactivityresponse.md)**
+
 

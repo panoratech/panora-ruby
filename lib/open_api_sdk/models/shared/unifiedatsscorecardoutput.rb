@@ -24,7 +24,7 @@ module OpenApiSDK
       # The modified date of the object
       field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The overall recommendation
-      field :overall_recommendation, T.nilable(::OpenApiSDK::Shared::OverallRecommendation), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('overall_recommendation'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::OverallRecommendation, true) } }
+      field :overall_recommendation, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('overall_recommendation') } }
       # The remote creation date of the scorecard
       field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The remote data of the scorecard in the context of the 3rd Party
@@ -35,7 +35,7 @@ module OpenApiSDK
       field :submitted_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('submitted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), interview_id: T.nilable(::String), modified_at: T.nilable(::DateTime), overall_recommendation: T.nilable(::OpenApiSDK::Shared::OverallRecommendation), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), submitted_at: T.nilable(::DateTime)).void }
+      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), interview_id: T.nilable(::String), modified_at: T.nilable(::DateTime), overall_recommendation: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), submitted_at: T.nilable(::DateTime)).void }
       def initialize(application_id: nil, created_at: nil, field_mappings: nil, id: nil, interview_id: nil, modified_at: nil, overall_recommendation: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, submitted_at: nil)
         @application_id = application_id
         @created_at = created_at

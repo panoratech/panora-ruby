@@ -14,6 +14,5 @@ module OpenApiSDK
         POST = new('POST')
       end
     end
-
   end
 end

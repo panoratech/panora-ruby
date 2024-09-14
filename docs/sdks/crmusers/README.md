@@ -1,5 +1,6 @@
 # CrmUsers
 
+## Overview
 
 ### Available Operations
 
@@ -41,10 +42,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListCrmUsersResponse)](../../models/operations/listcrmusersresponse.md)**
+
+
 
 
 ## retrieve
@@ -81,8 +83,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the user you want to retrieve.                        | b008e199-eda9-4629-bd41-a01b6195864a                        |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Crm software. | true                                                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveCrmUserResponse)](../../models/operations/retrievecrmuserresponse.md)**
+
 

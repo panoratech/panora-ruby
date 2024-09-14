@@ -26,12 +26,12 @@ module OpenApiSDK
       # The tags associated with the product
       field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The variants of the product
-      field :variants, T.nilable(T::Array[::OpenApiSDK::Shared::UnifiedEcommerceProductInputVariants]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('variants') } }
+      field :variants, T.nilable(T::Array[::OpenApiSDK::Shared::Variant]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('variants') } }
       # The vendor of the product
       field :vendor, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('vendor') } }
 
 
-      sig { params(description: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceProductInputFieldMappings), images_urls: T.nilable(T::Array[::String]), product_status: T.nilable(::String), product_type: T.nilable(::String), product_url: T.nilable(::String), tags: T.nilable(T::Array[::String]), variants: T.nilable(T::Array[::OpenApiSDK::Shared::UnifiedEcommerceProductInputVariants]), vendor: T.nilable(::String)).void }
+      sig { params(description: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceProductInputFieldMappings), images_urls: T.nilable(T::Array[::String]), product_status: T.nilable(::String), product_type: T.nilable(::String), product_url: T.nilable(::String), tags: T.nilable(T::Array[::String]), variants: T.nilable(T::Array[::OpenApiSDK::Shared::Variant]), vendor: T.nilable(::String)).void }
       def initialize(description: nil, field_mappings: nil, images_urls: nil, product_status: nil, product_type: nil, product_url: nil, tags: nil, variants: nil, vendor: nil)
         @description = description
         @field_mappings = field_mappings

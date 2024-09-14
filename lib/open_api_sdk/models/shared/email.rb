@@ -14,12 +14,12 @@ module OpenApiSDK
       # The email address
       field :email_address, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address') } }
       # The email address type. Authorized values are either PERSONAL or WORK.
-      field :email_address_type, ::OpenApiSDK::Shared::EmailAddressType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::EmailAddressType, false) } }
+      field :email_address_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address_type') } }
       # The owner type of an email
       field :owner_type, T.nilable(::OpenApiSDK::Shared::OwnerType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('owner_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::OwnerType, true) } }
 
 
-      sig { params(email_address: ::String, email_address_type: ::OpenApiSDK::Shared::EmailAddressType, owner_type: T.nilable(::OpenApiSDK::Shared::OwnerType)).void }
+      sig { params(email_address: ::String, email_address_type: ::String, owner_type: T.nilable(::OpenApiSDK::Shared::OwnerType)).void }
       def initialize(email_address: nil, email_address_type: nil, owner_type: nil)
         @email_address = email_address
         @email_address_type = email_address_type

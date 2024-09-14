@@ -11,10 +11,71 @@ module OpenApiSDK
     class UnifiedAccountingJournalentryOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The applied payments for the journal entry
+      field :applied_payments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applied_payments') } }
+      # The created date of the journal entry record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the journal entry
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The exchange rate applied to the journal entry
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingJournalentryOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the journal entry record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The UUID of the associated accounting period
+      field :id_acc_accounting_period, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_acc_accounting_period') } }
+      # The UUID of the associated company info
+      field :id_acc_company_info, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_acc_company_info') } }
+      # The journal number
+      field :journal_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('journal_number') } }
+      # The line items associated with this journal entry
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # A memo or note for the journal entry
+      field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('memo') } }
+      # The last modified date of the journal entry record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The payments associated with the journal entry
+      field :payments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payments') } }
+      # The posting status of the journal entry
+      field :posting_status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('posting_status') } }
+      # The date when the journal entry was created in the remote system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the journal entry in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingJournalentryOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the journal entry in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The date when the journal entry was last modified in the remote system
+      field :remote_modiified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_modiified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The UUIDs of the tracking categories associated with the journal entry
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The date of the transaction
+      field :transaction_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      
-      def initialize; end
+      sig { params(applied_payments: T.nilable(T::Array[::String]), created_at: T.nilable(::DateTime), currency: T.nilable(::String), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingJournalentryOutputFieldMappings), id: T.nilable(::String), id_acc_accounting_period: T.nilable(::String), id_acc_company_info: T.nilable(::String), journal_number: T.nilable(::String), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), memo: T.nilable(::String), modified_at: T.nilable(::DateTime), payments: T.nilable(T::Array[::String]), posting_status: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingJournalentryOutputRemoteData), remote_id: T.nilable(::String), remote_modiified_at: T.nilable(::DateTime), tracking_categories: T.nilable(T::Array[::String]), transaction_date: T.nilable(::DateTime)).void }
+      def initialize(applied_payments: nil, created_at: nil, currency: nil, exchange_rate: nil, field_mappings: nil, id: nil, id_acc_accounting_period: nil, id_acc_company_info: nil, journal_number: nil, line_items: nil, memo: nil, modified_at: nil, payments: nil, posting_status: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_modiified_at: nil, tracking_categories: nil, transaction_date: nil)
+        @applied_payments = applied_payments
+        @created_at = created_at
+        @currency = currency
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @id = id
+        @id_acc_accounting_period = id_acc_accounting_period
+        @id_acc_company_info = id_acc_company_info
+        @journal_number = journal_number
+        @line_items = line_items
+        @memo = memo
+        @modified_at = modified_at
+        @payments = payments
+        @posting_status = posting_status
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_modiified_at = remote_modiified_at
+        @tracking_categories = tracking_categories
+        @transaction_date = transaction_date
+      end
     end
   end
 end

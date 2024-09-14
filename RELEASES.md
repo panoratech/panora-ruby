@@ -47,3 +47,13 @@ Based on:
 - Speakeasy CLI 1.355.0 (2.387.0) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [ruby v0.2.3] .
+
+## 2024-09-14 18:56:14
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.396.9 (2.415.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v0.2.4] .
+### Releases
+- [Ruby Gems v0.2.4] https://rubygems.org/gems/panora/versions/0.2.4 - .

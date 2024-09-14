@@ -12,7 +12,7 @@ module OpenApiSDK
       extend T::Sig
 
       # The address type. Authorized values are either PERSONAL or WORK.
-      field :address_type, ::OpenApiSDK::Shared::AddressType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('address_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::AddressType, false) } }
+      field :address_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('address_type') } }
       # The city
       field :city, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city') } }
       # The country
@@ -29,7 +29,7 @@ module OpenApiSDK
       field :street_2, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('street_2') } }
 
 
-      sig { params(address_type: ::OpenApiSDK::Shared::AddressType, city: ::String, country: ::String, owner_type: ::String, postal_code: ::String, state: ::String, street_1: ::String, street_2: ::String).void }
+      sig { params(address_type: ::String, city: ::String, country: ::String, owner_type: ::String, postal_code: ::String, state: ::String, street_1: ::String, street_2: ::String).void }
       def initialize(address_type: nil, city: nil, country: nil, owner_type: nil, postal_code: nil, state: nil, street_1: nil, street_2: nil)
         @address_type = address_type
         @city = city

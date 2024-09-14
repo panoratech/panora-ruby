@@ -11,10 +11,47 @@ module OpenApiSDK
     class UnifiedHrisCompanyOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The created date of the company record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The display name of the company
+      field :display_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('display_name') } }
+      # The Employer Identification Numbers (EINs) of the company
+      field :eins, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eins') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisCompanyOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the company record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The legal name of the company
+      field :legal_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('legal_name') } }
+      # UUIDs of the of the Location associated with the company
+      field :locations, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('locations') } }
+      # The last modified date of the company record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The date when the company was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the company in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisCompanyOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the company in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the company was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
 
 
-      
-      def initialize; end
+      sig { params(created_at: T.nilable(::DateTime), display_name: T.nilable(::String), eins: T.nilable(T::Array[::String]), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisCompanyOutputFieldMappings), id: T.nilable(::String), legal_name: T.nilable(::String), locations: T.nilable(T::Array[::String]), modified_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisCompanyOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean)).void }
+      def initialize(created_at: nil, display_name: nil, eins: nil, field_mappings: nil, id: nil, legal_name: nil, locations: nil, modified_at: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil)
+        @created_at = created_at
+        @display_name = display_name
+        @eins = eins
+        @field_mappings = field_mappings
+        @id = id
+        @legal_name = legal_name
+        @locations = locations
+        @modified_at = modified_at
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+      end
     end
   end
 end

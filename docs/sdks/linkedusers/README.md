@@ -1,5 +1,6 @@
 # LinkedUsers
 
+## Overview
 
 ### Available Operations
 
@@ -46,10 +47,11 @@ end
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `request`                                                                               | [::OpenApiSDK::Shared::CreateLinkedUserDto](../../models/shared/createlinkeduserdto.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateLinkedUserResponse)](../../models/operations/createlinkeduserresponse.md)**
+
+
 
 
 ## list
@@ -78,10 +80,11 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListLinkedUsersResponse)](../../models/operations/listlinkedusersresponse.md)**
+
+
 
 
 ## import_batch
@@ -104,7 +107,7 @@ s.config_security(
 
 req = ::OpenApiSDK::Shared::CreateBatchLinkedUserDto.new(
   linked_user_origin_ids: [
-    "<value>",
+    "id_1",
   ],
   alias_: "acme",
 )
@@ -123,10 +126,11 @@ end
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::OpenApiSDK::Shared::CreateBatchLinkedUserDto](../../models/shared/createbatchlinkeduserdto.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ImportBatchResponse)](../../models/operations/importbatchresponse.md)**
+
+
 
 
 ## retrieve
@@ -161,10 +165,11 @@ end
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | `id`                                 | *::String*                           | :heavy_check_mark:                   | N/A                                  | 801f9ede-c698-4e66-a7fc-48d19eebaa4f |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveLinkedUserResponse)](../../models/operations/retrievelinkeduserresponse.md)**
+
+
 
 
 ## remote_id
@@ -199,8 +204,8 @@ end
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
 | `remote_id`        | *::String*         | :heavy_check_mark: | N/A                | id_1               |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RemoteIdResponse)](../../models/operations/remoteidresponse.md)**
+
 

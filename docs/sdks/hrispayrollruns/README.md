@@ -1,5 +1,6 @@
 # HrisPayrollruns
 
+## Overview
 
 ### Available Operations
 
@@ -41,10 +42,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListHrisPayrollRunsResponse)](../../models/operations/listhrispayrollrunsresponse.md)**
+
+
 
 
 ## retrieve
@@ -81,8 +83,8 @@ end
 | `id`                                                         | *::String*                                                   | :heavy_check_mark:                                           | id of the payroll run you want to retrieve.                  | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                         |
 | `remote_data`                                                | *T::Boolean*                                                 | :heavy_minus_sign:                                           | Set to true to include data from the original Hris software. | false                                                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveHrisPayrollRunResponse)](../../models/operations/retrievehrispayrollrunresponse.md)**
+
 

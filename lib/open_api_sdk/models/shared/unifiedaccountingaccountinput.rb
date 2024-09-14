@@ -11,10 +11,44 @@ module OpenApiSDK
     class UnifiedAccountingAccountInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The account number
+      field :account_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_number') } }
+      # The classification of the account
+      field :classification, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('classification') } }
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The currency of the account
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The current balance of the account
+      field :current_balance, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('current_balance') } }
+      # A description of the account
+      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAccountInputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The name of the account
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The UUID of the parent account
+      field :parent_account, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('parent_account') } }
+      # The status of the account
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The type of the account
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      
-      def initialize; end
+      sig { params(account_number: T.nilable(::String), classification: T.nilable(::String), company_info_id: T.nilable(::String), currency: T.nilable(::String), current_balance: T.nilable(::Float), description: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAccountInputFieldMappings), name: T.nilable(::String), parent_account: T.nilable(::String), status: T.nilable(::String), type: T.nilable(::String)).void }
+      def initialize(account_number: nil, classification: nil, company_info_id: nil, currency: nil, current_balance: nil, description: nil, field_mappings: nil, name: nil, parent_account: nil, status: nil, type: nil)
+        @account_number = account_number
+        @classification = classification
+        @company_info_id = company_info_id
+        @currency = currency
+        @current_balance = current_balance
+        @description = description
+        @field_mappings = field_mappings
+        @name = name
+        @parent_account = parent_account
+        @status = status
+        @type = type
+      end
     end
   end
 end

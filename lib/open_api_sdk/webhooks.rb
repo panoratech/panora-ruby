@@ -199,12 +199,11 @@ module OpenApiSDK
       res = ::OpenApiSDK::Operations::VerifyEventResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      if r.status == 200
+      if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::VerifyEventResponseBody)
+          out = Utils.unmarshal_complex(r.env.response_body, T::Hash[Symbol, ::Object])
           res.object = out
         end
-      elsif r.status == 201
       end
       res
     end

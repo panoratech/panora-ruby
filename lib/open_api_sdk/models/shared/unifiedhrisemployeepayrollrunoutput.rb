@@ -11,10 +11,65 @@ module OpenApiSDK
     class UnifiedHrisEmployeepayrollrunOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The date the check was issued
+      field :check_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('check_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The created date of the employee payroll run record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The list of deductions for this payroll run
+      field :deductions, T.nilable(T::Array[::OpenApiSDK::Shared::DeductionItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deductions') } }
+      # The list of earnings for this payroll run
+      field :earnings, T.nilable(T::Array[::OpenApiSDK::Shared::EarningItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('earnings') } }
+      # The UUID of the associated employee
+      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_id') } }
+      # The end date of the pay period
+      field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployeepayrollrunOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The gross pay amount
+      field :gross_pay, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gross_pay') } }
+      # The UUID of the employee payroll run record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the employee payroll run record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The net pay amount
+      field :net_pay, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('net_pay') } }
+      # The UUID of the associated payroll run
+      field :payroll_run_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payroll_run_id') } }
+      # The date when the employee payroll run was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the employee payroll run in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployeepayrollrunOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the employee payroll run in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the employee payroll run was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
+      # The start date of the pay period
+      field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The list of taxes for this payroll run
+      field :taxes, T.nilable(T::Array[::OpenApiSDK::Shared::TaxItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('taxes') } }
 
 
-      
-      def initialize; end
+      sig { params(check_date: T.nilable(::DateTime), created_at: T.nilable(::DateTime), deductions: T.nilable(T::Array[::OpenApiSDK::Shared::DeductionItem]), earnings: T.nilable(T::Array[::OpenApiSDK::Shared::EarningItem]), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployeepayrollrunOutputFieldMappings), gross_pay: T.nilable(::Float), id: T.nilable(::String), modified_at: T.nilable(::DateTime), net_pay: T.nilable(::Float), payroll_run_id: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployeepayrollrunOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean), start_date: T.nilable(::DateTime), taxes: T.nilable(T::Array[::OpenApiSDK::Shared::TaxItem])).void }
+      def initialize(check_date: nil, created_at: nil, deductions: nil, earnings: nil, employee_id: nil, end_date: nil, field_mappings: nil, gross_pay: nil, id: nil, modified_at: nil, net_pay: nil, payroll_run_id: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil, start_date: nil, taxes: nil)
+        @check_date = check_date
+        @created_at = created_at
+        @deductions = deductions
+        @earnings = earnings
+        @employee_id = employee_id
+        @end_date = end_date
+        @field_mappings = field_mappings
+        @gross_pay = gross_pay
+        @id = id
+        @modified_at = modified_at
+        @net_pay = net_pay
+        @payroll_run_id = payroll_run_id
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+        @start_date = start_date
+        @taxes = taxes
+      end
     end
   end
 end

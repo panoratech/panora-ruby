@@ -11,10 +11,68 @@ module OpenApiSDK
     class UnifiedHrisLocationOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The city of the location
+      field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city') } }
+      # The UUID of the company associated with the location
+      field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The country of the location
+      field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
+      # The created date of the location record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The UUID of the employee associated with the location
+      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_id') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisLocationOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the location record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The type of the location
+      field :location_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('location_type') } }
+      # The last modified date of the location record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the location
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The phone number of the location
+      field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_number') } }
+      # The date when the location was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the location in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisLocationOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the location in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the location was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
+      # The state or region of the location
+      field :state, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('state') } }
+      # The first line of the street address
+      field :street_1, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('street_1') } }
+      # The second line of the street address
+      field :street_2, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('street_2') } }
+      # The zip or postal code of the location
+      field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('zip_code') } }
 
 
-      
-      def initialize; end
+      sig { params(city: T.nilable(::String), company_id: T.nilable(::String), country: T.nilable(::String), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisLocationOutputFieldMappings), id: T.nilable(::String), location_type: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), phone_number: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisLocationOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
+      def initialize(city: nil, company_id: nil, country: nil, created_at: nil, employee_id: nil, field_mappings: nil, id: nil, location_type: nil, modified_at: nil, name: nil, phone_number: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil, state: nil, street_1: nil, street_2: nil, zip_code: nil)
+        @city = city
+        @company_id = company_id
+        @country = country
+        @created_at = created_at
+        @employee_id = employee_id
+        @field_mappings = field_mappings
+        @id = id
+        @location_type = location_type
+        @modified_at = modified_at
+        @name = name
+        @phone_number = phone_number
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+        @state = state
+        @street_1 = street_1
+        @street_2 = street_2
+        @zip_code = zip_code
+      end
     end
   end
 end

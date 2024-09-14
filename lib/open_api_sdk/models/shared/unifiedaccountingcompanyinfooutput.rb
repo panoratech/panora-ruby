@@ -11,10 +11,56 @@ module OpenApiSDK
     class UnifiedAccountingCompanyinfoOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The created date of the company info record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency used by the company
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCompanyinfoOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The day of the fiscal year end (1-31)
+      field :fiscal_year_end_day, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('fiscal_year_end_day') } }
+      # The month of the fiscal year end (1-12)
+      field :fiscal_year_end_month, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('fiscal_year_end_month') } }
+      # The UUID of the company info record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The legal name of the company
+      field :legal_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('legal_name') } }
+      # The last modified date of the company info record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the company
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The date when the company info was created in the remote system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the company info in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCompanyinfoOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the company info in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The tax number of the company
+      field :tax_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tax_number') } }
+      # The UUIDs of the tracking categories used by the company
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The URLs associated with the company
+      field :urls, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('urls') } }
 
 
-      
-      def initialize; end
+      sig { params(created_at: T.nilable(::DateTime), currency: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCompanyinfoOutputFieldMappings), fiscal_year_end_day: T.nilable(::Float), fiscal_year_end_month: T.nilable(::Float), id: T.nilable(::String), legal_name: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCompanyinfoOutputRemoteData), remote_id: T.nilable(::String), tax_number: T.nilable(::String), tracking_categories: T.nilable(T::Array[::String]), urls: T.nilable(T::Array[::String])).void }
+      def initialize(created_at: nil, currency: nil, field_mappings: nil, fiscal_year_end_day: nil, fiscal_year_end_month: nil, id: nil, legal_name: nil, modified_at: nil, name: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, tax_number: nil, tracking_categories: nil, urls: nil)
+        @created_at = created_at
+        @currency = currency
+        @field_mappings = field_mappings
+        @fiscal_year_end_day = fiscal_year_end_day
+        @fiscal_year_end_month = fiscal_year_end_month
+        @id = id
+        @legal_name = legal_name
+        @modified_at = modified_at
+        @name = name
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @tax_number = tax_number
+        @tracking_categories = tracking_categories
+        @urls = urls
+      end
     end
   end
 end

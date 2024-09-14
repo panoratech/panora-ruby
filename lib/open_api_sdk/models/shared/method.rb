@@ -16,6 +16,5 @@ module OpenApiSDK
         DELETE = new('DELETE')
       end
     end
-
   end
 end

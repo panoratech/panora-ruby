@@ -1,5 +1,6 @@
 # PassthroughRetryid
 
+## Overview
 
 ### Available Operations
 
@@ -37,8 +38,8 @@ end
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `retry_id`                                                            | *::String*                                                            | :heavy_check_mark:                                                    | id of the retryJob returned when you initiated a passthrough request. |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetRetriedRequestResponseResponse)](../../models/operations/getretriedrequestresponseresponse.md)**
+
 

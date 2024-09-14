@@ -14,6 +14,5 @@ module OpenApiSDK
         NUMBER = new('number')
       end
     end
-
   end
 end

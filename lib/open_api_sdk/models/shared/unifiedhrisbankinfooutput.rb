@@ -11,10 +11,50 @@ module OpenApiSDK
     class UnifiedHrisBankinfoOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The created date of the bank info record
+      field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      # The UUID of the bank info record
+      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the bank info record
+      field :modified_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      # Indicates if the bank info was deleted in the remote system
+      field :remote_was_deleted, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
+      # The account number
+      field :account_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_number') } }
+      # The type of the bank account
+      field :account_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_type') } }
+      # The name of the bank
+      field :bank_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bank_name') } }
+      # The UUID of the associated employee
+      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_id') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::FieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The date when the bank info was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the bank info in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::RemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the bank info in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The routing number of the bank
+      field :routing_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('routing_number') } }
 
 
-      
-      def initialize; end
+      sig { params(created_at: ::DateTime, id: ::String, modified_at: ::DateTime, remote_was_deleted: T::Boolean, account_number: T.nilable(::String), account_type: T.nilable(::String), bank_name: T.nilable(::String), employee_id: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::FieldMappings), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::RemoteData), remote_id: T.nilable(::String), routing_number: T.nilable(::String)).void }
+      def initialize(created_at: nil, id: nil, modified_at: nil, remote_was_deleted: nil, account_number: nil, account_type: nil, bank_name: nil, employee_id: nil, field_mappings: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, routing_number: nil)
+        @created_at = created_at
+        @id = id
+        @modified_at = modified_at
+        @remote_was_deleted = remote_was_deleted
+        @account_number = account_number
+        @account_type = account_type
+        @bank_name = bank_name
+        @employee_id = employee_id
+        @field_mappings = field_mappings
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @routing_number = routing_number
+      end
     end
   end
 end

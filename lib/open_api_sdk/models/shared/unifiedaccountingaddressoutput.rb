@@ -11,10 +11,59 @@ module OpenApiSDK
     class UnifiedAccountingAddressOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The city of the address
+      field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city') } }
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The UUID of the associated contact
+      field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
+      # The country of the address
+      field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
+      # The country subdivision (e.g., province or state) of the address
+      field :country_subdivision, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country_subdivision') } }
+      # The created date of the address record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAddressOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the address record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the address record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the address in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAddressOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the address in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The state of the address
+      field :state, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('state') } }
+      # The first line of the street address
+      field :street_1, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('street_1') } }
+      # The second line of the street address
+      field :street_2, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('street_2') } }
+      # The type of the address
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
+      # The zip or postal code of the address
+      field :zip, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('zip') } }
 
 
-      
-      def initialize; end
+      sig { params(city: T.nilable(::String), company_info_id: T.nilable(::String), contact_id: T.nilable(::String), country: T.nilable(::String), country_subdivision: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAddressOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingAddressOutputRemoteData), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), type: T.nilable(::String), zip: T.nilable(::String)).void }
+      def initialize(city: nil, company_info_id: nil, contact_id: nil, country: nil, country_subdivision: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, remote_data: nil, remote_id: nil, state: nil, street_1: nil, street_2: nil, type: nil, zip: nil)
+        @city = city
+        @company_info_id = company_info_id
+        @contact_id = contact_id
+        @country = country
+        @country_subdivision = country_subdivision
+        @created_at = created_at
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @state = state
+        @street_1 = street_1
+        @street_2 = street_2
+        @type = type
+        @zip = zip
+      end
     end
   end
 end

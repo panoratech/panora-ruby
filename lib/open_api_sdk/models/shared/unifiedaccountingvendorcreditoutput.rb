@@ -11,10 +11,62 @@ module OpenApiSDK
     class UnifiedAccountingVendorcreditOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated accounting period
+      field :accounting_period_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accounting_period_id') } }
+      # The UUID of the associated company
+      field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The created date of the vendor credit
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the vendor credit
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The exchange rate applied to the vendor credit
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingVendorcreditOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the vendor credit record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The line items associated with this vendor credit
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # The last modified date of the vendor credit
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The number of the vendor credit
+      field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('number') } }
+      # The remote data of the vendor credit in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingVendorcreditOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the vendor credit
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The date when the vendor credit was last updated in the remote system
+      field :remote_updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The total amount of the vendor credit
+      field :total_amount, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_amount') } }
+      # The UUID of the tracking categories associated with the vendor credit
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The date of the transaction
+      field :transaction_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The UUID of the vendor associated with the credit
+      field :vendor, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('vendor') } }
 
 
-      
-      def initialize; end
+      sig { params(accounting_period_id: T.nilable(::String), company_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingVendorcreditOutputFieldMappings), id: T.nilable(::String), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), modified_at: T.nilable(::DateTime), number: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingVendorcreditOutputRemoteData), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), total_amount: T.nilable(::String), tracking_categories: T.nilable(T::Array[::String]), transaction_date: T.nilable(::DateTime), vendor: T.nilable(::String)).void }
+      def initialize(accounting_period_id: nil, company_id: nil, created_at: nil, currency: nil, exchange_rate: nil, field_mappings: nil, id: nil, line_items: nil, modified_at: nil, number: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, total_amount: nil, tracking_categories: nil, transaction_date: nil, vendor: nil)
+        @accounting_period_id = accounting_period_id
+        @company_id = company_id
+        @created_at = created_at
+        @currency = currency
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @id = id
+        @line_items = line_items
+        @modified_at = modified_at
+        @number = number
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_updated_at = remote_updated_at
+        @total_amount = total_amount
+        @tracking_categories = tracking_categories
+        @transaction_date = transaction_date
+        @vendor = vendor
+      end
     end
   end
 end

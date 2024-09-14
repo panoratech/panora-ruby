@@ -36,10 +36,10 @@ module OpenApiSDK
       # The start date of the offer
       field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The status of the offer
-      field :status, T.nilable(::OpenApiSDK::Shared::UnifiedAtsOfferOutputStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsOfferOutputStatus, true) } }
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
 
 
-      sig { params(application_id: T.nilable(::String), closed_at: T.nilable(::DateTime), created_at: T.nilable(::OpenApiSDK::Shared::UnifiedAtsOfferOutputCreatedAt), created_by: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::OpenApiSDK::Shared::UnifiedAtsOfferOutputModifiedAt), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), sent_at: T.nilable(::DateTime), start_date: T.nilable(::DateTime), status: T.nilable(::OpenApiSDK::Shared::UnifiedAtsOfferOutputStatus)).void }
+      sig { params(application_id: T.nilable(::String), closed_at: T.nilable(::DateTime), created_at: T.nilable(::OpenApiSDK::Shared::UnifiedAtsOfferOutputCreatedAt), created_by: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), modified_at: T.nilable(::OpenApiSDK::Shared::UnifiedAtsOfferOutputModifiedAt), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), sent_at: T.nilable(::DateTime), start_date: T.nilable(::DateTime), status: T.nilable(::String)).void }
       def initialize(application_id: nil, closed_at: nil, created_at: nil, created_by: nil, field_mappings: nil, id: nil, modified_at: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, sent_at: nil, start_date: nil, status: nil)
         @application_id = application_id
         @closed_at = closed_at

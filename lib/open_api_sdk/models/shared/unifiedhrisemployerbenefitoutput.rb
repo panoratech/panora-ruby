@@ -11,10 +11,47 @@ module OpenApiSDK
     class UnifiedHrisEmployerbenefitOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The type of the benefit plan
+      field :benefit_plan_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('benefit_plan_type') } }
+      # The created date of the employer benefit record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The deduction code for the employer benefit
+      field :deduction_code, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deduction_code') } }
+      # The description of the employer benefit
+      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployerbenefitOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the employer benefit record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the employer benefit record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the employer benefit
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The date when the employer benefit was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the employer benefit in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployerbenefitOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the employer benefit in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the employer benefit was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
 
 
-      
-      def initialize; end
+      sig { params(benefit_plan_type: T.nilable(::String), created_at: T.nilable(::DateTime), deduction_code: T.nilable(::String), description: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployerbenefitOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmployerbenefitOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean)).void }
+      def initialize(benefit_plan_type: nil, created_at: nil, deduction_code: nil, description: nil, field_mappings: nil, id: nil, modified_at: nil, name: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil)
+        @benefit_plan_type = benefit_plan_type
+        @created_at = created_at
+        @deduction_code = deduction_code
+        @description = description
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @name = name
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+      end
     end
   end
 end

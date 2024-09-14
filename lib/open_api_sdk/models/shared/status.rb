@@ -7,13 +7,12 @@
 module OpenApiSDK
   module Shared
   
-    # Status - The status of the ticket. Authorized values are OPEN or CLOSED.
+
     class Status < T::Enum
       enums do
-        OPEN = new('OPEN')
-        CLOSED = new('CLOSED')
+        SUCCESS = new('success')
+        FAIL = new('fail')
       end
     end
-
   end
 end

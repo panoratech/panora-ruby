@@ -11,10 +11,56 @@ module OpenApiSDK
     class UnifiedHrisBenefitOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The company contribution amount
+      field :company_contribution, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_contribution') } }
+      # The created date of the benefit record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The employee contribution amount
+      field :employee_contribution, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_contribution') } }
+      # The UUID of the associated employee
+      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_id') } }
+      # The UUID of the associated employer benefit
+      field :employer_benefit_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employer_benefit_id') } }
+      # The end date of the benefit
+      field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisBenefitOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the benefit record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the benefit record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the benefit provider
+      field :provider_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('provider_name') } }
+      # The date when the benefit was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the benefit in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisBenefitOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the benefit in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the benefit was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
+      # The start date of the benefit
+      field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      
-      def initialize; end
+      sig { params(company_contribution: T.nilable(::Float), created_at: T.nilable(::DateTime), employee_contribution: T.nilable(::Float), employee_id: T.nilable(::String), employer_benefit_id: T.nilable(::String), end_date: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisBenefitOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), provider_name: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisBenefitOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean), start_date: T.nilable(::DateTime)).void }
+      def initialize(company_contribution: nil, created_at: nil, employee_contribution: nil, employee_id: nil, employer_benefit_id: nil, end_date: nil, field_mappings: nil, id: nil, modified_at: nil, provider_name: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil, start_date: nil)
+        @company_contribution = company_contribution
+        @created_at = created_at
+        @employee_contribution = employee_contribution
+        @employee_id = employee_id
+        @employer_benefit_id = employer_benefit_id
+        @end_date = end_date
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @provider_name = provider_name
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+        @start_date = start_date
+      end
     end
   end
 end

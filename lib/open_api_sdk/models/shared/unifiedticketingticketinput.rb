@@ -36,16 +36,16 @@ module OpenApiSDK
       # The UUID of the parent ticket
       field :parent_ticket, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('parent_ticket') } }
       # The priority of the ticket. Authorized values are HIGH, MEDIUM or LOW.
-      field :priority, T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputPriority), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('priority'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedTicketingTicketInputPriority, true) } }
+      field :priority, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('priority') } }
       # The status of the ticket. Authorized values are OPEN or CLOSED.
-      field :status, T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedTicketingTicketInputStatus, true) } }
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
       # The tags names of the ticket
       field :tags, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The type of the ticket. Authorized values are PROBLEM, QUESTION, or TASK
-      field :type, T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedTicketingTicketInputType, true) } }
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      sig { params(description: ::String, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::Object]), collections: T.nilable(T::Array[::Object]), comment: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputComment), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), parent_ticket: T.nilable(::String), priority: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputPriority), status: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputStatus), tags: T.nilable(T::Array[::Object]), type: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputType)).void }
+      sig { params(description: ::String, name: ::String, account_id: T.nilable(::String), assigned_to: T.nilable(T::Array[::String]), attachments: T.nilable(T::Array[::Object]), collections: T.nilable(T::Array[::Object]), comment: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingTicketInputComment), completed_at: T.nilable(::DateTime), contact_id: T.nilable(::String), due_date: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), parent_ticket: T.nilable(::String), priority: T.nilable(::String), status: T.nilable(::String), tags: T.nilable(T::Array[::Object]), type: T.nilable(::String)).void }
       def initialize(description: nil, name: nil, account_id: nil, assigned_to: nil, attachments: nil, collections: nil, comment: nil, completed_at: nil, contact_id: nil, due_date: nil, field_mappings: nil, parent_ticket: nil, priority: nil, status: nil, tags: nil, type: nil)
         @description = description
         @name = name
