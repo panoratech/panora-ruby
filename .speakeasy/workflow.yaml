@@ -10,6 +10,9 @@ targets:
     panora:
         target: ruby
         source: Panora-OAS
+        publish:
+            rubygems:
+                token: $rubygems_auth_token
         codeSamples:
             output: codeSamples.yaml
             registry:
