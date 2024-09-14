@@ -11,10 +11,65 @@ module OpenApiSDK
     class UnifiedHrisEmploymentOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The created date of the employment record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The effective date of the employment
+      field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The UUID of the associated employee
+      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_id') } }
+      # The type of employment
+      field :employment_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employment_type') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmploymentOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The FLSA status of the employment
+      field :flsa_status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flsa_status') } }
+      # The UUID of the employment record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The job title of the employment
+      field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('job_title') } }
+      # The last modified date of the employment record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the pay
+      field :pay_currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pay_currency') } }
+      # The pay frequency of the employment
+      field :pay_frequency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pay_frequency') } }
+      # The UUID of the associated pay group
+      field :pay_group_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pay_group_id') } }
+      # The pay period of the employment
+      field :pay_period, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pay_period') } }
+      # The pay rate of the employment
+      field :pay_rate, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pay_rate') } }
+      # The date when the employment was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the employment in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmploymentOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the employment in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the employment was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
 
 
-      
-      def initialize; end
+      sig { params(created_at: T.nilable(::DateTime), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_type: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmploymentOutputFieldMappings), flsa_status: T.nilable(::String), id: T.nilable(::String), job_title: T.nilable(::String), modified_at: T.nilable(::DateTime), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::String), pay_group_id: T.nilable(::String), pay_period: T.nilable(::String), pay_rate: T.nilable(::Float), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisEmploymentOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean)).void }
+      def initialize(created_at: nil, effective_date: nil, employee_id: nil, employment_type: nil, field_mappings: nil, flsa_status: nil, id: nil, job_title: nil, modified_at: nil, pay_currency: nil, pay_frequency: nil, pay_group_id: nil, pay_period: nil, pay_rate: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil)
+        @created_at = created_at
+        @effective_date = effective_date
+        @employee_id = employee_id
+        @employment_type = employment_type
+        @field_mappings = field_mappings
+        @flsa_status = flsa_status
+        @id = id
+        @job_title = job_title
+        @modified_at = modified_at
+        @pay_currency = pay_currency
+        @pay_frequency = pay_frequency
+        @pay_group_id = pay_group_id
+        @pay_period = pay_period
+        @pay_rate = pay_rate
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+      end
     end
   end
 end

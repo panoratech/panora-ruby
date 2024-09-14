@@ -11,8 +11,8 @@ module OpenApiSDK
     class UnifiedAtsActivityInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # The type of activity
-      field :activity_type, T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputActivityType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('activity_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsActivityInputActivityType, true) } }
+      # The type of activity. NOTE, EMAIL or OTHER
+      field :activity_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('activity_type') } }
       # The body of the activity
       field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('body') } }
       # The UUID of the candidate
@@ -23,11 +23,11 @@ module OpenApiSDK
       field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The subject of the activity
       field :subject, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subject') } }
-      # The visibility of the activity
-      field :visibility, T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputVisibility), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('visibility'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsActivityInputVisibility, true) } }
+      # The visibility of the activity. ADMIN_ONLY, PUBLIC or PRIVATE
+      field :visibility, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('visibility') } }
 
 
-      sig { params(activity_type: T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputActivityType), body: T.nilable(::String), candidate_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), remote_created_at: T.nilable(::DateTime), subject: T.nilable(::String), visibility: T.nilable(::OpenApiSDK::Shared::UnifiedAtsActivityInputVisibility)).void }
+      sig { params(activity_type: T.nilable(::String), body: T.nilable(::String), candidate_id: T.nilable(::String), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), remote_created_at: T.nilable(::DateTime), subject: T.nilable(::String), visibility: T.nilable(::String)).void }
       def initialize(activity_type: nil, body: nil, candidate_id: nil, field_mappings: nil, remote_created_at: nil, subject: nil, visibility: nil)
         @activity_type = activity_type
         @body = body

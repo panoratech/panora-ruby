@@ -1,5 +1,6 @@
 # Webhooks
 
+## Overview
 
 ### Available Operations
 
@@ -35,10 +36,11 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListWebhooksResponse)](../../models/operations/listwebhooksresponse.md)**
+
+
 
 
 ## create
@@ -63,7 +65,7 @@ req = ::OpenApiSDK::Shared::WebhookDto.new(
   url: "https://acme.com/webhook_receiver",
   description: "Webhook to receive connection events",
   scope: [
-    "<value>",
+    "connection.created",
   ],
 )
     
@@ -81,10 +83,11 @@ end
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `request`                                                             | [::OpenApiSDK::Shared::WebhookDto](../../models/shared/webhookdto.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateWebhookPublicResponse)](../../models/operations/createwebhookpublicresponse.md)**
+
+
 
 
 ## delete
@@ -119,10 +122,11 @@ end
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | `id`                                 | *::String*                           | :heavy_check_mark:                   | id of the webhook to delete.         | 801f9ede-c698-4e66-a7fc-48d19eebaa4f |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DeleteResponse)](../../models/operations/deleteresponse.md)**
+
+
 
 
 ## update_status
@@ -157,10 +161,11 @@ end
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | `id`                                 | *::String*                           | :heavy_check_mark:                   | id of the webhook to update.         | 801f9ede-c698-4e66-a7fc-48d19eebaa4f |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpdateStatusResponse)](../../models/operations/updatestatusresponse.md)**
+
+
 
 
 ## verify_event
@@ -183,7 +188,7 @@ s.config_security(
 
 req = ::OpenApiSDK::Shared::SignatureVerificationDto.new(
   payload: {
-    "East": "<value>",
+    "key": "<value>",
   },
   signature: "<value>",
   secret: "<value>",
@@ -203,8 +208,8 @@ end
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::OpenApiSDK::Shared::SignatureVerificationDto](../../models/shared/signatureverificationdto.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::VerifyEventResponse)](../../models/operations/verifyeventresponse.md)**
+
 

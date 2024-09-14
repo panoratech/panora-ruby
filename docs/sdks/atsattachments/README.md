@@ -1,5 +1,6 @@
 # AtsAttachments
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListAtsAttachmentResponse)](../../models/operations/listatsattachmentresponse.md)**
+
+
 
 
 ## create
@@ -67,16 +69,17 @@ s.config_security(
 
     
 res = s.ats_attachments.create(x_connection_token="<value>", unified_ats_attachment_input=::OpenApiSDK::Shared::UnifiedAtsAttachmentInput.new(
-    file_url: "https://example.com/file.pdf",
-    file_name: "file.pdf",
-    attachment_type: ::OpenApiSDK::Shared::UnifiedAtsAttachmentInputAttachmentType::RESUME,
-    remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    remote_modified_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    field_mappings: {
-      "online": "<value>",
-    },
-  ), remote_data=false)
+  file_url: "https://example.com/file.pdf",
+  file_name: "file.pdf",
+  attachment_type: "RESUME",
+  remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  remote_modified_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  candidate_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  field_mappings: {
+    "fav_dish": "broccoli",
+    "fav_color": "red",
+  },
+), remote_data=false)
 
 if ! res.unified_ats_attachment_output.nil?
   # handle response
@@ -92,10 +95,11 @@ end
 | `unified_ats_attachment_input`                                                                      | [::OpenApiSDK::Shared::UnifiedAtsAttachmentInput](../../models/shared/unifiedatsattachmentinput.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |                                                                                                     |
 | `remote_data`                                                                                       | *T::Boolean*                                                                                        | :heavy_minus_sign:                                                                                  | Set to true to include data from the original Ats software.                                         | false                                                                                               |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateAtsAttachmentResponse)](../../models/operations/createatsattachmentresponse.md)**
+
+
 
 
 ## retrieve
@@ -132,8 +136,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the attachment you want to retrieve.                  | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. | false                                                       |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveAtsAttachmentResponse)](../../models/operations/retrieveatsattachmentresponse.md)**
+
 

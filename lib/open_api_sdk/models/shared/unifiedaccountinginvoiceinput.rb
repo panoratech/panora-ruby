@@ -11,10 +11,68 @@ module OpenApiSDK
     class UnifiedAccountingInvoiceInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated accounting period
+      field :accounting_period_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accounting_period_id') } }
+      # The remaining balance on the invoice
+      field :balance, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('balance') } }
+      # The UUID of the associated contact
+      field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
+      # The currency of the invoice
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The due date of the invoice
+      field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The exchange rate applied to the invoice
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingInvoiceInputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The date the invoice was issued
+      field :issue_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('issue_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The line items associated with this invoice
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # A memo or note on the invoice
+      field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('memo') } }
+      # The invoice number
+      field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('number') } }
+      # The date the invoice was paid
+      field :paid_on_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paid_on_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The status of the invoice
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The subtotal of the invoice
+      field :sub_total, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sub_total') } }
+      # The total amount of the invoice
+      field :total_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_amount') } }
+      # The total discount applied to the invoice
+      field :total_discount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_discount') } }
+      # The total tax amount on the invoice
+      field :total_tax_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_tax_amount') } }
+      # The UUIDs of the tracking categories associated with the invoice
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The type of the invoice
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      
-      def initialize; end
+      sig { params(accounting_period_id: T.nilable(::String), balance: T.nilable(::Float), contact_id: T.nilable(::String), currency: T.nilable(::String), due_date: T.nilable(::DateTime), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingInvoiceInputFieldMappings), issue_date: T.nilable(::DateTime), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), memo: T.nilable(::String), number: T.nilable(::String), paid_on_date: T.nilable(::DateTime), status: T.nilable(::String), sub_total: T.nilable(::Float), total_amount: T.nilable(::Float), total_discount: T.nilable(::Float), total_tax_amount: T.nilable(::Float), tracking_categories: T.nilable(T::Array[::String]), type: T.nilable(::String)).void }
+      def initialize(accounting_period_id: nil, balance: nil, contact_id: nil, currency: nil, due_date: nil, exchange_rate: nil, field_mappings: nil, issue_date: nil, line_items: nil, memo: nil, number: nil, paid_on_date: nil, status: nil, sub_total: nil, total_amount: nil, total_discount: nil, total_tax_amount: nil, tracking_categories: nil, type: nil)
+        @accounting_period_id = accounting_period_id
+        @balance = balance
+        @contact_id = contact_id
+        @currency = currency
+        @due_date = due_date
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @issue_date = issue_date
+        @line_items = line_items
+        @memo = memo
+        @number = number
+        @paid_on_date = paid_on_date
+        @status = status
+        @sub_total = sub_total
+        @total_amount = total_amount
+        @total_discount = total_discount
+        @total_tax_amount = total_tax_amount
+        @tracking_categories = tracking_categories
+        @type = type
+      end
     end
   end
 end

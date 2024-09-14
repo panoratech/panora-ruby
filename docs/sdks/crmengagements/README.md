@@ -1,5 +1,6 @@
 # CrmEngagements
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListCrmEngagementsResponse)](../../models/operations/listcrmengagementsresponse.md)**
+
+
 
 
 ## create
@@ -67,21 +69,22 @@ s.config_security(
 
     
 res = s.crm_engagements.create(x_connection_token="<value>", unified_crm_engagement_input=::OpenApiSDK::Shared::UnifiedCrmEngagementInput.new(
-    content: "Meeting call with CTO",
-    direction: ::OpenApiSDK::Shared::UnifiedCrmEngagementInputDirection::INBOUND,
-    subject: "Technical features planning",
-    start_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    end_time: DateTime.iso8601('2024-10-01T22:00:00Z'),
-    type: ::OpenApiSDK::Shared::UnifiedCrmEngagementInputType::MEETING,
-    user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    company_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    contacts: [
-      "<value>",
-    ],
-    field_mappings: {
-      "online": "<value>",
-    },
-  ), remote_data=false)
+  content: "Meeting call with CTO",
+  direction: "INBOUND",
+  subject: "Technical features planning",
+  start_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  end_time: DateTime.iso8601('2024-10-01T22:00:00Z'),
+  type: "MEETING",
+  user_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  company_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  contacts: [
+    "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  ],
+  field_mappings: {
+    "fav_dish": "broccoli",
+    "fav_color": "red",
+  },
+), remote_data=false)
 
 if ! res.unified_crm_engagement_output.nil?
   # handle response
@@ -97,10 +100,11 @@ end
 | `unified_crm_engagement_input`                                                                      | [::OpenApiSDK::Shared::UnifiedCrmEngagementInput](../../models/shared/unifiedcrmengagementinput.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |                                                                                                     |
 | `remote_data`                                                                                       | *T::Boolean*                                                                                        | :heavy_minus_sign:                                                                                  | Set to true to include data from the original Crm software.                                         | false                                                                                               |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateCrmEngagementResponse)](../../models/operations/createcrmengagementresponse.md)**
+
+
 
 
 ## retrieve
@@ -137,8 +141,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the engagement you want to retrieve.                  | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Crm software. | false                                                       |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveCrmEngagementResponse)](../../models/operations/retrievecrmengagementresponse.md)**
+
 

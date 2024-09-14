@@ -1,15 +1,16 @@
 # EcommerceProducts
 
+## Overview
 
 ### Available Operations
 
-* [list](#list) - List a batch of Products
+* [list](#list) - List Products
 * [create](#create) - Create Products
-* [retrieve](#retrieve) - Retrieve a Product
+* [retrieve](#retrieve) - Retrieve Products
 
 ## list
 
-List a batch of Products
+List Products
 
 ### Example Usage
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListEcommerceProductsResponse)](../../models/operations/listecommerceproductsresponse.md)**
+
+
 
 
 ## create
@@ -66,7 +68,23 @@ s.config_security(
 )
 
     
-res = s.ecommerce_products.create(x_connection_token="<value>", unified_ecommerce_product_input=::OpenApiSDK::Shared::UnifiedEcommerceProductInput.new(), remote_data=false)
+res = s.ecommerce_products.create(x_connection_token="<value>", unified_ecommerce_product_input=::OpenApiSDK::Shared::UnifiedEcommerceProductInput.new(
+  product_url: "https://product_url/tee",
+  product_type: "teeshirt",
+  product_status: "ACTIVE",
+  images_urls: [
+    "https://myproduct/image",
+  ],
+  description: "best tee ever",
+  vendor: "vendor_extern",
+  variants: [
+    ::OpenApiSDK::Shared::Variant.new(),
+  ],
+  tags: [
+    "tag_1",
+  ],
+  field_mappings: ::OpenApiSDK::Shared::UnifiedEcommerceProductInputFieldMappings.new(),
+), remote_data=false)
 
 if ! res.unified_ecommerce_product_output.nil?
   # handle response
@@ -82,15 +100,16 @@ end
 | `unified_ecommerce_product_input`                                                                         | [::OpenApiSDK::Shared::UnifiedEcommerceProductInput](../../models/shared/unifiedecommerceproductinput.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |                                                                                                           |
 | `remote_data`                                                                                             | *T::Boolean*                                                                                              | :heavy_minus_sign:                                                                                        | Set to true to include data from the original Accounting software.                                        | false                                                                                                     |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateEcommerceProductResponse)](../../models/operations/createecommerceproductresponse.md)**
 
 
+
+
 ## retrieve
 
-Retrieve a product from any connected Ats software
+Retrieve products from any connected Ats software
 
 ### Example Usage
 
@@ -106,7 +125,7 @@ s.config_security(
 )
 
     
-res = s.ecommerce_products.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ecommerce_products.retrieve(x_connection_token="<value>", id="<id>", remote_data=false)
 
 if ! res.unified_ecommerce_product_output.nil?
   # handle response
@@ -122,8 +141,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the product you want to retrieve.                     |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveEcommerceProductResponse)](../../models/operations/retrieveecommerceproductresponse.md)**
+
 

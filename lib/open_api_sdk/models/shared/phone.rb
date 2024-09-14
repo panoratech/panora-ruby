@@ -14,12 +14,12 @@ module OpenApiSDK
       # The phone number starting with a plus (+) followed by the country code (e.g +336676778890 for France)
       field :phone_number, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_number') } }
       # The phone type. Authorized values are either MOBILE or WORK
-      field :phone_type, ::OpenApiSDK::Shared::PhoneType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::PhoneType, false) } }
+      field :phone_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_type') } }
       # The owner type of a phone number
       field :owner_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('owner_type') } }
 
 
-      sig { params(phone_number: ::String, phone_type: ::OpenApiSDK::Shared::PhoneType, owner_type: T.nilable(::String)).void }
+      sig { params(phone_number: ::String, phone_type: ::String, owner_type: T.nilable(::String)).void }
       def initialize(phone_number: nil, phone_type: nil, owner_type: nil)
         @phone_number = phone_number
         @phone_type = phone_type

@@ -11,10 +11,47 @@ module OpenApiSDK
     class UnifiedHrisTimeoffbalanceOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The current balance of time off
+      field :balance, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('balance') } }
+      # The created date of the time off balance record
+      field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at') } }
+      # The UUID of the associated employee
+      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_id') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffbalanceOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the time off balance record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the time off balance record
+      field :modified_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
+      # The type of time off policy
+      field :policy_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('policy_type') } }
+      # The date when the time off balance was created in the 3rd party system
+      field :remote_created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at') } }
+      # The remote data of the time off balance in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffbalanceOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the time off balance in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the time off balance was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
+      # The amount of time off used
+      field :used, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('used') } }
 
 
-      
-      def initialize; end
+      sig { params(balance: T.nilable(::Float), created_at: T.nilable(::String), employee_id: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffbalanceOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::String), policy_type: T.nilable(::String), remote_created_at: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffbalanceOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean), used: T.nilable(::Float)).void }
+      def initialize(balance: nil, created_at: nil, employee_id: nil, field_mappings: nil, id: nil, modified_at: nil, policy_type: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil, used: nil)
+        @balance = balance
+        @created_at = created_at
+        @employee_id = employee_id
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @policy_type = policy_type
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+        @used = used
+      end
     end
   end
 end

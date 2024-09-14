@@ -11,10 +11,74 @@ module OpenApiSDK
     class UnifiedAccountingCreditnoteOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated accounting period
+      field :accounting_period_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accounting_period_id') } }
+      # The applied payments associated with the credit note
+      field :applied_payments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applied_payments') } }
+      # The UUID of the associated company
+      field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The UUID of the associated contact
+      field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
+      # The created date of the credit note record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the credit note
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The exchange rate applied to the credit note
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCreditnoteOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the credit note record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the credit note record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The number of the credit note
+      field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('number') } }
+      # The payments associated with the credit note
+      field :payments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payments') } }
+      # The remaining credit on the credit note
+      field :remaining_credit, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remaining_credit') } }
+      # The date when the credit note was created in the remote system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the credit note in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCreditnoteOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the credit note in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The date when the credit note was last updated in the remote system
+      field :remote_updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The status of the credit note
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The total amount of the credit note
+      field :total_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_amount') } }
+      # The UUIDs of the tracking categories associated with the credit note
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The date of the credit note transaction
+      field :transaction_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      
-      def initialize; end
+      sig { params(accounting_period_id: T.nilable(::String), applied_payments: T.nilable(T::Array[::String]), company_id: T.nilable(::String), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCreditnoteOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), number: T.nilable(::String), payments: T.nilable(T::Array[::String]), remaining_credit: T.nilable(::Float), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCreditnoteOutputRemoteData), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), status: T.nilable(::String), total_amount: T.nilable(::Float), tracking_categories: T.nilable(T::Array[::String]), transaction_date: T.nilable(::DateTime)).void }
+      def initialize(accounting_period_id: nil, applied_payments: nil, company_id: nil, contact_id: nil, created_at: nil, currency: nil, exchange_rate: nil, field_mappings: nil, id: nil, modified_at: nil, number: nil, payments: nil, remaining_credit: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, status: nil, total_amount: nil, tracking_categories: nil, transaction_date: nil)
+        @accounting_period_id = accounting_period_id
+        @applied_payments = applied_payments
+        @company_id = company_id
+        @contact_id = contact_id
+        @created_at = created_at
+        @currency = currency
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @number = number
+        @payments = payments
+        @remaining_credit = remaining_credit
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_updated_at = remote_updated_at
+        @status = status
+        @total_amount = total_amount
+        @tracking_categories = tracking_categories
+        @transaction_date = transaction_date
+      end
     end
   end
 end

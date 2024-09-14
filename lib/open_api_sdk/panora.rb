@@ -13,7 +13,7 @@ module OpenApiSDK
   class Panora
     extend T::Sig
 
-    attr_accessor :auth_login, :connections, :webhooks, :ticketing_tickets, :ticketing_users, :ticketing_accounts, :ticketing_contacts, :sync, :crm_companies, :crm_contacts, :crm_deals, :crm_engagements, :crm_notes, :crm_stages, :crm_tasks, :crm_users, :ticketing_collections, :ticketing_comments, :ticketing_tags, :ticketing_teams, :linked_users, :projects, :field_mappings, :events, :passthrough, :passthrough_retryid, :hris_bankinfos, :hris_benefits, :hris_companies, :hris_dependents, :hris_employeepayrollruns, :hris_employees, :hris_employerbenefits, :hris_employments, :hris_groups, :hris_locations, :hris_paygroups, :hris_payrollruns, :hris_timeoffs, :hris_timeoffbalances, :marketingautomation_actions, :marketingautomation_automations, :marketingautomation_campaigns, :marketingautomation_contacts, :marketingautomation_emails, :marketingautomation_events, :marketingautomation_lists, :marketingautomation_messages, :marketingautomation_templates, :marketingautomation_users, :ats_activities, :ats_applications, :ats_attachments, :ats_candidates, :ats_departments, :ats_interviews, :ats_jobinterviewstages, :ats_jobs, :ats_offers, :ats_offices, :ats_rejectreasons, :ats_scorecards, :ats_tags, :ats_users, :ats_eeocs, :accounting_accounts, :accounting_addresses, :accounting_attachments, :accounting_balancesheets, :accounting_cashflowstatements, :accounting_companyinfos, :accounting_contacts, :accounting_creditnotes, :accounting_expenses, :accounting_incomestatements, :accounting_invoices, :accounting_items, :accounting_journalentries, :accounting_payments, :accounting_phonenumbers, :accounting_purchaseorders, :accounting_taxrates, :accounting_trackingcategories, :accounting_transactions, :accounting_vendorcredits, :filestorage_drives, :filestorage_files, :filestorage_folders, :filestorage_groups, :filestorage_users, :ecommerce_products, :ecommerce_orders, :ecommerce_customers, :ecommerce_fulfillments, :ticketing_attachments
+    attr_accessor :rag_query, :filestorage_files, :auth_login, :connections, :webhooks, :ticketing_tickets, :ticketing_users, :ticketing_accounts, :ticketing_contacts, :sync, :crm_companies, :crm_contacts, :crm_deals, :crm_engagements, :crm_notes, :crm_stages, :crm_tasks, :crm_users, :ticketing_collections, :ticketing_comments, :ticketing_tags, :ticketing_teams, :linked_users, :projects, :field_mappings, :events, :passthrough, :passthrough_retryid, :hris_bankinfos, :hris_benefits, :hris_companies, :hris_dependents, :hris_employeepayrollruns, :hris_employees, :hris_employerbenefits, :hris_employments, :hris_groups, :hris_locations, :hris_paygroups, :hris_payrollruns, :hris_timeoffs, :hris_timeoffbalances, :hris_timesheetentries, :marketingautomation_actions, :marketingautomation_automations, :marketingautomation_campaigns, :marketingautomation_contacts, :marketingautomation_emails, :marketingautomation_events, :marketingautomation_lists, :marketingautomation_messages, :marketingautomation_templates, :marketingautomation_users, :ats_activities, :ats_applications, :ats_attachments, :ats_candidates, :ats_departments, :ats_interviews, :ats_jobinterviewstages, :ats_jobs, :ats_offers, :ats_offices, :ats_rejectreasons, :ats_scorecards, :ats_tags, :ats_users, :ats_eeocs, :accounting_accounts, :accounting_addresses, :accounting_attachments, :accounting_balancesheets, :accounting_cashflowstatements, :accounting_companyinfos, :accounting_contacts, :accounting_creditnotes, :accounting_expenses, :accounting_incomestatements, :accounting_invoices, :accounting_items, :accounting_journalentries, :accounting_payments, :accounting_phonenumbers, :accounting_purchaseorders, :accounting_taxrates, :accounting_trackingcategories, :accounting_transactions, :accounting_vendorcredits, :filestorage_folders, :filestorage_groups, :filestorage_users, :ecommerce_products, :ecommerce_orders, :ecommerce_customers, :ecommerce_fulfillments, :ticketing_attachments
 
     sig do
       params(client: Faraday::Request,
@@ -75,6 +75,8 @@ module OpenApiSDK
 
     sig { void }
     def init_sdks
+      @rag_query = RagQuery.new(@sdk_configuration)
+      @filestorage_files = FilestorageFiles.new(@sdk_configuration)
       @auth_login = AuthLogin.new(@sdk_configuration)
       @connections = Connections.new(@sdk_configuration)
       @webhooks = Webhooks.new(@sdk_configuration)
@@ -115,6 +117,7 @@ module OpenApiSDK
       @hris_payrollruns = HrisPayrollruns.new(@sdk_configuration)
       @hris_timeoffs = HrisTimeoffs.new(@sdk_configuration)
       @hris_timeoffbalances = HrisTimeoffbalances.new(@sdk_configuration)
+      @hris_timesheetentries = HrisTimesheetentries.new(@sdk_configuration)
       @marketingautomation_actions = MarketingautomationActions.new(@sdk_configuration)
       @marketingautomation_automations = MarketingautomationAutomations.new(@sdk_configuration)
       @marketingautomation_campaigns = MarketingautomationCampaigns.new(@sdk_configuration)
@@ -160,8 +163,6 @@ module OpenApiSDK
       @accounting_trackingcategories = AccountingTrackingcategories.new(@sdk_configuration)
       @accounting_transactions = AccountingTransactions.new(@sdk_configuration)
       @accounting_vendorcredits = AccountingVendorcredits.new(@sdk_configuration)
-      @filestorage_drives = FilestorageDrives.new(@sdk_configuration)
-      @filestorage_files = FilestorageFiles.new(@sdk_configuration)
       @filestorage_folders = FilestorageFolders.new(@sdk_configuration)
       @filestorage_groups = FilestorageGroups.new(@sdk_configuration)
       @filestorage_users = FilestorageUsers.new(@sdk_configuration)

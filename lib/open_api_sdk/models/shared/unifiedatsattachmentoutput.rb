@@ -12,7 +12,7 @@ module OpenApiSDK
       extend T::Sig
 
       # The type of the file
-      field :attachment_type, T.nilable(::OpenApiSDK::Shared::AttachmentType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachment_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::AttachmentType, true) } }
+      field :attachment_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachment_type') } }
       # The UUID of the candidate
       field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_id') } }
       # The created date of the object
@@ -37,7 +37,7 @@ module OpenApiSDK
       field :remote_modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(attachment_type: T.nilable(::OpenApiSDK::Shared::AttachmentType), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), file_name: T.nilable(::String), file_url: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_modified_at: T.nilable(::DateTime)).void }
+      sig { params(attachment_type: T.nilable(::String), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), file_name: T.nilable(::String), file_url: T.nilable(::String), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), remote_modified_at: T.nilable(::DateTime)).void }
       def initialize(attachment_type: nil, candidate_id: nil, created_at: nil, field_mappings: nil, file_name: nil, file_url: nil, id: nil, modified_at: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_modified_at: nil)
         @attachment_type = attachment_type
         @candidate_id = candidate_id

@@ -1,5 +1,6 @@
 # TicketingAttachments
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListTicketingAttachmentsResponse)](../../models/operations/listticketingattachmentsresponse.md)**
+
+
 
 
 ## create
@@ -67,15 +69,16 @@ s.config_security(
 
     
 res = s.ticketing_attachments.create(x_connection_token="<value>", unified_ticketing_attachment_input=::OpenApiSDK::Shared::UnifiedTicketingAttachmentInput.new(
-    file_name: "features_planning.pdf",
-    file_url: "https://example.com/features_planning.pdf",
-    uploader: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    ticket_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    comment_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    field_mappings: {
-      "online": "<value>",
-    },
-  ), remote_data=false)
+  file_name: "features_planning.pdf",
+  file_url: "https://example.com/features_planning.pdf",
+  uploader: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  ticket_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  comment_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  field_mappings: {
+    "fav_dish": "broccoli",
+    "fav_color": "red",
+  },
+), remote_data=false)
 
 if ! res.unified_ticketing_attachment_output.nil?
   # handle response
@@ -91,10 +94,11 @@ end
 | `unified_ticketing_attachment_input`                                                                            | [::OpenApiSDK::Shared::UnifiedTicketingAttachmentInput](../../models/shared/unifiedticketingattachmentinput.md) | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
 | `remote_data`                                                                                                   | *T::Boolean*                                                                                                    | :heavy_minus_sign:                                                                                              | Set to true to include data from the original Ticketing software.                                               |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateTicketingAttachmentResponse)](../../models/operations/createticketingattachmentresponse.md)**
+
+
 
 
 ## retrieve
@@ -131,8 +135,8 @@ end
 | `id`                                                              | *::String*                                                        | :heavy_check_mark:                                                | id of the attachment you want to retrive.                         | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                              |
 | `remote_data`                                                     | *T::Boolean*                                                      | :heavy_minus_sign:                                                | Set to true to include data from the original Ticketing software. | false                                                             |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveTicketingAttachmentResponse)](../../models/operations/retrieveticketingattachmentresponse.md)**
+
 

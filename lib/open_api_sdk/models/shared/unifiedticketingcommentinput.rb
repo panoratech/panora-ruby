@@ -18,7 +18,7 @@ module OpenApiSDK
       # The UUID of the contact which the comment belongs to (if no user_id specified)
       field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
       # The creator type of the comment. Authorized values are either USER or CONTACT
-      field :creator_type, T.nilable(::OpenApiSDK::Shared::UnifiedTicketingCommentInputCreatorType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('creator_type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedTicketingCommentInputCreatorType, true) } }
+      field :creator_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('creator_type') } }
       # The html body of the comment
       field :html_body, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('html_body') } }
       # The public status of the comment
@@ -29,7 +29,7 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(body: ::String, attachments: T.nilable(T::Array[::Object]), contact_id: T.nilable(::String), creator_type: T.nilable(::OpenApiSDK::Shared::UnifiedTicketingCommentInputCreatorType), html_body: T.nilable(::String), is_private: T.nilable(T::Boolean), ticket_id: T.nilable(::String), user_id: T.nilable(::String)).void }
+      sig { params(body: ::String, attachments: T.nilable(T::Array[::Object]), contact_id: T.nilable(::String), creator_type: T.nilable(::String), html_body: T.nilable(::String), is_private: T.nilable(T::Boolean), ticket_id: T.nilable(::String), user_id: T.nilable(::String)).void }
       def initialize(body: nil, attachments: nil, contact_id: nil, creator_type: nil, html_body: nil, is_private: nil, ticket_id: nil, user_id: nil)
         @body = body
         @attachments = attachments

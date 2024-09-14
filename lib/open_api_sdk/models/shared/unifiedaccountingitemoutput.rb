@@ -11,10 +11,53 @@ module OpenApiSDK
     class UnifiedAccountingItemOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The created date of the accounting item record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingItemOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the accounting item record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the accounting item record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the accounting item
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The UUID of the associated purchase account
+      field :purchase_account, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('purchase_account') } }
+      # The purchase price of the item in cents
+      field :purchase_price, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('purchase_price') } }
+      # The remote data of the item in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingItemOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the item in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The date when the item was last updated in the remote system
+      field :remote_updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The UUID of the associated sales account
+      field :sales_account, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sales_account') } }
+      # The status of the accounting item
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The unit price of the item in cents
+      field :unit_price, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('unit_price') } }
 
 
-      
-      def initialize; end
+      sig { params(company_info_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingItemOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), purchase_account: T.nilable(::String), purchase_price: T.nilable(::Float), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingItemOutputRemoteData), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), sales_account: T.nilable(::String), status: T.nilable(::String), unit_price: T.nilable(::Float)).void }
+      def initialize(company_info_id: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, name: nil, purchase_account: nil, purchase_price: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, sales_account: nil, status: nil, unit_price: nil)
+        @company_info_id = company_info_id
+        @created_at = created_at
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @name = name
+        @purchase_account = purchase_account
+        @purchase_price = purchase_price
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_updated_at = remote_updated_at
+        @sales_account = sales_account
+        @status = status
+        @unit_price = unit_price
+      end
     end
   end
 end

@@ -11,10 +11,41 @@ module OpenApiSDK
     class UnifiedAccountingContactInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The currency associated with the contact
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The email address of the contact
+      field :email_address, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingContactInputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # Indicates if the contact is a customer
+      field :is_customer, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_customer') } }
+      # Indicates if the contact is a supplier
+      field :is_supplier, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_supplier') } }
+      # The name of the contact
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The date when the contact was last updated in the remote system
+      field :remote_updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at') } }
+      # The status of the contact
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The tax number of the contact
+      field :tax_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tax_number') } }
 
 
-      
-      def initialize; end
+      sig { params(company_info_id: T.nilable(::String), currency: T.nilable(::String), email_address: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingContactInputFieldMappings), is_customer: T.nilable(T::Boolean), is_supplier: T.nilable(T::Boolean), name: T.nilable(::String), remote_updated_at: T.nilable(::String), status: T.nilable(::String), tax_number: T.nilable(::String)).void }
+      def initialize(company_info_id: nil, currency: nil, email_address: nil, field_mappings: nil, is_customer: nil, is_supplier: nil, name: nil, remote_updated_at: nil, status: nil, tax_number: nil)
+        @company_info_id = company_info_id
+        @currency = currency
+        @email_address = email_address
+        @field_mappings = field_mappings
+        @is_customer = is_customer
+        @is_supplier = is_supplier
+        @name = name
+        @remote_updated_at = remote_updated_at
+        @status = status
+        @tax_number = tax_number
+      end
     end
   end
 end

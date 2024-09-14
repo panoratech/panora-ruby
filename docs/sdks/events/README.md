@@ -1,5 +1,6 @@
 # Events
 
+## Overview
 
 ### Available Operations
 
@@ -38,8 +39,8 @@ end
 | `page`             | *::Float*          | :heavy_minus_sign: | N/A                |
 | `limit`            | *::Float*          | :heavy_minus_sign: | N/A                |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetPanoraCoreEventsResponse)](../../models/operations/getpanoracoreeventsresponse.md)**
+
 

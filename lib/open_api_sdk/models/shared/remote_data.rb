@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Shared
   
-    # The remote data of the customer in the context of the 3rd Party
+    # The remote data of the bank info in the context of the 3rd Party
     class RemoteData < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 

@@ -11,10 +11,68 @@ module OpenApiSDK
     class UnifiedHrisDependentOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The created date of the dependent record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The date of birth of the dependent
+      field :date_of_birth, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The UUID of the associated employee
+      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_id') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisDependentOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The first name of the dependent
+      field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name') } }
+      # The gender of the dependent
+      field :gender, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gender') } }
+      # The UUID of the home location
+      field :home_location, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('home_location') } }
+      # The UUID of the dependent record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # Indicates if the dependent is a student
+      field :is_student, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_student') } }
+      # The last name of the dependent
+      field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('last_name') } }
+      # The middle name of the dependent
+      field :middle_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('middle_name') } }
+      # The last modified date of the dependent record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The phone number of the dependent
+      field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_number') } }
+      # The relationship of the dependent to the employee
+      field :relationship, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('relationship') } }
+      # The date when the dependent was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the dependent in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisDependentOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the dependent in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the dependent was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
+      # The Social Security Number of the dependent
+      field :ssn, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ssn') } }
 
 
-      
-      def initialize; end
+      sig { params(created_at: T.nilable(::DateTime), date_of_birth: T.nilable(::DateTime), employee_id: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisDependentOutputFieldMappings), first_name: T.nilable(::String), gender: T.nilable(::String), home_location: T.nilable(::String), id: T.nilable(::String), is_student: T.nilable(T::Boolean), last_name: T.nilable(::String), middle_name: T.nilable(::String), modified_at: T.nilable(::DateTime), phone_number: T.nilable(::String), relationship: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisDependentOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean), ssn: T.nilable(::String)).void }
+      def initialize(created_at: nil, date_of_birth: nil, employee_id: nil, field_mappings: nil, first_name: nil, gender: nil, home_location: nil, id: nil, is_student: nil, last_name: nil, middle_name: nil, modified_at: nil, phone_number: nil, relationship: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil, ssn: nil)
+        @created_at = created_at
+        @date_of_birth = date_of_birth
+        @employee_id = employee_id
+        @field_mappings = field_mappings
+        @first_name = first_name
+        @gender = gender
+        @home_location = home_location
+        @id = id
+        @is_student = is_student
+        @last_name = last_name
+        @middle_name = middle_name
+        @modified_at = modified_at
+        @phone_number = phone_number
+        @relationship = relationship
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+        @ssn = ssn
+      end
     end
   end
 end

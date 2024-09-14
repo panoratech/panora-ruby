@@ -11,10 +11,86 @@ module OpenApiSDK
     class UnifiedAccountingInvoiceOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated accounting period
+      field :accounting_period_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accounting_period_id') } }
+      # The remaining balance on the invoice
+      field :balance, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('balance') } }
+      # The UUID of the associated contact
+      field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
+      # The created date of the invoice record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the invoice
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The due date of the invoice
+      field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The exchange rate applied to the invoice
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingInvoiceOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the invoice record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The date the invoice was issued
+      field :issue_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('issue_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The line items associated with this invoice
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # A memo or note on the invoice
+      field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('memo') } }
+      # The last modified date of the invoice record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The invoice number
+      field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('number') } }
+      # The date the invoice was paid
+      field :paid_on_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paid_on_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the invoice in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingInvoiceOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the invoice in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The date when the invoice was last updated in the remote system
+      field :remote_updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The status of the invoice
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The subtotal of the invoice
+      field :sub_total, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sub_total') } }
+      # The total amount of the invoice
+      field :total_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_amount') } }
+      # The total discount applied to the invoice
+      field :total_discount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_discount') } }
+      # The total tax amount on the invoice
+      field :total_tax_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_tax_amount') } }
+      # The UUIDs of the tracking categories associated with the invoice
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The type of the invoice
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      
-      def initialize; end
+      sig { params(accounting_period_id: T.nilable(::String), balance: T.nilable(::Float), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), due_date: T.nilable(::DateTime), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingInvoiceOutputFieldMappings), id: T.nilable(::String), issue_date: T.nilable(::DateTime), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), memo: T.nilable(::String), modified_at: T.nilable(::DateTime), number: T.nilable(::String), paid_on_date: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingInvoiceOutputRemoteData), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), status: T.nilable(::String), sub_total: T.nilable(::Float), total_amount: T.nilable(::Float), total_discount: T.nilable(::Float), total_tax_amount: T.nilable(::Float), tracking_categories: T.nilable(T::Array[::String]), type: T.nilable(::String)).void }
+      def initialize(accounting_period_id: nil, balance: nil, contact_id: nil, created_at: nil, currency: nil, due_date: nil, exchange_rate: nil, field_mappings: nil, id: nil, issue_date: nil, line_items: nil, memo: nil, modified_at: nil, number: nil, paid_on_date: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, status: nil, sub_total: nil, total_amount: nil, total_discount: nil, total_tax_amount: nil, tracking_categories: nil, type: nil)
+        @accounting_period_id = accounting_period_id
+        @balance = balance
+        @contact_id = contact_id
+        @created_at = created_at
+        @currency = currency
+        @due_date = due_date
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @id = id
+        @issue_date = issue_date
+        @line_items = line_items
+        @memo = memo
+        @modified_at = modified_at
+        @number = number
+        @paid_on_date = paid_on_date
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_updated_at = remote_updated_at
+        @status = status
+        @sub_total = sub_total
+        @total_amount = total_amount
+        @total_discount = total_discount
+        @total_tax_amount = total_tax_amount
+        @tracking_categories = tracking_categories
+        @type = type
+      end
     end
   end
 end

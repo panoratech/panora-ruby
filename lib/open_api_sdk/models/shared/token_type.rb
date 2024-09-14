@@ -15,6 +15,5 @@ module OpenApiSDK
         BASIC = new('basic')
       end
     end
-
   end
 end

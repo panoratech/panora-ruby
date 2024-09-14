@@ -1,6 +1,5 @@
 # Panora SDK
 
-
 ## Overview
 
 Panora API: A unified API to ship integrations
@@ -34,10 +33,11 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::HelloResponse)](../../models/operations/helloresponse.md)**
+
+
 
 
 ## health
@@ -64,8 +64,8 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::HealthResponse)](../../models/operations/healthresponse.md)**
+
 

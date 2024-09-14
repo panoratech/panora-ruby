@@ -1,5 +1,6 @@
 # FilestorageFolders
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListFilestorageFolderResponse)](../../models/operations/listfilestoragefolderresponse.md)**
+
+
 
 
 ## create
@@ -67,18 +69,19 @@ s.config_security(
 
     
 res = s.filestorage_folders.create(x_connection_token="<value>", unified_filestorage_folder_input=::OpenApiSDK::Shared::UnifiedFilestorageFolderInput.new(
-    name: "school",
-    size: "2048",
-    folder_url: "https://example.com/school",
-    description: "All things school related",
-    drive_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    parent_folder_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    shared_link: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    permission: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    field_mappings: {
-      "online": "<value>",
-    },
-  ), remote_data=false)
+  name: "school",
+  size: "2048",
+  folder_url: "https://example.com/school",
+  description: "All things school related",
+  drive_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  parent_folder_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  shared_link: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  permission: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  field_mappings: {
+    "fav_dish": "broccoli",
+    "fav_color": "red",
+  },
+), remote_data=false)
 
 if ! res.unified_filestorage_folder_output.nil?
   # handle response
@@ -94,10 +97,11 @@ end
 | `unified_filestorage_folder_input`                                                                          | [::OpenApiSDK::Shared::UnifiedFilestorageFolderInput](../../models/shared/unifiedfilestoragefolderinput.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |                                                                                                             |
 | `remote_data`                                                                                               | *T::Boolean*                                                                                                | :heavy_minus_sign:                                                                                          | Set to true to include data from the original Accounting software.                                          | false                                                                                                       |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateFilestorageFolderResponse)](../../models/operations/createfilestoragefolderresponse.md)**
+
+
 
 
 ## retrieve
@@ -134,8 +138,8 @@ end
 | `id`                                                                 | *::String*                                                           | :heavy_check_mark:                                                   | id of the folder you want to retrieve.                               | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                                 |
 | `remote_data`                                                        | *T::Boolean*                                                         | :heavy_minus_sign:                                                   | Set to true to include data from the original File Storage software. | false                                                                |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveFilestorageFolderResponse)](../../models/operations/retrievefilestoragefolderresponse.md)**
+
 

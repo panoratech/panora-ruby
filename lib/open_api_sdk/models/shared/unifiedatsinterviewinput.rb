@@ -32,10 +32,10 @@ module OpenApiSDK
       # The start date and time of the interview
       field :start_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The status of the interview
-      field :status, T.nilable(::OpenApiSDK::Shared::UnifiedAtsInterviewInputStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedAtsInterviewInputStatus, true) } }
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
 
 
-      sig { params(application_id: T.nilable(::String), end_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), interviewers: T.nilable(T::Array[::String]), job_interview_stage_id: T.nilable(::String), location: T.nilable(::String), organized_by: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), start_at: T.nilable(::DateTime), status: T.nilable(::OpenApiSDK::Shared::UnifiedAtsInterviewInputStatus)).void }
+      sig { params(application_id: T.nilable(::String), end_at: T.nilable(::DateTime), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), interviewers: T.nilable(T::Array[::String]), job_interview_stage_id: T.nilable(::String), location: T.nilable(::String), organized_by: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), start_at: T.nilable(::DateTime), status: T.nilable(::String)).void }
       def initialize(application_id: nil, end_at: nil, field_mappings: nil, interviewers: nil, job_interview_stage_id: nil, location: nil, organized_by: nil, remote_created_at: nil, remote_updated_at: nil, start_at: nil, status: nil)
         @application_id = application_id
         @end_at = end_at

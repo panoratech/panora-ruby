@@ -20,7 +20,7 @@ module OpenApiSDK
       # The UUID of the fulfilment
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The items in the fulfilment
-      field :items, T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceFulfillmentOutputItems), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('items') } }
+      field :items, T.nilable(::OpenApiSDK::Shared::Items), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('items') } }
       # The modified date of the object
       field :modified_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The UUID of the order associated with the fulfilment
@@ -35,7 +35,7 @@ module OpenApiSDK
       field :tracking_urls, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_urls') } }
 
 
-      sig { params(carrier: T.nilable(::String), created_at: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceFulfillmentOutputFieldMappings), id: T.nilable(::String), items: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceFulfillmentOutputItems), modified_at: T.nilable(::String), order_id: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceFulfillmentOutputRemoteData), remote_id: T.nilable(::String), tracking_numbers: T.nilable(T::Array[::String]), tracking_urls: T.nilable(T::Array[::String])).void }
+      sig { params(carrier: T.nilable(::String), created_at: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceFulfillmentOutputFieldMappings), id: T.nilable(::String), items: T.nilable(::OpenApiSDK::Shared::Items), modified_at: T.nilable(::String), order_id: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceFulfillmentOutputRemoteData), remote_id: T.nilable(::String), tracking_numbers: T.nilable(T::Array[::String]), tracking_urls: T.nilable(T::Array[::String])).void }
       def initialize(carrier: nil, created_at: nil, field_mappings: nil, id: nil, items: nil, modified_at: nil, order_id: nil, remote_data: nil, remote_id: nil, tracking_numbers: nil, tracking_urls: nil)
         @carrier = carrier
         @created_at = created_at

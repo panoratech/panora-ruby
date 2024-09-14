@@ -20,7 +20,7 @@ module OpenApiSDK
       # The custom field mappings of the company between the remote 3rd party & Panora
       field :field_mappings, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The industry of the company. Authorized values can be found in the Industry enum.
-      field :industry, T.nilable(::OpenApiSDK::Shared::UnifiedCrmCompanyInputIndustry), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('industry'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::UnifiedCrmCompanyInputIndustry, true) } }
+      field :industry, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('industry') } }
       # The number of employees of the company
       field :number_of_employees, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('number_of_employees') } }
       # The phone numbers of the company
@@ -29,7 +29,7 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
 
 
-      sig { params(name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), industry: T.nilable(::OpenApiSDK::Shared::UnifiedCrmCompanyInputIndustry), number_of_employees: T.nilable(::Float), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), user_id: T.nilable(::String)).void }
+      sig { params(name: ::String, addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Address]), email_addresses: T.nilable(T::Array[::OpenApiSDK::Shared::Email]), field_mappings: T.nilable(T::Hash[Symbol, ::Object]), industry: T.nilable(::String), number_of_employees: T.nilable(::Float), phone_numbers: T.nilable(T::Array[::OpenApiSDK::Shared::Phone]), user_id: T.nilable(::String)).void }
       def initialize(name: nil, addresses: nil, email_addresses: nil, field_mappings: nil, industry: nil, number_of_employees: nil, phone_numbers: nil, user_id: nil)
         @name = name
         @addresses = addresses

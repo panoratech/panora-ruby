@@ -11,10 +11,62 @@ module OpenApiSDK
     class UnifiedHrisTimeoffOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The amount of time off requested
+      field :amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
+      # The UUID of the approver for the time off request
+      field :approver, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('approver') } }
+      # The created date of the time off record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The UUID of the employee taking time off
+      field :employee, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee') } }
+      # A note from the employee about the time off request
+      field :employee_note, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employee_note') } }
+      # The end time of the time off
+      field :end_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the time off record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the time off record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The date when the time off was created in the 3rd party system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the time off in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the time off in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # Indicates if the time off was deleted in the remote system
+      field :remote_was_deleted, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_was_deleted') } }
+      # The type of time off request
+      field :request_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('request_type') } }
+      # The start time of the time off
+      field :start_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The status of the time off request
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The units used for the time off (e.g., Days, Hours)
+      field :units, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('units') } }
 
 
-      
-      def initialize; end
+      sig { params(amount: T.nilable(::Float), approver: T.nilable(::String), created_at: T.nilable(::DateTime), employee: T.nilable(::String), employee_note: T.nilable(::String), end_time: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedHrisTimeoffOutputRemoteData), remote_id: T.nilable(::String), remote_was_deleted: T.nilable(T::Boolean), request_type: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::String), units: T.nilable(::String)).void }
+      def initialize(amount: nil, approver: nil, created_at: nil, employee: nil, employee_note: nil, end_time: nil, field_mappings: nil, id: nil, modified_at: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_was_deleted: nil, request_type: nil, start_time: nil, status: nil, units: nil)
+        @amount = amount
+        @approver = approver
+        @created_at = created_at
+        @employee = employee
+        @employee_note = employee_note
+        @end_time = end_time
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_was_deleted = remote_was_deleted
+        @request_type = request_type
+        @start_time = start_time
+        @status = status
+        @units = units
+      end
     end
   end
 end

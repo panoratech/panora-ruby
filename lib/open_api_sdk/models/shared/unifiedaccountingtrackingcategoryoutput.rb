@@ -11,10 +11,41 @@ module OpenApiSDK
     class UnifiedAccountingTrackingcategoryOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The type of the tracking category
+      field :category_type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('category_type') } }
+      # The created date of the tracking category record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTrackingcategoryOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the tracking category record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the tracking category record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the tracking category
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The UUID of the parent category, if applicable
+      field :parent_category, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('parent_category') } }
+      # The remote data of the tracking category in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTrackingcategoryOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the tracking category in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The status of the tracking category
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
 
 
-      
-      def initialize; end
+      sig { params(category_type: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTrackingcategoryOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), name: T.nilable(::String), parent_category: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingTrackingcategoryOutputRemoteData), remote_id: T.nilable(::String), status: T.nilable(::String)).void }
+      def initialize(category_type: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, name: nil, parent_category: nil, remote_data: nil, remote_id: nil, status: nil)
+        @category_type = category_type
+        @created_at = created_at
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @name = name
+        @parent_category = parent_category
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @status = status
+      end
     end
   end
 end

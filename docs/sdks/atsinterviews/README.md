@@ -1,5 +1,6 @@
 # AtsInterviews
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListAtsInterviewResponse)](../../models/operations/listatsinterviewresponse.md)**
+
+
 
 
 ## create
@@ -67,22 +69,23 @@ s.config_security(
 
     
 res = s.ats_interviews.create(x_connection_token="<value>", unified_ats_interview_input=::OpenApiSDK::Shared::UnifiedAtsInterviewInput.new(
-    status: ::OpenApiSDK::Shared::UnifiedAtsInterviewInputStatus::SCHEDULED,
-    application_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    job_interview_stage_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    organized_by: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
-    interviewers: [
-      "<value>",
-    ],
-    location: "San Francisco",
-    start_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    end_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    remote_updated_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
-    field_mappings: {
-      "online": "<value>",
-    },
-  ), remote_data=false)
+  status: "SCHEDULED",
+  application_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  job_interview_stage_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  organized_by: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  interviewers: [
+    "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  ],
+  location: "San Francisco",
+  start_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  end_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  remote_created_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  remote_updated_at: DateTime.iso8601('2024-10-01T12:00:00Z'),
+  field_mappings: {
+    "fav_dish": "broccoli",
+    "fav_color": "red",
+  },
+), remote_data=false)
 
 if ! res.unified_ats_interview_output.nil?
   # handle response
@@ -98,10 +101,11 @@ end
 | `unified_ats_interview_input`                                                                     | [::OpenApiSDK::Shared::UnifiedAtsInterviewInput](../../models/shared/unifiedatsinterviewinput.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |                                                                                                   |
 | `remote_data`                                                                                     | *T::Boolean*                                                                                      | :heavy_minus_sign:                                                                                | Set to true to include data from the original Ats software.                                       | false                                                                                             |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateAtsInterviewResponse)](../../models/operations/createatsinterviewresponse.md)**
+
+
 
 
 ## retrieve
@@ -138,8 +142,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the interview you want to retrieve.                   | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                        |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. | false                                                       |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveAtsInterviewResponse)](../../models/operations/retrieveatsinterviewresponse.md)**
+
 

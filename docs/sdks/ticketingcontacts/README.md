@@ -1,5 +1,6 @@
 # TicketingContacts
 
+## Overview
 
 ### Available Operations
 
@@ -41,10 +42,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListTicketingContactsResponse)](../../models/operations/listticketingcontactsresponse.md)**
+
+
 
 
 ## retrieve
@@ -65,7 +67,7 @@ s.config_security(
 )
 
     
-res = s.ticketing_contacts.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ticketing_contacts.retrieve(x_connection_token="<value>", id="<id>", remote_data=false)
 
 if ! res.object.nil?
   # handle response
@@ -81,8 +83,8 @@ end
 | `id`                                                              | *::String*                                                        | :heavy_check_mark:                                                | id of the contact you want to retrieve.                           |
 | `remote_data`                                                     | *T::Boolean*                                                      | :heavy_minus_sign:                                                | Set to true to include data from the original Ticketing software. |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveTicketingContactResponse)](../../models/operations/retrieveticketingcontactresponse.md)**
+
 

@@ -11,10 +11,41 @@ module OpenApiSDK
     class UnifiedAccountingPhonenumberOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The UUID of the associated contact
+      field :contact_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('contact_id') } }
+      # The created date of the phone number record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPhonenumberOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the phone number record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The last modified date of the phone number record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The phone number
+      field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('number') } }
+      # The remote data of the phone number in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPhonenumberOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the phone number in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The type of phone number
+      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
 
 
-      
-      def initialize; end
+      sig { params(company_info_id: T.nilable(::String), contact_id: T.nilable(::String), created_at: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPhonenumberOutputFieldMappings), id: T.nilable(::String), modified_at: T.nilable(::DateTime), number: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPhonenumberOutputRemoteData), remote_id: T.nilable(::String), type: T.nilable(::String)).void }
+      def initialize(company_info_id: nil, contact_id: nil, created_at: nil, field_mappings: nil, id: nil, modified_at: nil, number: nil, remote_data: nil, remote_id: nil, type: nil)
+        @company_info_id = company_info_id
+        @contact_id = contact_id
+        @created_at = created_at
+        @field_mappings = field_mappings
+        @id = id
+        @modified_at = modified_at
+        @number = number
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @type = type
+      end
     end
   end
 end

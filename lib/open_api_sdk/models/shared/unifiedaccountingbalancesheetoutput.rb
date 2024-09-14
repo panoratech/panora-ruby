@@ -11,10 +11,59 @@ module OpenApiSDK
     class UnifiedAccountingBalancesheetOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The list of assets
+      field :assets, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assets') } }
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The created date of the balance sheet record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency used in the balance sheet
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The date of the balance sheet
+      field :date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The list of equity items
+      field :equity, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('equity') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingBalancesheetOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the balance sheet record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The list of liabilities
+      field :liabilities, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('liabilities') } }
+      # The report items associated with this balance sheet
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # The last modified date of the balance sheet record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the balance sheet
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The net assets value
+      field :net_assets, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('net_assets') } }
+      # The remote data of the balance sheet in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingBalancesheetOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The date when the balance sheet was generated in the remote system
+      field :remote_generated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_generated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote ID of the balance sheet in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
 
 
-      
-      def initialize; end
+      sig { params(assets: T.nilable(T::Array[::String]), company_info_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), date: T.nilable(::DateTime), equity: T.nilable(T::Array[::String]), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingBalancesheetOutputFieldMappings), id: T.nilable(::String), liabilities: T.nilable(T::Array[::String]), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), modified_at: T.nilable(::DateTime), name: T.nilable(::String), net_assets: T.nilable(::Float), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingBalancesheetOutputRemoteData), remote_generated_at: T.nilable(::DateTime), remote_id: T.nilable(::String)).void }
+      def initialize(assets: nil, company_info_id: nil, created_at: nil, currency: nil, date: nil, equity: nil, field_mappings: nil, id: nil, liabilities: nil, line_items: nil, modified_at: nil, name: nil, net_assets: nil, remote_data: nil, remote_generated_at: nil, remote_id: nil)
+        @assets = assets
+        @company_info_id = company_info_id
+        @created_at = created_at
+        @currency = currency
+        @date = date
+        @equity = equity
+        @field_mappings = field_mappings
+        @id = id
+        @liabilities = liabilities
+        @line_items = line_items
+        @modified_at = modified_at
+        @name = name
+        @net_assets = net_assets
+        @remote_data = remote_data
+        @remote_generated_at = remote_generated_at
+        @remote_id = remote_id
+      end
     end
   end
 end

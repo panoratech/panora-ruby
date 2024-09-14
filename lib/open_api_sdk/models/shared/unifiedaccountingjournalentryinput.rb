@@ -11,10 +11,50 @@ module OpenApiSDK
     class UnifiedAccountingJournalentryInput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The applied payments for the journal entry
+      field :applied_payments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applied_payments') } }
+      # The currency of the journal entry
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The exchange rate applied to the journal entry
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingJournalentryInputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the associated accounting period
+      field :id_acc_accounting_period, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_acc_accounting_period') } }
+      # The UUID of the associated company info
+      field :id_acc_company_info, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_acc_company_info') } }
+      # The journal number
+      field :journal_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('journal_number') } }
+      # The line items associated with this journal entry
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # A memo or note for the journal entry
+      field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('memo') } }
+      # The payments associated with the journal entry
+      field :payments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payments') } }
+      # The posting status of the journal entry
+      field :posting_status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('posting_status') } }
+      # The UUIDs of the tracking categories associated with the journal entry
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The date of the transaction
+      field :transaction_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      
-      def initialize; end
+      sig { params(applied_payments: T.nilable(T::Array[::String]), currency: T.nilable(::String), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingJournalentryInputFieldMappings), id_acc_accounting_period: T.nilable(::String), id_acc_company_info: T.nilable(::String), journal_number: T.nilable(::String), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), memo: T.nilable(::String), payments: T.nilable(T::Array[::String]), posting_status: T.nilable(::String), tracking_categories: T.nilable(T::Array[::String]), transaction_date: T.nilable(::DateTime)).void }
+      def initialize(applied_payments: nil, currency: nil, exchange_rate: nil, field_mappings: nil, id_acc_accounting_period: nil, id_acc_company_info: nil, journal_number: nil, line_items: nil, memo: nil, payments: nil, posting_status: nil, tracking_categories: nil, transaction_date: nil)
+        @applied_payments = applied_payments
+        @currency = currency
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @id_acc_accounting_period = id_acc_accounting_period
+        @id_acc_company_info = id_acc_company_info
+        @journal_number = journal_number
+        @line_items = line_items
+        @memo = memo
+        @payments = payments
+        @posting_status = posting_status
+        @tracking_categories = tracking_categories
+        @transaction_date = transaction_date
+      end
     end
   end
 end

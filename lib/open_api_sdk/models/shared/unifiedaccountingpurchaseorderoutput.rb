@@ -11,10 +11,80 @@ module OpenApiSDK
     class UnifiedAccountingPurchaseorderOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated accounting period
+      field :accounting_period_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accounting_period_id') } }
+      # The UUID of the company
+      field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The created date of the purchase order record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency of the purchase order
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The UUID of the customer
+      field :customer, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
+      # The UUID of the delivery address
+      field :delivery_address, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('delivery_address') } }
+      # The delivery date for the purchase order
+      field :delivery_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('delivery_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The exchange rate applied to the purchase order
+      field :exchange_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('exchange_rate') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPurchaseorderOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the purchase order record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The issue date of the purchase order
+      field :issue_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('issue_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The line items associated with this purchase order
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # A memo or note for the purchase order
+      field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('memo') } }
+      # The last modified date of the purchase order record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The purchase order number
+      field :purchase_order_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('purchase_order_number') } }
+      # The date when the purchase order was created in the remote system
+      field :remote_created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote data of the purchase order in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPurchaseorderOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the purchase order in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The date when the purchase order was last updated in the remote system
+      field :remote_updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The status of the purchase order
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The total amount of the purchase order in cents
+      field :total_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_amount') } }
+      # The UUIDs of the tracking categories associated with the purchase order
+      field :tracking_categories, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracking_categories') } }
+      # The UUID of the vendor
+      field :vendor, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('vendor') } }
 
 
-      
-      def initialize; end
+      sig { params(accounting_period_id: T.nilable(::String), company_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), customer: T.nilable(::String), delivery_address: T.nilable(::String), delivery_date: T.nilable(::DateTime), exchange_rate: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPurchaseorderOutputFieldMappings), id: T.nilable(::String), issue_date: T.nilable(::DateTime), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), memo: T.nilable(::String), modified_at: T.nilable(::DateTime), purchase_order_number: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingPurchaseorderOutputRemoteData), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::DateTime), status: T.nilable(::String), total_amount: T.nilable(::Float), tracking_categories: T.nilable(T::Array[::String]), vendor: T.nilable(::String)).void }
+      def initialize(accounting_period_id: nil, company_id: nil, created_at: nil, currency: nil, customer: nil, delivery_address: nil, delivery_date: nil, exchange_rate: nil, field_mappings: nil, id: nil, issue_date: nil, line_items: nil, memo: nil, modified_at: nil, purchase_order_number: nil, remote_created_at: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, status: nil, total_amount: nil, tracking_categories: nil, vendor: nil)
+        @accounting_period_id = accounting_period_id
+        @company_id = company_id
+        @created_at = created_at
+        @currency = currency
+        @customer = customer
+        @delivery_address = delivery_address
+        @delivery_date = delivery_date
+        @exchange_rate = exchange_rate
+        @field_mappings = field_mappings
+        @id = id
+        @issue_date = issue_date
+        @line_items = line_items
+        @memo = memo
+        @modified_at = modified_at
+        @purchase_order_number = purchase_order_number
+        @remote_created_at = remote_created_at
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_updated_at = remote_updated_at
+        @status = status
+        @total_amount = total_amount
+        @tracking_categories = tracking_categories
+        @vendor = vendor
+      end
     end
   end
 end

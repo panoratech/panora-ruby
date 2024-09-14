@@ -21,6 +21,5 @@ module OpenApiSDK
         USER = new('user')
       end
     end
-
   end
 end

@@ -16,7 +16,7 @@ module OpenApiSDK
       # The description of the product
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # The custom field mappings of the object between the remote 3rd party & Panora
-      field :field_mappings, T.nilable(::OpenApiSDK::Shared::FieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceProductOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
       # The UUID of the product
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The URLs of the product images
@@ -30,18 +30,18 @@ module OpenApiSDK
       # The URL of the product
       field :product_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('product_url') } }
       # The remote data of the customer in the context of the 3rd Party
-      field :remote_data, T.nilable(::OpenApiSDK::Shared::RemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceProductOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
       # The remote ID of the product in the context of the 3rd Party
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
       # The tags associated with the product
       field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The variants of the product
-      field :variants, T.nilable(T::Array[::OpenApiSDK::Shared::Variants]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('variants') } }
+      field :variants, T.nilable(T::Array[::OpenApiSDK::Shared::Variant]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('variants') } }
       # The vendor of the product
       field :vendor, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('vendor') } }
 
 
-      sig { params(created_at: T.nilable(::String), description: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::FieldMappings), id: T.nilable(::String), images_urls: T.nilable(T::Array[::String]), modified_at: T.nilable(::String), product_status: T.nilable(::String), product_type: T.nilable(::String), product_url: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::RemoteData), remote_id: T.nilable(::String), tags: T.nilable(T::Array[::String]), variants: T.nilable(T::Array[::OpenApiSDK::Shared::Variants]), vendor: T.nilable(::String)).void }
+      sig { params(created_at: T.nilable(::String), description: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceProductOutputFieldMappings), id: T.nilable(::String), images_urls: T.nilable(T::Array[::String]), modified_at: T.nilable(::String), product_status: T.nilable(::String), product_type: T.nilable(::String), product_url: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceProductOutputRemoteData), remote_id: T.nilable(::String), tags: T.nilable(T::Array[::String]), variants: T.nilable(T::Array[::OpenApiSDK::Shared::Variant]), vendor: T.nilable(::String)).void }
       def initialize(created_at: nil, description: nil, field_mappings: nil, id: nil, images_urls: nil, modified_at: nil, product_status: nil, product_type: nil, product_url: nil, remote_data: nil, remote_id: nil, tags: nil, variants: nil, vendor: nil)
         @created_at = created_at
         @description = description

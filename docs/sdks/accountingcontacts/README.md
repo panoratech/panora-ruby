@@ -1,5 +1,6 @@
 # AccountingContacts
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListAccountingContactsResponse)](../../models/operations/listaccountingcontactsresponse.md)**
+
+
 
 
 ## create
@@ -66,7 +68,18 @@ s.config_security(
 )
 
     
-res = s.accounting_contacts.create(x_connection_token="<value>", unified_accounting_contact_input=::OpenApiSDK::Shared::UnifiedAccountingContactInput.new(), remote_data=false)
+res = s.accounting_contacts.create(x_connection_token="<value>", unified_accounting_contact_input=::OpenApiSDK::Shared::UnifiedAccountingContactInput.new(
+  name: "John Doe",
+  is_supplier: true,
+  is_customer: false,
+  email_address: "john.doe@example.com",
+  tax_number: "123456789",
+  status: "Active",
+  currency: "USD",
+  remote_updated_at: "2024-06-15T12:00:00Z",
+  company_info_id: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+  field_mappings: ::OpenApiSDK::Shared::UnifiedAccountingContactInputFieldMappings.new(),
+), remote_data=false)
 
 if ! res.unified_accounting_contact_output.nil?
   # handle response
@@ -82,10 +95,11 @@ end
 | `unified_accounting_contact_input`                                                                          | [::OpenApiSDK::Shared::UnifiedAccountingContactInput](../../models/shared/unifiedaccountingcontactinput.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |                                                                                                             |
 | `remote_data`                                                                                               | *T::Boolean*                                                                                                | :heavy_minus_sign:                                                                                          | Set to true to include data from the original Accounting software.                                          | false                                                                                                       |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateAccountingContactResponse)](../../models/operations/createaccountingcontactresponse.md)**
+
+
 
 
 ## retrieve
@@ -122,8 +136,8 @@ end
 | `id`                                                               | *::String*                                                         | :heavy_check_mark:                                                 | id of the contact you want to retrieve.                            | 801f9ede-c698-4e66-a7fc-48d19eebaa4f                               |
 | `remote_data`                                                      | *T::Boolean*                                                       | :heavy_minus_sign:                                                 | Set to true to include data from the original Accounting software. | false                                                              |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveAccountingContactResponse)](../../models/operations/retrieveaccountingcontactresponse.md)**
+
 

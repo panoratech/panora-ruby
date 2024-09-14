@@ -24,7 +24,7 @@ module OpenApiSDK
       # The UUID of the order
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The items in the order
-      field :items, T.nilable(::OpenApiSDK::Shared::Items), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('items') } }
+      field :items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('items') } }
       # The modified date of the object
       field :modified_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at') } }
       # The number of the order
@@ -47,7 +47,7 @@ module OpenApiSDK
       field :total_tax, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('total_tax') } }
 
 
-      sig { params(created_at: T.nilable(::String), currency: T.nilable(::String), customer_id: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceOrderOutputFieldMappings), fulfillment_status: T.nilable(::String), id: T.nilable(::String), items: T.nilable(::OpenApiSDK::Shared::Items), modified_at: T.nilable(::String), order_number: T.nilable(::String), order_status: T.nilable(::String), payment_status: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceOrderOutputRemoteData), remote_id: T.nilable(::String), total_discount: T.nilable(::Float), total_price: T.nilable(::Float), total_shipping: T.nilable(::Float), total_tax: T.nilable(::Float)).void }
+      sig { params(created_at: T.nilable(::String), currency: T.nilable(::String), customer_id: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceOrderOutputFieldMappings), fulfillment_status: T.nilable(::String), id: T.nilable(::String), items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), modified_at: T.nilable(::String), order_number: T.nilable(::String), order_status: T.nilable(::String), payment_status: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedEcommerceOrderOutputRemoteData), remote_id: T.nilable(::String), total_discount: T.nilable(::Float), total_price: T.nilable(::Float), total_shipping: T.nilable(::Float), total_tax: T.nilable(::Float)).void }
       def initialize(created_at: nil, currency: nil, customer_id: nil, field_mappings: nil, fulfillment_status: nil, id: nil, items: nil, modified_at: nil, order_number: nil, order_status: nil, payment_status: nil, remote_data: nil, remote_id: nil, total_discount: nil, total_price: nil, total_shipping: nil, total_tax: nil)
         @created_at = created_at
         @currency = currency

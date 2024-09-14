@@ -11,10 +11,56 @@ module OpenApiSDK
     class UnifiedAccountingContactOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The UUID of the associated company info
+      field :company_info_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_info_id') } }
+      # The created date of the contact record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency associated with the contact
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The email address of the contact
+      field :email_address, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address') } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingContactOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the contact record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # Indicates if the contact is a customer
+      field :is_customer, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_customer') } }
+      # Indicates if the contact is a supplier
+      field :is_supplier, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_supplier') } }
+      # The last modified date of the contact record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the contact
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The remote data of the contact in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingContactOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The remote ID of the contact in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The date when the contact was last updated in the remote system
+      field :remote_updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at') } }
+      # The status of the contact
+      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+      # The tax number of the contact
+      field :tax_number, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tax_number') } }
 
 
-      
-      def initialize; end
+      sig { params(company_info_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), email_address: T.nilable(::String), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingContactOutputFieldMappings), id: T.nilable(::String), is_customer: T.nilable(T::Boolean), is_supplier: T.nilable(T::Boolean), modified_at: T.nilable(::DateTime), name: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingContactOutputRemoteData), remote_id: T.nilable(::String), remote_updated_at: T.nilable(::String), status: T.nilable(::String), tax_number: T.nilable(::String)).void }
+      def initialize(company_info_id: nil, created_at: nil, currency: nil, email_address: nil, field_mappings: nil, id: nil, is_customer: nil, is_supplier: nil, modified_at: nil, name: nil, remote_data: nil, remote_id: nil, remote_updated_at: nil, status: nil, tax_number: nil)
+        @company_info_id = company_info_id
+        @created_at = created_at
+        @currency = currency
+        @email_address = email_address
+        @field_mappings = field_mappings
+        @id = id
+        @is_customer = is_customer
+        @is_supplier = is_supplier
+        @modified_at = modified_at
+        @name = name
+        @remote_data = remote_data
+        @remote_id = remote_id
+        @remote_updated_at = remote_updated_at
+        @status = status
+        @tax_number = tax_number
+      end
     end
   end
 end

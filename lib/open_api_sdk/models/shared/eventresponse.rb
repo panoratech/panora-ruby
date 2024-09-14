@@ -30,12 +30,12 @@ module OpenApiSDK
       # Timestamp of the event
       field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(false) } }
       # Scope of the event
-      field :type, ::OpenApiSDK::Shared::EventResponseType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::EventResponseType, false) } }
+      field :type, ::OpenApiSDK::Shared::Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Type, false) } }
       # URL associated with the event
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
 
-      sig { params(direction: ::String, id_connection: ::String, id_event: ::String, id_linked_user: ::String, id_project: ::String, method: ::OpenApiSDK::Shared::Method, provider: ::String, status: ::OpenApiSDK::Shared::EventResponseStatus, timestamp: ::DateTime, type: ::OpenApiSDK::Shared::EventResponseType, url: ::String).void }
+      sig { params(direction: ::String, id_connection: ::String, id_event: ::String, id_linked_user: ::String, id_project: ::String, method: ::OpenApiSDK::Shared::Method, provider: ::String, status: ::OpenApiSDK::Shared::EventResponseStatus, timestamp: ::DateTime, type: ::OpenApiSDK::Shared::Type, url: ::String).void }
       def initialize(direction: nil, id_connection: nil, id_event: nil, id_linked_user: nil, id_project: nil, method: nil, provider: nil, status: nil, timestamp: nil, type: nil, url: nil)
         @direction = direction
         @id_connection = id_connection

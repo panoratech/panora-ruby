@@ -1,5 +1,6 @@
 # FieldMappings
 
+## Overview
 
 ### Available Operations
 
@@ -36,10 +37,11 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetFieldMappingValuesResponse)](../../models/operations/getfieldmappingvaluesresponse.md)**
+
+
 
 
 ## get_field_mappings_entities
@@ -68,10 +70,11 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetFieldMappingsEntitiesResponse)](../../models/operations/getfieldmappingsentitiesresponse.md)**
+
+
 
 
 ## get_field_mappings
@@ -100,10 +103,11 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetFieldMappingsResponse)](../../models/operations/getfieldmappingsresponse.md)**
+
+
 
 
 ## definitions
@@ -145,10 +149,11 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::OpenApiSDK::Shared::DefineTargetFieldDto](../../models/shared/definetargetfielddto.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DefinitionsResponse)](../../models/operations/definitionsresponse.md)**
+
+
 
 
 ## define_custom_field
@@ -193,10 +198,11 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::OpenApiSDK::Shared::CustomFieldCreateDto](../../models/shared/customfieldcreatedto.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DefineCustomFieldResponse)](../../models/operations/definecustomfieldresponse.md)**
+
+
 
 
 ## map
@@ -238,8 +244,8 @@ end
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `request`                                                                                   | [::OpenApiSDK::Shared::MapFieldToProviderDto](../../models/shared/mapfieldtoproviderdto.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::MapResponse)](../../models/operations/mapresponse.md)**
+
 

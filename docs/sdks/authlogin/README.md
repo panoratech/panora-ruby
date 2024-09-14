@@ -1,5 +1,6 @@
 # AuthLogin
 
+## Overview
 
 ### Available Operations
 
@@ -42,8 +43,8 @@ end
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `request`                                                         | [::OpenApiSDK::Shared::LoginDto](../../models/shared/logindto.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::SignInResponse)](../../models/operations/signinresponse.md)**
+
 

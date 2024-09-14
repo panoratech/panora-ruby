@@ -11,10 +11,56 @@ module OpenApiSDK
     class UnifiedAccountingCashflowstatementOutput < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The cash balance at the beginning of the period
+      field :cash_at_beginning_of_period, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('cash_at_beginning_of_period') } }
+      # The cash balance at the end of the period
+      field :cash_at_end_of_period, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('cash_at_end_of_period') } }
+      # The UUID of the associated company
+      field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company_id') } }
+      # The created date of the cash flow statement record
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The currency used in the cash flow statement
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The end date of the period covered by the cash flow statement
+      field :end_period, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_period'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The custom field mappings of the object between the remote 3rd party & Panora
+      field :field_mappings, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCashflowstatementOutputFieldMappings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('field_mappings') } }
+      # The UUID of the cash flow statement record
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The report items associated with this cash flow statement
+      field :line_items, T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('line_items') } }
+      # The last modified date of the cash flow statement record
+      field :modified_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modified_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The name of the cash flow statement
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+      # The remote data of the cash flow statement in the context of the 3rd Party
+      field :remote_data, T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCashflowstatementOutputRemoteData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_data') } }
+      # The date when the cash flow statement was generated in the remote system
+      field :remote_generated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_generated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The remote ID of the cash flow statement in the context of the 3rd Party
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+      # The start date of the period covered by the cash flow statement
+      field :start_period, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('start_period'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      
-      def initialize; end
+      sig { params(cash_at_beginning_of_period: T.nilable(::Float), cash_at_end_of_period: T.nilable(::Float), company_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), end_period: T.nilable(::DateTime), field_mappings: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCashflowstatementOutputFieldMappings), id: T.nilable(::String), line_items: T.nilable(T::Array[::OpenApiSDK::Shared::LineItem]), modified_at: T.nilable(::DateTime), name: T.nilable(::String), remote_data: T.nilable(::OpenApiSDK::Shared::UnifiedAccountingCashflowstatementOutputRemoteData), remote_generated_at: T.nilable(::DateTime), remote_id: T.nilable(::String), start_period: T.nilable(::DateTime)).void }
+      def initialize(cash_at_beginning_of_period: nil, cash_at_end_of_period: nil, company_id: nil, created_at: nil, currency: nil, end_period: nil, field_mappings: nil, id: nil, line_items: nil, modified_at: nil, name: nil, remote_data: nil, remote_generated_at: nil, remote_id: nil, start_period: nil)
+        @cash_at_beginning_of_period = cash_at_beginning_of_period
+        @cash_at_end_of_period = cash_at_end_of_period
+        @company_id = company_id
+        @created_at = created_at
+        @currency = currency
+        @end_period = end_period
+        @field_mappings = field_mappings
+        @id = id
+        @line_items = line_items
+        @modified_at = modified_at
+        @name = name
+        @remote_data = remote_data
+        @remote_generated_at = remote_generated_at
+        @remote_id = remote_id
+        @start_period = start_period
+      end
     end
   end
 end

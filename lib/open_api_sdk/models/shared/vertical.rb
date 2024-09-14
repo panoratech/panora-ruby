@@ -20,6 +20,5 @@ module OpenApiSDK
         MARKETINGAUTOMATION = new('marketingautomation')
       end
     end
-
   end
 end

@@ -1,14 +1,15 @@
 # EcommerceFulfillments
 
+## Overview
 
 ### Available Operations
 
-* [list](#list) - List a batch of Fulfillments
-* [retrieve](#retrieve) - Retrieve a Fulfillment
+* [list](#list) - List Fulfillments
+* [retrieve](#retrieve) - Retrieve Fulfillments
 
 ## list
 
-List a batch of Fulfillments
+List Fulfillments
 
 ### Example Usage
 
@@ -41,15 +42,16 @@ end
 | `limit`                                                 | *::Float*                                               | :heavy_minus_sign:                                      | Set to get the number of records.                       | 10                                                      |
 | `cursor`                                                | *::String*                                              | :heavy_minus_sign:                                      | Set to get the number of records after this cursor.     | 1b8b05bb-5273-4012-b520-8657b0b90874                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListEcommerceFulfillmentsResponse)](../../models/operations/listecommercefulfillmentsresponse.md)**
 
 
+
+
 ## retrieve
 
-Retrieve a fulfillment from any connected Ats software
+Retrieve fulfillments from any connected Ats software
 
 ### Example Usage
 
@@ -65,7 +67,7 @@ s.config_security(
 )
 
     
-res = s.ecommerce_fulfillments.retrieve(x_connection_token="<value>", id="<value>", remote_data=false)
+res = s.ecommerce_fulfillments.retrieve(x_connection_token="<value>", id="<id>", remote_data=false)
 
 if ! res.unified_ecommerce_fulfillment_output.nil?
   # handle response
@@ -81,8 +83,8 @@ end
 | `id`                                                        | *::String*                                                  | :heavy_check_mark:                                          | id of the fulfillment you want to retrieve.                 |
 | `remote_data`                                               | *T::Boolean*                                                | :heavy_minus_sign:                                          | Set to true to include data from the original Ats software. |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveEcommerceFulfillmentResponse)](../../models/operations/retrieveecommercefulfillmentresponse.md)**
+
 

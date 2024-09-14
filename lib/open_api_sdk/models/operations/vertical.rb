@@ -20,6 +20,5 @@ module OpenApiSDK
         ECOMMERCE = new('ecommerce')
       end
     end
-
   end
 end

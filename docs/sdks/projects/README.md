@@ -1,5 +1,6 @@
 # Projects
 
+## Overview
 
 ### Available Operations
 
@@ -32,10 +33,11 @@ end
 
 ```
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetProjectsResponse)](../../models/operations/getprojectsresponse.md)**
+
+
 
 
 ## create
@@ -76,8 +78,8 @@ end
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `request`                                                                         | [::OpenApiSDK::Shared::CreateProjectDto](../../models/shared/createprojectdto.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateProjectResponse)](../../models/operations/createprojectresponse.md)**
+
 

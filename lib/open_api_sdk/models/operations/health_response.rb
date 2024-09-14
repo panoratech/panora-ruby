@@ -17,7 +17,7 @@ module OpenApiSDK
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # API is healthy
+      # Api is healthy
       field :number, T.nilable(::Float)
 
 
