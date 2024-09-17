@@ -5,6 +5,7 @@
 
 module OpenApiSDK
   module Shared
+    autoload :QueryBody, 'open_api_sdk/models/shared/querybody.rb'
     autoload :UnifiedFilestorageFileOutput, 'open_api_sdk/models/shared/unifiedfilestoragefileoutput.rb'
     autoload :UnifiedFilestorageFileInput, 'open_api_sdk/models/shared/unifiedfilestoragefileinput.rb'
     autoload :LoginDto, 'open_api_sdk/models/shared/logindto.rb'

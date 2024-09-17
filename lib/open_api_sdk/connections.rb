@@ -19,9 +19,9 @@ module OpenApiSDK
     end
 
 
-    sig { returns(::OpenApiSDK::Operations::RetrieveConnectionsResponse) }
-    def retrieve
-      # retrieve - List Connections
+    sig { returns(::OpenApiSDK::Operations::ListConnectionsResponse) }
+    def list
+      # list - List Connections
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/connections"
@@ -36,7 +36,7 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::RetrieveConnectionsResponse.new(
+      res = ::OpenApiSDK::Operations::ListConnectionsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200

@@ -267,7 +267,7 @@ end
 
 ### [Connections](docs/sdks/connections/README.md)
 
-* [retrieve](docs/sdks/connections/README.md#retrieve) - List Connections
+* [list](docs/sdks/connections/README.md#list) - List Connections
 
 ### [CrmCompanies](docs/sdks/crmcompanies/README.md)
 
@@ -534,7 +534,7 @@ end
 
 ### [RagQuery](docs/sdks/ragquery/README.md)
 
-* [rag_controller_query_embeddings](docs/sdks/ragquery/README.md#rag_controller_query_embeddings)
+* [query](docs/sdks/ragquery/README.md#query) - Query using RAG Search
 
 ### [Sync](docs/sdks/sync/README.md)
 

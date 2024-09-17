@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class RagControllerQueryEmbeddingsResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class ListConnectionsResponse < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
@@ -18,15 +18,15 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
-      field :object, T.nilable(::OpenApiSDK::Operations::RagControllerQueryEmbeddingsResponseBody)
+      field :connections, T.nilable(T::Array[::OpenApiSDK::Shared::Connection])
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, object: T.nilable(::OpenApiSDK::Operations::RagControllerQueryEmbeddingsResponseBody)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, object: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, connections: T.nilable(T::Array[::OpenApiSDK::Shared::Connection])).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, connections: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @object = object
+        @connections = connections
       end
     end
   end

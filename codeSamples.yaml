@@ -517,8 +517,8 @@ actions:
     update:
       x-codeSamples:
         - lang: ruby
-          label: retrieveConnections
-          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n    \nres = s.connections.retrieve()\n\nif ! res.connections.nil?\n  # handle response\nend"
+          label: listConnections
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n    \nres = s.connections.list()\n\nif ! res.connections.nil?\n  # handle response\nend"
   - target: $["paths"]["/crm/companies"]["get"]
     update:
       x-codeSamples:
@@ -1231,8 +1231,8 @@ actions:
     update:
       x-codeSamples:
         - lang: ruby
-          label: RagController_queryEmbeddings
-          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n    \nres = s.rag_query.rag_controller_query_embeddings()\n\nif ! res.object.nil?\n  # handle response\nend"
+          label: query
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n    \nres = s.rag_query.query(x_connection_token=\"<value>\", query_body=::OpenApiSDK::Shared::QueryBody.new(\n  query: \"When does Panora incorporated?\",\n  top_k: 3,\n))\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/sync/pull-frequencies"]["get"]
     update:
       x-codeSamples:
