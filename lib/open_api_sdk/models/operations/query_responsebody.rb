@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class RagControllerQueryEmbeddingsResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class QueryResponseBody < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class RetrieveConnectionsResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class QueryResponse < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
@@ -18,15 +18,15 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
-      field :connections, T.nilable(T::Array[::OpenApiSDK::Shared::Connection])
+      field :object, T.nilable(::OpenApiSDK::Operations::QueryResponseBody)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, connections: T.nilable(T::Array[::OpenApiSDK::Shared::Connection])).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, connections: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, object: T.nilable(::OpenApiSDK::Operations::QueryResponseBody)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, object: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @connections = connections
+        @object = object
       end
     end
   end
