@@ -11,7 +11,7 @@ module OpenApiSDK
     class QueryBody < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # The query you want to received embeddings adn chunks for
+      # The query you want to received embeddings and chunks for
       field :query, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('query') } }
       # The number of most appropriate documents for your query.
       field :top_k, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('topK') } }

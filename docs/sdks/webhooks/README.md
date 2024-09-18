@@ -187,16 +187,20 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Shared::SignatureVerificationDto.new(
-  payload: {
-    "key": "<value>",
-  },
+  payload: ::OpenApiSDK::Shared::Payload.new(
+    id_event: "801f9ede-c698-4e66-a7fc-48d19eebaa4f",
+    type: "connection.created",
+    data: {
+      "key": "<value>",
+    },
+  ),
   signature: "<value>",
   secret: "<value>",
 )
     
 res = s.webhooks.verify_event(req)
 
-if ! res.object.nil?
+if ! res.event_payload.nil?
   # handle response
 end
 

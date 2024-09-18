@@ -1,4 +1,4 @@
-# RagQuery
+# Rag
 
 ## Overview
 
@@ -24,12 +24,12 @@ s.config_security(
 )
 
     
-res = s.rag_query.query(x_connection_token="<value>", query_body=::OpenApiSDK::Shared::QueryBody.new(
+res = s.rag.query(x_connection_token="<value>", query_body=::OpenApiSDK::Shared::QueryBody.new(
   query: "When does Panora incorporated?",
   top_k: 3,
 ))
 
-if ! res.object.nil?
+if ! res.rag_query_outputs.nil?
   # handle response
 end
 

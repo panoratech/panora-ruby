@@ -12,14 +12,14 @@ module OpenApiSDK
       extend T::Sig
 
       # The payload event of the webhook.
-      field :payload, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payload') } }
+      field :payload, ::OpenApiSDK::Shared::Payload, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payload') } }
       # The secret of the webhook.
       field :secret, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('secret') } }
       # The signature of the webhook.
       field :signature, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('signature') } }
 
 
-      sig { params(payload: T::Hash[Symbol, ::Object], secret: ::String, signature: ::String).void }
+      sig { params(payload: ::OpenApiSDK::Shared::Payload, secret: ::String, signature: ::String).void }
       def initialize(payload: nil, secret: nil, signature: nil)
         @payload = payload
         @secret = secret

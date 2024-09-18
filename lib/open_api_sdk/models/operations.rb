@@ -8,7 +8,6 @@ module OpenApiSDK
     autoload :HelloResponse, 'open_api_sdk/models/operations/hello_response.rb'
     autoload :HealthResponse, 'open_api_sdk/models/operations/health_response.rb'
     autoload :QueryRequest, 'open_api_sdk/models/operations/query_request.rb'
-    autoload :QueryResponseBody, 'open_api_sdk/models/operations/query_responsebody.rb'
     autoload :QueryResponse, 'open_api_sdk/models/operations/query_response.rb'
     autoload :ListFilestorageFileRequest, 'open_api_sdk/models/operations/listfilestoragefile_request.rb'
     autoload :ListFilestorageFileResponseBody, 'open_api_sdk/models/operations/listfilestoragefile_responsebody.rb'

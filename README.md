@@ -532,9 +532,9 @@ end
 * [get_projects](docs/sdks/projects/README.md#get_projects) - Retrieve projects
 * [create](docs/sdks/projects/README.md#create) - Create a project
 
-### [RagQuery](docs/sdks/ragquery/README.md)
+### [Rag](docs/sdks/rag/README.md)
 
-* [query](docs/sdks/ragquery/README.md#query) - Query using RAG Search
+* [query](docs/sdks/rag/README.md#query) - Query using RAG Search
 
 ### [Sync](docs/sdks/sync/README.md)
 

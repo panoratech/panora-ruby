@@ -40,9 +40,9 @@ module OpenApiSDK
       @security = security
       @language = 'ruby'
       @openapi_doc_version = '1.0'
-      @sdk_version = '0.2.5'
-      @gen_version = '2.415.8'
-      @user_agent = 'speakeasy-sdk/ruby 0.2.5 2.415.8 1.0 panora'
+      @sdk_version = '0.2.6'
+      @gen_version = '2.416.6'
+      @user_agent = 'speakeasy-sdk/ruby 0.2.6 2.416.6 1.0 panora'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

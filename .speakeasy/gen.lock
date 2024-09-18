@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 8ab4525a-716c-48ab-9531-2850b1a4f88c
 management:
-  docChecksum: ef657b2aadcc7b6b8d116b9b11322b80
+  docChecksum: 4d63072803072e860460c96602d7e927
   docVersion: "1.0"
-  speakeasyVersion: 1.398.1
-  generationVersion: 2.415.8
-  releaseVersion: 0.2.5
-  configChecksum: c532a45c526bab3382716fdeb08a5022
+  speakeasyVersion: 1.399.2
+  generationVersion: 2.416.6
+  releaseVersion: 0.2.6
+  configChecksum: 4b5d1c476ab80c0adb9e24ce646fbb75
   repoURL: https://github.com/panoratech/panora-ruby.git
   installationURL: https://github.com/panoratech/panora-ruby
   published: true
@@ -376,7 +376,6 @@ generatedFiles:
   - docs/models/operations/mapresponse.md
   - docs/models/operations/queryrequest.md
   - docs/models/operations/queryresponse.md
-  - docs/models/operations/queryresponsebody.md
   - docs/models/operations/remoteidrequest.md
   - docs/models/operations/remoteidresponse.md
   - docs/models/operations/requestpassthroughresponsebody.md
@@ -585,6 +584,7 @@ generatedFiles:
   - docs/models/shared/definetargetfielddto.md
   - docs/models/shared/earningitem.md
   - docs/models/shared/email.md
+  - docs/models/shared/eventpayload.md
   - docs/models/shared/eventresponse.md
   - docs/models/shared/eventresponsestatus.md
   - docs/models/shared/fieldmappings.md
@@ -600,9 +600,11 @@ generatedFiles:
   - docs/models/shared/ownertype.md
   - docs/models/shared/passthroughrequestdto.md
   - docs/models/shared/passthroughrequestdtomethod.md
+  - docs/models/shared/payload.md
   - docs/models/shared/phone.md
   - docs/models/shared/projectresponse.md
   - docs/models/shared/querybody.md
+  - docs/models/shared/ragqueryoutput.md
   - docs/models/shared/remotedata.md
   - docs/models/shared/resyncstatusdto.md
   - docs/models/shared/security.md
@@ -916,7 +918,7 @@ generatedFiles:
   - docs/sdks/passthrough/README.md
   - docs/sdks/passthroughretryid/README.md
   - docs/sdks/projects/README.md
-  - docs/sdks/ragquery/README.md
+  - docs/sdks/rag/README.md
   - docs/sdks/sync/README.md
   - docs/sdks/ticketingaccounts/README.md
   - docs/sdks/ticketingattachments/README.md
@@ -1360,7 +1362,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/map_response.rb
   - lib/open_api_sdk/models/operations/query_request.rb
   - lib/open_api_sdk/models/operations/query_response.rb
-  - lib/open_api_sdk/models/operations/query_responsebody.rb
   - lib/open_api_sdk/models/operations/remoteid_request.rb
   - lib/open_api_sdk/models/operations/remoteid_response.rb
   - lib/open_api_sdk/models/operations/request_passthrough_responsebody.rb
@@ -1570,6 +1571,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/definetargetfielddto.rb
   - lib/open_api_sdk/models/shared/earningitem.rb
   - lib/open_api_sdk/models/shared/email.rb
+  - lib/open_api_sdk/models/shared/eventpayload.rb
   - lib/open_api_sdk/models/shared/eventresponse.rb
   - lib/open_api_sdk/models/shared/eventresponse_status.rb
   - lib/open_api_sdk/models/shared/field_mappings.rb
@@ -1585,9 +1587,11 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/owner_type.rb
   - lib/open_api_sdk/models/shared/passthroughrequestdto.rb
   - lib/open_api_sdk/models/shared/passthroughrequestdto_method.rb
+  - lib/open_api_sdk/models/shared/payload.rb
   - lib/open_api_sdk/models/shared/phone.rb
   - lib/open_api_sdk/models/shared/projectresponse.rb
   - lib/open_api_sdk/models/shared/querybody.rb
+  - lib/open_api_sdk/models/shared/ragqueryoutput.rb
   - lib/open_api_sdk/models/shared/remote_data.rb
   - lib/open_api_sdk/models/shared/resyncstatusdto.rb
   - lib/open_api_sdk/models/shared/security.rb
@@ -1820,7 +1824,7 @@ generatedFiles:
   - lib/open_api_sdk/passthrough.rb
   - lib/open_api_sdk/passthrough_retryid_.rb
   - lib/open_api_sdk/projects.rb
-  - lib/open_api_sdk/rag_query.rb
+  - lib/open_api_sdk/rag.rb
   - lib/open_api_sdk/sdkconfiguration.rb
   - lib/open_api_sdk/sync.rb
   - lib/open_api_sdk/ticketing_accounts.rb
@@ -1970,7 +1974,7 @@ examples:
         application/json: {"payload": {}, "signature": "<value>", "secret": "<value>"}
       responses:
         "201":
-          application/json: {"key": "<value>"}
+          application/json: {"id_event": "801f9ede-c698-4e66-a7fc-48d19eebaa4f", "type": "connection.created", "data": {}}
   listTicketingTicket:
     "":
       parameters:
@@ -4435,6 +4439,9 @@ examples:
           x-connection-token: "<value>"
       requestBody:
         application/json: {"query": "When does Panora incorporated?", "topK": "3"}
+      responses:
+        "201":
+          application/json: []
   listConnections:
     speakeasy-default-list-connections:
       responses:
