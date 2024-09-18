@@ -1232,7 +1232,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: query
-          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n    \nres = s.rag_query.query(x_connection_token=\"<value>\", query_body=::OpenApiSDK::Shared::QueryBody.new(\n  query: \"When does Panora incorporated?\",\n  top_k: 3,\n))\n\nif ! res.object.nil?\n  # handle response\nend"
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n    \nres = s.rag.query(x_connection_token=\"<value>\", query_body=::OpenApiSDK::Shared::QueryBody.new(\n  query: \"When does Panora incorporated?\",\n  top_k: 3,\n))\n\nif ! res.rag_query_outputs.nil?\n  # handle response\nend"
   - target: $["paths"]["/sync/pull-frequencies"]["get"]
     update:
       x-codeSamples:
@@ -1400,7 +1400,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: verifyEvent
-          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::SignatureVerificationDto.new(\n  payload: {\n    \"key\": \"<value>\",\n  },\n  signature: \"<value>\",\n  secret: \"<value>\",\n)\n    \nres = s.webhooks.verify_event(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          source: "require 'panora'\n\n\ns = ::OpenApiSDK::Panora.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    api_key: \"<YOUR_API_KEY_HERE>\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Shared::SignatureVerificationDto.new(\n  payload: ::OpenApiSDK::Shared::Payload.new(\n    id_event: \"801f9ede-c698-4e66-a7fc-48d19eebaa4f\",\n    type: \"connection.created\",\n    data: {\n      \"key\": \"<value>\",\n    },\n  ),\n  signature: \"<value>\",\n  secret: \"<value>\",\n)\n    \nres = s.webhooks.verify_event(req)\n\nif ! res.event_payload.nil?\n  # handle response\nend"
   - target: $["paths"]["/webhooks/{id}"]["delete"]
     update:
       x-codeSamples:

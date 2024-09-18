@@ -201,8 +201,8 @@ module OpenApiSDK
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Hash[Symbol, ::Object])
-          res.object = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::EventPayload)
+          res.event_payload = out
         end
       end
       res

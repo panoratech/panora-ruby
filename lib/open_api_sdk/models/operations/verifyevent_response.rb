@@ -18,15 +18,15 @@ module OpenApiSDK
       # HTTP response status code for this operation
       field :status_code, ::Integer
 
-      field :object, T.nilable(T::Hash[Symbol, ::Object])
+      field :event_payload, T.nilable(::OpenApiSDK::Shared::EventPayload)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, object: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, object: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, event_payload: T.nilable(::OpenApiSDK::Shared::EventPayload)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, event_payload: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @object = object
+        @event_payload = event_payload
       end
     end
   end

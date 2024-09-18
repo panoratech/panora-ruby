@@ -7,7 +7,7 @@ module OpenApiSDK
   autoload :Panora, 'open_api_sdk/panora'
   autoload :Shared, 'open_api_sdk/models/shared'
   autoload :Operations, 'open_api_sdk/models/operations'
-  autoload :RagQuery, 'open_api_sdk/rag_query'
+  autoload :Rag, 'open_api_sdk/rag'
   autoload :FilestorageFiles, 'open_api_sdk/filestorage_files'
   autoload :AuthLogin, 'open_api_sdk/auth_login'
   autoload :Connections, 'open_api_sdk/connections'

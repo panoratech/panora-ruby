@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    panora (0.2.5)
+    panora (0.2.6)
       faraday
       faraday-multipart
       rack

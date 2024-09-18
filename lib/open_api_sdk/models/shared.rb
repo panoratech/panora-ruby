@@ -5,6 +5,7 @@
 
 module OpenApiSDK
   module Shared
+    autoload :RagQueryOutput, 'open_api_sdk/models/shared/ragqueryoutput.rb'
     autoload :QueryBody, 'open_api_sdk/models/shared/querybody.rb'
     autoload :UnifiedFilestorageFileOutput, 'open_api_sdk/models/shared/unifiedfilestoragefileoutput.rb'
     autoload :UnifiedFilestorageFileInput, 'open_api_sdk/models/shared/unifiedfilestoragefileinput.rb'
@@ -13,6 +14,8 @@ module OpenApiSDK
     autoload :Connection, 'open_api_sdk/models/shared/connection.rb'
     autoload :WebhookResponse, 'open_api_sdk/models/shared/webhookresponse.rb'
     autoload :WebhookDto, 'open_api_sdk/models/shared/webhookdto.rb'
+    autoload :EventPayload, 'open_api_sdk/models/shared/eventpayload.rb'
+    autoload :Payload, 'open_api_sdk/models/shared/payload.rb'
     autoload :SignatureVerificationDto, 'open_api_sdk/models/shared/signatureverificationdto.rb'
     autoload :Comment, 'open_api_sdk/models/shared/comment.rb'
     autoload :UnifiedTicketingTicketOutput, 'open_api_sdk/models/shared/unifiedticketingticketoutput.rb'

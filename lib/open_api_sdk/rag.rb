@@ -9,7 +9,7 @@ require 'sorbet-runtime'
 
 module OpenApiSDK
   extend T::Sig
-  class RagQuery
+  class Rag
     extend T::Sig
 
 
@@ -57,8 +57,8 @@ module OpenApiSDK
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::QueryResponseBody)
-          res.object = out
+          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::RagQueryOutput])
+          res.rag_query_outputs = out
         end
       end
       res
